@@ -1,0 +1,11 @@
+@import url(common.css);
+
+.list-group-numbered > li {background:none; border:none; font-size:2.0rem; font-weight:var(--bold);}
+.promise {padding:30px; background-color:var(--primary-c); color:var(--white); font-family:var(--laundrygothic);}
+.promise .list-group-numbered > li {background:none; border:none; color:var(--white); font-size:2.8rem;}
+
+#myTab.guide .nav-item {flex:1 1 auto;}
+#myTab.guide .nav-link {width:100%;}
+#myTab.guide + .tab-content {padding:0 30px;}
+
+#rules-tab-pane .tit-h3 {background-color:var(--primary-c); color:var(--white); font-weight:var(--bold);}
