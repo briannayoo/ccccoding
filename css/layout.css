@@ -4,3 +4,8 @@
 .admin-wrapper {display:flex;}
 .admin-wrapper > nav {width:337px; height:100vh; background-color:var(--bg-sub1-c, #eeeafe);}
 .admin-wrapper .container {max-width:1459px;}
+
+/* utillist */
+.util-list {display:flex; justify-content:flex-end; align-items:center; gap:30px; margin-top:30px;}
+.util-list .alarm .btn {position:relative; padding:0; font-size:2.4rem;}
+.util-list .alarm .btn .badge {width:24px; height:24px;}
