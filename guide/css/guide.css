@@ -1,4 +1,4 @@
-@import url(common.css);
+@import url(../../css/common.css);
 
 .list-group-numbered > li {background:none; border:none; font-size:2.0rem; font-weight:var(--bold);}
 .promise {padding:30px; background-color:var(--primary-c); color:var(--white); font-family:var(--laundrygothic);}
