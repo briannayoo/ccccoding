@@ -101,13 +101,31 @@ input::placeholder {color: var(--placeh-c, #969696);}
 /*========== Forms ==========*/
 /* 공통 */
 .form-select,
-.form-control {font-size:1.6rem; padding:4px;}
+.form-control {font-size:1.6rem; padding:4px 40px 4px 10px;}
 textarea {height:250px;}
+.form-check-input:checked {background-color:var(--primary-c); border-color:var(--primary-c);}
+.form-switch .form-check-input:checked {border-color:var(--primary-c);}
+.form-check-input:focus {border-color:var(--primary-c); box-shadow:none;}
 
 .form-list {display:flex; flex-direction:column; gap:26px;}
-.form-list .row {margin:0; padding:0;}
+.form-list .row {align-items:start; margin:0; padding:0;}
 .form-list .col-form-label {padding:0;}
 .form-list .row > [class*="col-"] {padding:0;}
 .form-list .input-group > .ipt-wrap {position:relative; padding-right:30px;}
 .form-list .input-group > .ipt-wrap:last-child {padding-right:0;}
-.form-list .ipt-wrap .unit {position:absolute; top:50%; transform:translateY(-50%); right:34px;}
+
+/* 단위 */
+.form-list .ipt-wrap .unit {position:absolute; top:50%; transform:translateY(-50%); right:40px;}
+/* search */
+.search .input-group-append {position:absolute; top:0; right:10px;}
+.search .input-group-append .btn {line-height:34px;}
+.search .input-group-append .btn:hover {background-color:transparent;}
+.search .input-group-append .fa-search {color:var(--body-text); font-size:16px;}
+
+/* 데이트 픽커 */
+.datepicker {padding-right:10px;}
+
+/* 리스트 그룹 보더 */
+.list-group {gap:26px;}
+.list-group.list-group-horizontal {gap:30px;}
+.list-group .list-group-item {border:none;}

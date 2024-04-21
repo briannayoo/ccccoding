@@ -4,12 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ㅋㅋㅋ 가이드페이지</title>
+  <!-- 부트스트랩 css -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- 폰트어썸 css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="css/guide.css">
-  
+  <!-- 부트스트랩 js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 <body>
   <ul class="nav nav-tabs guide" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
@@ -203,22 +207,22 @@
       </div>
       <!-- 하단버튼(e) -->
 
-      <h3 class="tit-h3 mt-5">Forms(작업중)</h3> <!--가이드타이틀-->
+      <h3 class="tit-h3 mt-5">form-list</h3> <!--가이드타이틀-->
       <!-- form-list (s) -->
       <form action="#" class="form-list">
         <!-- input text 1/3 (s) -->
         <div class="row">
-          <label for="form01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <label for="txt01-01" class="col-md-1 col-form-label tit-h4">타이틀</label>
           <div class="col-md-11">
             <div class="input-group">
               <div class="col-md-4 ipt-wrap ipt-wrap">
-                <input type="text" class="form-control" id="form01" placeholder="쿠폰명을 입력하세요.">
+                <input type="text" class="form-control" id="txt01-01" placeholder="쿠폰명을 입력하세요.">
               </div>
               <div class="col-md-4 ipt-wrap">
-                <input type="text" class="form-control" id="form01" placeholder="각자 입력하세요.">
+                <input type="text" class="form-control" id="txt01-02" placeholder="각자 입력하세요.">
               </div>
               <div class="col-md-4 ipt-wrap">
-                <input type="text" class="form-control" id="form01" placeholder="각자 입력하세요.">
+                <input type="text" class="form-control" id="txt01-03" placeholder="각자 입력하세요.">
               </div>
             </div>
           </div>
@@ -227,14 +231,14 @@
 
         <!-- input text 1/2 (s) -->
         <div class="row">
-          <label for="form01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <label for="txt02-01" class="col-md-1 col-form-label tit-h4">타이틀</label>
           <div class="col-md-11">
             <div class="input-group">
               <div class="col-md-6 ipt-wrap">
-                <input type="text" class="form-control" id="form01" placeholder="각자 입력하세요.">
+                <input type="text" class="form-control" id="txt02-01" placeholder="각자 입력하세요.">
               </div>
               <div class="col-md-6 ipt-wrap">
-                <input type="text" class="form-control" id="form01" placeholder="각자 입력하세요.">
+                <input type="text" class="form-control" id="txt02-02" placeholder="각자 입력하세요.">
               </div>
             </div>
           </div>
@@ -243,24 +247,24 @@
 
         <!-- input text 1 (s) -->
         <div class="row">
-          <label for="form01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <label for="txt03" class="col-md-1 col-form-label tit-h4">타이틀</label>
           <div class="col-md-11">
             <div class="input-group">
               <div class="col-md-12 ipt-wrap">
-                <input type="text" class="form-control" id="form01" placeholder="1줄짜리 설명을 입력하세요 할때">
+                <input type="text" class="form-control" id="fm-txt03" placeholder="1줄짜리 설명을 입력하세요 할때">
               </div>
             </div>
           </div>
         </div>
         <!-- input text 1 (e) -->
 
-        <!-- input text 1/3 (s) -->
+        <!-- select 1/3 (s) -->
         <div class="row">
-          <label for="form01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <label for="slect-01" class="col-md-1 col-form-label tit-h4">타이틀</label>
           <div class="col-md-11">
             <div class="input-group">
               <div class="col-md-4 ipt-wrap">
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <select class="form-select form-select-sm" id="select-01" aria-label=".form-select-sm example">
                   <option selected>Open this select menu</option>
                   <option value="1">One</option>
                   <option value="2">Two</option>
@@ -268,7 +272,7 @@
                 </select>
               </div>
               <div class="col-md-4 ipt-wrap">
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <select class="form-select form-select-sm" id="select-02"  aria-label=".form-select-sm example">
                   <option selected>Open this select menu</option>
                   <option value="1">One</option>
                   <option value="2">Two</option>
@@ -276,7 +280,7 @@
                 </select>
               </div>
               <div class="col-md-4 ipt-wrap">
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <select class="form-select form-select-sm" id="select-03"  aria-label=".form-select-sm example">
                   <option selected>Open this select menu</option>
                   <option value="1">One</option>
                   <option value="2">Two</option>
@@ -286,74 +290,15 @@
             </div>
           </div>
         </div>
-        <!-- input text 1/3 (e) -->
-
-        <!-- select + input text 혼합(s) -->
-        <div class="row">
-          <label for="form01" class="col-md-1 col-form-label tit-h4">타이틀(혼합)</label>
-          <div class="col-md-11">
-            <div class="input-group">
-              <div class="col-md-4 ipt-wrap">
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                  <option selected>Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-              </div>
-              <div class="col-md-4 ipt-wrap">
-                <input type="text" class="form-control" id="form01" placeholder="각자 입력하세요.">
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- select + input text 혼합(e) -->
-
-        <!-- input text 단위 1/3 (s) -->
-        <div class="row">
-          <label for="form01" class="col-md-1 col-form-label tit-h4">타이틀</label>
-          <div class="col-md-11">
-            <div class="input-group">
-              <div class="col-md-4 ipt-wrap ipt-wrap">
-                <input type="text" class="form-control" id="form01">
-                <span class="unit">원</span>
-              </div>
-              <div class="col-md-4 ipt-wrap ipt-wrap">
-                <input type="text" class="form-control" id="form01">
-                <span class="unit">원</span>
-              </div>
-              <div class="col-md-4 ipt-wrap ipt-wrap">
-                <input type="text" class="form-control" id="form01">
-                <span class="unit">원</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- input text 단위 1/3 (e) -->
-
-        <!-- input text 단위 1/2 (s) -->
-        <div class="row">
-          <label for="form01" class="col-md-1 col-form-label tit-h4">타이틀</label>
-          <div class="col-md-11">
-            <div class="input-group">
-              <div class="col-md-6 ipt-wrap">
-                <input type="text" class="form-control" id="form01">
-              </div>
-              <div class="col-md-6 ipt-wrap">
-                <input type="text" class="form-control" id="form01">
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- input text 단위 1/2 (e) -->
+        <!-- select 1/3 (e) -->
 
         <!-- select 1/2 (s) -->
         <div class="row">
-          <label for="form01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <label for="select-04" class="col-md-1 col-form-label tit-h4">타이틀</label>
           <div class="col-md-11">
             <div class="input-group">
               <div class="col-md-6 ipt-wrap">
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <select class="form-select form-select-sm" id="select-04" aria-label=".form-select-sm example">
                   <option selected>Open this select menu</option>
                   <option value="1">One</option>
                   <option value="2">Two</option>
@@ -361,7 +306,7 @@
                 </select>
               </div>
               <div class="col-md-6 ipt-wrap">
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <select class="form-select form-select-sm" id="select-05" aria-label=".form-select-sm example">
                   <option selected>Open this select menu</option>
                   <option value="1">One</option>
                   <option value="2">Two</option>
@@ -373,13 +318,56 @@
         </div>
         <!-- select 1/2 (e) -->
 
+        <!-- select + input text 혼합(s) -->
+        <div class="row">
+          <label for="mix-01" class="col-md-1 col-form-label tit-h4">타이틀(혼합)</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-4 ipt-wrap">
+                <select class="form-select form-select-sm" id="mix-01" aria-label=".form-select-sm example">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-md-4 ipt-wrap">
+                <input type="text" class="form-control" id="mix-02" placeholder="각자 입력하세요.">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- select + input text 혼합(e) -->
+
+        <!-- input text 단위 1/3 (s) -->
+        <div class="row">
+          <label for="unit-01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-4 ipt-wrap ipt-wrap">
+                <input type="text" class="form-control text-end" id="unit-01">
+                <span class="unit">원</span>
+              </div>
+              <div class="col-md-4 ipt-wrap ipt-wrap">
+                <input type="text" class="form-control text-end" id="unit-02">
+                <span class="unit">원</span>
+              </div>
+              <div class="col-md-4 ipt-wrap ipt-wrap">
+                <input type="text" class="form-control text-end" id="unit-04">
+                <span class="unit">원</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- input text 단위 1/3 (e) -->
+
         <!-- textarea 1 (s) -->
         <div class="row">
-          <label for="form01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <label for="txtarea" class="col-md-1 col-form-label tit-h4">타이틀</label>
           <div class="col-md-11">
             <div class="input-group">
               <div class="col-md-12 ipt-wrap">
-                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="내용을 입력하세요."></textarea>
+                <textarea class="form-control" id="txtarea" placeholder="내용을 입력하세요."></textarea>
               </div>
             </div>
           </div>
@@ -388,14 +376,14 @@
 
         <!-- datepicker 1/3 (s) -->
         <div class="row">
-          <label for="form01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <label for="datepicker-01" class="col-md-1 col-form-label tit-h4">타이틀</label>
           <div class="col-md-11">
             <div class="input-group">
               <div class="col-md-4 ipt-wrap">
-                <input type="text" class="form-control" id="datepicker">
+                <input type="date" class="form-control datepicker" id="datepicker-01">
               </div>
               <div class="col-md-4 ipt-wrap">
-                <input type="text" class="form-control" id="datepicker">
+                <input type="date" class="form-control datepicker" id="datepicker-02">
               </div>
             </div>
           </div>
@@ -404,11 +392,11 @@
 
         <!-- file 1 (s) -->
         <div class="row">
-          <label for="form01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <label for="file" class="col-md-1 col-form-label tit-h4">타이틀</label>
           <div class="col-md-11">
             <div class="input-group">
               <div class="col-md-12 ipt-wrap">
-                <input class="form-control" type="file" id="formFile">
+                <input class="form-control" type="file" id="file">
               </div>
             </div>
           </div>
@@ -417,15 +405,16 @@
 
         <!-- search 1/2 (s) -->
         <div class="row">
-          <label for="form01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <label for="search" class="col-md-1 col-form-label tit-h4">타이틀</label>
           <div class="col-md-11">
-            <div class="input-group">
+            <div class="input-group search">
               <div class="col-md-6 ipt-wrap">
-                <input class="form-control" type="search" placeholder="검색어를 입력하세요..." aria-label="Search">
+                <input class="form-control" type="search" id="search" placeholder="검색어를 입력하세요..." aria-label="Search">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
+                </div>
               </div>
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -446,8 +435,171 @@
           </div>
         </div>
         <!-- search 1/3 (s) -->
+
+      </form>
+
+      <h3 class="tit-h3 mt-5">form-list이외의 단독으로 쓰일 때</h3> <!--가이드타이틀-->
+      <form action="#">
+        <!-- label hidden으로 사용 (s)  -->
+        <!-- select 1/3 (s) -->
+        <div class="row">
+          <label for="single-slect-01" class="col-md-1 col-form-label tit-h4 visually-hidden">블라인드텍스트써주세요</label>
+          <div class="col-md-12">
+            <div class="input-group">
+              <div class="col-md-4 ipt-wrap">
+                <select class="form-select form-select-sm" id="select-01" aria-label=".form-select-sm example">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-md-4 ipt-wrap">
+                <select class="form-select form-select-sm" id="single-slect-02"  aria-label=".form-select-sm example">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-md-4 ipt-wrap">
+                <select class="form-select form-select-sm" id="single-slect-03"  aria-label=".form-select-sm example">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- select 1/3 (e) -->
+        <!-- label hidden으로 사용 (e)  -->
       </form>
       <!-- form-list (e) -->
+
+      <h3 class="tit-h3 mt-5">checkbox</h3> <!--가이드타이틀-->
+      <h3 class="tit-h4 mt-5">checkbox(단독)</h3> <!--가이드타이틀-->
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+          Default checkbox
+        </label>
+      </div>
+      <h3 class="tit-h4 mt-5">checkbox(리스트)</h3> <!--가이드타이틀-->
+      <div class="list-group">
+        <div class="list-group-item">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="chk-list-01">
+            <label class="form-check-label" for="chk-list-01">
+              Default checkbox
+            </label>
+          </div>
+        </div>
+        <div class="list-group-item">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="chk-list-02" checked>
+            <label class="form-check-label" for="chk-list-02">
+              Checked checkbox
+            </label>
+          </div>
+        </div>
+        <div class="list-group-item">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="chk-list-03" disabled>
+            <label class="form-check-label" for="chk-list-03">
+              disabled checkbox
+            </label>
+          </div>
+        </div>
+      </div>
+      <h3 class="tit-h4 mt-5">checkbox(리스트-horizental)</h3> <!--가이드타이틀-->
+      <div class="list-group list-group-horizontal">
+        <div class="list-group-item">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="chk-list-04">
+            <label class="form-check-label" for="chk-list-04">
+              Default checkbox
+            </label>
+          </div>
+        </div>
+        <div class="list-group-item">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="chk-list-05" checked>
+            <label class="form-check-label" for="chk-list-05">
+              Checked checkbox
+            </label>
+          </div>
+        </div>
+        <div class="list-group-item">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="chk-list-06" disabled>
+            <label class="form-check-label" for="chk-list-06">
+              disabled checkbox
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="tit-h4 mt-5">checkbox(label 없을 때)</h3> <!--가이드타이틀-->
+      <div>
+        <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
+      </div>
+
+      <h3 class="tit-h3 mt-5">radio</h3> <!--가이드타이틀-->
+      <h3 class="tit-h4 mt-5">radio(label 없을 때)</h3> <!--가이드타이틀-->
+      <div>
+        <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="" aria-label="...">
+      </div>
+
+      <h3 class="tit-h4 mt-5">radio(리스트)</h3> <!--가이드타이틀-->
+      <div class="list-group">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="radio-list" id="radio1">
+          <label class="form-check-label" for="radio1">
+            Default radio
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="radio-list" id="radio2">
+          <label class="form-check-label" for="radio2">
+            Default radio
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="radio-list" id="radio3">
+          <label class="form-check-label" for="radio3">
+            Default radio
+          </label>
+        </div>
+      </div>
+      <h3 class="tit-h4 mt-5">radio(리스트-horizental)</h3> <!--가이드타이틀-->
+      <div class="list-group list-group-horizontal">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="radio-list2" id="radio4">
+          <label class="form-check-label" for="radio4">
+            Default radio
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="radio-list2" id="radio5">
+          <label class="form-check-label" for="radio5">
+            Default radio
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="radio-list2" id="radio6">
+          <label class="form-check-label" for="radio6">
+            Default radio
+          </label>
+        </div>
+      </div>
+
+      <h3 class="tit-h3 mt-5">toggle</h3> <!--가이드타이틀-->
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+      </div>
 
       <h3 class="tit-h3 mt-5">Table (테이블 위드값 조정하는 거 알려주기)</h3> <!--가이드타이틀-->
       <!-- table(s) -->
@@ -567,82 +719,154 @@
             <th scope="col">화면아이디</th>
             <th scope="col">완료날짜</th>
             <th scope="col">수정날짜</th>
-            <th scope="col">비고</th>
+            <th scope="col">비고(담당자/기타전달사항)</th>
             <th scope="col">링크이동</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">1</th>
+            <th scope="row"></th>
             <td>대시보드</td>
-            <td>ㅇㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>담당자:박소현</td>
-            <td><a href="../index.php">열기</a></td>
+            <td>index</td>
+            <td>YYYY-MM-DD</td>
+            <td>YYYY-MM-DD</td>
+            <td>담당자:박소현,우예지,유부현</td>
+            <td><a href="../index.html">열기</a></td>
           </tr>
           <tr>
-            <th scope="row">2</th>
+            <th scope="row"></th>
+            <td>로그인</td>
+            <td>login</td>
+            <td>YYYY-MM-DD</td>
+            <td>YYYY-MM-DD</td>
+            <td>담당자:우예지</td>
+            <td><a href="../login.html">열기</a></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>강의관리</td>
+            <td>lecture_list</td>
+            <td>YYYY-MM-DD</td>
+            <td>YYYY-MM-DD</td>
+            <td>담당자:우예지</td>
+            <td><a href="../lecture_list.html">열기</a></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>강의등록</td>
+            <td>lecture_up</td>
+            <td>YYYY-MM-DD</td>
+            <td>YYYY-MM-DD</td>
+            <td>담당자:우예지</td>
+            <td><a href="../lecture_up.html">열기</a></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
             <td>카테고리</td>
-            <td>ㅇㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
+            <td>category</td>
+            <td>YYYY-MM-DD</td>
+            <td>YYYY-MM-DD</td>
+            <td>담당자:우예지</td>
+            <td><a href="../category.html">열기</a></td>
           </tr>
           <tr>
-            <th scope="row">3</th>
+            <th scope="row"></th>
             <td>회원관리</td>
-            <td>ㅇㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
+            <td>membership</td>
+            <td>YYYY-MM-DD</td>
+            <td>YYYY-MM-DD</td>
+            <td>담당자:박소현</td>
+            <td><a href="../membership.html">열기</a></td>
           </tr>
           <tr>
-            <th scope="row">4-1</th>
-            <td>커뮤니티관리 - Q&A</td>
-            <td>ㅇㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
+            <th scope="row"></th>
+            <td>Q&A</td>
+            <td>qna</td>
+            <td>YYYY-MM-DD</td>
+            <td>YYYY-MM-DD</td>
+            <td>담당자:유부현</td>
+            <td><a href="../qna.html">열기</a></td>
           </tr>
           <tr>
-            <th scope="row">4-2</th>
-            <td>커뮤니티관리 -공지사항</td>
-            <td>ㅇㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
+            <th scope="row"></th>
+            <td>Q&A</td>
+            <td>qna_up</td>
+            <td>YYYY-MM-DD</td>
+            <td>YYYY-MM-DD</td>
+            <td>담당자:유부현</td>
+            <td><a href="../qna_up.html">열기</a></td>
           </tr>
           <tr>
-            <th scope="row">5</th>
-            <td>이벤트 관리</td>
-            <td>ㅇㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
+            <th scope="row"></th>
+            <td>공지사항</td>
+            <td>notice_list</td>
+            <td>YYYY-MM-DD</td>
+            <td>YYYY-MM-DD</td>
+            <td>담당자:유부현</td>
+            <td><a href="../notice_list.html">열기</a></td>
           </tr>
           <tr>
-            <th scope="row">6</th>
+            <th scope="row"></th>
+            <td>공지사항등록</td>
+            <td>notice_up</td>
+            <td>YYYY-MM-DD</td>
+            <td>YYYY-MM-DD</td>
+            <td>담당자:유부현</td>
+            <td><a href="../notice_up.html">열기</a></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>공지사항수정</td>
+            <td>notice_up</td>
+            <td>YYYY-MM-DD</td>
+            <td>YYYY-MM-DD</td>
+            <td>담당자:유부현</td>
+            <td><a href="../notice_re.html">열기</a></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>이벤트</td>
+            <td>event</td>
+            <td>YYYY-MM-DD</td>
+            <td>YYYY-MM-DD</td>
+            <td>담당자:유부현</td>
+            <td><a href="../event.html">열기</a></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>이벤트등록</td>
+            <td>event_up</td>
+            <td>YYYY-MM-DD</td>
+            <td>YYYY-MM-DD</td>
+            <td>담당자:유부현</td>
+            <td><a href="../event_up.html">열기</a></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
             <td>수강관리</td>
-            <td>ㅇㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
+            <td>order</td>
+            <td>YYYY-MM-DD</td>
+            <td>YYYY-MM-DD</td>
+            <td>담당자:박소현</td>
+            <td><a href="../order.html">열기</a></td>
           </tr>
           <tr>
-            <th scope="row">7</th>
+            <th scope="row"></th>
             <td>쿠폰 관리</td>
-            <td>ㅇㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
-            <td>ㅇㅇㅇ</td>
+            <td>coupon</td>
+            <td>YYYY-MM-DD</td>
+            <td>YYYY-MM-DD</td>
+            <td>담당자:박소현</td>
+            <td><a href="../coupon.html">열기</a></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>쿠폰 관리-쿠폰수정(화면아이디 따로 줘야하는지)</td>
+            <td>coupon_modify</td>
+            <td>YYYY-MM-DD</td>
+            <td>YYYY-MM-DD</td>
+            <td>담당자:박소현</td>
+            <td><a href="../coupon_modify.html">열기</a></td>
           </tr>
         </tbody>
       </table>
@@ -651,7 +875,7 @@
 
     <!-- SUB PAGE GUIDE (s) -->
     <div class="tab-pane fade" id="sub-tab-pane" role="tabpanel" aria-labelledby="sub-tab" tabindex="0">
-      <a href="sub_guide.html">서브 가이드 페이지로 이동</a>
+      <a href="sub_guide.html">메인 가이드 페이지로 이동</a>
     </div>
     <!-- SUB PAGE GUIDE (e) -->
   </div>
