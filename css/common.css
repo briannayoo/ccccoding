@@ -128,4 +128,4 @@ textarea {height:250px;}
 /* 리스트 그룹 보더 */
 .list-group {gap:26px;}
 .list-group.list-group-horizontal {gap:30px;}
-.list-group .list-group-item {border:none; background-color:transparent;}
+.list-group .list-group-item {border:none; background-color:transparent; padding:0;}
