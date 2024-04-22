@@ -72,6 +72,8 @@ input::placeholder {color: var(--placeh-c, #969696);}
 
 /*========== Buttons ==========*/
 .btn[class*="btn-"] {line-height:44px; padding:0; text-align:center; color:var(--white, #fff); font-size:2rem; font-family:var(--pretendard, 'Pretendard', sans-serif); font-weight:var(--bold); border:0;}
+/* disabled */
+.btn[class*="btn-"]:disabled {background-color:#6c757d;}
 /* Primary */
 .btn.btn-primary {background-color:var(--primary-c, #472ea1);}
 /* Secondary */
