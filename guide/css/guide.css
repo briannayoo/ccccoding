@@ -9,3 +9,5 @@
 #myTab.guide + .tab-content {padding:0 30px;}
 
 #rules-tab-pane .tit-h3 {background-color:var(--primary-c); color:var(--white); font-weight:var(--bold);}
+.fa-solid.fa-small::before {font-size: 24px;}
+.fa-solid.fa-big::before {font-size: 34px;}
