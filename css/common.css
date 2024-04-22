@@ -93,6 +93,7 @@ input::placeholder {color: var(--placeh-c, #969696);}
 /*========== 총건수 ==========*/
 .total {display:flex; margin:32px 0;}
 .total > span {position:relative; padding:0 10px;}
+.total > span.point {color:var(--primary-c); font-weight:var(--bold);}
 .total > span:after {content:''; position:absolute; top:7px; bottom:7px; width:1px; margin:0 10px; background-color:#ccc;}
 .total > span:last-of-type:after {content:none;}
 .total > span > em {font-style:normal; font-weight:var(--bold, 700);}
