@@ -14,19 +14,19 @@ http://scripts.sil.org/OFL
 	font-weight: 45 920;
 	font-style: normal;
 	font-display: swap;
-	src: url('/fonts/PretendardVariable.woff2') format('woff2-variations');
+	src: url('../fonts/PretendardVariable.woff2') format('woff2-variations');
 }
 
 /* 런드리 고딕 */
 @font-face {
   font-family: 'LaundryGothic';
-  src: url('/fonts/런드리고딕 Regular.woff') format('woff2');
+  src: url('../fonts/런드리고딕 Regular.woff') format('woff2');
   font-weight: regular;
   font-style: normal;
 }
 @font-face {
   font-family: 'LaundryGothic';
-  src: url('/fonts/런드리고딕 Bold.woff') format('woff2');
+  src: url('../fonts/런드리고딕 Bold.woff') format('woff2');
   font-weight: bold;
   font-style : normal;
 }
