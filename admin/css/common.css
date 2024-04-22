@@ -9,7 +9,7 @@
   --laundrygothic:'LaundryGothic', sans-serif;
   --font-size:10px;
   --bold:700;
-  --midium:500;
+  --medium:500;
   --regular:400;
   --white:#fff;
   --body-text:#222;
@@ -49,7 +49,7 @@ input::placeholder {color: var(--placeh-c, #969696);}
 
 /* title */
 .bnr-tit-l {font-family:var(--laundrygothic, 'LaundryGothic', sans-serif); font-size:4.8rem; font-weight:bold;}
-.bnr-tit-m {font-size:3.2rem; font-weight: var(--midium, 500);}
+.bnr-tit-m {font-size:3.2rem; font-weight: var(--medium, 500);}
 
 .page-tit-area {margin:12px 0 48px;}
 .tit-h2 {line-height:64px; font-family:var(--laundrygothic, 'LaundryGothic', sans-serif); font-size:4rem; font-weight:var(--bold, 700);}
@@ -108,7 +108,7 @@ textarea {height:250px;}
 .form-check-input:focus {border-color:var(--primary-c); box-shadow:none;}
 .input-group > .ipt-wrap {position:relative; padding-right:30px;}
 .input-group > .ipt-wrap:last-child {padding-right:0;}
-
+.form-list .ipt-wrap:last-child .unit {right:10px;}
 .form-list {display:flex; flex-direction:column; gap:26px;}
 .form-list .row {align-items:start; margin:0; padding:0;}
 .form-list .col-form-label {padding:0;}
