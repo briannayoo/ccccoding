@@ -108,7 +108,7 @@ textarea {height:250px;}
 .form-check-input:focus {border-color:var(--primary-c); box-shadow:none;}
 .input-group > .ipt-wrap {position:relative; padding-right:30px;}
 .input-group > .ipt-wrap:last-child {padding-right:0;}
-
+.form-list .ipt-wrap:last-child .unit {right:10px;}
 .form-list {display:flex; flex-direction:column; gap:26px;}
 .form-list .row {align-items:start; margin:0; padding:0;}
 .form-list .col-form-label {padding:0;}
