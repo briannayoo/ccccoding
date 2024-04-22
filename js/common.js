@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
-  // 데이트픽커
-  const datepicker = document.querySelectorAll('.datepicker');
-  for (const date of datepicker) {
-    new Datepicker(date);
-  }
+  // Datepicker
+  const datepickers = document.querySelectorAll('.datepicker');
+  datepickers.forEach(picker => {
+      new Datepicker(picker, {
+        // 여기에 원하는 설정 옵션을 추가할 수 있습니다.
+      });
+  });
 });
