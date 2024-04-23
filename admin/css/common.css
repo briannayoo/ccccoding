@@ -86,9 +86,10 @@ input::placeholder {color: var(--placeh-c, #969696);}
 
 /* 하단버튼 */
 .btn-area {display:flex; justify-content:center; align-items:center; gap:30px; margin-top:48px;}
+table + .btn-area {margin-top:32px; justify-content:flex-end;}
 
 /*========== Pagenation ==========*/
-.pageination {margin:48px 0;}
+.pagination {margin:48px 0 0; justify-content:center;}
 .pagination .page-link {width:40px; height:40px; line-height:40px; padding:0; text-align:center; font-size:1.6rem;}
 .pagination .page-item.active .page-link {background-color:var(--primary-c);}
 
