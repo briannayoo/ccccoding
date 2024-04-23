@@ -13,10 +13,8 @@
   <link rel="stylesheet" href="css/layout.css">
   <!-- 부트스트랩 js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  
   <!-- 제이쿼리 -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
 </head>
 <body>
   <div class="admin-wrapper">
@@ -98,13 +96,12 @@
       </ul>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
-        <h2 class="tit-h2">강의관리</h2>
+        <h2 class="tit-h2">대시보드</h2>
       </div>
       <!-- sub-page-tit-area (e) -->
 
       <div class="content">
-
-        <!-- 강의검색 -->
+        <!-- 카테고리 -->
         <div class="row">
           <label for="slect-01" class="col-md-1 col-form-label tit-h4">타이틀</label>
           <div class="col-md-11">
@@ -137,99 +134,81 @@
           </div>
         </div>
 
-        <!-- 난이도 -->
-        <div class="list-group list-group-horizontal">
-          <div class="list-group-item">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="chk-list-04">
-              <label class="form-check-label" for="chk-list-04">
-                Default checkbox
-              </label>
-            </div>
-          </div>
-          <div class="list-group-item">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="chk-list-04">
-              <label class="form-check-label" for="chk-list-04">
-                Default checkbox
-              </label>
-            </div>
-          </div>
-          <div class="list-group-item">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="chk-list-04">
-              <label class="form-check-label" for="chk-list-04">
-                Default checkbox
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <!-- 강의검색 -->
+        <!-- 강의명 -->
         <div class="row">
-          <label for="search" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <label for="txt03" class="col-md-1 col-form-label tit-h4">타이틀</label>
           <div class="col-md-11">
-            <div class="input-group search">
-              <div class="col-md-6 ipt-wrap">
-                <input class="form-control" type="search" id="search" placeholder="검색어를 입력하세요..." aria-label="Search">
-                <div class="input-group-append">
-                  <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
-                </div>
+            <div class="input-group">
+              <div class="col-md-12 ipt-wrap">
+                <input type="text" class="form-control" id="fm-txt03" placeholder="1줄짜리 설명을 입력하세요 할때">
               </div>
-              
             </div>
           </div>
         </div>
 
-        <!-- 강의리스트(개인 작업) -->
-        <div class="temp-area">
-          강의 리스트
+        <!-- 판매금액 -->
+        <div class="row">
+          <label for="mix-01" class="col-md-1 col-form-label tit-h4">타이틀(혼합)</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-4 ipt-wrap">
+                <select class="form-select form-select-sm" id="mix-01" aria-label="select">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-md-4 ipt-wrap">
+                <input type="text" class="form-control" id="mix-02" placeholder="각자 입력하세요.">
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- 페이지 네이션 -->
-        <nav aria-label="페이지네이션">
-          <ul class="pagination">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1">
-                <span class="visually-hidden">처음</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
-                  <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
-                </svg>
-              </a>
-            </li>
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1">
-                <span class="visually-hidden">이전</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
-                </svg>
-              </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active"> <!--active일떄 블라인드 현재페이지 스크립트로 넣어야함-->
-              <a class="page-link" href="#">2</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                <span class="visually-hidden">다음</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
-                </svg>
-              </a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                <span class="visually-hidden">마지막</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"/>
-                  <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"/>
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </nav>
+        <!-- 수강신청 -->
+        <div class="row">
+          <label for="datepicker-01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-4 ipt-wrap">
+                <input type="text" class="datepicker" placeholder="YYYY-MM-DD">
+              </div>
+              <div class="col-md-4 ipt-wrap">
+                <input type="text" class="datepicker" placeholder="YYYY-MM-DD">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 강의내용 -->
+        <div class="row">
+          <label for="txtarea" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-12 ipt-wrap">
+                <textarea class="form-control" id="txtarea" placeholder="내용을 입력하세요."></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 강의첨부 -->
+        <div class="row">
+          <label for="file" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-12 ipt-wrap">
+                <input class="form-control" type="file" id="file">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 썸내일 공통 (공통 작업중) -->
+        <div class="temp-area">
+          썸네일 이미지 첨부
+        </div>
       </div>
     </div>
   </div>
