@@ -40,5 +40,13 @@
   height: 42px;
 }
 
-/* 이벤트리스트(박소현) */
-.event-list {}
+/* 컨텐츠리스트 (쿠폰+이벤트)(박소현) */
+.list-group.box-list {display:flex; flex-direction:row; flex-wrap:wrap; gap:30px;}
+.list-group.box-list > .list-group-item  {display:flex; gap:30px; width:calc((100% / 2) - 15px); padding:18px;  border:1px solid var(--ipt-border); border-radius:10px;}
+.list-group.box-list .img-area {flex:0 0 292px; height:292px; background-color:red;}
+.list-group.box-list .info-area {width:100%;}
+.list-group.box-list .edit-btn-group {display:flex; justify-content:end; gap:16px}
+.list-group.box-list .edit-btn-group >button {width:24px; height:24px; padding:0;}
+.list-group.box-list .edit-btn-group >button > i {font-size:2.4rem;}
+.list-group.box-list .tit-group {display:flex; justify-content:space-between; align-items:center; margin:55px 0 35px;}
+.list-group.box-list .txt-group > p {margin-top:16px; font-size:2rem;}
