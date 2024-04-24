@@ -11,6 +11,7 @@
 
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/content.css">
   <!-- 부트스트랩 js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   
@@ -104,87 +105,404 @@
 
       <div class="content">
 
-        <!-- 강의검색 -->
-        <div class="row">
-          <label for="slect-01" class="col-md-1 col-form-label tit-h4">타이틀</label>
-          <div class="col-md-11">
-            <div class="input-group">
-              <div class="col-md-4 ipt-wrap">
-                <select class="form-select form-select-sm" id="select-01" aria-label="selectf">
-                  <option selected>Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-              </div>
-              <div class="col-md-4 ipt-wrap">
-                <select class="form-select form-select-sm" id="select-02"  aria-label="selectf">
-                  <option selected>Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-              </div>
-              <div class="col-md-4 ipt-wrap">
-                <select class="form-select form-select-sm" id="select-03"  aria-label="selectf">
-                  <option selected>Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 난이도 -->
-        <div class="list-group list-group-horizontal">
-          <div class="list-group-item">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="chk-list-04">
-              <label class="form-check-label" for="chk-list-04">
-                Default checkbox
-              </label>
-            </div>
-          </div>
-          <div class="list-group-item">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="chk-list-04">
-              <label class="form-check-label" for="chk-list-04">
-                Default checkbox
-              </label>
-            </div>
-          </div>
-          <div class="list-group-item">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="chk-list-04">
-              <label class="form-check-label" for="chk-list-04">
-                Default checkbox
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <!-- 강의검색 -->
-        <div class="row">
-          <label for="search" class="col-md-1 col-form-label tit-h4">타이틀</label>
-          <div class="col-md-11">
-            <div class="input-group search">
-              <div class="col-md-6 ipt-wrap">
-                <input class="form-control" type="search" id="search" placeholder="검색어를 입력하세요..." aria-label="Search">
-                <div class="input-group-append">
-                  <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
+        <!-- 강의검색 select-->
+        <form action="#" class="form-list">
+          <div class="row">
+            <label for="slect-01" class="col-md-1 col-form-label tit-h4">강의검색</label>
+            <div class="col-md-11">
+              <div class="input-group">
+                <div class="col-md-4 ipt-wrap">
+                  <select class="form-select form-select-sm" id="select-01" aria-label="selectf">
+                    <option selected>대분류</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+                <div class="col-md-4 ipt-wrap">
+                  <select class="form-select form-select-sm" id="select-02"  aria-label="selectf">
+                    <option selected>중분류</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+                <div class="col-md-4 ipt-wrap">
+                  <select class="form-select form-select-sm" id="select-03"  aria-label="selectf">
+                    <option selected>소분류</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
                 </div>
               </div>
-              
             </div>
           </div>
-        </div>
+  
+          <!-- 강의검색 -->
+          <div class="row">
+            <div class="col-md-11">
+              <div class="input-group search">
+                <h3 for="search" class="col-md-1 tit-h4">난이도</h3>
+                <div class="col-md-3 ipt-wrap">
+                  <!-- 난이도 -->
+                  <div class="list-group list-group-horizontal lh-2">
+                    <div class="list-group-item">
+                      <div class="form-check list-mt">
+                        <input class="form-check-input" type="checkbox" value="" id="chk-list-04">
+                        <label class="form-check-label" for="chk-list-04">
+                          상
+                        </label>
+                      </div>
+                    </div>
+                    <div class="list-group-item">
+                      <div class="form-check list-mt">
+                        <input class="form-check-input" type="checkbox" value="" id="chk-list-04">
+                        <label class="form-check-label" for="chk-list-04">
+                          중
+                        </label>
+                      </div>
+                    </div>
+                    <div class="list-group-item">
+                      <div class="form-check list-mt">
+                        <input class="form-check-input" type="checkbox" value="" id="chk-list-04">
+                        <label class="form-check-label" for="chk-list-04">
+                          하
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- <label for="search" class="col-md-1 col-form-label tit-h4">타이틀</label> -->
+                <div class="col-md-7 ipt-wrap">
+                  <input class="form-control" type="search" id="search" placeholder="검색어를 입력하세요..." aria-label="Search">
+                  <div class="input-group-append">
+                    <i class="fas fa-search lh-2"></i>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+          </div>
+  
+          <!-- 강의리스트(개인 작업) -->
+          <div class="temp-area">
+            <form action="clist_save.php" method="POST" class="course_list_wrap">
+              <ul>
+                <li class="course_list row shadow_box">
+                  <input type="hidden" name="cid[]" value="35">
+                  <div class="col-md-8 d-flex">
+                    <img src="/pudding-LMS-website/admin/images/course/20230921142328198293.png" alt="강의 썸네일 이미지" class="border">
+                    <div class="course_info">
+                      <div>
+                        <h3 class="course_list_title b_text01"><a href="course_view.php?cid=35">데이터 분석 SQL Fundamentals</a>
+                          <span class="badge rounded-pill blue_bg b-pd">SQL </span>
+                          <span class="badge level_badge rounded-pill b-pd green_bg">중급</span>
+                        </h3>
+                        <p>SQL의 핵심 요소에 대한 상세한 강의와 실습을 통해, 여러분이 SQL 분석 전문가로 성장할 수 있도록 흔들리지 않는 뼈대를 만들어 드리겠습니다.</p>
+                      </div>
+                      <p class="duration"><i class="ti ti-calendar-event"></i><span>수강기간</span><span>6개월</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <nav
+                      style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">프로그래밍</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">백엔드</li>
+                        <li class="breadcrumb-item active" aria-current="page">SQL</li>
+                      </ol>
+                    </nav>
+                    <div class="d-flex align-items-end status_box">
+                      <span class="price content_stt">
+                        <span class="number">90000</span><span> 원</span>
+                      </span>
+                      <span class="d-flex flex-column align-items-end status_wrap">
+                        <select name="act[35]" id="act[35]" class="form-select"
+                          aria-label="Default select example">
+                          <option disabled>상태</option>
+                          <option value="활성" selected>활성</option>
+                          <option value="비활성" >비활성</option>
+                        </select>
+                        <span class="price_btn_wrap">
+                          <a href="course_update.php?cid=35" class="btn btn-primary btn_g">수정</a>
+                          <a href="course_delete.php?cid=35" class="btn btn-danger">삭제</a>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li class="course_list row shadow_box">
+                  <input type="hidden" name="cid[]" value="35">
+                  <div class="col-md-8 d-flex">
+                    <img src="/pudding-LMS-website/admin/images/course/20230921142328198293.png" alt="강의 썸네일 이미지" class="border">
+                    <div class="course_info">
+                      <div>
+                        <h3 class="course_list_title b_text01"><a href="course_view.php?cid=35">데이터 분석 SQL Fundamentals</a>
+                          <span class="badge rounded-pill blue_bg b-pd">SQL </span>
+                          <span class="badge level_badge rounded-pill b-pd green_bg">중급</span>
+                        </h3>
+                        <p>SQL의 핵심 요소에 대한 상세한 강의와 실습을 통해, 여러분이 SQL 분석 전문가로 성장할 수 있도록 흔들리지 않는 뼈대를 만들어 드리겠습니다.</p>
+                      </div>
+                      <p class="duration"><i class="ti ti-calendar-event"></i><span>수강기간</span><span>6개월</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <nav
+                      style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">프로그래밍</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">백엔드</li>
+                        <li class="breadcrumb-item active" aria-current="page">SQL</li>
+                      </ol>
+                    </nav>
+                    <div class="d-flex align-items-end status_box">
+                      <span class="price content_stt">
+                        <span class="number">90000</span><span> 원</span>
+                      </span>
+                      <span class="d-flex flex-column align-items-end status_wrap">
+                        <select name="act[35]" id="act[35]" class="form-select"
+                          aria-label="Default select example">
+                          <option disabled>상태</option>
+                          <option value="활성" selected>활성</option>
+                          <option value="비활성" >비활성</option>
+                        </select>
+                        <span class="price_btn_wrap">
+                          <a href="course_update.php?cid=35" class="btn btn-primary btn_g">수정</a>
+                          <a href="course_delete.php?cid=35" class="btn btn-danger">삭제</a>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li class="course_list row shadow_box">
+                  <input type="hidden" name="cid[]" value="35">
+                  <div class="col-md-8 d-flex">
+                    <img src="/pudding-LMS-website/admin/images/course/20230921142328198293.png" alt="강의 썸네일 이미지" class="border">
+                    <div class="course_info">
+                      <div>
+                        <h3 class="course_list_title b_text01"><a href="course_view.php?cid=35">데이터 분석 SQL Fundamentals</a>
+                          <span class="badge rounded-pill blue_bg b-pd">SQL </span>
+                          <span class="badge level_badge rounded-pill b-pd green_bg">중급</span>
+                        </h3>
+                        <p>SQL의 핵심 요소에 대한 상세한 강의와 실습을 통해, 여러분이 SQL 분석 전문가로 성장할 수 있도록 흔들리지 않는 뼈대를 만들어 드리겠습니다.</p>
+                      </div>
+                      <p class="duration"><i class="ti ti-calendar-event"></i><span>수강기간</span><span>6개월</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <nav
+                      style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">프로그래밍</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">백엔드</li>
+                        <li class="breadcrumb-item active" aria-current="page">SQL</li>
+                      </ol>
+                    </nav>
+                    <div class="d-flex align-items-end status_box">
+                      <span class="price content_stt">
+                        <span class="number">90000</span><span> 원</span>
+                      </span>
+                      <span class="d-flex flex-column align-items-end status_wrap">
+                        <select name="act[35]" id="act[35]" class="form-select"
+                          aria-label="Default select example">
+                          <option disabled>상태</option>
+                          <option value="활성" selected>활성</option>
+                          <option value="비활성" >비활성</option>
+                        </select>
+                        <span class="price_btn_wrap">
+                          <a href="course_update.php?cid=35" class="btn btn-primary btn_g">수정</a>
+                          <a href="course_delete.php?cid=35" class="btn btn-danger">삭제</a>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li class="course_list row shadow_box">
+                  <input type="hidden" name="cid[]" value="35">
+                  <div class="col-md-8 d-flex">
+                    <img src="/pudding-LMS-website/admin/images/course/20230921142328198293.png" alt="강의 썸네일 이미지" class="border">
+                    <div class="course_info">
+                      <div>
+                        <h3 class="course_list_title b_text01"><a href="course_view.php?cid=35">데이터 분석 SQL Fundamentals</a>
+                          <span class="badge rounded-pill blue_bg b-pd">SQL </span>
+                          <span class="badge level_badge rounded-pill b-pd green_bg">중급</span>
+                        </h3>
+                        <p>SQL의 핵심 요소에 대한 상세한 강의와 실습을 통해, 여러분이 SQL 분석 전문가로 성장할 수 있도록 흔들리지 않는 뼈대를 만들어 드리겠습니다.</p>
+                      </div>
+                      <p class="duration"><i class="ti ti-calendar-event"></i><span>수강기간</span><span>6개월</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <nav
+                      style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">프로그래밍</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">백엔드</li>
+                        <li class="breadcrumb-item active" aria-current="page">SQL</li>
+                      </ol>
+                    </nav>
+                    <div class="d-flex align-items-end status_box">
+                      <span class="price content_stt">
+                        <span class="number">90000</span><span> 원</span>
+                      </span>
+                      <span class="d-flex flex-column align-items-end status_wrap">
+                        <select name="act[35]" id="act[35]" class="form-select"
+                          aria-label="Default select example">
+                          <option disabled>상태</option>
+                          <option value="활성" selected>활성</option>
+                          <option value="비활성" >비활성</option>
+                        </select>
+                        <span class="price_btn_wrap">
+                          <a href="course_update.php?cid=35" class="btn btn-primary btn_g">수정</a>
+                          <a href="course_delete.php?cid=35" class="btn btn-danger">삭제</a>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li class="course_list row shadow_box">
+                  <input type="hidden" name="cid[]" value="35">
+                  <div class="col-md-8 d-flex">
+                    <img src="/pudding-LMS-website/admin/images/course/20230921142328198293.png" alt="강의 썸네일 이미지" class="border">
+                    <div class="course_info">
+                      <div>
+                        <h3 class="course_list_title b_text01"><a href="course_view.php?cid=35">데이터 분석 SQL Fundamentals</a>
+                          <span class="badge rounded-pill blue_bg b-pd">SQL </span>
+                          <span class="badge level_badge rounded-pill b-pd green_bg">중급</span>
+                        </h3>
+                        <p>SQL의 핵심 요소에 대한 상세한 강의와 실습을 통해, 여러분이 SQL 분석 전문가로 성장할 수 있도록 흔들리지 않는 뼈대를 만들어 드리겠습니다.</p>
+                      </div>
+                      <p class="duration"><i class="ti ti-calendar-event"></i><span>수강기간</span><span>6개월</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <nav
+                      style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">프로그래밍</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">백엔드</li>
+                        <li class="breadcrumb-item active" aria-current="page">SQL</li>
+                      </ol>
+                    </nav>
+                    <div class="d-flex align-items-end status_box">
+                      <span class="price content_stt">
+                        <span class="number">90000</span><span> 원</span>
+                      </span>
+                      <span class="d-flex flex-column align-items-end status_wrap">
+                        <select name="act[35]" id="act[35]" class="form-select"
+                          aria-label="Default select example">
+                          <option disabled>상태</option>
+                          <option value="활성" selected>활성</option>
+                          <option value="비활성" >비활성</option>
+                        </select>
+                        <span class="price_btn_wrap">
+                          <a href="course_update.php?cid=35" class="btn btn-primary btn_g">수정</a>
+                          <a href="course_delete.php?cid=35" class="btn btn-danger">삭제</a>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li class="course_list row shadow_box">
+                  <input type="hidden" name="cid[]" value="35">
+                  <div class="col-md-8 d-flex">
+                    <img src="/pudding-LMS-website/admin/images/course/20230921142328198293.png" alt="강의 썸네일 이미지" class="border">
+                    <div class="course_info">
+                      <div>
+                        <h3 class="course_list_title b_text01"><a href="course_view.php?cid=35">데이터 분석 SQL Fundamentals</a>
+                          <span class="badge rounded-pill blue_bg b-pd">SQL </span>
+                          <span class="badge level_badge rounded-pill b-pd green_bg">중급</span>
+                        </h3>
+                        <p>SQL의 핵심 요소에 대한 상세한 강의와 실습을 통해, 여러분이 SQL 분석 전문가로 성장할 수 있도록 흔들리지 않는 뼈대를 만들어 드리겠습니다.</p>
+                      </div>
+                      <p class="duration"><i class="ti ti-calendar-event"></i><span>수강기간</span><span>6개월</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <nav
+                      style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">프로그래밍</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">백엔드</li>
+                        <li class="breadcrumb-item active" aria-current="page">SQL</li>
+                      </ol>
+                    </nav>
+                    <div class="d-flex align-items-end status_box">
+                      <span class="price content_stt">
+                        <span class="number">90000</span><span> 원</span>
+                      </span>
+                      <span class="d-flex flex-column align-items-end status_wrap">
+                        <select name="act[35]" id="act[35]" class="form-select"
+                          aria-label="Default select example">
+                          <option disabled>상태</option>
+                          <option value="활성" selected>활성</option>
+                          <option value="비활성" >비활성</option>
+                        </select>
+                        <span class="price_btn_wrap">
+                          <a href="course_update.php?cid=35" class="btn btn-primary btn_g">수정</a>
+                          <a href="course_delete.php?cid=35" class="btn btn-danger">삭제</a>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li class="course_list row shadow_box">
+                  <input type="hidden" name="cid[]" value="35">
+                  <div class="col-md-8 d-flex">
+                    <img src="/pudding-LMS-website/admin/images/course/20230921142328198293.png" alt="강의 썸네일 이미지" class="border">
+                    <div class="course_info">
+                      <div>
+                        <h3 class="course_list_title b_text01"><a href="course_view.php?cid=35">데이터 분석 SQL Fundamentals</a>
+                          <span class="badge rounded-pill blue_bg b-pd">SQL </span>
+                          <span class="badge level_badge rounded-pill b-pd green_bg">중급</span>
+                        </h3>
+                        <p>SQL의 핵심 요소에 대한 상세한 강의와 실습을 통해, 여러분이 SQL 분석 전문가로 성장할 수 있도록 흔들리지 않는 뼈대를 만들어 드리겠습니다.</p>
+                      </div>
+                      <p class="duration"><i class="ti ti-calendar-event"></i><span>수강기간</span><span>6개월</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <nav
+                      style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">프로그래밍</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">백엔드</li>
+                        <li class="breadcrumb-item active" aria-current="page">SQL</li>
+                      </ol>
+                    </nav>
+                    <div class="d-flex align-items-end status_box">
+                      <span class="price content_stt">
+                        <span class="number">90000</span><span> 원</span>
+                      </span>
+                      <span class="d-flex flex-column align-items-end status_wrap">
+                        <select name="act[35]" id="act[35]" class="form-select"
+                          aria-label="Default select example">
+                          <option disabled>상태</option>
+                          <option value="활성" selected>활성</option>
+                          <option value="비활성" >비활성</option>
+                        </select>
+                        <span class="price_btn_wrap">
+                          <a href="course_update.php?cid=35" class="btn btn-primary btn_g">수정</a>
+                          <a href="course_delete.php?cid=35" class="btn btn-danger">삭제</a>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </li>
 
-        <!-- 강의리스트(개인 작업) -->
-        <div class="temp-area">
-          강의 리스트
-        </div>
+              </ul>
+              <button class="btn btn-primary btn_g all_modify_btn">변경 일괄 수정</button>
+            </form>
+          </div>
+        </form>
 
         <!-- 페이지 네이션 -->
         <nav aria-label="페이지네이션">

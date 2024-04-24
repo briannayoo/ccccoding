@@ -133,3 +133,7 @@ textarea {height:250px;}
 .list-group {gap:26px;}
 .list-group.list-group-horizontal {gap:30px;}
 .list-group .list-group-item {border:none; background-color:transparent; padding:0;}
+
+/* 썸네일 */
+#addedImages {padding: 30px 0;}
+#addedImages > img{width:300px; height:300px; object-fit:cover;}
