@@ -79,7 +79,7 @@ input::placeholder {color: var(--placeh-c, #969696);}
 /* Secondary */
 .btn.btn-secondary {background-color:var(--secondary-c, #383838);}
 /* sm */
-.btn.btn-sm {min-width:120px; height:34px; line-height:34px;}
+.btn.btn-sm {min-width:120px; height:34px; line-height:34px; font-weight: var(--regular);}
 
 /* lg */
 .btn.btn-lg {min-width:160px; height:44px; line-height:44px;}
