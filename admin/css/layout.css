@@ -2,8 +2,15 @@
 
 /* 메인레이아웃 */
 .admin-wrapper {display:flex;}
-.admin-wrapper > nav {width:337px; height:100vh; background-color:var(--bg-sub1-c, #eeeafe);}
 .admin-wrapper .container {max-width:1459px; padding-bottom:48px;}
+.gnb {width:337px; height:100vh; padding:36px 42px; background-color:var(--bg-sub1-c, #eeeafe);}
+.gnb .logo > a {display:block; width:252px; height:90px; background:url(../image/logo.png) no-repeat center center / 252px auto;}
+.gnb .gnb-list {margin-top:50px;}
+.gnb .gnb-list a {display:flex; align-items:center; gap:30px; font-size:2.8rem; color:var(--body-text, #222); font-family:var(--laundrygothic,'LaundryGothic', sans-serif);}
+.gnb-list .accordion {border:none;}
+.gnb-list .accordion .accordion-item {border:none;}
+.gnb-list .accordion .accordion-button {background:none;}
+.gnb .util-list {display:flex; flex-direction:row;}
 
 /* utillist */
 .util-list {display:flex; justify-content:flex-end; align-items:center; gap:30px; margin-top:30px;}
