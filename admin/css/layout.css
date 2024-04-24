@@ -3,7 +3,7 @@
 /* 메인레이아웃 */
 .admin-wrapper {display:flex;}
 .admin-wrapper > nav {width:337px; height:100vh; background-color:var(--bg-sub1-c, #eeeafe);}
-.admin-wrapper .container {max-width:1459px;}
+.admin-wrapper .container {max-width:1459px; padding-bottom:48px;}
 
 /* utillist */
 .util-list {display:flex; justify-content:flex-end; align-items:center; gap:30px; margin-top:30px;}
