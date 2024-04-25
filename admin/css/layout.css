@@ -5,25 +5,32 @@
 .admin-wrapper .container {max-width:1459px; padding-bottom:48px;}
 
 /* gnb */
-.gnb {height:100vh; padding:36px 42px; background-color:var(--bg-sub1-c, #eeeafe);}
+.gnb {height:100vh; padding:36px 42px; background-color:var(--bg-sub1-c, #eeeafe); font-family:var(--laundrygothic,'LaundryGothic', sans-serif);}
 .gnb .logo > a {display:block; width:252px; height:90px; background:url(../image/logo.png) no-repeat center center / 252px auto;}
 .gnb .gnb-list {margin-top:50px; gap:0;}
-.gnb .gnb-list > li {padding:10px 0; margin:0 -42px;}
+.gnb .gnb-list > li {padding:10px 0; margin:0 -42px;} 
 .gnb .gnb-list a,
-.gnb-list .accordion .accordion-button {display:flex; align-items:center; gap:30px; padding:0 42px; font-size:2.8rem; color:var(--body-text, #222); font-family:var(--laundrygothic,'LaundryGothic', sans-serif);}
-.gnb-list ul.depth-2 a {font-size:2.4rem;}
+.gnb-list .accordion .accordion-button {display:flex; align-items:center; gap:30px; padding:0 42px; font-size:2.8rem; color:var(--body-text, #222);}
 .gnb .gnb-list > .on,
 .gnb .gnb-list > .on.acco .accordion-header {background-color:var(--primary-c, #472ea1);}
-.gnb .gnb-list > .on.acco .accordion-header {margin:0;}
+.gnb .gnb-list > .acco .accordion-header {margin:0; padding:10px 0;}
 .gnb .gnb-list > .on a,
 .gnb .gnb-list > .on button {padding:0 42px; color:var(--white, #fff);}
-.gnb .gnb-list > .on.acco {background:none; padding:10px 0; margin:0 -42px;}
- {background:none; padding:10px 0; margin:0 -42px;}
+.gnb .gnb-list > .on.acco {background:none; padding:0; margin:0 -42px;}
 .gnb-list .accordion {border:none;}
 .gnb-list .accordion .accordion-item {border:none; background:none;}
-.gnb-list .accordion .accordion-button {padding:0; background:none;}
-.gnb .util-list {display:flex; flex-direction:row;}
-/* utillist */
+.gnb-list .accordion .accordion-button {padding:0 42px; background:none; box-shadow:none;}
+.gnb-list .accordion .accordion-button::after {position:absolute; top:auto; right:42px; padding:0; border-width:8px 8px; border-style:solid; border-color:var(--body-text, #222) transparent transparent transparent; background-image:none; border-radius:3px; width:auto; height:auto;}
+.gnb-list .accordion .accordion-button:not(.collapsed)::after {top:0;}
+.gnb .gnb-list > .on.acco .accordion .accordion-button::after {border-color:var(--white, #fff) transparent transparent transparent;}
+.gnb-list .accordion-body {padding:24px 0;}
+
+.gnb .gnb-list ul.depth-2 a {display:block; padding:0 112px; font-size:2.0rem; color:var(--body-text, #222);}
+.gnb .gnb-list ul.depth-2 > li.on a {color:var(--primary-c, #472ea1); font-weight:var(--bold,bold);}
+.gnb .util-list {display:flex; flex-direction:row; justify-content:space-between;}
+.gnb .util-list a {font-size:2.4rem; color:var(--body-text, #222);;}
+
+/* 상단 utillist */
 .util-list {display:flex; justify-content:flex-end; align-items:center; gap:30px; margin-top:30px;}
 .util-list .alarm .btn {position:relative; padding:0; font-size:2.4rem;}
 .util-list .alarm .btn .badge {width:24px; height:24px;}
