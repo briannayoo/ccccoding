@@ -14,3 +14,4 @@
 .btn.btn-sm.thumb-text{font-size:16px; width: 300px;}
 #addedImages {padding: 30px 0;}
 #addedImages > img{width:300px; height:300px; object-fit:cover;}
+.box {width: 800px; height: 200px; background: var(--bg-sub1-c);}

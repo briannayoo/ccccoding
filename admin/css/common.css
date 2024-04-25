@@ -118,6 +118,7 @@ textarea {height:250px;}
 .form-list .row {align-items:start; margin:0; padding:0;}
 .form-list .col-form-label {padding:0;}
 .form-list .row > [class*="col-"] {padding:0;}
+.box-shadow {box-shadow: 0 4px 4px 2px #DEE2E6;}
 
 /* 단위 */
 .form-list .ipt-wrap .unit {position:absolute; top:50%; transform:translateY(-50%); right:40px;}
