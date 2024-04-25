@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   
   //thumbnail
-
   $('#addImage').click(function(){
     $('#upfile').trigger('click');
   });
@@ -27,5 +26,14 @@ document.addEventListener("DOMContentLoaded", function() {
     reader.readAsDataURL(file); //사용자가 선택한 파일을 읽어오는 역할
   });
 
+  //파일추가 버튼
+  $('#custom-button').click(function() {
+    $('#file-upload').trigger('click');
+  });
+
+  $('#file-upload').change(function() {
+    var fileName = $(this).val().split('\\').pop();
+    $('.file-input-text').val(fileName);
+  });
   
 });
