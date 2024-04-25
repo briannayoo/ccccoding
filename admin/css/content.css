@@ -1,8 +1,10 @@
 @charset "utf-8";
 @import url(common.css);
 
-/* 강의등록 / 강의관리(우예지) */
+/* 대쉬보드 (우예지) */
+.chart {width:565px; height: 300px;}
 
+/* 강의등록 / 강의관리(우예지) */
 .lh-2{line-height:34px;}
 .list-mt input {margin-top:8px;}
 .lecture-search {margin-bottom:48px;}
