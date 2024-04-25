@@ -15,42 +15,58 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <!-- 제이쿼리 -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="js/common.js"></script>
 </head>
 <body>
   <div class="admin-wrapper">
-    <nav>
-      <h1>
-        <a href="index.html">로고</a>
+    <nav class="gnb">
+      <h1 class="logo">
+        <a href="index.html">
+          <span class="visually-hidden">ccccoding</span>
+        </a>
       </h1>
-      <ul class="list-group gnb">
-        <li class="list-group-item">
-          <a href="#" class="">대시보드</a>
+      <ul class="list-group gnb-list">
+        <li class="list-group-item on">
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-house fa-big"></i>
+            <span>대시보드</span>
+          </a>
         </li>
         <li class="list-group-item">
-          <a href="#" class="">카테고리</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-list fa-big"></i>
+            <span>카테고리</span>
+          </a>
         </li>
         <li class="list-group-item">
-          <a href="#" class="">강의관리</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-chalkboard-user fa-big"></i>
+            <span>강의관리</span>
+          </a>
         </li>
         <li class="list-group-item">
-          <a href="#" class="">회원관리</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-address-card fa-big"></i>
+            <span>회원관리</span>
+          </a>
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item on acco">
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  커뮤니티
+                  <i class="fa-solid fa-comments fa-big"></i>
+                  <span>커뮤니티</span>
                 </button>
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <ul class="list-group">
+                  <ul class="list-group depth-2">
                     <li class="list-group-item">
-                      <a href="#">공지사항</a>
+                      <a href="#" class="text-decoration-none">공지사항</a>
                     </li>
                     <li class="list-group-item">
-                      <a href="#">Q&amp;A</a>
+                      <a href="#" class="text-decoration-none">Q&amp;A</a>
                     </li>
                   </ul>
                 </div>
@@ -59,22 +75,37 @@
           </div>
         </li>
         <li class="list-group-item">
-          <a href="#" class="">이벤트 관리</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-gift fa-big"></i>
+            <span>이벤트 관리</span>
+          </a>
         </li>
         <li class="list-group-item">
-          <a href="#" class="">수강관리</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-cart-plus fa-big"></i>
+            <span>수강관리</span>
+          </a>
         </li>
         <li class="list-group-item">
-          <a href="#" class="">쿠폰관리</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-ticket-simple fa-big"></i>
+            <span>쿠폰관리</span>
+          </a>
         </li>
       </ul>
 
       <ul class="list-group util-list">
         <li class="list-group-item">
-          <a href="">로그아웃</a>
+          <a href="" class="text-decoration-none">
+            <i class="fa-solid fa-power-off fa-small"></i>
+            <span>로그아웃</span>
+          </a>
         </li>
         <li class="list-group-item">
-          <a href="">설정</a>
+          <a href="" class="text-decoration-none">
+            <i class="fa-solid fa-gear fa-small"></i>
+            <span>설정</span>
+          </a>
         </li>
       </ul>
     </nav>
@@ -96,20 +127,20 @@
       </ul>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
-        <h2 class="tit-h2">강의등록</h2>
+        <h2 class="tit-h2">강의 등록</h2>
       </div>
       <!-- sub-page-tit-area (e) -->
 
       <div class="content">
-        <form action="#" class="form-list">
+        <form action="#" class="form-list" enctype="multipart/form-data">
           <!-- 카테고리 -->
           <div class="row">
-            <label for="slect-01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+            <label for="slect-01" class="col-md-1 col-form-label tit-h4">카테고리</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="select-01" aria-label="selectf">
-                    <option selected>Open this select menu</option>
+                    <option selected>대분류</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
@@ -117,7 +148,7 @@
                 </div>
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="select-02"  aria-label="selectf">
-                    <option selected>Open this select menu</option>
+                    <option selected>중분류</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
@@ -125,7 +156,7 @@
                 </div>
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="select-03"  aria-label="selectf">
-                    <option selected>Open this select menu</option>
+                    <option selected>소분류</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
@@ -137,11 +168,11 @@
   
           <!-- 강의명 -->
           <div class="row">
-            <label for="txt03" class="col-md-1 col-form-label tit-h4">타이틀</label>
+            <label for="txt03" class="col-md-1 col-form-label tit-h4">강의명</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-12 ipt-wrap">
-                  <input type="text" class="form-control" id="fm-txt03" placeholder="1줄짜리 설명을 입력하세요 할때">
+                  <input type="text" class="form-control" id="fm-txt03" placeholder="강의명을 입력하세요">
                 </div>
               </div>
             </div>
@@ -149,25 +180,24 @@
   
           <!-- 판매금액 / 활동교재-->
           <div class="row">
-            <label for="mix-01" class="col-md-1 col-form-label tit-h4">타이틀(혼합)</label>
+            <label for="mix-01" class="col-md-1 col-form-label tit-h4">판매금액</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="mix-01" aria-label="select">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option selected value="1">유료</option>
+                    <option value="2">무료</option>
+                    <option value="3">부분무료</option>
                   </select>
                 </div>
                 <div class="col-md-4 ipt-wrap">
-                  <input type="text" class="form-control" id="mix-02" placeholder="각자 입력하세요.">
+                  <input type="text" class="form-control" id="mix-02" placeholder="금액을 입력하세요">
                 </div>
                 <!-- 활동교재 -->
                 <div class="col-md-4 ipt-wrap d-flex">
-                    <label for="search" class="col-md-3 col-form-label tit-h4">타이틀</label>
+                    <label for="search" class="col-md-3 col-form-label tit-h4">활동교재</label>
                     <div class="input-group search">
-                        <input class="form-control" type="search" id="search" placeholder="검색어를 입력하세요..." aria-label="Search">
+                        <input class="form-control" type="search" id="search" placeholder="교재명을 입력하세요" aria-label="Search">
                         <div class="input-group-append">
                           <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
                         </div>
@@ -179,7 +209,7 @@
   
           <!-- 수강신청 / 난이도 -->
           <div class="row">
-            <label for="datepicker-01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+            <label for="datepicker-01" class="col-md-1 col-form-label tit-h4">수강신청</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
@@ -191,12 +221,12 @@
                 <div class="col-md-4 ipt-wrap row">
   
                   <div class="list-group list-group-horizontal">
-                    <h4 class="tit-h4">타이틀</h4>
+                    <h4 class="tit-h4">난이도</h4>
                     <div class="list-group-item">
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="chk-list-04">
                         <label class="form-check-label" for="chk-list-04">
-                          1
+                          상
                         </label>
                       </div>
                     </div>
@@ -204,15 +234,15 @@
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="chk-list-05" checked>
                         <label class="form-check-label" for="chk-list-05">
-                          2
+                          중
                         </label>
                       </div>
                     </div>
                     <div class="list-group-item">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="chk-list-06" disabled>
+                        <input class="form-check-input" type="checkbox" value="" id="chk-list-06">
                         <label class="form-check-label" for="chk-list-06">
-                          3
+                          하
                         </label>
                       </div>
                     </div>
@@ -225,11 +255,11 @@
   
           <!-- 강의내용 -->
           <div class="row">
-            <label for="txtarea" class="col-md-1 col-form-label tit-h4">타이틀</label>
+            <label for="txtarea" class="col-md-1 col-form-label tit-h4">강의내용</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-12 ipt-wrap">
-                  <textarea class="form-control" id="txtarea" placeholder="내용을 입력하세요."></textarea>
+                  <textarea class="form-control" id="txtarea" placeholder="강의의 전반적인 내용을 상세히 기술하세요."></textarea>
                 </div>
               </div>
             </div>
@@ -237,19 +267,27 @@
   
           <!-- 강의첨부 -->
           <div class="row">
-            <label for="file" class="col-md-1 col-form-label tit-h4">타이틀</label>
+            <label for="file" class="col-md-1 col-form-label tit-h4">강의URL</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-12 ipt-wrap">
-                  <input class="form-control" type="file" id="file">
+                  <input class="form-control" type="file" id="file"  placeholder="강의 URL을 직접입력하거나, 동영상을 첨부하세요">
                 </div>
               </div>
             </div>
           </div>
   
-          <!-- 썸내일 공통 (공통 작업중) -->
-          <div class="temp-area">
-            썸네일 이미지 첨부
+          <!-- 썸내일 -->
+          <div class="row">
+            <label for="form01" class="col-md-1 col-form-label tit-h4">썸네일</label>
+            <div class="col-md-11">
+              <input type="file" multiple name="upfile[]" id="upfile" class="d-none">
+              <div>
+                <button type="button" class="btn btn-primary btn-sm thumb-text" id="addImage">파일 선택</button>
+              </div>
+              <div id="addedImages" class="d-flex gap-3">
+              </div>
+            </div>
           </div>
   
           <!-- 강의등록 -->
@@ -258,6 +296,7 @@
             <button type="button" class="btn btn-secondary btn-lg">버튼</button>
           </div>
         </form>
+
       </div>
     </div>
   </div>

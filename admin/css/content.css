@@ -1,0 +1,86 @@
+@charset "utf-8";
+@import url(common.css);
+
+/* 강의등록 / 강의관리(우예지) */
+
+.lh-2{line-height:34px;}
+.list-mt input {margin-top:8px;}
+.lecture-search {margin-bottom:48px;}
+.lecture_list_wrap {width:100%;}
+.lecture_list_item {
+  display:flex; 
+  gap:30px; 
+  width:100%; 
+  padding:18px; 
+  border:1px solid var(--ipt-border,#DEE2E6); 
+}
+.lecture_list_item img {width:216px; height:144px; object-fit:cover; border-radius:10px;}
+.list-group.box-list.aic {align-items:center;}
+.lecture_list_wrap .lecture_chaption {display:flex; gap:10px; align-items:center;}
+.lecture_list_wrap .lecture_text {
+  height:65px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  word-break:break-all;
+}
+.lecture_list_wrap .tender-color {color:#696969;}
+.lecture_list_wrap .etc-group {
+  width:300px;
+  display:flex;
+  gap:16px;
+  flex-direction:column;
+  justify-content:center;
+}
+.lecture_list_wrap .search-result {margin-bottom:0; text-align:center;}
+.lecture_list_wrap .btn:hover i {color: var(--primary-c);}
+.lecture_list_wrap .fa-angle-right {margin: 0 10px;}
+/* 로그인.html (우예지) */
+#login-wrap {
+  background:var(--bg-sub1-c);
+  height:100vh;
+  position:relative;
+}
+#login-wrap .login-bg {
+  width: 900px;
+  height: 900px;
+  background-image: url(../image/login-bg.png);
+  background-position:bottom center;
+  background-repeat:no-repeat;
+  background-size:contain;
+  position:absolute;
+  left:50%; bottom:0;
+  transform:translateX(-50%);
+}
+#login-wrap form {
+  width:578px;
+  position:absolute;
+  left:50%; top:50%;
+  transform:translate(-50%, -50%);
+}
+#login-wrap h1.mb-6{margin-bottom: 60px;}
+/* #login-wrap form input{width: 100%;} */
+#login-wrap form label{margin-left: 18px;}
+.form-floating>.form-control:focus {padding-top: 2.5rem;}
+.form-floating>.form-control:not(:placeholder-shown) {padding-top: 2.5rem;}
+.form-floating>.form-control,
+.form-floating>.form-control-plaintext,
+.form-floating>.form-select{
+  height: auto;
+}
+.log-btn {width: 563px; height: 42px;}
+
+/* 컨텐츠리스트 (쿠폰+이벤트)(박소현) */
+.list-group.box-list {display:flex; flex-direction:row; flex-wrap:wrap; justify-content:space-between; gap:0;}
+.list-group.box-list > .list-group-item  {display:flex; gap:30px; width:calc((100% / 2) - 15px); padding:18px;  border:1px solid var(--ipt-border,#DEE2E6); border-radius:10px; box-shadow: 0px 4px 4px 2px rgba(222, 226, 230, 0.5);}
+.list-group.box-list > .list-group-item:nth-child(n+3)  {margin-top:32px;}
+.list-group.box-list .img-wrap {flex:0 0 292px; height:292px; border-radius:10px; overflow:hidden;}
+.list-group.box-list .info-area {width:100%;}
+.list-group.box-list .edit-btn-group {display:flex; justify-content:end; gap:16px}
+.list-group.box-list .edit-btn-group >button {width:24px; height:24px; padding:0;}
+.list-group.box-list .edit-btn-group >button > i {font-size:2.4rem;}
+.list-group.box-list .tit-group {display:flex; justify-content:space-between; align-items:center; margin:55px 0 35px;}
+.list-group.box-list .txt-group > p {margin-top:16px; font-size:2rem;}
+
+/* 리스트 3개일때 .list-3클래스 */
+.list-group.box-list.list-3 .list-group-item {width:calc((100% / 3) - 30px);}
+.list-group.box-list.list-3 > .list-group-item:nth-child(n+4)  {margin-top:32px;}

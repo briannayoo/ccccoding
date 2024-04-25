@@ -20,39 +20,54 @@
 </head>
 <body>
   <div class="admin-wrapper">
-    <nav>
-      <h1>
-        <a href="index.html">로고</a>
+    <nav class="gnb">
+      <h1 class="logo">
+        <a href="index.html">
+          <span class="visually-hidden">ccccoding</span>
+        </a>
       </h1>
-      <ul class="list-group gnb">
-        <li class="list-group-item">
-          <a href="#" class="">대시보드</a>
+      <ul class="list-group gnb-list">
+        <li class="list-group-item on">
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-house fa-big"></i>
+            <span>대시보드</span>
+          </a>
         </li>
         <li class="list-group-item">
-          <a href="#" class="">카테고리</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-list fa-big"></i>
+            <span>카테고리</span>
+          </a>
         </li>
         <li class="list-group-item">
-          <a href="#" class="">강의관리</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-chalkboard-user fa-big"></i>
+            <span>강의관리</span>
+          </a>
         </li>
         <li class="list-group-item">
-          <a href="#" class="">회원관리</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-address-card fa-big"></i>
+            <span>회원관리</span>
+          </a>
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item on acco">
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  커뮤니티
+                  <i class="fa-solid fa-comments fa-big"></i>
+                  <span>커뮤니티</span>
                 </button>
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <ul class="list-group">
+                  <ul class="list-group depth-2">
                     <li class="list-group-item">
-                      <a href="#">공지사항</a>
+                      <a href="#" class="text-decoration-none">공지사항</a>
                     </li>
                     <li class="list-group-item">
-                      <a href="#">Q&amp;A</a>
+                      <a href="#" class="text-decoration-none">Q&amp;A</a>
                     </li>
                   </ul>
                 </div>
@@ -61,22 +76,37 @@
           </div>
         </li>
         <li class="list-group-item">
-          <a href="#" class="">이벤트 관리</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-gift fa-big"></i>
+            <span>이벤트 관리</span>
+          </a>
         </li>
         <li class="list-group-item">
-          <a href="#" class="">수강관리</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-cart-plus fa-big"></i>
+            <span>수강관리</span>
+          </a>
         </li>
         <li class="list-group-item">
-          <a href="#" class="">쿠폰관리</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-ticket-simple fa-big"></i>
+            <span>쿠폰관리</span>
+          </a>
         </li>
       </ul>
 
       <ul class="list-group util-list">
         <li class="list-group-item">
-          <a href="">로그아웃</a>
+          <a href="" class="text-decoration-none">
+            <i class="fa-solid fa-power-off fa-small"></i>
+            <span>로그아웃</span>
+          </a>
         </li>
         <li class="list-group-item">
-          <a href="">설정</a>
+          <a href="" class="text-decoration-none">
+            <i class="fa-solid fa-gear fa-small"></i>
+            <span>설정</span>
+          </a>
         </li>
       </ul>
     </nav>
@@ -102,8 +132,11 @@
       </div>
       <!-- sub-page-tit-area (e) -->
 
+
+      <!-- content-area(s) -->
       <div class="content">
-        
+
+        <!-- 카테고리 폼 -->
         <form action="#">
           <div class="row">
             <label for="single-slect-01" class="col-md-1 col-form-label tit-h4 visually-hidden">블라인드텍스트써주세요</label> <!-- label hidden으로 사용 -->
@@ -137,13 +170,114 @@
               </div>
             </div>
           </div>
+
+          <!-- 틍록버튼 -->
           <div class="buttons mt-5">
-            <button type="button" class="btn btn-primary btn-lg">버튼</button>
-            <button type="button" class="btn btn-primary btn-lg">버튼</button>
-            <button type="button" class="btn btn-primary btn-lg">버튼</button>
+            <button type="button" class="btn btn-primary btn-lg">대분류 등록</button>
+            <button type="button" class="btn btn-primary btn-lg">중분류 등록</button>
+            <button type="button" class="btn btn-primary btn-lg">소분류 등록</button>
           </div>
         </form>
 
+        <!-- 대분류 Modal -->
+        <div class="modal cmodal fade" id="cate1Modal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-title fs-5" id="exampleModalLabel1">
+                  대분류 등록
+                </h2>
+              </div>
+              <div class="modal-body">
+                <label for="name1">카테고리명</label>
+                <input type="text" class="form-control" name="name1" id="name1" placeholder="대분류명을 입력하세요.">
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary btn_g" data-step="1" data-bs-dismiss="modal">
+                  등록
+                </button>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal" aria-label="Close">
+                  취소
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 중분류 Modal-->
+        <div class="modal cmodal fade" id="cate2Modal" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-title fs-5" id="exampleModalLabel2">
+                  중분류 등록
+                </h2>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                              <div class="col-md-12">
+                    <select class="form-select " aria-label="Default select example" id="pcode2">
+                      <option selected disabled>대분류를 선택해주세요.</option>
+                                        <option value="1">프로그래밍</option>
+                                        <option value="4">UI.UXddd</option>
+                                        <option value="54">aaa</option>
+                                    </select>
+                  </div>
+                </div>
+                <label for="name2">카테고리명</label>
+                <input type="text" class="form-control" name="name2" id="name2" placeholder="중분류명을 입력하세요.">
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary btn_g" data-step="2" data-bs-dismiss="modal">
+                  등록
+                </button>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal" aria-label="Close">
+                  취소
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--소분류 Modal-->
+        <div class="modal cmodal fade" id="cate3Modal" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-title fs-5" id="exampleModalLabel3">
+                  소분류 등록
+                </h2>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <select class="form-select" aria-label="Default select example" id="pcode2_1">
+                      <option selected disabled>대분류</option>
+                                        <option value="1">프로그래밍</option>
+                                        <option value="4">UI.UXddd</option>
+                                        <option value="54">aaa</option>
+                                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <select class="form-select" aria-label="Default select example" id="pcode3">
+                      <option selected disabled>중분류를 선택해주세요</option>
+                    </select>
+                  </div>
+                </div>
+                <label for="name3">카테고리명</label>
+                <input type="text" class="form-control" name="name3" id="name3" placeholder="소분류명을 입력하세요.">
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary btn_g" data-step="3" data-bs-dismiss="modal">
+                  등록
+                </button>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal" aria-label="Close">
+                  취소
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
