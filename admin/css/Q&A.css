@@ -1,0 +1,14 @@
+@charset "utf-8";
+@import url(common.css);
+
+.profile-box {
+  width: 70px;
+  height: 70px; 
+  border-radius: 70%;
+  overflow: hidden;
+}
+.pro-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
