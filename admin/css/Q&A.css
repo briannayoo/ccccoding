@@ -12,3 +12,24 @@
   height: 100%;
   object-fit: cover;
 }
+
+.question{
+  margin-top: 26px;
+  width: 1300px;
+}
+.q-box{
+  padding: 26px;
+}
+.a-box{
+  margin-top: 26px;
+  width: 1300px;
+}
+.pro-box{
+  margin-top: 26px;
+}
+.a-boxform{
+  border: none;
+}
+.answer{
+  gap: 10px;
+}
