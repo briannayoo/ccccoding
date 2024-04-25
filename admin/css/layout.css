@@ -3,15 +3,26 @@
 /* 메인레이아웃 */
 .admin-wrapper {display:flex;}
 .admin-wrapper .container {max-width:1459px; padding-bottom:48px;}
-.gnb {width:337px; height:100vh; padding:36px 42px; background-color:var(--bg-sub1-c, #eeeafe);}
-.gnb .logo > a {display:block; width:252px; height:90px; background:url(../image/logo.png) no-repeat center center / 252px auto;}
-.gnb .gnb-list {margin-top:50px;}
-.gnb .gnb-list a {display:flex; align-items:center; gap:30px; font-size:2.8rem; color:var(--body-text, #222); font-family:var(--laundrygothic,'LaundryGothic', sans-serif);}
-.gnb-list .accordion {border:none;}
-.gnb-list .accordion .accordion-item {border:none;}
-.gnb-list .accordion .accordion-button {background:none;}
-.gnb .util-list {display:flex; flex-direction:row;}
 
+/* gnb */
+.gnb {height:100vh; padding:36px 42px; background-color:var(--bg-sub1-c, #eeeafe);}
+.gnb .logo > a {display:block; width:252px; height:90px; background:url(../image/logo.png) no-repeat center center / 252px auto;}
+.gnb .gnb-list {margin-top:50px; gap:0;}
+.gnb .gnb-list > li {padding:10px 0; margin:0 -42px;}
+.gnb .gnb-list a,
+.gnb-list .accordion .accordion-button {display:flex; align-items:center; gap:30px; padding:0 42px; font-size:2.8rem; color:var(--body-text, #222); font-family:var(--laundrygothic,'LaundryGothic', sans-serif);}
+.gnb-list ul.depth-2 a {font-size:2.4rem;}
+.gnb .gnb-list > .on,
+.gnb .gnb-list > .on.acco .accordion-header {background-color:var(--primary-c, #472ea1);}
+.gnb .gnb-list > .on.acco .accordion-header {margin:0;}
+.gnb .gnb-list > .on a,
+.gnb .gnb-list > .on button {padding:0 42px; color:var(--white, #fff);}
+.gnb .gnb-list > .on.acco {background:none; padding:10px 0; margin:0 -42px;}
+ {background:none; padding:10px 0; margin:0 -42px;}
+.gnb-list .accordion {border:none;}
+.gnb-list .accordion .accordion-item {border:none; background:none;}
+.gnb-list .accordion .accordion-button {padding:0; background:none;}
+.gnb .util-list {display:flex; flex-direction:row;}
 /* utillist */
 .util-list {display:flex; justify-content:flex-end; align-items:center; gap:30px; margin-top:30px;}
 .util-list .alarm .btn {position:relative; padding:0; font-size:2.4rem;}
