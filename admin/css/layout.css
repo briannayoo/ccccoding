@@ -31,6 +31,13 @@
 .gnb .util-list a {font-size:2.4rem; color:var(--body-text, #222);;}
 
 /* 상단 utillist */
-.util-list {display:flex; justify-content:flex-end; align-items:center; gap:30px; margin-top:30px;}
-.util-list .alarm .btn {position:relative; padding:0; font-size:2.4rem;}
-.util-list .alarm .btn .badge {width:24px; height:24px;}
+.top-util-list {display:flex; justify-content:flex-end; align-items:center; gap:30px; margin-top:30px;}
+.top-util-list > li {display:flex; align-items:center; gap:16px;}
+.top-util-list .alarm .btn {position:relative; padding:0;}
+.top-util-list .alarm .btn > i {font-size:2.4rem;}
+.top-util-list .alarm .btn .tit-h3 {margin-left:16px;}
+.top-util-list .alarm .btn .badge {position:absolute; top:2px; left:10px; width:16px; height:16px; padding:0; border-radius:50% !important; background-color:var(--primary-c,#472ea1);}
+.top-util-list .alarm .btn .badge > em {display:block; height:16px; padding:0 3px; line-height:16px;}
+.top-util-list .profile .profile-wrap {display:inline-block; width:40px; height:40px; overflow:hidden; border-radius:50%; border:1px solid var(--body-text);}
+.top-util-list .profile .profile-wrap > img {width:100%; height:100%;}
+.top-util-list .profile .admin {display:inline-block;}
