@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const lineChart = $('#line-chart');
 const barChart = $('#bar-chart');
 const pieChart = $('#pie-chart');
-const pieChartDark = $('#pie-chart-dark');
+const barChart2 = $('#bar-chart2');
 
   new Chart(lineChart, {
     type: 'line',
@@ -147,8 +147,8 @@ const pieChartDark = $('#pie-chart-dark');
       maintainAspectRatio:false
     }
   });
-  new Chart(pieChartDark, {
-    type: 'doughnut',
+  new Chart(barChart2, {
+    type: 'bar',
     data: {
       labels: ['1월', '2월', '3월', '4월', '5월'],
       datasets: [
