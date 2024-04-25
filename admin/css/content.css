@@ -1,9 +1,12 @@
 @charset "utf-8";
 @import url(common.css);
 
-/* 강의등록(우예지) */
+/* 강의등록 / 강의관리(우예지) */
 .lh-2{line-height:34px;}
-.list-mt input {margin-top: 8px;}
+.list-mt input {margin-top:8px;}
+.lecture_list_wrap {width:100%;}
+
+
 /* 로그인.html (우예지) */
 #login-wrap {
   background: var(--bg-sub1-c);
@@ -37,10 +40,7 @@
 .form-floating>.form-select{
   height: auto;
 }
-.log-btn {
-  width: 563px;
-  height: 42px;
-}
+.log-btn {width: 563px; height: 42px;}
 
 /* 컨텐츠리스트 (쿠폰+이벤트)(박소현) */
 .list-group.box-list {display:flex; flex-direction:row; flex-wrap:wrap; justify-content:space-between; gap:0;}
