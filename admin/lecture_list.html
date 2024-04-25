@@ -189,53 +189,37 @@
         <!-- 강의리스트 -->
         <div class="temp-area">
           <form action="clist_save.php" method="POST" class="course_list_wrap">
-            <ul>
-              <li class="course_list row shadow_box">
-                <input type="hidden" name="cid[]" value="35">
-                <div class="col-md-8 d-flex">
-                  <img src="/pudding-LMS-website/admin/images/course/20230921142328198293.png" alt="강의 썸네일 이미지" class="border">
-                  <div class="course_info">
-                    <div>
-                      <h3 class="course_list_title b_text01"><a href="course_view.php?cid=35">데이터 분석 SQL Fundamentals</a>
-                        <span class="badge rounded-pill blue_bg b-pd">SQL </span>
-                        <span class="badge level_badge rounded-pill b-pd green_bg">중급</span>
-                      </h3>
-                      <p>SQL의 핵심 요소에 대한 상세한 강의와 실습을 통해, 여러분이 SQL 분석 전문가로 성장할 수 있도록 흔들리지 않는 뼈대를 만들어 드리겠습니다.</p>
-                    </div>
-                    <p class="duration"><i class="ti ti-calendar-event"></i><span>수강기간</span><span>6개월</span>
-                    </p>
+            <ul class="list-group box-list">
+              <li class="list-group-item">
+                <a href="#" class="img-wrap">
+                  <img src="image/img_coupon_01.jpg" alt="이미지">
+                </a>
+                <div class="info-area">
+                  <div class="edit-btn-group">
+                    <button type="button" class="btn correc">
+                      <span class="visually-hidden">수정</span>
+                      <i class="fa-solid fa-pen-to-square fa-small"></i>
+                    </button>
+                    <button type="button" class="btn del">
+                      <span class="visually-hidden">삭제</span>
+                      <i class="fa-solid fa-trash-can fa-small"></i>
+                    </button>
                   </div>
-                </div>
-                <div class="col-md-4">
-                  <nav
-                    style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a href="#">프로그래밍</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">백엔드</li>
-                      <li class="breadcrumb-item active" aria-current="page">SQL</li>
-                    </ol>
-                  </nav>
-                  <div class="d-flex align-items-end status_box">
-                    <span class="price content_stt">
-                      <span class="number">90000</span><span> 원</span>
-                    </span>
-                    <span class="d-flex flex-column align-items-end status_wrap">
-                      <select name="act[35]" id="act[35]" class="form-select"
-                        aria-label="Default select example">
-                        <option disabled>상태</option>
-                        <option value="활성" selected>활성</option>
-                        <option value="비활성" >비활성</option>
-                      </select>
-                      <span class="price_btn_wrap">
-                        <a href="course_update.php?cid=35" class="btn btn-primary btn_g">수정</a>
-                        <a href="course_delete.php?cid=35" class="btn btn-danger">삭제</a>
-                      </span>
-                    </span>
+                  <div class="tit-group">
+                    <strong class="tit-h3">쿠폰제목</strong>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="toggle1">
+                      <label class="form-check-label visually-hidden" for="toggle1">활성화</label>
+                    </div>
+                  </div>
+                  <div class="txt-group">
+                    <p class="date">사용기한 YYYY-MM-DD</p>
+                    <p class="money">최소사용금액 :  25,000원</p>
+                    <p class="discount">2,000원 할인</p>
                   </div>
                 </div>
               </li>
             </ul>
-            <button class="btn btn-primary btn_g all_modify_btn">변경 일괄 수정</button>
           </form>
         </div>
 
