@@ -9,6 +9,7 @@
   <!-- 폰트어썸 css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+  <link rel="stylesheet" href="css/event.css">
   <link rel="stylesheet" href="css/common.css"> <!--실제로는 경로변경해야함 ../이거빼야됨-->
   <link rel="stylesheet" href="css/layout.css"> <!--실제로는 경로변경해야함 ../이거빼야됨-->
   <link rel="stylesheet" href="css/content.css"> <!--실제로는 경로변경해야함 ../이거빼야됨-->
@@ -196,12 +197,24 @@
         </div>
       </div>
 
-      <ul class="list-group box-list">
-        <li class="list-group-item">
+
+      <!-- 이벤트 리스트 -->
+      <ul class="list-group  box-list list-3 event">
+        <li class="list-group-item flex-column">
           <a href="#" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
             <img src="image/img_coupon_01.jpg" alt="이미지">
           </a>
           <div class="info-area">
+            <div class="tit-event">
+              <strong class="tit-h3">쿠폰제목</strong>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="toggle1">
+                <label class="form-check-label visually-hidden" for="toggle1">활성화</label>
+              </div>
+            </div>
+            <div class="txt-group">
+              <p class="date">이벤트기한 YYYY-MM-DD - YYYY-MM-DD</p>
+            </div>
             <div class="edit-btn-group">
               <button type="button" class="btn correc">
                 <span class="visually-hidden">수정</span>
@@ -212,7 +225,14 @@
                 <i class="fa-solid fa-trash-can fa-small"></i>
               </button>
             </div>
-            <div class="tit-group">
+          </div>
+        </li>
+        <li class="list-group-item flex-column">
+          <a href="#" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
+            <img src="image/img_coupon_01.jpg" alt="이미지">
+          </a>
+          <div class="info-area">
+            <div class="tit-event">
               <strong class="tit-h3">쿠폰제목</strong>
               <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" id="toggle1">
@@ -220,15 +240,130 @@
               </div>
             </div>
             <div class="txt-group">
-              <p class="date">사용기한 YYYY-MM-DD</p>
-              <p class="money">최소사용금액 :  25,000원</p>
-              <p class="discount">2,000원 할인</p>
+              <p class="date">이벤트기한 YYYY-MM-DD - YYYY-MM-DD</p>
+            </div>
+            <div class="edit-btn-group">
+              <button type="button" class="btn correc">
+                <span class="visually-hidden">수정</span>
+                <i class="fa-solid fa-pen-to-square fa-small"></i>
+              </button>
+              <button type="button" class="btn del">
+                <span class="visually-hidden">삭제</span>
+                <i class="fa-solid fa-trash-can fa-small"></i>
+              </button>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item flex-column">
+          <a href="#" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
+            <img src="image/img_coupon_01.jpg" alt="이미지">
+          </a>
+          <div class="info-area">
+            <div class="tit-event">
+              <strong class="tit-h3">쿠폰제목</strong>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="toggle1">
+                <label class="form-check-label visually-hidden" for="toggle1">활성화</label>
+              </div>
+            </div>
+            <div class="txt-group">
+              <p class="date">이벤트기한 YYYY-MM-DD - YYYY-MM-DD</p>
+            </div>
+            <div class="edit-btn-group">
+              <button type="button" class="btn correc">
+                <span class="visually-hidden">수정</span>
+                <i class="fa-solid fa-pen-to-square fa-small"></i>
+              </button>
+              <button type="button" class="btn del">
+                <span class="visually-hidden">삭제</span>
+                <i class="fa-solid fa-trash-can fa-small"></i>
+              </button>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item flex-column">
+          <a href="#" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
+            <img src="image/img_coupon_01.jpg" alt="이미지">
+          </a>
+          <div class="info-area">
+            <div class="tit-event">
+              <strong class="tit-h3">쿠폰제목</strong>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="toggle1">
+                <label class="form-check-label visually-hidden" for="toggle1">활성화</label>
+              </div>
+            </div>
+            <div class="txt-group">
+              <p class="date">이벤트기한 YYYY-MM-DD - YYYY-MM-DD</p>
+            </div>
+            <div class="edit-btn-group">
+              <button type="button" class="btn correc">
+                <span class="visually-hidden">수정</span>
+                <i class="fa-solid fa-pen-to-square fa-small"></i>
+              </button>
+              <button type="button" class="btn del">
+                <span class="visually-hidden">삭제</span>
+                <i class="fa-solid fa-trash-can fa-small"></i>
+              </button>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item flex-column">
+          <a href="#" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
+            <img src="image/img_coupon_01.jpg" alt="이미지">
+          </a>
+          <div class="info-area">
+            <div class="tit-event">
+              <strong class="tit-h3">쿠폰제목</strong>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="toggle1">
+                <label class="form-check-label visually-hidden" for="toggle1">활성화</label>
+              </div>
+            </div>
+            <div class="txt-group">
+              <p class="date">이벤트기한 YYYY-MM-DD - YYYY-MM-DD</p>
+            </div>
+            <div class="edit-btn-group">
+              <button type="button" class="btn correc">
+                <span class="visually-hidden">수정</span>
+                <i class="fa-solid fa-pen-to-square fa-small"></i>
+              </button>
+              <button type="button" class="btn del">
+                <span class="visually-hidden">삭제</span>
+                <i class="fa-solid fa-trash-can fa-small"></i>
+              </button>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item flex-column">
+          <a href="#" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
+            <img src="image/img_coupon_01.jpg" alt="이미지">
+          </a>
+          <div class="info-area">
+            <div class="tit-event">
+              <strong class="tit-h3">쿠폰제목</strong>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="toggle1">
+                <label class="form-check-label visually-hidden" for="toggle1">활성화</label>
+              </div>
+            </div>
+            <div class="txt-group">
+              <p class="date">이벤트기한 YYYY-MM-DD - YYYY-MM-DD</p>
+            </div>
+            <div class="edit-btn-group">
+              <button type="button" class="btn correc">
+                <span class="visually-hidden">수정</span>
+                <i class="fa-solid fa-pen-to-square fa-small"></i>
+              </button>
+              <button type="button" class="btn del">
+                <span class="visually-hidden">삭제</span>
+                <i class="fa-solid fa-trash-can fa-small"></i>
+              </button>
             </div>
           </div>
         </li>
       </ul>
-
-
+      
     </div>
   </div>
 </body>
