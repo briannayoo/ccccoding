@@ -62,11 +62,11 @@
               <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                   <ul class="list-group depth-2">
-                    <li class="list-group-item">
-                      <a href="#" class="text-decoration-none">공지사항</a>
+                    <li class="list-group-item on">
+                      <a href="#" class="text-decoration-none">-공지사항</a>
                     </li>
                     <li class="list-group-item">
-                      <a href="#" class="text-decoration-none">Q&amp;A</a>
+                      <a href="#" class="text-decoration-none">-Q&amp;A</a>
                     </li>
                   </ul>
                 </div>
@@ -96,13 +96,13 @@
 
       <ul class="list-group util-list">
         <li class="list-group-item">
-          <a href="" class="text-decoration-none">
+          <a href="#" class="text-decoration-none">
             <i class="fa-solid fa-power-off fa-small"></i>
             <span>로그아웃</span>
           </a>
         </li>
         <li class="list-group-item">
-          <a href="" class="text-decoration-none">
+          <a href="#" class="text-decoration-none">
             <i class="fa-solid fa-gear fa-small"></i>
             <span>설정</span>
           </a>
@@ -111,20 +111,28 @@
     </nav>
 
     <div class="container">
-      <ul class="list-unstyled util-list">
+      <!-- 상단 until-list (s) -->
+      <ul class="list-unstyled top-util-list">
         <li class="alarm">
-          <button type="button" class="btn">알림
-            <span class="badge rounded-pill bg-danger">
+          <button type="button" class="btn">
+            <i class="fa-solid fa-bell fa-small" aria-hidden="true">
+            </i>
+            <span class="tit-h3">알림</span>
+            <span class="badge rounded-pill">
               <span class="visually-hidden">읽지않은 메시지</span>
-              <em>99</em> 
+              <em class="txt-s">9</em>
+              <span class="visually-hidden">건</span>
             </span>
           </button>
-          
         </li>
         <li class="profile">
-          <span class="admin">관리자</span>
+          <div class="profile-wrap">
+            <img src="image/img_pf_admin.jpg" alt="프로필이미지"> <!--실제로는 경로변경해야함 ../이거빼야됨-->
+          </div>
+          <span class="admin tit-h3">관리자</span>
         </li>
       </ul>
+      <!-- 상단 until-list (e) -->
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
         <h2 class="tit-h2">강의 등록</h2>

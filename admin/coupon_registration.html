@@ -28,39 +28,54 @@
 </head>
 <body>
   <div class="admin-wrapper">
-    <nav>
-      <h1>
-        <a href="index.html">로고</a>
+    <nav class="gnb">
+      <h1 class="logo">
+        <a href="index.html">
+          <span class="visually-hidden">ccccoding</span>
+        </a>
       </h1>
-      <ul class="list-group gnb">
-        <li class="list-group-item">
-          <a href="#" class="">대시보드</a>
+      <ul class="list-group gnb-list">
+        <li class="list-group-item on">
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-house fa-big"></i>
+            <span>대시보드</span>
+          </a>
         </li>
         <li class="list-group-item">
-          <a href="#" class="">카테고리</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-list fa-big"></i>
+            <span>카테고리</span>
+          </a>
         </li>
         <li class="list-group-item">
-          <a href="#" class="">강의관리</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-chalkboard-user fa-big"></i>
+            <span>강의관리</span>
+          </a>
         </li>
         <li class="list-group-item">
-          <a href="#" class="">회원관리</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-address-card fa-big"></i>
+            <span>회원관리</span>
+          </a>
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item on acco">
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  커뮤니티
+                  <i class="fa-solid fa-comments fa-big"></i>
+                  <span>커뮤니티</span>
                 </button>
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <ul class="list-group">
-                    <li class="list-group-item">
-                      <a href="#">공지사항</a>
+                  <ul class="list-group depth-2">
+                    <li class="list-group-item on">
+                      <a href="#" class="text-decoration-none">-공지사항</a>
                     </li>
                     <li class="list-group-item">
-                      <a href="#">Q&amp;A</a>
+                      <a href="#" class="text-decoration-none">-Q&amp;A</a>
                     </li>
                   </ul>
                 </div>
@@ -69,41 +84,64 @@
           </div>
         </li>
         <li class="list-group-item">
-          <a href="#" class="">이벤트 관리</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-gift fa-big"></i>
+            <span>이벤트 관리</span>
+          </a>
         </li>
         <li class="list-group-item">
-          <a href="#" class="">수강관리</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-cart-plus fa-big"></i>
+            <span>수강관리</span>
+          </a>
         </li>
         <li class="list-group-item">
-          <a href="#" class="">쿠폰관리</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-ticket-simple fa-big"></i>
+            <span>쿠폰관리</span>
+          </a>
         </li>
       </ul>
 
       <ul class="list-group util-list">
         <li class="list-group-item">
-          <a href="">로그아웃</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-power-off fa-small"></i>
+            <span>로그아웃</span>
+          </a>
         </li>
         <li class="list-group-item">
-          <a href="">설정</a>
+          <a href="#" class="text-decoration-none">
+            <i class="fa-solid fa-gear fa-small"></i>
+            <span>설정</span>
+          </a>
         </li>
       </ul>
     </nav>
 
     <div class="container">
-      <ul class="list-unstyled util-list">
+      <!-- 상단 until-list (s) -->
+      <ul class="list-unstyled top-util-list">
         <li class="alarm">
-          <button type="button" class="btn">알림
-            <span class="badge rounded-pill bg-danger">
+          <button type="button" class="btn">
+            <i class="fa-solid fa-bell fa-small" aria-hidden="true">
+            </i>
+            <span class="tit-h3">알림</span>
+            <span class="badge rounded-pill">
               <span class="visually-hidden">읽지않은 메시지</span>
-              <em>99</em> 
+              <em class="txt-s">9</em>
+              <span class="visually-hidden">건</span>
             </span>
           </button>
-          
         </li>
         <li class="profile">
-          <span class="admin">관리자</span>
+          <div class="profile-wrap">
+            <img src="image/img_pf_admin.jpg" alt="프로필이미지"> <!--실제로는 경로변경해야함 ../이거빼야됨-->
+          </div>
+          <span class="admin tit-h3">관리자</span>
         </li>
       </ul>
+      <!-- 상단 until-list (e) -->
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
         <h2 class="tit-h2">쿠폰등록</h2>
