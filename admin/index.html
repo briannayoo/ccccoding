@@ -20,6 +20,7 @@
   <!-- chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
   <script src="/admin/js/common.js"></script>
+  <script src="/admin/js/chart.js"></script>
 
 </head>
 <body>
@@ -146,24 +147,24 @@
 
       <div class="content">
         <!-- 이달의 매출 -->
-        <div class="sales-area box-shadow big-box">
-          <h3>이달의 매출</h3>
+        <div class="sales-area box-shadow big-box main-m">
+          <h3 class="txt-title">이달의 매출</h3>
           <div class="chart">
             <canvas id="bar-chart"></canvas>
           </div>
         </div>
         <!-- 회원관리 -->
-        <div class="member-area box-shadow big-box">
-          <h3>회원관리</h3>
+        <div class="member-area box-shadow big-box main-m">
+          <h3 class="txt-title">회원관리</h3>
           <div class="chart">
             <canvas id="line-chart"></canvas>
           </div>
         </div>
         <!-- 강의/수료 -->
-        <div class="lecture-area box-shadow big-box">
+        <div class="lecture-area box-shadow big-box main-m">
           <ul>
-            <li>강의관리</li>
-            <li>수료관리</li>
+            <li class="txt-title">강의관리</li>
+            <li class="txt-title">수료관리</li>
           </ul>
           <div class="chart lecture-box">
             <canvas id="bar-chart2"></canvas>
@@ -173,8 +174,8 @@
           </div>
         </div>
         <!-- 인기강의 best -->
-        <div class="best3-area box-shadow big-box">
-          <h3>인기강의 best3</h3>
+        <div class="best3-area box-shadow big-box main-m">
+          <h3 class="txt-title">인기강의 best3</h3>
           <ul>
             <li><img src="" alt=""><em>EZWEB Jquery 기초</em><span>1.5만</span><i class="fa-solid fa-heart fa-xsmall txt-m tender-color">4.35</i></li>
             <li><img src="" alt=""><em>Rock’s html 정복기</em><span>1.5만</span><i class="fa-solid fa-heart fa-xsmall txt-m tender-color">4.35</i></li>
@@ -182,9 +183,9 @@
           </ul>
         </div>
         <!-- qna -->
-        <div class="qna-area box-shadow small-box">
-          <div class="chaption">
-            <h3>q&a(최신순)</h3>
+        <div class="qna-area box-shadow small-box main-m">
+          <div class="chaption d-flex justify-content-between align-items-center">
+            <h3 class="txt-title">q&a(최신순)</h3>
             <i class="fa-solid fa-circle-plus fa-small"></i>
           </div>
           <ul>
@@ -196,9 +197,9 @@
           </ul>
         </div>
         <!-- 공지사항 -->
-        <div class="notice-area box-shadow small-box">
-          <div class="chaption">
-            <h3>공지사항(최신순)</h3>
+        <div class="notice-area box-shadow small-box main-m">
+          <div class="chaption d-flex justify-content-between align-items-center">
+            <h3 class="txt-title">공지사항(최신순)</h3>
             <i class="fa-solid fa-circle-plus fa-small"></i>
           </div>
           <ul>
@@ -210,9 +211,9 @@
           </ul>
         </div>
         <!-- 이벤트 -->
-        <div class="event-area box-shadow small-box">
-          <div class="chaption">
-            <h3>이벤트(최신순)</h3>
+        <div class="event-area box-shadow small-box main-m">
+          <div class="chaption d-flex justify-content-between align-items-center">
+            <h3 class="txt-title">이벤트(최신순)</h3>
             <i class="fa-solid fa-circle-plus fa-small"></i>
           </div>
           <ul>
