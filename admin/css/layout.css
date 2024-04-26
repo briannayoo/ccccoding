@@ -5,7 +5,7 @@
 .admin-wrapper .container {max-width:1459px; padding-bottom:48px;}
 
 /* gnb */
-.gnb {height:100vh; padding:36px 42px; background-color:var(--bg-sub1-c, #eeeafe); font-family:var(--laundrygothic,'LaundryGothic', sans-serif);}
+.gnb {/*height:100vh;*/ padding:36px 42px; background-color:var(--bg-sub1-c, #eeeafe); font-family:var(--laundrygothic,'LaundryGothic', sans-serif);}
 .gnb .logo > a {display:block; width:252px; height:90px; background:url(../image/logo.png) no-repeat center center / 252px auto;}
 .gnb .gnb-list {margin-top:50px; gap:0;}
 .gnb .gnb-list > li {padding:10px 0; margin:0 -42px;} 
