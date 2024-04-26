@@ -90,3 +90,5 @@
 .list-group.box-list.list-3 .list-group-item {width:calc((100% / 3) - 30px);}
 .list-group.box-list.list-3 .list-group-item:nth-child(n+3)  {margin-top:0;}
 .list-group.box-list.list-3 .list-group-item:nth-child(n+4)  {margin-top:32px;}
+
+/* 공지사항 (유부현) */

@@ -10,3 +10,6 @@
     display: flex;
     justify-content: start;
 }
+.box-list.list-3.event .img-wrap{
+    width: 400px;
+}
