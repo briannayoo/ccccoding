@@ -2,7 +2,9 @@
 @import url(common.css);
 
 /* 대쉬보드 (우예지) */
-.chart {width:565px; height: 300px;}
+.chart{width:565px; height:300px;}
+.txt-title{font-size:26px; text-transform:uppercase; color: var(--primary-c);}
+.main-m{padding:36px 18px; box-sizing:border-box;}
 
 /* 강의등록 / 강의관리(우예지) */
 .lh-2{line-height:34px;}
