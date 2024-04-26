@@ -27,7 +27,7 @@
 
 .gnb .gnb-list ul.depth-2 a {display:block; padding:0 112px; font-size:2.0rem; color:var(--body-text, #222);}
 .gnb .gnb-list ul.depth-2 > li.on a {color:var(--primary-c, #472ea1); font-weight:var(--bold,bold);}
-.gnb .util-list {display:flex; flex-direction:row; justify-content:space-between;}
+.gnb .util-list {display:flex; flex-direction:row; margin-top:48px; justify-content:space-between;}
 .gnb .util-list a {font-size:2.4rem; color:var(--body-text, #222);;}
 
 /* 상단 utillist */
