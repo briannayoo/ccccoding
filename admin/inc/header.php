@@ -48,19 +48,19 @@
           </a>
         </li>
         <li class="list-group-item">
-          <a href="/ccccoding/admin/category.html" class="text-decoration-none">
+          <a href="/ccccoding/admin/category.php" class="text-decoration-none">
             <i class="fa-solid fa-list fa-big"></i>
             <span>카테고리</span>
           </a>
         </li>
         <li class="list-group-item">
-          <a href="/ccccoding/admin/lecture_list.html" class="text-decoration-none">
+          <a href="/ccccoding/admin/lecture_list.php" class="text-decoration-none">
             <i class="fa-solid fa-chalkboard-user fa-big"></i>
             <span>강의관리</span>
           </a>
         </li>
         <li class="list-group-item">
-          <a href="/ccccoding/admin/membership.html" class="text-decoration-none">
+          <a href="/ccccoding/admin/membership.php" class="text-decoration-none">
             <i class="fa-solid fa-address-card fa-big"></i>
             <span>회원관리</span>
           </a>
@@ -78,10 +78,10 @@
                 <div class="accordion-body">
                   <ul class="list-group depth-2">
                     <li class="list-group-item on">
-                      <a href="/ccccoding/admin/notice_list.html" class="text-decoration-none">-공지사항</a>
+                      <a href="/ccccoding/admin/notice_list.php" class="text-decoration-none">-공지사항</a>
                     </li>
                     <li class="list-group-item">
-                      <a href="/ccccoding/admin/qna.html" class="text-decoration-none">-Q&amp;A</a>
+                      <a href="/ccccoding/admin/qna.php" class="text-decoration-none">-Q&amp;A</a>
                     </li>
                   </ul>
                 </div>
@@ -90,19 +90,19 @@
           </div>
         </li>
         <li class="list-group-item">
-          <a href="/ccccoding/admin/event.html" class="text-decoration-none">
+          <a href="/ccccoding/admin/event.php" class="text-decoration-none">
             <i class="fa-solid fa-gift fa-big"></i>
             <span>이벤트 관리</span>
           </a>
         </li>
         <li class="list-group-item">
-          <a href="/ccccoding/admin/order.html" class="text-decoration-none">
+          <a href="/ccccoding/admin/order.php" class="text-decoration-none">
             <i class="fa-solid fa-cart-plus fa-big"></i>
             <span>수강관리</span>
           </a>
         </li>
         <li class="list-group-item">
-          <a href="/ccccoding/admin/coupon.html" class="text-decoration-none">
+          <a href="/ccccoding/admin/coupon.php" class="text-decoration-none">
             <i class="fa-solid fa-ticket-simple fa-big"></i>
             <span>쿠폰관리</span>
           </a>
