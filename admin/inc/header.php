@@ -1,13 +1,14 @@
 <?php
-  // session_start();
+// session_start();
 
-  // include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
-  //include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
+// include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
+//include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
 
 ?>
 
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,8 +32,9 @@
   
 
 </head>
+
 <body>
-<div class="admin-wrapper">
+  <div class="admin-wrapper">
     <nav class="gnb">
       <h1 class="logo">
         <a href="/ccccoding/admin/index.php">
@@ -147,4 +149,3 @@
         </li>
       </ul>
       <!-- 상단 until-list (e) -->
-
