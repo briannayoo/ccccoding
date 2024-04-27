@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
