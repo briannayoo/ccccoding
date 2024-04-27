@@ -104,5 +104,7 @@
       </div>
     </div>
   </div>
+  <script src="/ccccoding/admin/js/chart.js"></script>
+  <script src="/ccccoding/admin/js/dashboard.js"></script>
 </body>
 </html>

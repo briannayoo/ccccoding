@@ -27,7 +27,3 @@ if(isset($_SESSION['AUID'])){
     </script>";
   }
 ?>
-
-<?php
-  include_once $_SERVER['DOCUMENT_ROOT'].'/pinkping/inc/footer.php';
-?>

@@ -36,24 +36,24 @@ $(function() {
     // $('.ipt-datepicker').eq(0).val($('.date-wrap .open').eq(0).data('value'));
   }
   
-  //thumbnail
-  // $('#addImage').click(function(){
-  //   $('#upfile').trigger('click');
-  // });
-  // let profile = document.querySelector('#upfile');
-  // profile.addEventListener('change',(e)=>{
-  //   let file = e.target.files[0];
-  //   console.log(file)
-  //   var reader = new FileReader(); //FileReader() : 이미지 정보를 알려주는 함수
-  //   reader.onloadend = (e=>{
-  //     let attachment = e.target.result;
-  //     if(attachment){
-  //       let target = document.querySelector('#addedImages');
-  //       target.innerHTML = `<img src="${attachment}" alt="${file.name}">`;
-  //     }
-  //   })
-  //   reader.readAsDataURL(file); //사용자가 선택한 파일을 읽어오는 역할
-  // });
+  // thumbnail
+  $('#addImage').click(function(){
+    $('#upfile').trigger('click');
+  });
+  let profile = document.querySelector('#upfile');
+  profile.addEventListener('change',(e)=>{
+    let file = e.target.files[0];
+    console.log(file)
+    var reader = new FileReader(); //FileReader() : 이미지 정보를 알려주는 함수
+    reader.onloadend = (e=>{
+      let attachment = e.target.result;
+      if(attachment){
+        let target = document.querySelector('#addedImages');
+        target.innerHTML = `<img src="${attachment}" alt="${file.name}">`;
+      }
+    })
+    reader.readAsDataURL(file); //사용자가 선택한 파일을 읽어오는 역할
+  });
 
   //파일추가 버튼
   $('#custom-button').click(function() {
