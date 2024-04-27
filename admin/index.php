@@ -1,7 +1,11 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 ?>
-
+      <!-- sub-page-tit-area (s) -->
+      <div class="page-tit-area">
+        <h2 class="tit-h2">대시보드</h2>
+      </div>
+      <!-- sub-page-tit-area (e) -->
       <div class="content dashboard">
         <!-- 이달의 매출 -->
         <div class="sales-area box-shadow big-box main-m">

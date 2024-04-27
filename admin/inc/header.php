@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  // session_start();
 
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
   //include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
@@ -17,9 +17,9 @@
   <!-- 폰트어썸 css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/content.css">
+  <link rel="stylesheet" href="/ccccoding/css/common.css">
+  <link rel="stylesheet" href="/ccccoding/css/layout.css">
+  <link rel="stylesheet" href="/ccccoding/css/content.css">
 
   <!-- 부트스트랩 js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -27,13 +27,13 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <!-- chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
-  <script src="/admin/js/common.js"></script>
-  <script src="/admin/js/chart.js"></script>
-  <script src="/admin/js/dashboard.js"></script>
+  <script src="/ccccoding/admin/js/common.js"></script>
+  <script src="/ccccoding//admin/js/chart.js"></script>
+  <script src="/ccccoding//admin/js/dashboard.js"></script>
 
 </head>
 <body>
-  <div class="admin-wrapper">
+<div class="admin-wrapper">
     <nav class="gnb">
       <h1 class="logo">
         <a href="index.html">
@@ -41,7 +41,7 @@
         </a>
       </h1>
       <ul class="list-group gnb-list">
-        <li class="list-group-item on">
+        <li class="list-group-item">
           <a href="#" class="text-decoration-none">
             <i class="fa-solid fa-house fa-big"></i>
             <span>대시보드</span>
@@ -65,16 +65,16 @@
             <span>회원관리</span>
           </a>
         </li>
-        <li class="list-group-item on acco">
+        <li class="list-group-item acco">
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                   <i class="fa-solid fa-comments fa-big"></i>
                   <span>커뮤니티</span>
                 </button>
               </h2>
-              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+              <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                   <ul class="list-group depth-2">
                     <li class="list-group-item on">
@@ -142,14 +142,10 @@
         </li>
         <li class="profile">
           <div class="profile-wrap">
-            <img src="image/img_pf_admin.jpg" alt="프로필이미지"> <!--실제로는 경로변경해야함 ../이거빼야됨-->
+            <img src="../image/img_pf_admin.jpg" alt="프로필이미지"> <!--실제로는 경로변경해야함 ../이거빼야됨-->
           </div>
           <span class="admin tit-h3">관리자</span>
         </li>
       </ul>
       <!-- 상단 until-list (e) -->
-      <!-- sub-page-tit-area (s) -->
-      <div class="page-tit-area">
-        <h2 class="tit-h2">대시보드</h2>
-      </div>
-      <!-- sub-page-tit-area (e) -->
+
