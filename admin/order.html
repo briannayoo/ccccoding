@@ -145,20 +145,24 @@
         <form action="#" class="form-list">
           <!-- select + datepicker (s) -->
           <div class="row">
-            <label for="single-slect-01" class="col-md-1 col-form-label tit-h4 visually-hidden">수강관리 날짜로 정보검색</label> <!-- label hidden으로 사용  -->
+            <label for="src-date" class="col-md-1 col-form-label tit-h4 visually-hidden">수강관리 날짜로 정보검색</label> <!-- label hidden으로 사용  -->
             <div class="col-md-12">
               <div class="input-group justify-content-between align-items-center">
                 <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="select-01" aria-label="select">
+                  <select class="form-select form-select-sm" id="src-date" name="src-date" aria-label="select">
                     <option  value="1" selected>결제일</option>
                     <option  value="2">사용기한</option>
                   </select>
                 </div>
-                <div class="col-md-4 ipt-wrap">
-                  <input type="text" class="datepicker" placeholder="YYYY-MM-DD">
-                </div>
-                <div class="col-md-4 ipt-wrap">
-                  <input type="text" class="datepicker" placeholder="YYYY-MM-DD">
+                <div class="date-wrap col-md-8">
+                  <div class="col-md-6 ipt-wrap">
+                    <input type="text" class="ipt-datepicker" id="datepicker-01" name="datepicker-01" placeholder="YYYY-MM-DD">
+                    <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
+                  </div>
+                  <div class="col-md-6 ipt-wrap">
+                    <input type="text" class="ipt-datepicker" id="datepicker-02" name="datepicker-02" placeholder="YYYY-MM-DD">
+                    <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -166,18 +170,18 @@
           <!-- elect + datepicker 1/3 (e) -->
           <!-- select + text + button (s) -->
           <div class="row">
-            <label for="single-slect-01" class="col-md-1 col-form-label tit-h4 visually-hidden">수강관리 회원정보로 검색</label> <!-- label hidden으로 사용  -->
+            <label for="info-select" class="col-md-1 col-form-label tit-h4 visually-hidden">수강관리 회원정보로 검색</label> <!-- label hidden으로 사용  -->
             <div class="col-md-12">
               <div class="input-group justify-content-between align-items-center">
                 <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="select-01" aria-label="select">
+                  <select class="form-select form-select-sm" id="info-select" name="info-select" aria-label="select">
                     <option value="1" selected>이름</option>
                     <option value="2">아이디</option>
                     <option value="3">강좌명</option>
                   </select>
                 </div>
                 <div class="col-md-7 ipt-wrap">
-                  <input type="text" class="form-control" placeholder="검색어를 입력하세요">
+                  <input type="text" class="form-control" id="search" name="search" placeholder="검색어를 입력하세요">
                 </div>
                 <button type="button" class="btn btn-primary btn-sm">검색</button>
               </div>

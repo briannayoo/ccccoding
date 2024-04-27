@@ -156,7 +156,7 @@
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="discount" aria-label="select">
+                  <select class="form-select form-select-sm" id="discount" name="discount" aria-label="select">
                     <option selected>전체</option>
                     <option value="1">할인금액</option>
                     <option value="2">할인율</option>
@@ -173,7 +173,7 @@
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap ipt-wrap">
-                  <input type="text" class="form-control" id="coupon-name" placeholder="쿠폰명을 입력하세요.">
+                  <input type="text" class="form-control" id="coupon-name" name="coupon-name" placeholder="쿠폰명을 입력하세요.">
                 </div>
               </div>
             </div>
@@ -182,11 +182,11 @@
 
           <!-- 사용기한 (s) -->
           <div class="row">
-            <label for="use" class="col-md-1 col-form-label tit-h4">사용기한</label>
+            <label for="use-date" class="col-md-1 col-form-label tit-h4">사용기한</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="use" aria-label="select">
+                  <select class="form-select form-select-sm" id="use-date" name="use-date" aria-label="select">
                     <option selected>전체</option>
                     <option value="1">무제한</option>
                     <option value="2">기간설정</option>
@@ -209,7 +209,7 @@
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="state" aria-label="select">
+                  <select class="form-select form-select-sm" id="state" name="state" aria-label="select">
                     <option selected>전체</option>
                     <option value="1">활성화</option>
                     <option value="2">비활성화</option>

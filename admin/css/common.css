@@ -114,6 +114,7 @@ textarea {height:250px;}
 .input-group .ipt-wrap:last-child {padding-right:0;}
 .input-group .ipt-wrap:first-child {padding-right:30px;}
 .form-list .ipt-wrap:last-child .unit {right:10px;}
+.input-group .ipt-wrap:first-child .unit {right:40px;}
 .form-list {display:flex; flex-direction:column; gap:26px;}
 .form-list .row {align-items:start; margin:0; padding:0;}
 .form-list .col-form-label {padding:0;}
@@ -135,9 +136,12 @@ textarea {height:250px;}
 /* 데이트 픽커 */
 .date-wrap {display:flex; width:100%;}
 .date-wrap.col-md-8 {width:66.66666667%;}
-.date-wrap .datepicker {display:block; width:100%;}
-.date-wrap .datepicker + i {position:absolute; top:0; right:0;}
 .date-wrap .ipt-datepicker {display:block; width:100%;}
+.date-wrap .datepicker {position:static !important;}
+.date-wrap .open {position:absolute; top:3px; right:18px; width:24px; height:24px; background:url(../image/ico_calender.png) no-repeat center center / 24px auto; border:0; background-color:transparent;}
+.date-wrap .ipt-wrap:first-child .open {right:48px;}
+.date-wrap .open + .datepicker__wrapper {top:30px !important; margin:0;}
+.date-wrap .ipt-wrap:first-child .open + .datepicker__wrapper {width:calc(100% - 30px);}
 
 /* 리스트 그룹 보더 */
 .list-group {gap:26px;}

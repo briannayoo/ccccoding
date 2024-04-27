@@ -393,11 +393,11 @@
               <div class="date-wrap">
                 <div class="col-md-6 ipt-wrap">
                   <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD">
-                  <i class="fa-solid fa-calendar-days fa-small"></i>
+                  <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                 </div>
                 <div class="col-md-6 ipt-wrap">
                   <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD">
-                  <i class="fa-solid fa-calendar-days fa-small"></i>
+                  <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                 </div>
               </div>
             </div>
@@ -524,12 +524,12 @@
               </div>
               <div class="date-wrap col-md-8">
                 <div class="col-md-6 ipt-wrap">
-                  <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD">
-                  <i class="fa-solid fa-calendar-days fa-small"></i>
+                  <input type="text" class="ipt-datepicker" id="datepicker-01" name="datepicker-01" placeholder="YYYY-MM-DD">
+                  <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                 </div>
                 <div class="col-md-6 ipt-wrap">
-                  <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD">
-                  <i class="fa-solid fa-calendar-days fa-small"></i>
+                  <input type="text" class="ipt-datepicker" id="datepicker-02" name="datepicker-02" placeholder="YYYY-MM-DD">
+                  <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                 </div>
               </div>
             </div>
@@ -836,192 +836,8 @@
 
     <!-- IA (s) -->
     <div class="tab-pane fade" id="ia-tab-pane" role="tabpanel" aria-labelledby="ia-tab" tabindex="0">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">NO.</th>
-            <th scope="col">화면명</th>
-            <th scope="col">화면아이디</th>
-            <th scope="col">완료날짜(마크업)</th>
-            <th scope="col">완료날짜(php)</th>
-            <th scope="col">수정날짜</th>
-            <th scope="col">비고(담당자/기타전달사항)</th>
-            <th scope="col">링크이동</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row"></th>
-            <td>대시보드</td>
-            <td>index</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>담당자:박소현,우예지,유부현</td>
-            <td><a href="../index.html">열기</a></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>로그인</td>
-            <td>login</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>담당자:우예지</td>
-            <td><a href="../login.html">열기</a></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>강의관리</td>
-            <td>lecture_list</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>담당자:우예지</td>
-            <td><a href="../lecture_list.html">열기</a></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>강의등록</td>
-            <td>lecture_up</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>담당자:우예지</td>
-            <td><a href="../lecture_up.html">열기</a></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>카테고리</td>
-            <td>category</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>담당자:우예지</td>
-            <td><a href="../category.html">열기</a></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>회원관리</td>
-            <td>membership</td>
-            <td>2024-04-24</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>담당자:박소현</td>
-            <td><a href="../membership.html">열기</a></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>Q&A</td>
-            <td>qna</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>담당자:유부현</td>
-            <td><a href="../qna.html">열기</a></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>Q&A</td>
-            <td>qna_up</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>담당자:유부현</td>
-            <td><a href="../qna_up.html">열기</a></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>공지사항</td>
-            <td>notice_list</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>담당자:유부현</td>
-            <td><a href="../notice_list.html">열기</a></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>공지사항등록</td>
-            <td>notice_up</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>담당자:유부현</td>
-            <td><a href="../notice_up.html">열기</a></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>공지사항수정</td>
-            <td>notice_up</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>담당자:유부현</td>
-            <td><a href="../notice_re.html">열기</a></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>이벤트</td>
-            <td>event</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>담당자:유부현</td>
-            <td><a href="../event.html">열기</a></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>이벤트등록</td>
-            <td>event_up</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>담당자:유부현</td>
-            <td><a href="../event_up.html">열기</a></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>수강관리</td>
-            <td>order</td>
-            <td>2024-04-24</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>담당자:박소현</td>
-            <td><a href="../order.html">열기</a></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>쿠폰 관리</td>
-            <td>coupon</td>
-            <td>2024-04-24</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>담당자:박소현 / 240424 datepicker확인해봐야함</td>
-            <td><a href="../coupon.html">열기</a></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>쿠폰 등록</td>
-            <td>coupon_registration</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>담당자:박소현</td>
-            <td><a href="../coupon_registration.html">열기</a></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>쿠폰 등록-쿠폰수정(화면아이디 따로 줘야하는지)</td>
-            <td>coupon_modify</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>YYYY-MM-DD</td>
-            <td>담당자:박소현</td>
-            <td><a href="../coupon_modify.html">열기</a></td>
-          </tr>
-        </tbody>
-      </table>
+      <a href="ia.html">ia바로가기</a>
+      
     </div>
     <!-- IA (e) -->
 

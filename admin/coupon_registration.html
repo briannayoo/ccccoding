@@ -35,7 +35,7 @@
         </a>
       </h1>
       <ul class="list-group gnb-list">
-        <li class="list-group-item on">
+        <li class="list-group-item">
           <a href="#" class="text-decoration-none">
             <i class="fa-solid fa-house fa-big"></i>
             <span>대시보드</span>
@@ -59,7 +59,7 @@
             <span>회원관리</span>
           </a>
         </li>
-        <li class="list-group-item on acco">
+        <li class="list-group-item">
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
               <h2 class="accordion-header">
@@ -154,11 +154,11 @@
         <form action="#" class="form-list">
           <!-- input text 1/3 (s) -->
           <div class="row">
-            <label for="txt01-01" class="col-md-1 col-form-label tit-h4">쿠폰명</label>
+            <label for="c-name" class="col-md-1 col-form-label tit-h4">쿠폰명</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <input type="text" class="form-control" id="txt01-01" placeholder="쿠폰명을 입력하세요.">
+                  <input type="text" class="form-control" id="c-name" name="c-name" placeholder="쿠폰명을 입력하세요.">
                 </div>
               </div>
             </div>
@@ -167,11 +167,11 @@
 
           <!-- input text 1 (s) -->
           <div class="row">
-            <label for="txt03" class="col-md-1 col-form-label tit-h4">쿠폰설명</label>
+            <label for="c-desc" class="col-md-1 col-form-label tit-h4">쿠폰설명</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-12 ipt-wrap">
-                  <input type="text" class="form-control" id="fm-txt03" placeholder="쿠폰설명을 입력하세요.">
+                  <input type="text" class="form-control" id="c-desc" name="c-desc" placeholder="쿠폰설명을 입력하세요.">
                 </div>
               </div>
             </div>
@@ -180,11 +180,11 @@
 
           <!-- input text 단위 1/3 (s) -->
           <div class="row">
-            <label for="unit-01" class="col-md-1 col-form-label tit-h4">최소사용금액</label>
+            <label for="min-amount" class="col-md-1 col-form-label tit-h4">최소사용금액</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap ipt-wrap">
-                  <input type="text" class="form-control text-end" id="unit-01">
+                  <input type="text" class="form-control text-end" id="min-amount" name="min-amount">
                   <span class="unit">원</span>
                 </div>
               </div>
@@ -200,14 +200,14 @@
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="discount" aria-label="select">
+                  <select class="form-select form-select-sm" id="discount" name="discount" aria-label="select">
                     <option>선택해주세요</option>
                     <option value="1" selected>할인금액</option>
                     <option value="2">할인율</option>
                   </select>
                 </div>
                 <div class="col-md-4 ipt-wrap">
-                  <input type="text" class="form-control text-end" id="unit-01">
+                  <input type="text" class="form-control text-end" id="dc-amount" name="dc-amount">
                   <span class="unit">원</span>
                 </div>
               </div>
@@ -221,14 +221,14 @@
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="discount" aria-label="select">
+                  <select class="form-select form-select-sm" id="discount" name="discount" aria-label="select">
                     <option>선택해주세요</option>
                     <option value="1">할인금액</option>
                     <option value="2" selected>할인율</option>
                   </select>
                 </div>
                 <div class="col-md-4 ipt-wrap">
-                  <input type="text" class="form-control text-end" id="unit-02">
+                  <input type="text" class="form-control text-end" id="dc-percent" name="dc-percent">
                   <span class="unit">%</span>
                 </div>
               </div>
@@ -236,25 +236,6 @@
           </div>
           <!-- 할인율 선택시 (e) -->
           <!-- select + input text 혼합(e) -->
-
-          <div class="row">
-            <label for="discount" class="col-md-1 col-form-label tit-h4">사용기한</label>
-            <div class="col-md-11">
-              <div class="input-group">
-                <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="discount" aria-label="select">
-                    <option selected>선택해주세요</option>
-                    <option value="1">무제한</option>
-                    <option value="2">기간설정</option>
-                  </select>
-                </div>
-                <div class="col-md-4 ipt-wrap">
-                  <input type="text" class="form-control text-end" id="unit-02">
-                  <span class="unit">%</span>
-                </div>
-              </div>
-            </div>
-          </div>
 
           <!-- 기간설정 시 (s) -->
           <div class="row">
@@ -268,11 +249,15 @@
                     <option value="2" selected>기간설정</option>
                   </select>
                 </div>
-                <div class="col-md-4 ipt-wrap">
-                  <input type="text" class="datepicker" placeholder="YYYY-MM-DD">
-                </div>
-                <div class="col-md-4 ipt-wrap">
-                  <input type="text" class="datepicker" placeholder="YYYY-MM-DD">
+                <div class="date-wrap col-md-8">
+                  <div class="col-md-6 ipt-wrap">
+                    <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD">
+                    <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
+                  </div>
+                  <div class="col-md-6 ipt-wrap">
+                    <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD">
+                    <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -297,7 +282,6 @@
             <button type="button" class="btn btn-secondary btn-lg">취소</button>
           </div>
           <!-- 하단버튼(e) -->
-        </div>
         </form>
         <!-- form-list (e) -->
 
