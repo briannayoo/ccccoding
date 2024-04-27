@@ -104,5 +104,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
       </div>
     </div>
   </div>
+  <script src="/ccccoding/admin/js/chart.js"></script>
+  <script src="/ccccoding/admin/js/dashboard.js"></script>
 </body>
 </html>
