@@ -23,15 +23,13 @@ $(function() {
     
     const datepickers = document.querySelectorAll('.date-wrap .open');
     datepickers.forEach(picker => {
-        new Datepicker(picker, {
-          // 여기에 원하는 설정 옵션을 추가할 수 있습니다.
-          onChange: function(){
-            // $('.date-wrap .open').click(function(){
-              // $('.ipt-datepicker').eq(0).val($('.date-wrap .open').eq(0).data('value'));
-              $('.ipt-datepicker').eq(0).val($('.date-wrap .open').eq(0).attr('data-value'));
-            // })
-          }
-        });
+      new Datepicker(picker, {
+        toValue:  function(val){
+          console.log($(picker).closest('.ipt-wrap').find('.ipt-datepicker'))
+          val = $(picker).closest('.ipt-wrap').find('.ipt-datepicker').eq(0).val(val.slice(0, -1).replaceAll('.', '-'));
+          return val;
+        },
+      });
     });
 
     // $('.ipt-datepicker').val($('.date-wrap .open').attr('data-value'));
