@@ -1,16 +1,27 @@
-document.addEventListener("DOMContentLoaded", function() {
+$(function() {
 
 /*
   =====================공통영역
 */
 
-  // Datepicker
-  const datepickers = document.querySelectorAll('.ipt-datepicker');
-  datepickers.forEach(picker => {
-      new Datepicker(picker, {
-        // 여기에 원하는 설정 옵션을 추가할 수 있습니다.
-      });
-  });
+  if($('.date-wrap').length > 0){
+    // Datepicker
+    const datepickers = document.querySelectorAll('.date-wrap .open');
+    datepickers.forEach(picker => {
+        new Datepicker(picker, {
+          // 여기에 원하는 설정 옵션을 추가할 수 있습니다.
+          onChange: function(){
+            // $('.date-wrap .open').click(function(){
+              // $('.ipt-datepicker').eq(0).val($('.date-wrap .open').eq(0).data('value'));
+              $('.ipt-datepicker').eq(0).val($('.date-wrap .open').eq(0).attr('data-value'));
+            // })
+          }
+        });
+    });
+
+    // $('.ipt-datepicker').val($('.date-wrap .open').attr('data-value'));
+    // $('.ipt-datepicker').eq(0).val($('.date-wrap .open').eq(0).data('value'));
+  }
   
   //thumbnail
   // $('#addImage').click(function(){
