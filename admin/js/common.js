@@ -1,10 +1,15 @@
 $(function() {
-
+  const url = location.pathname
 /* ===================== 공통영역 =====================*/
 
   // gnb
   // $('.gnb-list > li:first-child').addClass('on');
-  $('.gnb-list > li').click(function(){
+  $('.gnb-list > li').click(function(e){
+    // e.preventDefault();)
+    if($(this).find('a').attr('href') === url){
+      $(this).siblings.removeClass('on');
+      $(this).addClass('on');
+    }
     // console.log($(this).find('.accordion'));
     if($(this).find('.accordion').length === 0){
       $(this).toggleClass('on');
