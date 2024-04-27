@@ -114,6 +114,7 @@ textarea {height:250px;}
 .input-group .ipt-wrap:last-child {padding-right:0;}
 .input-group .ipt-wrap:first-child {padding-right:30px;}
 .form-list .ipt-wrap:last-child .unit {right:10px;}
+.input-group .ipt-wrap:first-child .unit {right:40px;}
 .form-list {display:flex; flex-direction:column; gap:26px;}
 .form-list .row {align-items:start; margin:0; padding:0;}
 .form-list .col-form-label {padding:0;}

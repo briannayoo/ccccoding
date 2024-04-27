@@ -16,11 +16,11 @@
 .gnb .gnb-list > .acco .accordion-header {margin:0; padding:10px 0;}
 .gnb .gnb-list > .on a,
 .gnb .gnb-list > .on button {padding:0 42px; color:var(--white, #fff);}
-.gnb .gnb-list > .on.acco {background:none; padding:0; margin:0 -42px;}
+/* .gnb .gnb-list > .on.acco {background:none; padding:0; margin:0 -42px;} */
 .gnb-list .accordion {border:none;}
 .gnb-list .accordion .accordion-item {border:none; background:none;}
 .gnb-list .accordion .accordion-button {padding:0 42px; background:none; box-shadow:none;}
-.gnb-list .accordion .accordion-button::after {position:absolute; top:auto; right:42px; padding:0; border-width:8px 8px; border-style:solid; border-color:var(--body-text, #222) transparent transparent transparent; background-image:none; border-radius:3px; width:auto; height:auto;}
+.gnb-list .accordion .accordion-button::after {position:absolute; top:10px; right:42px; padding:0; border-width:8px 8px; border-style:solid; border-color:var(--body-text, #222) transparent transparent transparent; background-image:none; border-radius:3px; width:auto; height:auto;}
 .gnb-list .accordion .accordion-button:not(.collapsed)::after {top:0;}
 .gnb .gnb-list > .on.acco .accordion .accordion-button::after {border-color:var(--white, #fff) transparent transparent transparent;}
 .gnb-list .accordion-body {padding:24px 0;}

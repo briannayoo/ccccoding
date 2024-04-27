@@ -1,11 +1,26 @@
 $(function() {
 
-/*
-  =====================공통영역
-*/
+/* ===================== 공통영역 =====================*/
 
+  // gnb
+  $('.gnb-list > li:first-child').addClass('on');
+  $('.gnb-list > li').click(function(){
+    console.log($(this).find('.accordion'));
+    if($(this).find('.accordion').length === 0){
+      $(this).toggleClass('on');
+    }
+    $(this).siblings().removeClass('on');
+  })
+  $('.gnb-list > li .depth-2 > li').click(function(){
+    if($(this).find('.accordion').length === 0){
+      $(this).toggleClass('on');
+    }
+    $(this).siblings().removeClass('on');
+  })
+
+  // Datepicker
   if($('.date-wrap').length > 0){
-    // Datepicker
+    
     const datepickers = document.querySelectorAll('.date-wrap .open');
     datepickers.forEach(picker => {
         new Datepicker(picker, {
