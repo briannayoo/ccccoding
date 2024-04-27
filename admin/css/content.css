@@ -3,15 +3,20 @@
 
 /* 대쉬보드 (우예지) */
 .chart{width:565px; height:260px;}
-.txt-title{font-size:26px; text-transform:uppercase; color: var(--primary-c);}
-.main-m{padding:36px 18px;}
+.chart-2 {width:290px; height:260px;}
+.chart-3 {width:565px; height:245px; transform: translateY(-245px);}
 .dashboard {
   display:grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 354px 354px 354px;
-  grid-gap: 30px;
+  grid-gap: 10px;
 }
+.dashboard .txt-title{font-size:26px; text-transform:uppercase; color:var(--primary-c);}
+.main-m{padding:36px 18px;}
+.dashboard .nav-link {color:var(--body-text);}
+.dashboard .nav-tabs {--bs-nav-tabs-link-active-color:var(--primary-c);}
 .dashboard * {list-style: none;}
+.dashboard a {text-decoration: none; color: inherit;}
 /* grid */
 .dashboard .sales-area{ grid-column: 1 / 4; grid-row: 1 / 2;}
 .dashboard .member-area {grid-column: 4 / 7; grid-row: 1 / 2;}
@@ -21,42 +26,31 @@
 .dashboard .notice-area {grid-column: -5 / -3; grid-row: 3 / 4;}
 .dashboard .event-area {grid-column: -3 / -1; grid-row: 3 / 4;}
 .dashboard .chaption {margin-bottom: 36px;}
-.dashboard .best3-area li {
-  display: flex;
-  align-items: center;
-  line-height: 70px;
-}
+.dashboard .best3-area li {display:flex;align-items:center;line-height:70px;}
+.lecture-condition {width: 50%; padding: 0 10px; box-sizing: border-box;}
+.lecture-condition p{display: flex; justify-content: space-between;}
+.dashboard .lecture-condition em,
+.dashboard .lecture-condition span {font-style: normal; font-size: 2.6rem;}
 .dashboard .best3-area em {
-  display: inline-block;
-  margin-right: 70px;
-  font-style: normal;
-  font-size: 2.6rem;
-  width: 350px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap
+  display:inline-block;
+  margin-right:120px;
+  font-style:normal;
+  font-size:2.6rem;
+  width:256px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap
 }
 .dashboard .best3-area span {margin-right: 40px;}
 .dashboard .best3-area span,
-.dashboard .best3-area i {
-  font-size: 2rem;
-}
+.dashboard .best3-area i {font-size: 2rem;}
 .dashboard .qna-area div, 
 .dashboard .notice-area div,
 .dashboard .event-area div,
 .dashboard .qna-area li, 
 .dashboard .notice-area li,
-.dashboard .event-area li {
-  display:flex;
-  justify-content:space-between;
-  align-items: center;
-}
-.dashboard .list-stlye{
-  line-height:45px; font-size:2.4rem;
-  border-bottom:1px solid var(--ipt-border);
-} 
-
-.Completion-box{display: none;}
+.dashboard .event-area li {display:flex; justify-content:space-between; align-items:center;}
+.dashboard .list-stlye{line-height:45px; font-size:2.4rem; border-bottom:1px solid var(--ipt-border);} 
 
 /* 강의등록 / 강의관리(우예지) */
 .lh-2{line-height:34px;}
