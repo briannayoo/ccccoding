@@ -11,14 +11,53 @@
   grid-template-rows: 354px 354px 354px;
   grid-gap: 30px;
 }
-.dashboard .sales-area{grid-column: 1 / 4; grid-row: 1 / 2;}
-.dashboard .member-area{grid-column: 4 / 7; grid-row: 1 / 2;}
-.dashboard .lecture-area{grid-column: 1 / 4; grid-row: 2 / 3;}
-.dashboard .best3-area{grid-column: 4 / 7; grid-row: 2 / 3;}
-.dashboard .qna-area{grid-column: -7 / -5; grid-row: 3 / 4;}
-.dashboard .notice-area{grid-column: -5 / -3; grid-row: 3 / 4;}
-.dashboard .event-area{grid-column: -3 / -1; grid-row: 3 / 4;}
+.dashboard * {list-style: none;}
+/* grid */
+.dashboard .sales-area{ grid-column: 1 / 4; grid-row: 1 / 2;}
+.dashboard .member-area {grid-column: 4 / 7; grid-row: 1 / 2;}
+.dashboard .lecture-area {grid-column: 1 / 4; grid-row: 2 / 3;}
+.dashboard .best3-area {grid-column: 4 / 7; grid-row: 2 / 3;}
+.dashboard .qna-area {grid-column: -7 / -5; grid-row: 3 / 4;}
+.dashboard .notice-area {grid-column: -5 / -3; grid-row: 3 / 4;}
+.dashboard .event-area {grid-column: -3 / -1; grid-row: 3 / 4;}
+.dashboard .chaption {margin-bottom: 36px;}
+.dashboard .best3-area li {
+  display: flex;
+  align-items: center;
+  line-height: 70px;
+}
+.dashboard .best3-area em {
+  display: inline-block;
+  margin-right: 70px;
+  font-style: normal;
+  font-size: 2.6rem;
+  width: 350px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+.dashboard .best3-area span {margin-right: 40px;}
+.dashboard .best3-area span,
+.dashboard .best3-area i {
+  font-size: 2rem;
+}
+.dashboard .qna-area div, 
+.dashboard .notice-area div,
+.dashboard .event-area div,
+.dashboard .qna-area li, 
+.dashboard .notice-area li,
+.dashboard .event-area li {
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+}
+.dashboard .list-stlye{
+  line-height:45px; font-size:2.4rem;
+  border-bottom:1px solid var(--ipt-border);
+} 
+
 .Completion-box{display: none;}
+
 /* 강의등록 / 강의관리(우예지) */
 .lh-2{line-height:34px;}
 .list-mt input {margin-top:8px;}
@@ -51,6 +90,7 @@
 .lecture_list_wrap .search-result {margin-bottom:0; text-align:center;}
 .lecture_list_wrap .btn:hover i {color: var(--primary-c);}
 .lecture_list_wrap .fa-angle-right {margin: 0 10px;}
+
 /* 로그인.html (우예지) */
 #login-wrap {
   background:var(--bg-sub1-c);
