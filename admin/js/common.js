@@ -3,7 +3,7 @@ $(function() {
 /* ===================== 공통영역 =====================*/
 
   // gnb
-  $('.gnb-list > li:first-child').addClass('on');
+  // $('.gnb-list > li:first-child').addClass('on');
   $('.gnb-list > li').click(function(){
     console.log($(this).find('.accordion'));
     if($(this).find('.accordion').length === 0){
