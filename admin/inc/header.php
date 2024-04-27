@@ -1,7 +1,7 @@
 <?php
   // session_start();
 
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
+  // include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
   //include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
 
 ?>
@@ -27,9 +27,9 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <!-- chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
-  <script src="/ccccoding/admin/js/common.js"></script>
-  <script src="/ccccoding//admin/js/chart.js"></script>
-  <script src="/ccccoding//admin/js/dashboard.js"></script>
+  <script src="/ccccoding/js/common.js"></script>
+  <script src="/ccccoding/js/chart.js"></script>
+  <script src="/ccccoding/js/dashboard.js"></script>
 
 </head>
 <body>
