@@ -1,5 +1,5 @@
 <?php
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
@@ -104,6 +104,8 @@
       </div>
     </div>
   </div>
+  <!-- chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
   <script src="/ccccoding/admin/js/chart.js"></script>
   <script src="/ccccoding/admin/js/dashboard.js"></script>
 </body>
