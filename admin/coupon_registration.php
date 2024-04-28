@@ -1,4 +1,7 @@
 <?php
+  // session_start();
+
+  // include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 ?>
       <!-- sub-page-tit-area (s) -->
@@ -9,14 +12,14 @@
 
       <div class="content"> 
         <!-- form-list (s) -->
-        <form action="#" class="form-list">
+        <form action="#" method="POST" enctype="multipart/form-data"  class="form-list">
           <!-- input text 1/3 (s) -->
           <div class="row">
             <label for="c-name" class="col-md-1 col-form-label tit-h4">쿠폰명</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <input type="text" class="form-control" id="c-name" name="c-name" placeholder="쿠폰명을 입력하세요.">
+                  <input type="text" class="form-control" id="c-name" name="c-name" placeholder="쿠폰명을 입력하세요." required>
                 </div>
               </div>
             </div>
@@ -58,9 +61,9 @@
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="discount" name="discount" aria-label="select">
-                    <option>선택해주세요</option>
-                    <option value="1" selected>할인금액</option>
+                  <select class="form-select form-select-sm" id="discount" name="discount" aria-label="할인 종류 선택">
+                    <option selected>선택해주세요</option>
+                    <option value="1" >할인금액</option>
                     <option value="2">할인율</option>
                   </select>
                 </div>
@@ -146,5 +149,6 @@
   </div>
   <!-- wwilsman 데이트픽커 js -->
   <script src="/ccccoding/admin/js/datepicker.js"></script>
+  <script src="/ccccoding/admin/js/coupon.js"></script>
 </body>
 </html>
