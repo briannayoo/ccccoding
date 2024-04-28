@@ -107,7 +107,7 @@
         </div>
       </div>
 
-      <!-- pagenation(s) -->
+      <!-- pagination(s) -->
       <nav aria-label="페이지네이션">
         <ul class="pagination">
           <li class="page-item disabled">
@@ -151,7 +151,7 @@
           </li>
         </ul>
       </nav>
-      <!-- pagenation(e) -->
+      <!-- pagination(e) -->
     </div>
   </div>
 </body>
