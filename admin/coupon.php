@@ -1,4 +1,7 @@
 <?php
+  // session_start();
+
+  // include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 ?>
       <!-- sub-page-tit-area (s) -->
@@ -6,6 +9,10 @@
         <h2 class="tit-h2">쿠폰관리</h2>
       </div>
       <!-- sub-page-tit-area (e) -->
+
+      <div class="d-flex justify-content-end mb-5">
+        <a href="coupon_registration.php" class="btn btn-primary btn-lg">쿠폰등록</a>
+      </div>
 
       <!-- form-list (s) -->
       <form action="#" class="form-list">
