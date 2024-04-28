@@ -3,7 +3,7 @@
   session_unset();
   session_destroy();
 
-  $url = '/ccccoding/index.php';
+  $url = '/ccccoding/admin/login.php';
   header("Location:$url");
   die();
 ?>
