@@ -3,6 +3,29 @@
 
   // include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
+
+  $search_where = "";
+  $search_keyword = $_GET['keyword'] ?? '';
+
+  if($search_keyword){
+    $search_where .= " and (coupon_name LIKE '%{$search_keyword}%')";
+  }
+
+  // $paginationTarget = 'coupons';
+  // include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
+
+  $sql = "SELECT * FROM coupons where 1=1"; //모든 상품 조회 쿼리
+  $sql .= $search_where;
+  $order = " order by cid desc";
+  $sql .= $order;
+  // $limit = " LIMIT $startLimit, $endLimit";
+  // $sql .= $limit;
+
+  $result = $mysqli->query($sql);
+
+  while ($rs = $result->fetch_object()) {
+    $rsArr[] = $rs;
+  }
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
@@ -104,9 +127,13 @@
         </div>
 
         <ul class="list-group box-list">
+          <?php
+            if (isset($rsArr)) {
+            foreach ($rsArr as $item) {
+          ?>
           <li class="list-group-item">
             <a href="#" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
-              <img src="image/img_coupon_01.jpg" alt="이미지">
+              <img src="<?= $item->coupon_image; ?>" alt="이미지">
             </a>
             <div class="info-area">
               <div class="edit-btn-group">
@@ -120,19 +147,24 @@
                 </button>
               </div>
               <div class="tit-group">
-                <strong class="tit-h3">쿠폰제목</strong>
+                <strong class="tit-h3"><?= $item->coupon_name; ?></strong>
                 <div class="form-check form-switch">
                   <input class="form-check-input" type="checkbox" id="toggle1">
                   <label class="form-check-label visually-hidden" for="toggle1">활성화</label>
                 </div>
               </div>
               <div class="txt-group">
-                <p class="date">사용기한 YYYY-MM-DD</p>
-                <p class="money">최소사용금액 :  25,000원</p>
-                <p class="discount">2,000원 할인</p>
+                <p class="date">사용기한 <?= $item->start_date; ?> ~ <?= $item->endt_date; ?></p>
+                <p class="money">최소사용금액 :  <?= $item->use_min_price; ?>원</p>
+                <p class="discount"><?= $item->coupon_price; ?>원 할인</p>
               </div>
             </div>
           </li>
+          <?php
+            }
+          }
+          ?>
+          <!--
           <li class="list-group-item">
             <a href="#" class="img-wrap">
               <img src="image/img_coupon_02.jpg" alt="이미지">
@@ -278,6 +310,7 @@
               </div>
             </div>
           </li>
+-->
         </ul>
 
         <!-- pagenation(s) -->
