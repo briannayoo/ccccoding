@@ -63,51 +63,34 @@
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="discount" name="discount" aria-label="할인 종류 선택">
                     <option selected>선택해주세요</option>
-                    <option value="1" >할인금액</option>
-                    <option value="2">할인율</option>
+                    <option value="amount" >할인금액</option>
+                    <option value="rate">할인율</option>
                   </select>
                 </div>
-                <div class="col-md-4 ipt-wrap">
+                <div class="col-md-4 ipt-wrap dc-wrap amount">
                   <input type="text" class="form-control text-end" id="dc-amount" name="dc-amount">
                   <span class="unit">원</span>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!-- 할인금액 선택시 (e) -->
-
-          <!-- 할인율 선택시 (s) -->
-          <div class="row">
-            <label for="discount" class="col-md-1 col-form-label tit-h4">할인종류</label>
-            <div class="col-md-11">
-              <div class="input-group">
-                <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="discount" name="discount" aria-label="select">
-                    <option>선택해주세요</option>
-                    <option value="1">할인금액</option>
-                    <option value="2" selected>할인율</option>
-                  </select>
-                </div>
-                <div class="col-md-4 ipt-wrap">
+                <div class="col-md-4 ipt-wrap dc-wrap percent">
                   <input type="text" class="form-control text-end" id="dc-percent" name="dc-percent">
                   <span class="unit">%</span>
                 </div>
               </div>
             </div>
           </div>
-          <!-- 할인율 선택시 (e) -->
+          <!-- 할인금액 선택시 (e) -->
           <!-- select + input text 혼합(e) -->
 
           <!-- 기간설정 시 (s) -->
           <div class="row">
-            <label for="discount" class="col-md-1 col-form-label tit-h4">사용기한</label>
+            <label for="use-date" class="col-md-1 col-form-label tit-h4">사용기한</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="discount" aria-label="select">
-                    <option>선택해주세요</option>
-                    <option value="1">무제한</option>
-                    <option value="2" selected>기간설정</option>
+                  <select class="form-select form-select-sm" id="use-date" aria-label="사용기한 선택">
+                    <option selected>선택해주세요</option>
+                    <option value="unlimited">무제한</option>
+                    <option value="limited">기간설정</option>
                   </select>
                 </div>
                 <div class="date-wrap col-md-8">
