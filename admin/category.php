@@ -1,12 +1,17 @@
 <?php
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
+  
+  $sql = "SELECT * FROM category where step = 1";
+  $result = $mysqli->query($sql);
+  while ($row = $result->fetch_object()) {
+    $cate1[] = $row;
+  }
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
         <h2 class="tit-h2">카테고리</h2>
       </div>
       <!-- sub-page-tit-area (e) -->
-
 
       <!-- content-area(s) -->
       <div class="content">
