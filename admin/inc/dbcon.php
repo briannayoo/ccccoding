@@ -3,9 +3,6 @@ $hostname = "localhost";
 $dbuserid = "ccccoding";
 $dbpasswd = "ccc486!!!";
 $dbname = "ccccoding";
-// $dbuserid = "pinkping";
-// $dbpasswd = "12345";
-// $dbname = "pinkping";
 
 $mysqli = new mysqli($hostname, $dbuserid, $dbpasswd, $dbname);
 
