@@ -20,7 +20,7 @@
     $_SESSION['AUNAME'] = $rs -> username;
     echo "<script>
     alert('관리자님 반갑습니다');
-    location.href='/pinkping/admin/index.php';
+    location.href='/ccccoding/admin/index.php';
     </script>";
   } else{
     echo "<script>
