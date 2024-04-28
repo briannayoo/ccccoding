@@ -12,10 +12,10 @@
 .gnb .gnb-list a,
 .gnb-list .accordion .accordion-button {display:flex; align-items:center; gap:30px; padding:0 42px; font-size:2.6rem; color:var(--body-text, #222);}
 .gnb .gnb-list > .on,
-.gnb .gnb-list > .on.acco .accordion-header {background-color:var(--primary-c, #472ea1);}
+.gnb .gnb-list > .acco .accordion-header.on {background-color:var(--primary-c, #472ea1);}
 .gnb .gnb-list > .acco .accordion-header {margin:0; padding:10px 0;}
 .gnb .gnb-list > .on a,
-.gnb .gnb-list > .on button {padding:0 42px; color:var(--white, #fff);}
+.gnb .gnb-list > .acco .accordion-header.on .accordion-button {padding:0 42px; color:var(--white, #fff);}
 /* .gnb .gnb-list > .on.acco {background:none; padding:0; margin:0 -42px;} */
 .gnb-list .accordion {border:none;}
 .gnb-list .accordion .accordion-item {border:none; background:none;}
