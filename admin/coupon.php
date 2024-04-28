@@ -15,9 +15,9 @@
   // include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
 
   $sql = "SELECT * FROM coupons where 1=1"; //모든 상품 조회 쿼리
-  $sql .= $search_where;
-  $order = " order by cid desc";
-  $sql .= $order;
+  // $sql .= $search_where;
+  // $order = " order by cid desc";
+  // $sql .= $order;
   // $limit = " LIMIT $startLimit, $endLimit";
   // $sql .= $limit;
 
