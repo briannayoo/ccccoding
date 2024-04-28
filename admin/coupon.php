@@ -1,31 +1,33 @@
 <?php
-  // session_start();
+ session_start();
 
-  // include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 
-  // $search_where = "";
-  // $search_keyword = $_GET['keyword'] ?? '';
+ $search_where = "";
+ $search_keyword = $_GET['keyword'] ?? '';
 
-  // if($search_keyword){
-  //   $search_where .= " and (coupon_name LIKE '%{$search_keyword}%')";
-  // }
+ if($search_keyword){
+   $search_where .= " and (coupon_name LIKE '%{$search_keyword}%')";
+ }
 
-  // // $paginationTarget = 'coupons';
-  // // include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
+ $paginationTarget = 'coupons';
+ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
 
-  // $sql = "SELECT * FROM coupons where 1=1"; //모든 상품 조회 쿼리
-  // // $sql .= $search_where;
-  // // $order = " order by cid desc";
-  // // $sql .= $order;
-  // // $limit = " LIMIT $startLimit, $endLimit";
-  // // $sql .= $limit;
+ $sql = "SELECT * FROM coupons where 1=1"; //모든 상품 조회 쿼리
+ $sql .= $search_where;
+ $order = " order by cid desc";
+ $sql .= $order;
+ $limit = " LIMIT $startLimit, $endLimit";
+ $sql .= $limit;
 
-  // $result = $mysqli->query($sql);
+ $result = $mysqli->query($sql);
 
-  // while ($rs = $result->fetch_object()) {
-  //   $rsArr[] = $rs;
-  // }
+ $rsArr = [];
+
+ while ($rs = $result->fetch_object()) {
+   $rsArr[] = $rs;
+ }
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
@@ -313,7 +315,7 @@
 -->
         </ul>
 
-        <!-- pagenation(s) -->
+        <!-- pagination(s) -->
         <nav aria-label="페이지네이션">
           <ul class="pagination">
             <li class="page-item disabled">
@@ -357,7 +359,7 @@
             </li>
           </ul>
         </nav>
-        <!-- pagenation(e) -->
+        <!-- pagination(e) -->
       </div>
     </div>
   </div>
