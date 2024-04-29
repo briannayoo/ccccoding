@@ -12,7 +12,7 @@
 
       <div class="content"> 
         <!-- form-list (s) -->
-        <form action="coupon_ok.php" enctype="multipart/form-data" method="POST" class="form-list">
+        <form action="coupon_ok.php" enctype="multipart/form-data" method="POST" class="form-list" onsubmit="return save()">
           <!-- input text 1/3 (s) -->
           <div class="row">
             <label for="coupon_name" class="col-md-1 col-form-label tit-h4">쿠폰명</label>
@@ -53,15 +53,29 @@
           </div>
           <!-- input text 단위 1/3 (e) -->
 
+          <!-- input text 단위 1/3 (s) -->
+          <div class="row">
+            <label for="max_value" class="col-md-1 col-form-label tit-h4">최대할인금액</label>
+            <div class="col-md-11">
+              <div class="input-group">
+                <div class="col-md-4 ipt-wrap ipt-wrap">
+                  <input type="text" class="form-control text-end" id="max_value" name="max_value">
+                  <span class="unit">원</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- input text 단위 1/3 (e) -->
+
           <!-- select + input text 혼합(s) -->
 
           <!-- 할인금액 선택시 (s) -->
           <div class="row">
-            <label for="discount_type" class="col-md-1 col-form-label tit-h4">할인종류</label>
+            <label for="coupon_type" class="col-md-1 col-form-label tit-h4">할인종류</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="discount_type" name="discount_type" aria-label="할인 종류 선택">
+                  <select class="form-select form-select-sm" id="coupon_type" name="coupon_type" aria-label="할인 종류 선택">
                     <option selected>선택해주세요</option>
                     <option value="amount" >할인금액</option>
                     <option value="rate">할인율</option>
@@ -83,11 +97,11 @@
 
           <!-- 기간설정 시 (s) -->
           <div class="row">
-            <label for="use_date" class="col-md-1 col-form-label tit-h4">사용기한</label>
+            <label for="use_date_type" class="col-md-1 col-form-label tit-h4">사용기한</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="use_date" aria-label="사용기한 선택">
+                  <select class="form-select form-select-sm" id="use_date_type" aria-label="사용기한 선택">
                     <option selected>선택해주세요</option>
                     <option value="unlimited">무제한</option>
                     <option value="limited">기간설정</option>
@@ -125,17 +139,19 @@
 
 
 
-          <div class="row">
-            <label for="form01" class="col-md-1 col-form-label tit-h4">썸네일</label>
-            <div class="col-md-11">
-              <input type="file" multiple name="upfile[]" id="upfile" class="d-none">
-              <div>
-                <button type="button" class="btn btn-primary btn-sm thumb-text" id="addImage">파일 선택</button>
-              </div>
-              <div id="addedImages" class="d-flex gap-3">
+          <!-- thumbnail image (s) -->
+            <div class="row">
+              <label for="form01" class="col-md-1 col-form-label tit-h4">썸네일</label>
+              <div class="col-md-11">
+                <input type="file" multiple name="upfile[]" id="upfile" class="d-none">
+                <div>
+                  <button type="button" class="btn btn-primary btn-sm thumb-text" id="addImage">파일 선택</button>
+                </div>
+                <div id="addedImages" class="d-flex gap-3">
+                </div>
               </div>
             </div>
-          </div>
+          <!-- thumbnail image (e) -->
 
           <!-- 하단버튼 (s) -->
           <div class="btn-area">

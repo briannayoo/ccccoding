@@ -1,7 +1,7 @@
 $(function() {
     // 할인금액/ 할인율 선택
     $('.dc-wrap').hide();
-    $('#discount_type').change(function(){
+    $('#coupon_type').change(function(){
         const val = $(this).val();
         if(val == 'amount'){
             $('.dc-wrap.amount').show();
