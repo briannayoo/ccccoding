@@ -1,13 +1,15 @@
 <?php
-  session_start();
-  $title = '쿠폰등록';
+session_start();
+$title = '쿠폰수정';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 
-  require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 ?>
-      <!-- sub-page-tit-area (s) -->
-      <div class="page-tit-area">
+
+
+<!-- sub-page-tit-area (s) -->
+<div class="page-tit-area">
         <h2 class="tit-h2">쿠폰등록</h2>
       </div>
       <!-- sub-page-tit-area (e) -->
@@ -170,5 +172,3 @@
   
   <script src="/ccccoding/admin/js/datepicker.js"></script>
   <script src="/ccccoding/admin/js/coupon.js"></script>
-</body>
-</html>
