@@ -11,7 +11,7 @@
       </div>
       <!-- sub-page-tit-area (e) -->
 
-        <div class="content"> <!--temp-area 빼야됨-->
+        <div class="content"> 
           <form action="notice_up_ok.php" method="POST" class="form-list">
               <!-- 제목 -->
               <div class=" justify-content-between">
@@ -20,7 +20,7 @@
                   <div class="col-md-11">
                     <div class="input-group">
                       <div class="col-md-11 ipt-wrap">
-                        <input type="text" class="form-control" id="fm-txt03" placeholder="제목을 입력해주세요">
+                        <input type="text" class="form-control" id="fm-txt03" name="title" placeholder="제목을 입력해주세요">
                       </div>
                       <!-- 고정체크박스 -->
                       <div class="form-check">
@@ -33,13 +33,24 @@
                     </div>
                   </div>
                 </div>
+              <!-- 작성자 -->
+              <div class="row">
+          <label for="txt03" class="col-md-1 col-form-label tit-h4">작성자</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-12 ipt-wrap">
+                <input type="text" class="form-control" id="fm-txt03" name="name" placeholder="이름을 입력해주세요">
+              </div>
+            </div>
+          </div>
+        </div>
                 <!-- 텍스트 에어리어 -->
             <div class="row">
               <label for="txtarea" class="col-md-1 col-form-label tit-h4">내용</label>
               <div class="col-md-11">
                 <div class="input-group">
                   <div class="col-md-12 ipt-wrap">
-                    <textarea class="form-control" id="txtarea" placeholder="내용을 입력하세요."></textarea>
+                    <textarea class="form-control" id="txtarea" name="content" placeholder="내용을 입력하세요."></textarea>
                   </div>
                 </div>
               </div>
@@ -57,8 +68,8 @@
 
             <!-- 버튼 -->
             <div class="btn-area">
-              <button type="button" class="btn btn-primary btn-lg">등록</button>
-              <button type="button" class="btn btn-secondary btn-lg">취소</button>
+              <button type="submit" class="btn btn-primary btn-lg">등록</button>
+              <button type="reset" class="btn btn-secondary btn-lg">취소</button>
             </div>
           </form>
         </div>
