@@ -25,22 +25,22 @@ $(function() {
   })
 
   // Datepicker
-  // if($('.date-wrap').length > 0){
+  if($('.date-wrap').length > 0){
     
-  //   const datepickers = document.querySelectorAll('.date-wrap .open');
-  //   datepickers.forEach(picker => {
-  //     new Datepicker(picker, {
-  //       toValue:  function(val){
-  //         console.log($(picker).closest('.ipt-wrap').find('.ipt-datepicker'))
-  //         val = $(picker).closest('.ipt-wrap').find('.ipt-datepicker').eq(0).val(val.slice(0, -1).replaceAll('.', '-'));
-  //         return val;
-  //       },
-  //     });
-  //   });
+    const datepickers = document.querySelectorAll('.date-wrap .open');
+    datepickers.forEach(picker => {
+      new Datepicker(picker, {
+        toValue:  function(val){
+          console.log($(picker).closest('.ipt-wrap').find('.ipt-datepicker'))
+          val = $(picker).closest('.ipt-wrap').find('.ipt-datepicker').eq(0).val(val.slice(0, -1).replaceAll('.', '-'));
+          return val;
+        },
+      });
+    });
 
-  //   // $('.ipt-datepicker').val($('.date-wrap .open').attr('data-value'));
-  //   // $('.ipt-datepicker').eq(0).val($('.date-wrap .open').eq(0).data('value'));
-  // }
+    // $('.ipt-datepicker').val($('.date-wrap .open').attr('data-value'));
+    // $('.ipt-datepicker').eq(0).val($('.date-wrap .open').eq(0).data('value'));
+  }
   
   // thumbnail
   if($('.tumbnail_wrap').length > 0){
