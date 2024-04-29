@@ -1,10 +1,8 @@
 <?php
+session_start();
+
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
-  include_once('dbcon.php');
-
-
-
-
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 
 ?>
       <!-- sub-page-tit-area (s) -->
@@ -53,14 +51,14 @@
             </thead>
             <tbody>
               <?php
-                $sql = "SELECT * FORM notice order by idx desc"
-                $result = $mysqli -> query($sql);
-                while($row = mysqli_fetch_assoc($result)){
-                  $title = $row['title'];
-                  if(iconv_strlen($title) > 10){
-                    $title = str_replace($title,iconv_substr($title,0,10,'utf-8').'...' $title);
-                  }
-              ?>
+                  $sql = "SELECT * FROM notice order by idx desc";
+                  $result = $mysqli -> query($sql);
+                  while($row = mysqli_fetch_assoc($result)){
+                    $title = $row['title'];
+                    if(iconv_strlen($title) > 10){
+                    $title = str_replace($title,iconv_substr($title,0,10,'utf-8').'...', $title);
+                    }
+                ?>
             <tr>
               <td><?= $row['idx'] ?></td>
               <td><a href=""><?= $title; ?></a></td>
