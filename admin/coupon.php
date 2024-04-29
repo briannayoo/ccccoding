@@ -4,30 +4,30 @@
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 
- $search_where = "";
- $search_keyword = $_GET['keyword'] ?? '';
+//  $search_where = "";
+//  $search_keyword = $_GET['keyword'] ?? '';
 
- if($search_keyword){
-   $search_where .= " and (coupon_name LIKE '%{$search_keyword}%')";
- }
+//  if($search_keyword){
+//    $search_where .= " and (coupon_name LIKE '%{$search_keyword}%')";
+//  }
 
- $paginationTarget = 'coupons';
- include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
+//  $paginationTarget = 'coupons';
+//  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
 
  $sql = "SELECT * FROM coupons where 1=1"; //모든 상품 조회 쿼리
- $sql .= $search_where;
- $order = " order by cid desc";
- $sql .= $order;
- $limit = " LIMIT $startLimit, $endLimit";
- $sql .= $limit;
+//  $sql .= $search_where;
+//  $order = " order by cid desc";
+//  $sql .= $order;
+//  $limit = " LIMIT $startLimit, $endLimit";
+//  $sql .= $limit;
 
- $result = $mysqli->query($sql);
+//  $result = $mysqli->query($sql);
 
  $rsArr = [];
 
- while ($rs = $result->fetch_object()) {
-   $rsArr[] = $rs;
- }
+//  while ($rs = $result->fetch_object()) {
+//    $rsArr[] = $rs;
+//  }
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
@@ -40,9 +40,9 @@
       </div>
 
       <!-- form-list (s) -->
-      <form action="#" class="form-list">
+      <!-- <form action="#" class="form-list"> -->
           <!-- 할인종류 (s) -->
-          <div class="row">
+          <!-- <div class="row">
             <label for="discount" class="col-md-1 col-form-label tit-h4">할인종류</label>
             <div class="col-md-11">
               <div class="input-group">
@@ -55,11 +55,11 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- 할인종류 (e) -->
 
           <!-- 쿠폰명 1/3 (s) -->
-          <div class="row">
+          <!-- <div class="row">
             <label for="coupon-name" class="col-md-1 col-form-label tit-h4">쿠폰명</label>
             <div class="col-md-11">
               <div class="input-group">
@@ -68,11 +68,11 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- 쿠폰명 1/3 (e) -->
 
           <!-- 사용기한 (s) -->
-          <div class="row">
+          <!-- <div class="row">
             <label for="use-date" class="col-md-1 col-form-label tit-h4">사용기한</label>
             <div class="col-md-11">
               <div class="input-group">
@@ -95,16 +95,16 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- 사용기한 (e) -->
 
           <!-- 상태 (s) -->
-          <div class="row">
-            <label for="state" class="col-md-1 col-form-label tit-h4">상태</label>
+          <!-- <div class="row">
+            <label for="status" class="col-md-1 col-form-label tit-h4">상태</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="state" name="state" aria-label="select">
+                  <select class="form-select form-select-sm" id="status" name="status" aria-label="select">
                     <option selected>전체</option>
                     <option value="1">활성화</option>
                     <option value="2">비활성화</option>
@@ -112,13 +112,13 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- 상태 (e) -->
 
-          <div class="btn-area">
+          <!-- <div class="btn-area">
             <button type="button" class="btn btn-primary btn-lg">검색</button>
-          </div>
-      </form>
+          </div> -->
+      <!-- </form> -->
       <!-- form-list (e) -->
 
       <div class="content"> 
