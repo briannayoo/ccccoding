@@ -1,4 +1,5 @@
 <?php
+  $title = '회원관리';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 ?>
       <!-- sub-page-tit-area (s) -->
