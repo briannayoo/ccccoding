@@ -78,7 +78,7 @@ session_start();
             </tbody>
           </table>
           <div class="mt-3 d-flex justify-content-end">
-            <button type="button" class="btn btn-primary btn-lg ">글쓰기</button>
+          <a href="notice_up.php" class="btn btn-primary btn-lg">글쓰기</a>
           </div>
           <nav aria-label="페이지네이션">
             <ul class="pagination">
