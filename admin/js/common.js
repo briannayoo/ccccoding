@@ -1,27 +1,46 @@
 $(function() {
-  const url = location.pathname
-/* ===================== 공통영역 =====================*/
-
+  /* ===================== 공통영역 =====================*/
   // gnb
-  // $('.gnb-list > li:first-child').addClass('on');
-  $('.gnb-list > li').click(function(e){
-    // e.preventDefault();)
-    if($(this).find('a').attr('href') === url){
-      $(this).siblings.removeClass('on');
-      $(this).addClass('on');
+  const url = location.pathname
+  let ctgIdx = null
+  let ctgIdx2dep = null
+
+  // 1depth 카테고리 순서 찾기
+  $('.gnb-list > li').filter((idx, item) => {
+    if($(item).find("> a").attr('href') === url){
+      ctgIdx = idx;
     }
-    // console.log($(this).find('.accordion'));
-    if($(this).find('.accordion').length === 0){
-      $(this).toggleClass('on');
-    }
-    $(this).siblings().removeClass('on');
+    return idx;
   })
-  $('.gnb-list > li .depth-2 > li').click(function(){
-    $(this).closest('.acco').find('.accordion-header').toggleClass('on');
-    if($(this).find('.accordion').length === 0){
-      $(this).toggleClass('on');
+  
+  // 2depth 카테고리 순서 찾기
+  $('.gnb-list > li .depth-2 > li').filter((idx, item) => {
+    if($(item).find("> a").attr('href') === url){
+      ctgIdx2dep = idx;
+      return idx;
     }
-    $(this).siblings().removeClass('on');
+  })
+
+  if(ctgIdx !== null){ // 1depth 없을때
+    $('.gnb-list > li').siblings().removeClass('on');
+    $('.gnb-list > li').eq(ctgIdx).addClass('on');
+  }else{ // 2depth
+    ctgIdx = 4
+    $('.gnb-list > li').eq(ctgIdx).find('.accordion-header').addClass('on');
+    $('.gnb-list > li .depth-2 > li').siblings().removeClass('on');
+    $('.gnb-list > li').eq(ctgIdx).find('.depth-2 > li').eq(ctgIdx2dep).addClass('on');
+    $('.gnb-list > li').eq(ctgIdx).find('.accordion-header > button').trigger('click')
+  }
+
+
+  $('.gnb-list > li').click(function(){
+    // e.preventDefault();)
+    if($(this).find('> a').attr('href') == undefined){ // 아코디언 a링크 X
+      $('.gnb-list > li').siblings().removeClass('on'); // 1depth 비활성화
+
+      $(this).find('.accordion-header').siblings().removeClass('on');
+      $(this).find('.accordion-header').addClass('on');
+    }
   })
 
   // Datepicker
