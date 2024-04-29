@@ -1,5 +1,9 @@
 <?php
+session_start();
+
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
+
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
@@ -46,34 +50,36 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>ㅋㅋㅋ코딩 개인정보 처리방침 개정 안내(2024.04.18)</td>
-                <td>작성자</td>
-                <td>작성일</td>
-                <td>조회수</td>
-                <td>
-                  <i class="fa-solid fa-pen-to-square fa-small">수정</i>
-                  <i class="fa-solid fa-trash-can fa-small">삭제</i>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>ㅋㅋㅋ코딩 개인정보 처리방침 개정 안내(2024.04.18)</td>
-                <td>작성자</td>
-                <td>작성일</td>
-                <td>조회수</td>
-                <td>
-                  <i class="fa-solid fa-pen-to-square fa-small">수정</i>
-                  <i class="fa-solid fa-trash-can fa-small">삭제</i>
-                </td>
-              </tr>
+              <?php
+                  $sql = "SELECT * FROM notice order by idx desc";
+                  $result = $mysqli -> query($sql);
+                  while($row = mysqli_fetch_assoc($result)){
+                    $title = $row['title'];
+                    if(iconv_strlen($title) > 10){
+                    $title = str_replace($title,iconv_substr($title,0,10,'utf-8').'...', $title);
+                    }
+                ?>
+            <tr>
+              <td><?= $row['idx'] ?></td>
+              <td><a href=""><?= $title; ?></a></td>
+              <td><?= $row['name'] ?></td>
+              <td><?= $row['date'] ?></td>
+              <td><?= $row['hit'] ?></td>
+              <td>
+                <i class="fa-solid fa-pen-to-square fa-small">수정</i>
+                <i class="fa-solid fa-trash-can fa-small">삭제</i>
+              </td>
+            </tr>
+
+              <?php
+                }
+              ?>
+
             </tbody>
           </table>
           <div class="mt-3 d-flex justify-content-end">
-            <button type="button" class="btn btn-primary btn-lg ">글쓰기</button>
+          <a href="notice_up.php" class="btn btn-primary btn-lg">글쓰기</a>
           </div>
-         
           <nav aria-label="페이지네이션">
             <ul class="pagination">
               <li class="page-item disabled">
@@ -120,5 +126,8 @@
       </div>
         </div>
   </div>
+  <?php
+    $mysqli->close();
+  ?>
 </body>
 </html>
