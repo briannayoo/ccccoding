@@ -15,6 +15,8 @@
       <div class="content"> 
         <!-- form-list (s) -->
         <form action="coupon_ok.php" enctype="multipart/form-data" method="POST" class="form-list" onsubmit="return save()">
+          <input type="hidden" name="cid" value="<?= $cid; ?>">
+          <input type="hidden" name="coupon_image" value="<?= $coupon_image; ?>">
           <!-- input text 1/3 (s) -->
           <div class="row">
             <label for="coupon_name" class="col-md-1 col-form-label tit-h4">쿠폰명</label>

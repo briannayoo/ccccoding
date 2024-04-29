@@ -5,25 +5,37 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 
+
+$cid = isset($_GET['cid']) ? $_GET['cid'] : 0;
+$sql = "SELECT * FROM coupons WHERE cid = $cid";
+$result = $mysqli->query($sql);
+
+while ($rs = $result->fetch_object()) {
+    $rsArr[] = $rs;
+}
+print_r($cid);
+
 ?>
 
 
 <!-- sub-page-tit-area (s) -->
 <div class="page-tit-area">
-        <h2 class="tit-h2">쿠폰등록</h2>
+        <h2 class="tit-h2">쿠폰수정</h2>
       </div>
       <!-- sub-page-tit-area (e) -->
 
       <div class="content"> 
         <!-- form-list (s) -->
-        <form action="coupon_ok.php" enctype="multipart/form-data" method="POST" class="form-list" onsubmit="return save()">
+        <form action="coupon_edit_ok.php?cid=<?= $pid;?>" enctype="multipart/form-data" method="POST" class="form-list">
+          <input type="hidden" name="cid" value="<?= $cid; ?>">
+          <input type="hidden" name="coupon_image" value="<?= $coupon_image; ?>">
           <!-- input text 1/3 (s) -->
           <div class="row">
             <label for="coupon_name" class="col-md-1 col-form-label tit-h4">쿠폰명</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <input type="text" class="form-control" id="coupon_name" name="coupon_name" placeholder="쿠폰명을 입력하세요." required>
+                  <input type="text" class="form-control" id="coupon_name" name="coupon_name" placeholder="" value="<?= $rs->coupon_name ?? ''; ?>" required>
                 </div>
               </div>
             </div>
