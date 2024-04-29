@@ -97,7 +97,6 @@
 .lecture_list_wrap .search-result {margin-bottom:0; text-align:center;}
 .lecture_list_wrap .btn:hover i {color: var(--primary-c);}
 .lecture_list_wrap .fa-angle-right {margin: 0 10px;}
-
 /* 로그인.html (우예지) */
 #login-wrap {
   background:var(--bg-sub1-c);

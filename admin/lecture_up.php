@@ -86,49 +86,51 @@
           <!-- 수강신청 / 난이도 -->
           <div class="row">
             <label for="datepicker-01" class="col-md-1 col-form-label tit-h4">수강신청</label>
-            <div class="col-md-11">
-              <div class="input-group">
-                <div class="col-md-4 ipt-wrap">
-                  <input type="text" class="datepicker" placeholder="YYYY-MM-DD">
-                </div>
-                <div class="col-md-4 ipt-wrap">
-                  <input type="text" class="datepicker" placeholder="YYYY-MM-DD">
-                </div>
-                <div class="col-md-4 ipt-wrap row">
-  
-                  <div class="list-group list-group-horizontal">
-                    <h4 class="tit-h4">난이도</h4>
-                    <div class="list-group-item">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="chk-list-04">
-                        <label class="form-check-label" for="chk-list-04">
-                          상
-                        </label>
-                      </div>
+              <div class="col-md-11">
+                <div class="input-group">
+                  <div class="date-wrap">
+                    <div class="col-md-4 ipt-wrap">
+                      <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD">
+                      <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                     </div>
-                    <div class="list-group-item">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="chk-list-05" checked>
-                        <label class="form-check-label" for="chk-list-05">
-                          중
-                        </label>
-                      </div>
+                    <div class="col-md-4 ipt-wrap">
+                      <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD">
+                      <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                     </div>
-                    <div class="list-group-item">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="chk-list-06">
-                        <label class="form-check-label" for="chk-list-06">
-                          하
-                        </label>
-                      </div>
+                    <div class="ipt-wrap row">
+                      <div class="list-group list-group-horizontal">
+                        <h4 class="tit-h4">난이도</h4>
+                        <div class="list-group-item">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="chk-list-04">
+                            <label class="form-check-label" for="chk-list-04">
+                              상
+                            </label>
+                          </div>
+                        </div>
+                        <div class="list-group-item">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="chk-list-05" checked>
+                            <label class="form-check-label" for="chk-list-05">
+                              중
+                            </label>
+                          </div>
+                        </div>
+                        <div class="list-group-item">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="chk-list-06">
+                            <label class="form-check-label" for="chk-list-06">
+                              하
+                            </label>
+                            </div>
+                          </div>
+                        </div>
                     </div>
-                  </div>
+                    </div>
                 </div>
               </div>
-            </div>
-  
           </div>
-  
+
           <!-- 강의내용 -->
           <div class="row">
             <label for="txtarea" class="col-md-1 col-form-label tit-h4">강의내용</label>
@@ -146,13 +148,14 @@
             <label for="file" class="col-md-1 col-form-label tit-h4">강의URL</label>
             <div class="col-md-11">
               <div class="input-group">
-                <div class="col-md-12 ipt-wrap">
-                  <input class="form-control" type="file" id="file"  placeholder="강의 URL을 직접입력하거나, 동영상을 첨부하세요">
+                <div class="col-md-12 ipt-wrap file-input-container">
+                  <input type="text" class="form-control file-input-text" placeholder="강의 URL을 직접입력하거나, 동영상을 첨부하세요" readonly>
+                  <button class="btn btn-primary btn-sm" id="custom-button">파일추가</button>
+                  <input type="file" id="file-upload">
                 </div>
               </div>
             </div>
           </div>
-  
           <!-- 썸내일 -->
           <div class="row">
             <label for="form01" class="col-md-1 col-form-label tit-h4">썸네일</label>
@@ -172,9 +175,10 @@
             <button type="button" class="btn btn-secondary btn-lg">버튼</button>
           </div>
         </form>
-
       </div>
     </div>
   </div>
+  <!-- 데이터피커.js -->
+  <script src="/ccccoding/admin/js/datepicker.js"></script> 
 </body>
 </html>

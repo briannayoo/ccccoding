@@ -1,8 +1,8 @@
 <?php
   session_start();
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/category_func.php';
 
   $cates1 = $_GET['cate1'] ?? '';
@@ -41,7 +41,7 @@
   }
 
   $paginationTarget = 'products';
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/pinkping/admin/inc/pagination.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
 
   $sql = "SELECT * FROM products where 1=1";
   $sql .= $search_where;
@@ -174,110 +174,7 @@
                   </div>
                 </div>
               </li>
-              <li class="lecture_list_item box-shadow">
-                <img src="image/img_lecture_02.jpg" alt="이미지">
-                <div class="info-area">
-                  <P class="lecture_chaption"><strong class="tit-h5">생활코딩</strong><i class="fa-solid fa-circle-user fa-xsmall txt-m tender-color">3.5만</i><i class="fa-solid fa-heart fa-xsmall txt-m tender-color">4.35</i></P>
-                  <P class="lecture_text"> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. </P>
-                  <P class="tender-color">수강기간 2024.05.15 ~ 2024.10.15</P>
-                </div>
-                <div class="etc-group">
-                  <p class="search-result"><span>프론트엔드</span><i class="fa-solid fa-angle-right fa-small"></i><span>HTML</span></p>
-                  <select class="form-select form-select-sm" id="select-01" aria-label="select">
-                    <option selected value="1" <?php if($item->status == 1){ echo "selected";} ?>>판매중</option>
-                    <option value="2" <?php if($item->status == 0){ echo "selected";}?>>판매 예정</option>
-                    <option value="-1" <?php if($item->status == -1){ echo "selected";} ?>>판매 중지</option>
-                  </select>
-                  <div class="edit-btn-group">
-                    <a href="product_edit.php?pid=<?= $item->pid; ?>" type="button" class="btn correc">
-                      <span class="visually-hidden">수정</span>
-                      <i class="fa-solid fa-pen-to-square fa-small"></i>
-                    </a>
-                    <a href="product_view.php?pid=<?= $item->pid; ?>" type="button" class="btn del">
-                      <span class="visually-hidden">삭제</span>
-                      <i class="fa-solid fa-trash-can fa-small"></i>
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li class="lecture_list_item box-shadow">
-                <img src="image/img_lecture_03.jpg" alt="이미지">
-                <div class="info-area">
-                  <P class="lecture_chaption"><strong class="tit-h5">생활코딩</strong><i class="fa-solid fa-circle-user fa-xsmall txt-m tender-color">3.5만</i><i class="fa-solid fa-heart fa-xsmall txt-m tender-color">4.35</i></P>
-                  <P class="lecture_text"> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. </P>
-                  <P class="tender-color">수강기간 2024.05.15 ~ 2024.10.15</P>
-                </div>
-                <div class="etc-group">
-                  <p class="search-result"><span>프론트엔드</span><i class="fa-solid fa-angle-right fa-small"></i><span>HTML</span></p>
-                  <select class="form-select form-select-sm" id="select-01" aria-label="select">
-                    <option selected value="1">판매중</option>
-                    <option value="2">판매 예정</option>
-                    <option value="-1">판매 중지</option>
-                  </select>
-                  <div class="edit-btn-group">
-                    <button type="button" class="btn correc">
-                      <span class="visually-hidden">수정</span>
-                      <i class="fa-solid fa-pen-to-square fa-small"></i>
-                    </button>
-                    <button type="button" class="btn del">
-                      <span class="visually-hidden">삭제</span>
-                      <i class="fa-solid fa-trash-can fa-small"></i>
-                    </button>
-                  </div>
-                </div>
-              </li>
-                <li class="lecture_list_item box-shadow">
-                  <img src="image/img_lecture_04.jpg" alt="이미지">
-                  <div class="info-area">
-                    <P class="lecture_chaption"><strong class="tit-h5">생활코딩</strong><i class="fa-solid fa-circle-user fa-xsmall txt-m tender-color">3.5만</i><i class="fa-solid fa-heart fa-xsmall txt-m tender-color">4.35</i></P>
-                    <P class="lecture_text"> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. </P>
-                    <P class="tender-color">수강기간 2024.05.15 ~ 2024.10.15</P>
-                  </div>
-                  <div class="etc-group">
-                    <p class="search-result"><span>프론트엔드</span><i class="fa-solid fa-angle-right fa-small"></i><span>HTML</span></p>
-                    <select class="form-select form-select-sm" id="select-01" aria-label="select">
-                      <option selected value="1">판매중</option>
-                      <option value="2">판매 예정</option>
-                      <option value="-1">판매 중지</option>
-                    </select>
-                    <div class="edit-btn-group">
-                      <button type="button" class="btn correc">
-                        <span class="visually-hidden">수정</span>
-                        <i class="fa-solid fa-pen-to-square fa-small"></i>
-                      </button>
-                      <button type="button" class="btn del">
-                        <span class="visually-hidden">삭제</span>
-                        <i class="fa-solid fa-trash-can fa-small"></i>
-                      </button>
-                    </div>
-                  </div>
-                </li>
-                <li class="lecture_list_item box-shadow">
-                  <img src="image/img_lecture_05.jpg" alt="이미지">
-                  <div class="info-area">
-                    <P class="lecture_chaption"><strong class="tit-h5">생활코딩</strong><i class="fa-solid fa-circle-user fa-xsmall txt-m tender-color">3.5만</i><i class="fa-solid fa-heart fa-xsmall txt-m tender-color">4.35</i></P>
-                    <P class="lecture_text"> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. </P>
-                    <P class="tender-color">수강기간 2024.05.15 ~ 2024.10.15</P>
-                  </div>
-                  <div class="etc-group">
-                    <p class="search-result"><span>프론트엔드</span><i class="fa-solid fa-angle-right fa-small"></i><span>HTML</span></p>
-                    <select class="form-select form-select-sm" id="select-01" aria-label="select">
-                      <option selected value="1">판매중</option>
-                      <option value="2">판매 예정</option>
-                      <option value="-1">판매 중지</option>
-                    </select>
-                    <div class="edit-btn-group">
-                      <button type="button" class="btn correc">
-                        <span class="visually-hidden">수정</span>
-                        <i class="fa-solid fa-pen-to-square fa-small"></i>
-                      </button>
-                      <button type="button" class="btn del">
-                        <span class="visually-hidden">삭제</span>
-                        <i class="fa-solid fa-trash-can fa-small"></i>
-                      </button>
-                    </div>
-                  </div>
-                </li>
+
             </ul>
           </form>
       </div>
