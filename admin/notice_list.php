@@ -66,10 +66,10 @@ session_start();
               <td><?= $row['date'] ?></td>
               <td><?= $row['hit'] ?></td>
               <td>
-                <i class="fa-solid fa-pen-to-square fa-small">수정</i>
-                <i class="fa-solid fa-trash-can fa-small">삭제</i>
+                <a href="notice_modify.php?idx=<?= {$row->idx}; ?>"><i class="fa-solid fa-pen-to-square fa-small">수정</i></a>
+                <a href="notice_delete.php"><i class="fa-solid fa-trash-can fa-small">삭제</i></a>
               </td>
-            </tr>
+            </tr> 
 
               <?php
                 }
