@@ -15,7 +15,7 @@ $(function() {
     });
 
     $('.date-wrap').hide();
-    $('#use_date').change(function(){
+    $('#use_date_type').change(function(){
         const value = $(this).val();
         if(value == 'limited'){
             $('.date-wrap').show();

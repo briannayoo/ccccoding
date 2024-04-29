@@ -1,5 +1,6 @@
 <?php
-  // session_start();
+  session_start();
+  $title = '쿠폰등록';
 
   // include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
