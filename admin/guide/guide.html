@@ -456,14 +456,15 @@
 
         <!-- thumbnail image (s) -->
         <form action="#" enctype="multipart/form-data">
-          <div class="row">
+          <div class="row tumbnail_wrap">
             <label for="form01" class="col-md-1 col-form-label tit-h4">썸네일</label>
             <div class="col-md-11">
-              <input type="file" multiple name="upfile[]" id="upfile" class="d-none">
+              <input type="file" multiple name="upfile[]" id="thumbnail" class="d-none">
               <div>
                 <button type="button" class="btn btn-primary btn-sm thumb-text" id="addImage">파일 선택</button>
+                <p class="remove">*5M이하 / gif,png,jpg만 등록가능합니다.</p>
               </div>
-              <div id="addedImages" class="d-flex gap-3">
+              <div id="addedImages">
               </div>
             </div>
           </div>

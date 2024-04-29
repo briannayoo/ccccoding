@@ -8,10 +8,11 @@
   $cates1 = $_GET['cate1'] ?? '';
   $cate2 = $_GET['cate2'] ?? '';
   $cate3 = $_GET['cate3'] ?? '';
-  $ismain = $_GET['ismain'] ?? '';
-  $isnew = $_GET['isnew'] ?? '';
-  $isbest = $_GET['isbest'] ?? '';
+  $isgold = $_GET['isgold'] ?? '';
+  $issilver = $_GET['issilver'] ?? '';
+  $iscopper = $_GET['iscopper'] ?? '';
   $isrecom = $_GET['isrecom'] ?? '';
+  $sale_start_date = $_GET['sale_start_date'] ?? '';
   $sale_end_date = $_GET['sale_end_date'] ?? '';
   $search_keyword = $_GET['search_keyword'] ?? '';
   $cates = $cates1.$cate2.$cate3;
@@ -21,17 +22,20 @@
   if($cates){
     $search_where .= " and cate LIKE '%{$cates}%'";
   }
-  if($ismain){
-    $search_where .= " and ismain = 1";
+  if($isgold){
+    $search_where .= " and isgold = 1";
   }
-  if($isnew){
-    $search_where .= " and isnew = 1";
+  if($issilver){
+    $search_where .= " and issilver = 1";
   }
   if($isbest){
     $search_where .= " and isbest = 1";
   }
   if($isrecom){
     $search_where .= " and isrecom = 1";
+  }
+  if($sale_start_date){
+    $search_where .= " and sale_start_date >=  CAST('{$sale_start_date}' AS datetime)";
   }
   if($sale_end_date){
     $search_where .= " and sale_end_date >=  CAST('{$sale_end_date}' AS datetime)";
