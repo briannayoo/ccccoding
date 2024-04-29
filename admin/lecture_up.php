@@ -30,7 +30,9 @@
       <!-- sub-page-tit-area (e) -->
 
       <div class="content">
-        <form action="lecture_ok.php" method="POST" class="form-list" enctype="multipart/form-data">
+        <form action="lecture_ok.php" method="POST" class="form-list" enctype="multipart/form-data" id="lecture_save">
+        <input type="hidden" name="product_image" id="lecture_image_id">
+        <input type="hidden" name="contents" id="contents">
           <!-- 카테고리 -->
           <div class="row">
             <label for="slect-01" class="col-md-1 col-form-label tit-h4">카테고리</label>
@@ -205,8 +207,8 @@
           </div>
           <!-- 강의등록 -->
           <div class="btn-area">
-            <button type="button" class="btn btn-primary btn-lg">버튼</button>
-            <button type="button" class="btn btn-secondary btn-lg">버튼</button>
+            <button type="button" class="btn btn-primary btn-lg" id="upfile_btn">등록</button>
+            <button type="button" class="btn btn-secondary btn-lg">삭제</button>
           </div>
         </form>
       </div>
@@ -214,5 +216,6 @@
   </div>
   <!-- 데이터피커.js / common.js-->
   <script src="/ccccoding/admin/js/datepicker.js"></script> 
+  <script src="/ccccoding/admin/js/lecture.js"></script> 
 </body>
 </html>
