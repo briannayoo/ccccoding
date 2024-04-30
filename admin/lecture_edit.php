@@ -30,7 +30,7 @@
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
-        <h2 class="tit-h2">강의 등록</h2>
+        <h2 class="tit-h2">강의 수정</h2>
       </div>
       <!-- sub-page-tit-area (e) -->
 
