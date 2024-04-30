@@ -3,6 +3,13 @@
 
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
+
+     //idx 번호의 글조회
+    $bno = $_GET['idx'];
+    $sql = "SELECT * FROM notice WHERE idx = {$bno}";
+    $result = $mysqli->query($sql);
+    $resultArr = mysqli_fetch_assoc($result);
+
 ?>
       <!-- 상단 until-list (e) -->
       <!-- sub-page-tit-area (s) -->
@@ -13,6 +20,7 @@
 
         <div class="content"> 
           <form action="notice_modify_ok.php" method="POST" class="form-list">
+            <input type="hidden" name="idx" value="<?= $bno;?>">
               <!-- 제목 -->
               <div class=" justify-content-between">
                 <div class="row">
@@ -20,7 +28,7 @@
                   <div class="col-md-11">
                     <div class="input-group">
                       <div class="col-md-11 ipt-wrap">
-                        <input type="text" class="form-control" id="fm-txt03" name="title" placeholder="제목을 입력해주세요">
+                        <input type="text" class="form-control" id="fm-txt03" name="title" value="<?=  $resultArr['title']; ?>" placeholder="제목을 입력해주세요">
                       </div>
                       <!-- 고정체크박스 -->
                       <div class="form-check">
@@ -39,7 +47,7 @@
           <div class="col-md-11">
             <div class="input-group">
               <div class="col-md-12 ipt-wrap">
-                <input type="text" class="form-control" id="fm-txt03" name="name" placeholder="이름을 입력해주세요">
+                <input type="text" class="form-control" id="fm-txt03" name="name" value="<?=  $resultArr['name']; ?>" placeholder="이름을 입력해주세요">
               </div>
             </div>
           </div>
@@ -50,7 +58,9 @@
               <div class="col-md-11">
                 <div class="input-group">
                   <div class="col-md-12 ipt-wrap">
-                    <textarea class="form-control" id="txtarea" name="content" placeholder="내용을 입력하세요."></textarea>
+                    <textarea class="form-control" id="txtarea" name="content" placeholder="내용을 입력하세요.">
+                    <?= $resultArr['content'];?>
+                    </textarea>
                   </div>
                 </div>
               </div>

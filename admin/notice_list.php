@@ -12,13 +12,13 @@ session_start();
       <!-- sub-page-tit-area (e) -->
 
       <div class="content"> <!--temp-area 빼야됨-->
-        <form action="#" class="form-list mb-4">
+        <form action="notice_search.php" class="form-list mb-4">
           <div class="row">
             <label for="search" class="col-md-1 col-form-label tit-h4">검색</label>
             <div class="col-md-11">
               <div class="input-group search">
                 <div class="col-md-6 ipt-wrap">
-                  <input class="form-control" type="search" id="search" placeholder="검색어를 입력하세요..." aria-label="Search">
+                  <input class="form-control" type="search" id="search" name="keyword" placeholder="검색어를 입력하세요..." aria-label="Search">
                   <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
                   </div>
