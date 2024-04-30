@@ -5,15 +5,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 
-
-$cid = isset($_GET['cid']) ? $_GET['cid'] : 0;
-$sql = "SELECT * FROM coupons WHERE cid = $cid";
-$result = $mysqli->query($sql);
-
-while ($rs = $result->fetch_object()) {
-    $rsArr[] = $rs;
-}
-print_r($cid);
+$cid = $_GET['cid']; 
+$sql = "SELECT * FROM coupons WHERE cid = {$cid}";
+$result = $mysqli -> query($sql);
+$rs = $result->fetch_object();
 
 ?>
 
@@ -27,15 +22,15 @@ print_r($cid);
       <div class="content"> 
         <!-- form-list (s) -->
         <form action="coupon_edit_ok.php?cid=<?= $pid;?>" enctype="multipart/form-data" method="POST" class="form-list">
-          <input type="hidden" name="cid" value="<?= $cid; ?>">
-          <input type="hidden" name="coupon_image" value="<?= $coupon_image; ?>">
+          <input type="hidden" name="cid" id="cid" value="<?= $cid; ?>">
+          <!-- <input type="hidden" name="coupon_image" id="coupon_image" value="<?= $coupon_image; ?>"> -->
           <!-- input text 1/3 (s) -->
           <div class="row">
             <label for="coupon_name" class="col-md-1 col-form-label tit-h4">쿠폰명</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <input type="text" class="form-control" id="coupon_name" name="coupon_name" placeholder="" value="<?= $rs->coupon_name ?? ''; ?>" required>
+                  <input type="text" class="form-control" id="coupon_name" name="coupon_name" placeholder="" value="<?= $rs->coupon_name; ?>" required>
                 </div>
               </div>
             </div>
@@ -48,7 +43,7 @@ print_r($cid);
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-12 ipt-wrap">
-                  <input type="text" class="form-control" id="coupon_desc" name="coupon_desc" placeholder="쿠폰설명을 입력하세요." required>
+                  <input type="text" class="form-control" id="coupon_desc" name="coupon_desc" placeholder="쿠폰설명을 입력하세요." value="<?= $rs->coupon_desc; ?>" required>
                 </div>
               </div>
             </div>
@@ -61,7 +56,7 @@ print_r($cid);
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap ipt-wrap">
-                  <input type="text" class="form-control text-end" id="use_min_price" name="use_min_price" required>
+                  <input type="text" class="form-control text-end" id="use_min_price" name="use_min_price" value="<?= $rs->use_min_price; ?>" required>
                   <span class="unit">원</span>
                 </div>
               </div>
@@ -75,7 +70,7 @@ print_r($cid);
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap ipt-wrap">
-                  <input type="text" class="form-control text-end" id="max_value" name="max_value" required>
+                  <input type="text" class="form-control text-end" id="max_value" name="max_value" value="<?= $rs->max_value; ?>" required>
                   <span class="unit">원</span>
                 </div>
               </div>
@@ -98,11 +93,11 @@ print_r($cid);
                   </select>
                 </div>
                 <div class="col-md-4 ipt-wrap dc-wrap amount">
-                  <input type="text" class="form-control text-end" id="coupon_price" name="coupon_price">
+                  <input type="text" class="form-control text-end" id="coupon_price" name="coupon_price" value="<?= $rs->coupon_price; ?>">
                   <span class="unit">원</span>
                 </div>
                 <div class="col-md-4 ipt-wrap dc-wrap percent">
-                  <input type="text" class="form-control text-end" id="coupon_ratio" name="coupon_ratio">
+                  <input type="text" class="form-control text-end" id="coupon_ratio" name="coupon_ratio" value="<?= $rs->coupon_ratio; ?>">
                   <span class="unit">%</span>
                 </div>
               </div>
@@ -117,19 +112,20 @@ print_r($cid);
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
+                  <!--240501 product_list 참고 -->
                   <select class="form-select form-select-sm" id="use_date_type" aria-label="사용기한 선택" required>
-                    <option selected>선택해주세요</option>
-                    <option value="unlimited">무제한</option>
-                    <option value="limited">기간설정</option>
+                    <option value="<?php if($rs->locate == 0){ echo "selected";}?>">선택해주세요</option>
+                    <option value="<?php if($rs->locate == 1){ echo "selected";}?>">무제한</option>
+                    <option value=""<?php if($rs->locate == 2){ echo "selected";}?>">기간설정</option>
                   </select>
                 </div>
                 <div class="date-wrap col-md-8">
                   <div class="col-md-6 ipt-wrap">
-                    <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD" id="start_date" name="start_date">
+                    <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD" id="start_date" name="start_date" value="<?= $rs -> start_date?>">
                     <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                   </div>
                   <div class="col-md-6 ipt-wrap">
-                    <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD" id="end_date" name="end_date">
+                    <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD" id="end_date" name="end_date" value="<?= $rs -> end_date?>">
                     <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                   </div>
                 </div>
@@ -143,10 +139,11 @@ print_r($cid);
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="status" name="status" aria-label="상태 선택"  required>
+                  <!-- 240501 value값수정후 확인 -->
+                  <select class="form-select form-select-sm" id="status" name="status" aria-label="상태 선택" value="<?= $rs -> status?>"  required>
                     <option selected>선택해주세요</option>
-                    <option value="enable" >활성화</option>
-                    <option value="disable">비활성화</option>
+                    <option value="1" >활성화</option>
+                    <option value="2">비활성화</option>
                   </select>
                 </div>
               </div>
@@ -159,7 +156,7 @@ print_r($cid);
           <div class="row tumbnail_wrap">
             <label for="form01" class="col-md-1 col-form-label tit-h4">썸네일</label>
             <div class="col-md-11">
-              <input type="file" multiple name="upfile[]" id="thumbnail" class="d-none">
+              <input type="file" multiple name="upfile[]" id="thumbnail" class="d-none" accept="image/*" required>
               <div>
                 <button type="button" class="btn btn-primary btn-sm thumb-text" id="addImage">파일 선택</button>
                 <p class="remove">*5M이하 / gif,png,jpg만 등록가능합니다.</p>
@@ -172,7 +169,7 @@ print_r($cid);
 
           <!-- 하단버튼 (s) -->
           <div class="btn-area">
-            <button type="submit" class="btn btn-primary btn-lg">등록</button>
+            <button type="submit" class="btn btn-primary btn-lg">수정</button>
             <button type="button" class="btn btn-secondary btn-lg cancel">취소</button>
           </div>
           <!-- 하단버튼(e) -->

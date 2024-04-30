@@ -125,11 +125,11 @@ while ($rs = $result->fetch_object()) {
             </a>
             <div class="info-area">
               <div class="edit-btn-group">
-                <a href="coupon_edit.php" class="btn correc">
+                <a href="coupon_edit.php?cid=<?= $item->cid; ?>" class="btn correc">
                   <span class="visually-hidden">수정</span>
                   <i class="fa-solid fa-pen-to-square fa-small"></i>
                 </a>
-                <a href="" class="btn del">
+                <a href="coupon_delete.php?cid=<?= $item->cid; ?>" class="btn del">
                   <span class="visually-hidden">삭제</span>
                   <i class="fa-solid fa-trash-can fa-small"></i>
                 </a>

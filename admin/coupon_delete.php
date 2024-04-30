@@ -5,7 +5,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
 
 $cid = $_POST['cid'];
 
-$sql = "DELETE FROM coupons WHERE cid=$cid";
+$sql = "DELETE FROM coupons WHERE id=$cid";
+
 $result = $mysqli -> query($sql);
 if($result){
     $data = array('result' => 'ok');
