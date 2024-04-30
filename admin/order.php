@@ -122,8 +122,8 @@
               <td><?= $item->price ?></td>
               <td><?= $item->coupon_used ?></td>
               <td><?= $item->start_date ?> ~ <?= $item->end_date ?></td>
-              <td><?= $item->cancel_request ?></td>
-              <td><?= $item->refund_request ?></td>
+              <td class="request"><?= $item->cancel_request ?></td>
+              <td class="refund"><?= $item->refund_request ?></td>
             </tr>
             <?php
               }
@@ -221,5 +221,6 @@
   </div>
   <!-- wwilsman 데이트픽커 js -->
   <script src="/ccccoding/admin/js/datepicker.js"></script>
+  <script src="/ccccoding/admin/js/order.js"></script>
 </body>
 </html>
