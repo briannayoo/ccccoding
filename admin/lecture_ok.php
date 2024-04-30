@@ -13,11 +13,11 @@ try{
   $name  = $_POST['name'];
   $content  = rawurldecode($_POST['content']);
   // $thumbnail  = $_POST['thumbnail'];
-  $price = $_POST['price'];
-  $price_select = $_POST['price_select'] ?? 0;
+  $price = $_POST['price'] ?? 0;
+  $price_select = $_POST['price_select'] ?? 1;
   $sale_ratio = $_POST['sale_ratio'] ?? 0;
   $cnt = $_POST['cnt'] ?? 0;
-  $sale_cnt = $_POST['sale_cnt'] ?? 0;
+  $textbook = $_POST['textbook'] ?? 0;
 
   $isgold = $_POST['isgold'] ?? 0;  
   $issilver = $_POST['issilver'] ?? 0;
@@ -30,6 +30,14 @@ try{
   $sale_end_date = $_POST['sale_end_date'];
 
   $sale_start_date = str_replace(" ", "", $sale_start_date);
+
+if (!is_numeric($price)) {
+    echo "<script>
+    alert('가격은 공백없이 숫자로 입력해야 합니다.');
+    history.back();
+    </script>";
+    exit;
+}
 
   // DateTime 객체를 생성하고, MySQL DATETIME 형식으로 포맷
   $startTime = new DateTime($sale_start_date);
@@ -64,8 +72,8 @@ try{
   }
   //파일 업로드
   $save_dir = $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/upload/';
-  $fiename = $_FILES["thumbnail"]["name"]; //insta.jpg
-  $ext = pathinfo($fiename, PATHINFO_EXTENSION); //jpg
+  $filename = $_FILES["thumbnail"]["name"]; //insta.jpg
+  $ext = pathinfo($filename, PATHINFO_EXTENSION); //jpg
   $newfilename = date("YmdHis") . substr(rand(), 0, 6); //202404111137.123123 -> 202404111137123123 
   $savefile = $newfilename . '.' . $ext;  //202404111137123123.jpg
 
@@ -78,7 +86,7 @@ try{
     </script>";
     exit;
   }
-  $sql = "INSERT INTO products (name,cate,content,thumbnail,price,price_select,sale_ratio,cnt,sale_cnt,	isgold,issilver,iscopper,isrecom,locate,userid,sale_start_date,sale_end_date,reg_date,status,delivery_fee,url) VALUES (
+  $sql = "INSERT INTO products (name,cate,content,thumbnail,price,price_select,sale_ratio,cnt,textbook,	isgold,issilver,iscopper,isrecom,locate,userid,sale_start_date,sale_end_date,reg_date,status,delivery_fee,url) VALUES (
     '{$name}',
     '{$cate}',
     '{$content}',
@@ -87,7 +95,7 @@ try{
     '{$price_select}',
     '{$sale_ratio}',
     '{$cnt}',
-    '{$sale_cnt}',
+    '{$textbook}',
     '{$isgold}',
     '{$issilver}',
     '{$iscopper}',
@@ -102,8 +110,9 @@ try{
     '{$url}'
   )";
   
+  //echo $sql;
   $result = $mysqli->query($sql);
-
+  
   $mysqli->commit();//디비에 커밋한다
 
   if($result) { //상품 등록 하면
@@ -113,12 +122,12 @@ try{
     </script>";
     
   }
-} catch (Exception $e) {
-
-  $mysqli->rollback();
-
-  echo "<script>
-  alert('등록 실패');
-  history.back();
-  </script>";
-}
+  } catch (Exception $e) {
+    $mysqli->rollback();
+    error_log($e->getMessage()); // 로그에 에러 메시지 기록
+    echo "<script>
+    alert('등록 실패: " . addslashes($e->getMessage()) . "');
+    history.back();
+    </script>";
+    exit;
+  }

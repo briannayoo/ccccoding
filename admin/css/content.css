@@ -69,6 +69,7 @@
 .lh-2{line-height:34px;}
 .list-mt input {margin-top:8px;}
 .lecture-search {margin-bottom:48px;}
+.lecture_list_wrap .btn-area {justify-content:flex-end;}
 .lecture_list_wrap {width:100%;}
 .lecture_list_item {
   display:flex; 
