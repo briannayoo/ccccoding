@@ -78,6 +78,7 @@ $(function() {
     // $('.ipt-datepicker').val($('.date-wrap .open').attr('data-value'));
     // $('.ipt-datepicker').eq(0).val($('.date-wrap .open').eq(0).data('value'));
   }
+  
   // thumbnail
   if($('.tumbnail_wrap').length > 0){
     $('#addImage').click(function(){
