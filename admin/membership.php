@@ -124,7 +124,7 @@
         <!-- table(e) -->
 
         <div class="btn-area">
-          <button type="button" class="btn btn-secondary btn-sm">선택 삭제</button>
+          <button type="button" class="btn btn-secondary btn-sm">삭제</button>
         </div>
       </div>
 
