@@ -185,7 +185,7 @@
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-12 ipt-wrap file-input-container">
-                  <input type="text" class="form-control file-input-text" name="url" id="url" placeholder="강의 URL을 직접입력하거나, 동영상을 첨부하세요" readonly>
+                  <input type="text" class="form-control file-input-text" name="url" id="url" placeholder="강의 URL을 직접입력하거나, 동영상을 첨부하세요">
                   <button type="button" class="btn btn-primary btn-sm" id="custom-button">파일추가</button>
                   <input type="file" id="file-upload">
                 </div>
