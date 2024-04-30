@@ -151,6 +151,10 @@
         <!-- 강의리스트 -->
           <form action="clist_save.php" method="POST" class="lecture_list_wrap">
             <ul class="list-group box-list aic">
+            <?php
+              if (isset($rsArr)) {  
+                foreach ($rsArr as $item) {
+            ?>
               <li class="lecture_list_item box-shadow">
                 <img src="image/img_lecture_01.jpg" alt="이미지">
                 <div class="info-area">
@@ -166,10 +170,10 @@
                     <option value="-1">판매 중지</option>
                   </select>
                   <div class="edit-btn-group">
-                    <button type="button" class="btn correc">
+                    <a href="lecture_edit.php?pid=<?= $item->pid; ?>" class="btn correc">
                       <span class="visually-hidden">수정</span>
                       <i class="fa-solid fa-pen-to-square fa-small"></i>
-                    </button>
+                    </a>
                     <button type="button" class="btn del">
                       <span class="visually-hidden">삭제</span>
                       <i class="fa-solid fa-trash-can fa-small"></i>
@@ -177,8 +181,14 @@
                   </div>
                 </div>
               </li>
-
+            <?php
+            }}
+            ?>
             </ul>
+            <div class="btn-area">
+              <a href="/ccccoding/admin/lecture_up.php" class="btn btn-primary btn-lg">강의등록</a>
+              <button class="btn btn-secondary btn-lg">일괄삭제</button>
+          </div>
           </form>
       </div>
 

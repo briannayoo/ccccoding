@@ -15,8 +15,8 @@
       <div class="content"> 
         <!-- form-list (s) -->
         <form action="coupon_ok.php" enctype="multipart/form-data" method="POST" class="form-list" onsubmit="return save()">
-          <input type="hidden" name="cid" value="<?= $cid; ?>">
-          <input type="hidden" name="coupon_image" value="<?= $coupon_image; ?>">
+          <input type="hidden" name="cid" id="cid" value="<?= $cid; ?>">
+          <input type="hidden" name="coupon_image" id="coupon_image" value="<?= $coupon_image; ?>">
           <!-- input text 1/3 (s) -->
           <div class="row">
             <label for="coupon_name" class="col-md-1 col-form-label tit-h4">쿠폰명</label>
@@ -172,5 +172,13 @@
   
   <script src="/ccccoding/admin/js/datepicker.js"></script>
   <script src="/ccccoding/admin/js/coupon.js"></script>
+  <script>
+    function save() {
+        if (!$('#coupon_image').val()) {
+            alert('썸네일을 등록하십시오.');
+            return false;
+        }
+    }
+  </script>
 </body>
 </html>
