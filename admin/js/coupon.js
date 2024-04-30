@@ -14,6 +14,7 @@ $(function() {
         }
     });
 
+    // 기간설정
     $('.date-wrap').hide();
     $('#use_date_type').change(function(){
         const value = $(this).val();
@@ -22,5 +23,17 @@ $(function() {
         }else{
             $('.date-wrap').hide();
         }
+    })
+
+    // 쿠폰 취소버튼 클릭
+    $('.cancel').click(function(){
+        if(confirm('취소하시겠습니까?')){
+            location.href='coupon.php';
+        }
+    })
+
+    // 쿠폰관리 
+    $('.edit-btn-group .del').click(function(){
+      
     })
 });

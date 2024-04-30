@@ -1,9 +1,9 @@
 <?php
- session_start();
- $title = '쿠폰리스트';
-
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
+session_start();
+$title = '쿠폰리스트';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 
 //  $search_where = "";
 //  $search_keyword = $_GET['keyword'] ?? '';
@@ -15,20 +15,20 @@
 //  $paginationTarget = 'coupons';
 //  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
 
- $sql = "SELECT * FROM coupons where 1=1"; //모든 상품 조회 쿼리
+$sql = "SELECT * FROM coupons where 1=1"; //모든 상품 조회 쿼리
 //  $sql .= $search_where;
 //  $order = " order by cid desc";
 //  $sql .= $order;
 //  $limit = " LIMIT $startLimit, $endLimit";
 //  $sql .= $limit;
 
-//  $result = $mysqli->query($sql);
+$result = $mysqli->query($sql);
 
- $rsArr = [];
+$rsArr = [];
 
-//  while ($rs = $result->fetch_object()) {
-//    $rsArr[] = $rs;
-//  }
+while ($rs = $result->fetch_object()) {
+  $rsArr[] = $rs;
+}
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
@@ -135,19 +135,19 @@
             foreach ($rsArr as $item) {
           ?>
           <li class="list-group-item">
-            <a href="#" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
+            <a href="coupon_edit.php" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
               <img src="<?= $item->coupon_image; ?>" alt="이미지">
             </a>
             <div class="info-area">
               <div class="edit-btn-group">
-                <button type="button" class="btn correc">
+                <a href="coupon_edit.php" class="btn correc">
                   <span class="visually-hidden">수정</span>
                   <i class="fa-solid fa-pen-to-square fa-small"></i>
-                </button>
-                <button type="button" class="btn del">
+                </a>
+                <a href="" class="btn del">
                   <span class="visually-hidden">삭제</span>
                   <i class="fa-solid fa-trash-can fa-small"></i>
-                </button>
+                </a>
               </div>
               <div class="tit-group">
                 <strong class="tit-h3"><?= $item->coupon_name; ?></strong>
@@ -157,7 +157,7 @@
                 </div>
               </div>
               <div class="txt-group">
-                <p class="date">사용기한 <?= $item->start_date; ?> ~ <?= $item->endt_date; ?></p>
+                <p class="date">사용기한 <?= $item->start_date; ?> ~ <?= $item->end_date; ?></p>
                 <p class="money">최소사용금액 :  <?= $item->use_min_price; ?>원</p>
                 <p class="discount"><?= $item->coupon_price; ?>원 할인</p>
               </div>
