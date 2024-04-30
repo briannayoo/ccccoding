@@ -1,5 +1,6 @@
 <?php
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 ?>
       <!-- 상단 until-list (e) -->
       <!-- sub-page-tit-area (s) -->
@@ -27,94 +28,19 @@
             </tr>
           </thead>
           <tbody>
+            <?php
+              $sql = "SELECT * FROM qna order by qid desc";
+              $result = $mysqli -> query($sql);
+            ?>
             <tr>
               <td>
                 <button type="button" class="btn btn-primary btn-sm">답변완료</button>
               </td>
-              <td>자부담금 환급은 어떻게 받나요?</td>
-              <td>우예지</td>
-              <td>2024.04.18</td>
+              <td><?= $row['title'] ?></td>
+              <td><?= $row['name'] ?></td>
+              <td><?= $row['date'] ?></td>
             </tr>
-            <tr>
-              <td>
-                <button type="button" class="btn btn-primary btn-sm" disabled>답변대기</button>
-              </td>
-              <td>코딩은 처음인데, 어떻게 시작하면 좋을까요?</td>
-              <td>박소현</td>
-              <td>2024.04.02</td>
-            </tr>
-            <tr>
-              <td>
-                <button type="button" class="btn btn-primary btn-sm">답변완료</button>
-              </td>
-              <td>강의는 수강기간이 끝나면 더 들을 수 없나요?</td>
-              <td>유부현</td>
-              <td>2024.03.18</td>
-            </tr>
-            <tr>
-              <td>
-                <button type="button" class="btn btn-primary btn-sm" disabled>답변대기</button>
-              </td>
-              <td>온라인 학습은 어떻게 진행되나요?</td>
-              <td>추송림</td>
-              <td>2024.03.14</td>
-            </tr>
-
-
-
-
-
-
-
-
-            <tr>
-              <td>
-                <button type="button" class="btn btn-primary btn-sm">답변완료</button>
-              </td>
-              <td>내일배움 재직자 및 실직자 카드 등 국비지원으로 등록 가능한가요?</td>
-              <td>임시원</td>
-              <td>2024.03.12</td>
-            </tr>
-            <tr>
-              <td>
-                <button type="button" class="btn btn-primary btn-sm">답변완료</button>
-              </td>
-              <td>회원가입을 해야만 강의 구매가 가능한가요?</td>
-              <td>우준범</td>
-              <td>2024.03.11</td>
-            </tr>
-            <tr>
-              <td>
-                <button type="button" class="btn btn-primary btn-sm" disabled>답변대기</button>
-              </td>
-              <td>결제 후 언제부터 수강이 가능한가요?</td>
-              <td>유부경</td>
-              <td>2024.03.09</td>
-            </tr>
-            <tr>
-              <td>
-                <button type="button" class="btn btn-primary btn-sm" disabled>답변대기</button>
-              </td>
-              <td>사정이 생겨, 수강을 중지하고싶어요 가능한가요?</td>
-              <td>김동주</td>
-              <td>2024.03.08</td>
-            </tr>
-            <tr>
-              <td>
-                <button type="button" class="btn btn-primary btn-sm">답변완료</button>
-              </td>
-              <td>강의가 재생이 안되거나 계속 끊겨요</td>
-              <td>유세권</td>
-              <td>2024.03.07</td>
-            </tr>
-            <tr>
-              <td>
-                <button type="button" class="btn btn-primary btn-sm">답변완료</button>
-              </td>
-              <td>강의 영상을 다운로드 받을 수는 없나요?</td>
-              <td>김희정</td>
-              <td>2024.03.05</td>
-            </tr>
+            
           </tbody>
         </table>
         <nav aria-label="페이지네이션">

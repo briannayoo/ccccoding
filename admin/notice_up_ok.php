@@ -8,8 +8,20 @@ $name = $_POST['name'];
 $title = $_POST['title'];
 $content = $_POST['content'];
 $date = date('Y-m-d');
+$attach_name = $_FILES['file']['name'];
+$attach_temp_path = $_FILES['file']['name'];
+$upload_pate = "../../upload/".$attach_name;
 
-$sql = "INSERT INTO notice (name,title,content,date) values ('{$name}','{$title}','{$content}','{$date}')";
+
+move_uploaded_file($attach_temp_path,$upload_pate);
+if(strpos($_FILES['file']['type'], 'image') !== false){
+  $is_img = 1;
+}else{
+  $is_img = 0;
+}
+
+
+$sql = "INSERT INTO notice (name,title,content,date,file,is_img) values ('{$name}','{$title}','{$content}','{$date}','{$attach_name}','{$is_img}')";
 
 if($mysqli -> query($sql) === true){
   echo"<script>
