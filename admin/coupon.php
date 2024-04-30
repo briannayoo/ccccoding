@@ -12,7 +12,7 @@ while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
 }
 
-$coupon_image = '';
+// $coupon_image = '';
 
 ?>
       <!-- sub-page-tit-area (s) -->
