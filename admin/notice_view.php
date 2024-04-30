@@ -36,6 +36,16 @@
             <p><?= nl2br($resultArr['content']);?></p>
           </div>
         </div>
+        <div class="attachment">
+         
+          <?phpif($resultArr['is_img'] == 1){?>
+            <img src="../../upload/<?= $resultArr['file'];?>" alt="<?= $resultArr['file'];?>">
+          <?php}else{ ?>
+              <a href="../../upload/<?= $resultArr['file'];?>" target="_blank"><?= $resultArr['file'];?></a>"
+          <?php} ?>
+          
+
+        </div>
       </div>
       <div class="btn-area">
         <a href="notice_modify.php?idx=<?= $bno;?>" class="btn btn-primary btn-lg">수정</a>

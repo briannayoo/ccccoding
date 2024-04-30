@@ -12,7 +12,7 @@
       <!-- sub-page-tit-area (e) -->
 
         <div class="content"> 
-          <form action="notice_up_ok.php" method="POST" class="form-list">
+          <form action="notice_up_ok.php" method="POST" class="form-list" enctype="multipart/form-data">
               <!-- 제목 -->
               <div class=" justify-content-between">
                 <div class="row">
@@ -60,7 +60,7 @@
               <div class="col-md-11">
                 <div class="input-group">
                   <div class="col-md-12 ipt-wrap">
-                    <input class="form-control" type="file" id="file">
+                    <input class="form-control" type="file" id="file" name="file">
                   </div>
                 </div>
               </div>
