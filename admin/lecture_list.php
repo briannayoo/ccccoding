@@ -29,9 +29,7 @@
   if($issilver){
     $search_where .= " and issilver = 1";
   }
-  if($isbest){
-    $search_where .= " and isbest = 1";
-  }
+
   if($isrecom){
     $search_where .= " and isrecom = 1";
   }

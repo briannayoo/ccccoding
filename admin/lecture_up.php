@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="cate2"  name="cate2" aria-label="중분류">
-                  <option selected>중분류</option>
+                  <option selected disabled>중분류</option>
                       <?php
                       foreach ($cate2 as $c2) {
                     ?>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="cate3" name="cate3" aria-label="소분류">
-                  <option selected>소분류</option>
+                  <option selected disabled>소분류</option>
                       <?php
                       foreach ($cate3 as $c3) {
                     ?>
@@ -207,8 +207,8 @@
           </div>
           <!-- 강의등록 -->
           <div class="btn-area">
-            <button type="button" class="btn btn-primary btn-lg" id="upfile_btn">등록</button>
-            <button type="button" class="btn btn-secondary btn-lg">삭제</button>
+            <button class="btn btn-primary btn-lg" id="upfile_btn">등록</button>
+            <button class="btn btn-secondary btn-lg">삭제</button>
           </div>
         </form>
       </div>

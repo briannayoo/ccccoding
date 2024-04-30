@@ -1,6 +1,16 @@
 <?php
   $title = '회원관리';
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
+  // include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
+
+  $sql = "SELECT * FROM members";
+  $result = $mysqli->query($sql);
+
+  while ($rs = $result->fetch_object()) {
+    $rsArr[] = $rs;
+  }
+
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
@@ -48,7 +58,7 @@
               <th scope="col">
                 <div>
                   <span class="visually-hidden">전체선택</span>
-                  <input class="form-check-input" type="checkbox" id="all-check" value="" aria-label="checkbox">
+                  <input class="form-check-input" type="checkbox" id="all-check" name="check-group" value="" aria-label="checkbox">
                 </div>
               </th>
               <th scope="col">가입일</th>
@@ -60,20 +70,28 @@
             </tr>
           </thead>
           <tbody>
+            <?php
+            if (isset($rsArr)) {
+              foreach ($rsArr as $item) {
+            ?>
             <tr>
               <td>
                 <div>
-                  <input class="form-check-input" type="checkbox" id="check-01" value="" aria-label="checkbox">
+                  <input class="form-check-input" type="checkbox" id="check-01" value="" name="check-group" aria-label="checkbox">
                 </div>
               </td>
-              <td>YYYY-MM-DD</td>
-              <td>박공주</td>
-              <td>pgongju01</td>
-              <td>20</td>
-              <td>abc@abc.com / 010-1111-1111</td>
-              <td></td>
+              <td><?=$item -> join_date ?></td>
+              <td><?=$item -> username ?></td>
+              <td><?=$item -> userid ?></td>
+              <td><?=$item -> age ?></td>
+              <td><?=$item -> email ?> / <?=$item -> phone ?></td>
+              <td><?=$item -> status ?></td>
             </tr>
-            <tr>
+            <?php
+              }
+            }
+            ?>
+            <!-- <tr>
               <td>
                 <div>
                   <input class="form-check-input" type="checkbox" id="check-02" value="" aria-label="checkbox">
@@ -98,7 +116,7 @@
               <td>22</td>
               <td>abc@abc.com / 010-1111-1111</td>
               <td>휴먼</td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
         <!-- table(e) -->

@@ -52,6 +52,7 @@ $(function() {
         toValue:  function(val){
           console.log($(picker).closest('.ipt-wrap').find('.ipt-datepicker'))
           val = $(picker).closest('.ipt-wrap').find('.ipt-datepicker').eq(0).val(val.slice(0, -1).replaceAll('.', '-'));
+          // val = $(picker).closest('.ipt-wrap').find('.ipt-datepicker').eq(0).val();
           return val;
         },
       });
@@ -95,6 +96,13 @@ $(function() {
     $('#file-upload').change(function() {
       var fileName = $(this).val().split('\\').pop();
       $('.file-input-text').val(fileName);
+    });
+  }
+
+  // 체크박스 전체선택
+  if($('#all-check').length > 0){
+    $("#all-check").click(function(){
+      $('input[name="check-group"]').prop('checked', $(this).prop('checked'));
     });
   }
 
