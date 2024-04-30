@@ -43,6 +43,7 @@ $(function() {
     }
   })
 
+
   // Datepicker
   if($('.date-wrap').length > 0){
     
@@ -50,10 +51,12 @@ $(function() {
     const datepickers = document.querySelectorAll('.ipt-datepicker');
     datepickerBtns.click(function(){
       let target =  $(this).closest('.ipt-wrap').find('input');
+      
       target.focus();
     });
 
     datepickers.forEach(picker => {
+      
       new Datepicker(picker, {
         onChange:function(){
                 
@@ -67,12 +70,14 @@ $(function() {
           picker.value = formattedDate;
       }
       });
+      let val = picker.closest('.ipt-wrap').getAttribute('data-value');
+      console.log(val);
+      picker.value= val;
     });
 
     // $('.ipt-datepicker').val($('.date-wrap .open').attr('data-value'));
     // $('.ipt-datepicker').eq(0).val($('.date-wrap .open').eq(0).data('value'));
   }
-  
   // thumbnail
   if($('.tumbnail_wrap').length > 0){
     $('#addImage').click(function(){

@@ -142,11 +142,11 @@
                 <div class="input-group">
                   <div class="date-wrap">
                     <div class="col-md-4 ipt-wrap">
-                      <input type="text" name="sale_start_date" id="sale_start_date" class="ipt-datepicker" value="<?= $rs -> sale_start_date;?>">
+                      <input type="text" name="sale_start_date" id="sale_start_date" class="ipt-datepicker" data-value="<?= $rs -> sale_start_date;?>">
                       <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                     </div>
                     <div class="col-md-4 ipt-wrap">
-                      <input type="text" name="sale_end_date"  id="sale_end_date" class="ipt-datepicker" value="<?= $rs -> sale_end_date;?>">
+                      <input type="text" name="sale_end_date"  id="sale_end_date" class="ipt-datepicker" data-value="<?= $rs -> sale_end_date;?>">
                       
                       <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                     </div>
