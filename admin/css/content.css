@@ -201,3 +201,10 @@
   place-items: center;
   text-align: center;  
 }
+.pro-box3{
+  margin-top: 26px;
+  width: 700px;
+  text-align: center; 
+  place-items: center;
+  gap: 5px; 
+}
