@@ -14,7 +14,7 @@ try{
   $content  = rawurldecode($_POST['content']);
   // $thumbnail  = $_POST['thumbnail'];
   $price = $_POST['price'];
-  $sale_price = $_POST['sale_price'] ?? 0;
+  $price_select = $_POST['price_select'] ?? 0;
   $sale_ratio = $_POST['sale_ratio'] ?? 0;
   $cnt = $_POST['cnt'] ?? 0;
   $sale_cnt = $_POST['sale_cnt'] ?? 0;
@@ -78,13 +78,13 @@ try{
     </script>";
     exit;
   }
-  $sql = "INSERT INTO products (name,cate,content,thumbnail,price,sale_price,sale_ratio,cnt,sale_cnt,	isgold,issilver,iscopper,isrecom,locate,userid,sale_start_date,sale_end_date,reg_date,status,delivery_fee,url) VALUES (
+  $sql = "INSERT INTO products (name,cate,content,thumbnail,price,price_select,sale_ratio,cnt,sale_cnt,	isgold,issilver,iscopper,isrecom,locate,userid,sale_start_date,sale_end_date,reg_date,status,delivery_fee,url) VALUES (
     '{$name}',
     '{$cate}',
     '{$content}',
     '{$thumbnail}',
     '{$price}',
-    '{$sale_price}',
+    '{$price_select}',
     '{$sale_ratio}',
     '{$cnt}',
     '{$sale_cnt}',
