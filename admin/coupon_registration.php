@@ -133,8 +133,8 @@
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="status" name="status" aria-label="상태 선택"  required>
                     <option selected>선택해주세요</option>
-                    <option value="enable" >활성화</option>
-                    <option value="disable">비활성화</option>
+                    <option value="1">활성화</option>
+                    <option value="0">비활성화</option>
                   </select>
                 </div>
               </div>

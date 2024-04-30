@@ -11,14 +11,14 @@ $coupon_price = $_POST['coupon_price'] ?? 0;
 $coupon_ratio = $_POST['coupon_ratio'] ?? 0;
 $status = $_POST['status'] ?? 0;
 $regdate = date('Y-m-d H:i:s');
-$userid = $_POST['userid'] ?? NULL;
-$max_value = $_POST['max_value'] ?? NULL;
-$use_min_price = $_POST['use_min_price'] ?? NULL;
-$use_date_type = $_POST['use_date_type'] ?? NULL;
+$userid = $_POST['userid'] ?? '';
+$max_value = $_POST['max_value'] ?? '';
+$use_min_price = $_POST['use_min_price'] ?? '';
+$use_date_type = $_POST['use_date_type'] ?? '';
 $start_date = $_POST['start_date'];
 $end_date = $_POST['end_date'];
 
-$coupon_image = ""; // 쿠폰 이미지 변수 초기화
+//$coupon_image = ""; // 쿠폰 이미지 변수 초기화
 
 if($_FILES["coupon_image"]["name"]) { // 첨부한 파일이 있으면
 
@@ -82,17 +82,18 @@ try {
     '{$end_date}'
   )";
 
-  $rs = $mysqli->query($sql) or die($mysqli->error);
-  $pid = $mysqli->insert_id;
+echo $sql;
+  // $rs = $mysqli->query($sql) or die($mysqli->error);
+  // $pid = $mysqli->insert_id;
 
-  $mysqli->commit(); // 디비에 커밋한다.
+  // $mysqli->commit(); // 디비에 커밋한다.
 
-  echo "<script>alert('등록했습니다.');location.href='/ccccoding/admin/coupon.php';</script>";
-  exit;
+  // echo "<script>alert('등록했습니다.');location.href='/ccccoding/admin/coupon.php';</script>";
+  // exit;
 
 } catch (Exception $e) {
   $mysqli->rollback(); // 저장한 테이블이 있다면 롤백한다.
-  echo "<script>alert('등록하지 못했습니다. 관리자에게 문의해주십시오.');history.back();</script>";
+  echo "<script>alert('등록하지 못했습니다. 관리자에게 문의해주십시오.');//history.back();</script>";
   exit;
 }
 
