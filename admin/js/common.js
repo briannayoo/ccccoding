@@ -99,5 +99,12 @@ $(function() {
     });
   }
 
+  // 체크박스 전체선택
+  if($('#all-check').length > 0){
+    $("#all-check").click(function(){
+      $('input[name="check-group"]').prop('checked', $(this).prop('checked'));
+    });
+  }
+
 
 });
