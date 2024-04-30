@@ -10,34 +10,45 @@
   $sql = "SELECT * FROM products WHERE pid = {$pid}";
   $result = $mysqli -> query($sql);
   $rs = $result->fetch_object();
-  
+  //조회
   $sql = "SELECT * FROM category where step = 1";
   $result = $mysqli->query($sql);
   while ($row = $result->fetch_object()) {
     $cate1[] = $row;
   };
-  $sql = "SELECT * FROM category where step = 2";
-  $result = $mysqli->query($sql);
-  while ($row = $result->fetch_object()) {
-    $cate2[] = $row;
-  };
-  $sql = "SELECT * FROM category where step = 3";
-  $result = $mysqli->query($sql);
-  while ($row = $result->fetch_object()) {
-    $cate3[] = $row;
-  };
+  // $sql = "SELECT * FROM category where step = 2";
+  // $result = $mysqli->query($sql);
+  // while ($row = $result->fetch_object()) {
+  //   $cate2[] = $row;
+  // };
+  // $sql = "SELECT * FROM category where step = 3";
+  // $result = $mysqli->query($sql);
+  // while ($row = $result->fetch_object()) {
+  //   $cate3[] = $row;
+  // };
+  //카테고리 확인
+  $cates = $rs->cate; //A0001B0001C0001  str_split(문자열, 개수);
+  $cateArray = str_split($cates, 5);
 
+  foreach($cateArray as $cate){
+    $sql = "SELECT * FROM category WHERE code = '{$cate}'";
+    $result = $mysqli -> query($sql);
+    while($caters = $result->fetch_object()){
+      $cateArr[] = $caters;
+    }
+  }
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
-        <h2 class="tit-h2">강의 등록</h2>
+        <h2 class="tit-h2">강의 수정</h2>
       </div>
       <!-- sub-page-tit-area (e) -->
 
       <div class="content">
-        <form action="lecture_ok.php" method="POST" class="form-list" enctype="multipart/form-data" id="lecture_save">
+        <form action="lecture_edit_ok.php" method="POST" class="form-list" enctype="multipart/form-data" id="lecture_save">
         <input type="hidden" name="product_image" id="lecture_image_id">
         <input type="hidden" name="contents" id="contents">
+        <input type="hidden" name="pid" value="<?= $pid; ?>">
           <!-- 카테고리 -->
           <div class="row">
             <label for="slect-01" class="col-md-1 col-form-label tit-h4">카테고리</label>
@@ -89,7 +100,7 @@
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-12 ipt-wrap">
-                  <input type="text" class="form-control" name="name" id="name" placeholder="강의명을 입력하세요">
+                  <input type="text" class="form-control" name="name" id="name" placeholder="강의명을 입력하세요" value="<?=$rs->name;?>">
                 </div>
               </div>
             </div>
@@ -102,13 +113,13 @@
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" name="price-select" id="price-select" aria-label="위치지정">
-                    <option selected value="1">유료</option>
-                    <option value="2">무료</option>
-                    <option value="3">부분무료</option>
+                    <option selected value="1" <?php if($rs->locate == 1){ echo "selected";}?>>유료</option>
+                    <option value="2" <?php if($rs->locate == 2){ echo "selected";}?>>무료</option>
+                    <option value="3" <?php if($rs->locate == 3){ echo "selected";}?>>부분무료</option>
                   </select>
                 </div>
                 <div class="col-md-4 ipt-wrap">
-                  <input type="text" class="form-control" name="price" id="price" placeholder="금액을 입력하세요">
+                  <input type="text" class="form-control" name="price" id="price" placeholder="금액을 입력하세요" value="<?=$rs->price;?>">
                 </div>
                 <!-- 활동교재 -->
                 <div class="col-md-4 ipt-wrap d-flex">
@@ -131,11 +142,12 @@
                 <div class="input-group">
                   <div class="date-wrap">
                     <div class="col-md-4 ipt-wrap">
-                      <input type="text" name="sale_start_date" id="sale_start_date" class="ipt-datepicker" placeholder="YYYY-MM-DD">
+                      <input type="text" name="sale_start_date" id="sale_start_date" class="ipt-datepicker" data-value="<?= $rs -> sale_start_date;?>">
                       <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                     </div>
                     <div class="col-md-4 ipt-wrap">
-                      <input type="text" name="sale_end_date"  id="sale_end_date" class="ipt-datepicker" placeholder="YYYY-MM-DD">
+                      <input type="text" name="sale_end_date"  id="sale_end_date" class="ipt-datepicker" data-value="<?= $rs -> sale_end_date;?>">
+                      
                       <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                     </div>
                     <div class="ipt-wrap row">
@@ -143,7 +155,7 @@
                         <h4 class="tit-h4">난이도</h4>
                         <div class="list-group-item">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="1" name="isgold" id="isgold">
+                            <input class="form-check-input" type="checkbox" value="1" name="isgold" id="isgold" <?php if($rs->isgold){echo "checked";}?>>
                             <label class="form-check-label" for="isgold">
                               상
                             </label>
@@ -151,7 +163,7 @@
                         </div>
                         <div class="list-group-item">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="1" name="issilver" id="issilver" checked>
+                            <input class="form-check-input" type="checkbox" value="1" name="issilver" id="issilver" <?php if($rs->issilver){echo "checked";}?>>
                             <label class="form-check-label" for="issilver">
                               중
                             </label>
@@ -159,7 +171,7 @@
                         </div>
                         <div class="list-group-item">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="1" name="iscopper" id="iscopper">
+                            <input class="form-check-input" type="checkbox" value="1" name="iscopper" id="iscopper" <?php if($rs->iscopper){echo "checked";}?>>
                             <label class="form-check-label" for="iscopper">
                               하
                             </label>
@@ -178,7 +190,7 @@
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-12 ipt-wrap">
-                  <textarea class="form-control" name="content" id="txtarea" placeholder="강의의 전반적인 내용을 상세히 기술하세요."></textarea>
+                  <textarea class="form-control" name="content" id="txtarea"><?= $rs -> content?></textarea>
                 </div>
               </div>
             </div>
@@ -190,7 +202,7 @@
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-12 ipt-wrap file-input-container">
-                  <input type="text" class="form-control file-input-text" name="url" id="url" placeholder="강의 URL을 직접입력하거나, 동영상을 첨부하세요" readonly>
+                  <input type="text" class="form-control file-input-text" name="url" id="url" value="<?=$rs->url?>" readonly>
                   <button type="button" class="btn btn-primary btn-sm" id="custom-button">파일추가</button>
                   <input type="file" id="file-upload">
                 </div>
@@ -207,7 +219,7 @@
                 <p class="remove">*5M이하 / gif,png,jpg만 등록가능합니다.</p>
               </div>
               <div id="addedImages"></div>
-              
+              <img src="<?= $rs -> thumbnail?>" alt="" class="thumbnail">
             </div>
           </div>
           <!-- 강의등록 -->
@@ -220,7 +232,12 @@
     </div>
   </div>
   <!-- 데이터피커.js / common.js-->
-  <script src="/ccccoding/admin/js/datepicker.js"></script> 
+  
+  <!-- <script src="/ccccoding/admin/js/common.js"></script>  -->
   <script src="/ccccoding/admin/js/lecture.js"></script> 
+  <script>
+
+  </script>
+
 </body>
 </html>
