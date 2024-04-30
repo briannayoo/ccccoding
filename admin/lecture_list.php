@@ -58,6 +58,21 @@
   while ($rs = $result->fetch_object()) {
     $rsArr[] = $rs;
   }
+  $sql = "SELECT * FROM category where step = 1";
+  $result = $mysqli->query($sql);
+  while ($row = $result->fetch_object()) {
+    $cate1[] = $row;
+  };
+  $sql = "SELECT * FROM category where step = 2";
+  $result = $mysqli->query($sql);
+  while ($row = $result->fetch_object()) {
+    $cate2[] = $row;
+  };
+  $sql = "SELECT * FROM category where step = 3";
+  $result = $mysqli->query($sql);
+  while ($row = $result->fetch_object()) {
+    $cate3[] = $row;
+  };
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
@@ -75,7 +90,7 @@
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="cate1" name="cate1"aria-label="대분류" required>
-                    <option selected disabled>대분류</option>
+                    <option>대분류</option>
                     <?php
                     foreach ($cate1 as $c1) {
                     ?>
@@ -89,12 +104,26 @@
                 </div>
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="cate2" name="cate2" aria-label="중분류">
-
+                  <option>중분류</option>
+                  <?php
+                      foreach ($cate2 as $c2) {
+                    ?>
+                      <option value="<?= $c2->code; ?>"><?= $c2->name; ?></option>
+                    <?php
+                      }
+                    ?>
                   </select>
                 </div>
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="cate3" name="cate3" aria-label="소분류">
-
+                  <option>소분류</option>
+                  <?php
+                      foreach ($cate3 as $c3) {
+                    ?>
+                      <option value="<?= $c3->code; ?>"><?= $c3->name; ?></option>
+                    <?php
+                      }
+                    ?>
                   </select>
                 </div>
               </div>
@@ -147,7 +176,11 @@
             </div>
           </div>
         </form>
-
+        <hr>  
+          <div>
+            검색결과: <?= $count;  ?>
+          </div>
+        <hr>
         <!-- 강의리스트 -->
           <form action="clist_save.php" method="POST" class="lecture_list_wrap">
             <ul class="list-group box-list aic">
@@ -158,12 +191,12 @@
               <li class="lecture_list_item box-shadow">
                 <img src="image/img_lecture_01.jpg" alt="이미지">
                 <div class="info-area">
-                  <P class="lecture_chaption"><strong class="tit-h5">생활코딩</strong><i class="fa-solid fa-circle-user fa-xsmall txt-m tender-color">3.5만</i><i class="fa-solid fa-heart fa-xsmall txt-m tender-color">4.35</i></P>
-                  <P class="lecture_text"> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. </P>
-                  <P class="tender-color">수강기간 2024.05.15 ~ 2024.10.15</P>
+                  <P class="lecture_chaption"><strong class="tit-h5"><?=$item->name;?></strong><i class="fa-solid fa-circle-user fa-xsmall txt-m tender-color">3.5만</i><i class="fa-solid fa-heart fa-xsmall txt-m tender-color">4.35</i></P>
+                  <P class="lecture_text"><?=$item->content;?></P>
+                  <P class="tender-color">수강기간 <?=$item->sale_start_date;?> ~ <?=$item->sale_end_date;?></P>
                 </div>
                 <div class="etc-group">
-                  <p class="search-result"><span>프론트엔드</span><i class="fa-solid fa-angle-right fa-small"></i><span>HTML</span></p>
+                  <p class="search-result"><span><?= $c1->name; ?></span><i class="fa-solid fa-angle-right fa-small"></i><span><?= $c2->name; ?></span></p>
                   <select class="form-select form-select-sm" id="select-01" aria-label="select">
                     <option selected value="1">판매중</option>
                     <option value="2">판매 예정</option>
@@ -187,7 +220,7 @@
             </ul>
             <div class="btn-area">
               <a href="/ccccoding/admin/lecture_up.php" class="btn btn-primary btn-lg">강의등록</a>
-              <button class="btn btn-secondary btn-lg">일괄삭제</button>
+              <button class="btn btn-secondary btn-lg">일괄수정</button>
           </div>
           </form>
       </div>
