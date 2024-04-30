@@ -5,30 +5,15 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 
-//  $search_where = "";
-//  $search_keyword = $_GET['keyword'] ?? '';
-
-//  if($search_keyword){
-//    $search_where .= " and (coupon_name LIKE '%{$search_keyword}%')";
-//  }
-
-//  $paginationTarget = 'coupons';
-//  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
-
-$sql = "SELECT * FROM coupons where 1=1"; //모든 상품 조회 쿼리
-//  $sql .= $search_where;
-//  $order = " order by cid desc";
-//  $sql .= $order;
-//  $limit = " LIMIT $startLimit, $endLimit";
-//  $sql .= $limit;
-
+$sql = "SELECT * FROM coupons";
 $result = $mysqli->query($sql);
-
-$rsArr = [];
 
 while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
 }
+
+$coupon_image = '';
+
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
@@ -132,7 +117,7 @@ while ($rs = $result->fetch_object()) {
         <ul class="list-group box-list">
           <?php
             if (isset($rsArr)) {
-            foreach ($rsArr as $item) {
+              foreach($rsArr as $item){
           ?>
           <li class="list-group-item">
             <a href="coupon_edit.php" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
