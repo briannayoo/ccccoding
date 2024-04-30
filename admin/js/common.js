@@ -52,6 +52,7 @@ $(function() {
         toValue:  function(val){
           console.log($(picker).closest('.ipt-wrap').find('.ipt-datepicker'))
           val = $(picker).closest('.ipt-wrap').find('.ipt-datepicker').eq(0).val(val.slice(0, -1).replaceAll('.', '-'));
+          // val = $(picker).closest('.ipt-wrap').find('.ipt-datepicker').eq(0).val();
           return val;
         },
       });
