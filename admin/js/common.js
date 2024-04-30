@@ -46,20 +46,31 @@ $(function() {
   // Datepicker
   if($('.date-wrap').length > 0){
     
-    const datepickers = document.querySelectorAll('.date-wrap .open');
+    const datepickerBtns = $('.date-wrap .open');
+    const datepickers = document.querySelectorAll('.ipt-datepicker');
+    datepickerBtns.click(function(){
+      let target =  $(this).closest('.ipt-wrap').find('input');
+      target.focus();
+    });
+
     datepickers.forEach(picker => {
       new Datepicker(picker, {
-        toValue:  function(val){
-          console.log($(picker).closest('.ipt-wrap').find('.ipt-datepicker'))
-          val = $(picker).closest('.ipt-wrap').find('.ipt-datepicker').eq(0).val(val.slice(0, -1).replaceAll('.', '-'));
-          // val = $(picker).closest('.ipt-wrap').find('.ipt-datepicker').eq(0).val();
-          return val;
-        },
+        onChange:function(){
+                
+          let dateString = picker.value;
+          // 마지막 문자가 점인 경우 제거
+          if (dateString.endsWith('.')) {
+              dateString = dateString.slice(0, -1);
+          }
+          // 공백 제거 후 남은 점을 하이픈으로 변경
+          let formattedDate = dateString.replace(/ /g, '').replace(/\./g, '-');
+          picker.value = formattedDate;
+      }
       });
     });
 
-    $('.ipt-datepicker').val($('.date-wrap .open').attr('data-value'));
-    $('.ipt-datepicker').eq(0).val($('.date-wrap .open').eq(0).data('value'));
+    // $('.ipt-datepicker').val($('.date-wrap .open').attr('data-value'));
+    // $('.ipt-datepicker').eq(0).val($('.date-wrap .open').eq(0).data('value'));
   }
   
   // thumbnail
@@ -96,13 +107,6 @@ $(function() {
     $('#file-upload').change(function() {
       var fileName = $(this).val().split('\\').pop();
       $('.file-input-text').val(fileName);
-    });
-  }
-
-  // 체크박스 전체선택
-  if($('#all-check').length > 0){
-    $("#all-check").click(function(){
-      $('input[name="check-group"]').prop('checked', $(this).prop('checked'));
     });
   }
 

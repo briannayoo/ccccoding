@@ -17,12 +17,12 @@ function save() {
 
 }
 
-$("#sale_start_date").datepicker({
-  dateFormat: "yy-mm-dd"
-});
-$("#sale_end_date").datepicker({
-  dateFormat: "yy-mm-dd"
-});
+// $("#sale_start_date").datepicker({
+//   dateFormat: "yy-mm-dd"
+// });
+// $("#sale_end_date").datepicker({
+//   dateFormat: "yy-mm-dd"
+// });
 
 //이미지 등록
 $('#upfile_btn').click(function() {
