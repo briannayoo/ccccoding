@@ -12,7 +12,7 @@
       <!-- sub-page-tit-area (e) -->
 
         <div class="content"> 
-          <form action="notice_update_ok.php" method="POST" class="form-list">
+          <form action="notice_modify_ok.php" method="POST" class="form-list">
               <!-- 제목 -->
               <div class=" justify-content-between">
                 <div class="row">
