@@ -1,8 +1,8 @@
 <?php
- session_start();
+  session_start();
 
- include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
- include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 ?>
       <!-- 상단 until-list (e) -->
       <!-- sub-page-tit-area (s) -->
@@ -12,7 +12,7 @@
       <!-- sub-page-tit-area (e) -->
 
         <div class="content"> 
-          <form action="notice_upinsert.php" method="POST" class="form-list">
+          <form action="notice_update_ok.php" method="POST" class="form-list">
               <!-- 제목 -->
               <div class=" justify-content-between">
                 <div class="row">
