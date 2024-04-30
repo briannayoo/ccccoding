@@ -1,6 +1,20 @@
 <?php
   $title = '수강관리';
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
+  // include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
+
+  
+  // 수정해야됨
+  $osql = "SELECT o.*, m.userid, m.username
+  FROM orders AS o
+  LEFT JOIN members AS m ON o.oid = m.mid;";
+
+  $result = $mysqli->query($osql);
+
+  while ($rs = $result->fetch_object()) {
+    $rsArr[] = $rs;
+  }
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
@@ -91,22 +105,31 @@
             </tr>
           </thead>
           <tbody>
+            <?php
+              if (isset($rsArr)) {
+                foreach ($rsArr as $item) {
+              ?>
             <tr>
               <td>
                 <div>
                   <input class="form-check-input" type="checkbox" id="check-01" name="check-group" value="" aria-label="checkbox">
                 </div>
               </td>
-              <td>YYYY-MM-DD</td>
-              <td>박공주</td>
-              <td>pgongju01</td>
-              <td>쥬쥬쌤의 쉽게배우는 자바스크립트 강의명 길어지면...처리</td>
-              <td class="text-end">1,000,000원</td>
-              <td>2,000,000원 쿠폰</td>
-              <td>YYYY-MM-DD~YYYY-MM-DD</td>
-              <td>신청</td>
-              <td></td>
+              <td><?= $item->orders_date ?></td>
+              <td><?= $item->username ?></td>
+              <td><?= $item->userid ?></td>
+              <td><?= $item->lecture_name ?></td>
+              <td><?= $item->price ?></td>
+              <td><?= $item->coupon_used ?></td>
+              <td><?= $item->start_date ?> ~ <?= $item->end_date ?></td>
+              <td><?= $item->cancel_request ?></td>
+              <td><?= $item->refund_request ?></td>
             </tr>
+            <?php
+              }
+            }
+            ?>
+
             <!-- <tr>
               <td>
                 <div>
