@@ -89,6 +89,8 @@
             </tr>
             <?php
               }
+            }else {
+                echo "<tr><td colspan='7'>데이터가 없습니다.</td></tr>";
             }
             ?>
             <!-- <tr>
@@ -122,7 +124,7 @@
         <!-- table(e) -->
 
         <div class="btn-area">
-          <button type="button" class="btn btn-secondary btn-sm">전체삭제</button>
+          <button type="button" class="btn btn-secondary btn-sm">선택 삭제</button>
         </div>
       </div>
 

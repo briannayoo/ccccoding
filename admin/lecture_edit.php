@@ -1,11 +1,16 @@
 <?php
   session_start();
-  $title = '강의등록';
+  $title = '강의수정';
 
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
-
+  
+  $pid = $_GET['pid']; 
+  $sql = "SELECT * FROM products WHERE pid = {$pid}";
+  $result = $mysqli -> query($sql);
+  $rs = $result->fetch_object();
+  
   $sql = "SELECT * FROM category where step = 1";
   $result = $mysqli->query($sql);
   while ($row = $result->fetch_object()) {
