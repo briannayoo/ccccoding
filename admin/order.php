@@ -76,7 +76,7 @@
               <th scope="col">
                 <div>
                   <span class="visually-hidden">전체선택</span>
-                  <input class="form-check-input" type="checkbox" id="all-check" value="" aria-label="checkbox"> 
+                  <input class="form-check-input" type="checkbox" id="all-check" name="check-group" value="" aria-label="checkbox"> 
                 </div>
               </th>
               <th scope="col">결제일</th>
@@ -94,7 +94,7 @@
             <tr>
               <td>
                 <div>
-                  <input class="form-check-input" type="checkbox" id="check-01" value="" aria-label="checkbox">
+                  <input class="form-check-input" type="checkbox" id="check-01" name="check-group" value="" aria-label="checkbox">
                 </div>
               </td>
               <td>YYYY-MM-DD</td>
@@ -107,7 +107,7 @@
               <td>신청</td>
               <td></td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td>
                 <div>
                   <input class="form-check-input" type="checkbox" id="check-02" value="" aria-label="checkbox">
@@ -138,7 +138,7 @@
               <td>무제한</td>
               <td></td>
               <td></td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
         <!-- table(e) -->

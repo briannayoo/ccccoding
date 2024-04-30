@@ -1,9 +1,19 @@
 
 <?php
- session_start();
+  session_start();
 
- include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
- include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
+
+   //idx 번호의 글조회
+    $bno = $_GET['idx'];
+    $sql = "SELECT * FROM notice WHERE idx = {$bno}";
+    $result = $mysqli->query($sql);
+    $resultArr = mysqli_fetch_assoc($result);
+   //조회수 업데이트
+    $hit = $resultArr['hit'] + 1;
+    $sqlUpdate = "UPDATE notice SET hit={$hit} WHERE idx = {$bno}";
+    $mysqli->query($sqlUpdate);
 ?>
 
       <!-- sub-page-tit-area (s) -->
@@ -13,23 +23,23 @@
       <!-- sub-page-tit-area (e) -->
 
       <div class="content">
-        <h2>제목</h2>
+        <h2><?= $resultArr['title'];?></h2>
         <div class="pro-box3 d-flex">
           <div class="profile-box">
             <img class="pro-img" src="image/profilimg_1.png" alt="profilimg_1">
           </div>
-          <h3 class="tit-h5">작성자 : </h3>
-          <h4 class="txt-m">YYYY-MM-DD</h4>
+          <h3 class="tit-h5">작성자 : <?= $resultArr['name'];?></h3>
+          <h4 class="txt-m"><?= $resultArr['date'];?></h4>
         </div>
         <div class="question box-shadow box">
           <div class="q-box"> 
-            <p>질문내용</p>
+            <p><?= nl2br($resultArr['content']);?></p>
           </div>
         </div>
       </div>
       <div class="btn-area">
-        <button type="button" class="btn btn-primary btn-lg">버튼</button>
-        <button type="button" class="btn btn-secondary btn-lg">버튼</button>
+        <a href="notice_modify.php?idx=<?= $bno;?>" class="btn btn-primary btn-lg">수정</a>
+        <a href="notice_del.php?idx=<?= $bno;?>" class="btn btn-secondary btn-lg">삭제</a>
       </div>
     </div>
   </div>
