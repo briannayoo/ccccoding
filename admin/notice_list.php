@@ -4,6 +4,14 @@ session_start();
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 
+  $keyword = $_GET['keyword'];
+  $noticesql = "SELECT * FROM notice WHERE 1=1 and (name like '%$keyword%' or title like '%$keyword%')";
+  $noticeResult = mysqli_query($mysqli, $noticesql);
+  
+  while ($row = mysqli_fetch_object($noticeResult)) {
+    
+  }   
+
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
@@ -12,7 +20,7 @@ session_start();
       <!-- sub-page-tit-area (e) -->
 
       <div class="content"> <!--temp-area 빼야됨-->
-        <form action="notice_search.php" class="form-list mb-4">
+        <form action="<?php echo $_SERVER['PHP_SELF'];?>" class="form-list mb-4">
           <div class="row">
             <label for="search" class="col-md-1 col-form-label tit-h4">검색</label>
             <div class="col-md-11">
@@ -51,6 +59,7 @@ session_start();
             </thead>
             <tbody>
               <?php
+                  
                   $sql = "SELECT * FROM notice order by idx desc";
                   $result = $mysqli -> query($sql);
                   while($row = mysqli_fetch_assoc($result)){
@@ -66,10 +75,10 @@ session_start();
               <td><?= $row['date'] ?></td>
               <td><?= $row['hit'] ?></td>
               <td>
-                <a href="notice_modify.php?idx=<?= $row->idx; ?>">
+              <a href="">
                   <i class="fa-solid fa-pen-to-square fa-small">수정</i>
                 </a>
-                <a href="notice_delete.php">
+                <a href="">
                   <i class="fa-solid fa-trash-can fa-small">삭제</i>
                 </a>
               </td>
