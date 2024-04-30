@@ -9,6 +9,7 @@ $(function() {
   $('.gnb-list > li').filter((idx, item) => {
     if($(item).find("> a").attr('href') === url){
       ctgIdx = idx;
+      localStorage.setItem('ctgIdx', idx); // 최근 1depth index 저장
     }
     return idx;
   })
