@@ -351,5 +351,6 @@ while ($rs = $result->fetch_object()) {
   </div>
   <!-- wwilsman 데이트픽커 js -->
   <script src="/ccccoding/admin/js/datepicker.js"></script>
+  <script src="/ccccoding/admin/js/coupon.js"></script>
 </body>
 </html>

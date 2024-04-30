@@ -11,7 +11,6 @@ $coupon_price = $_POST['coupon_price'] ?? 0;
 $coupon_ratio = $_POST['coupon_ratio'] ?? 0;
 $status = $_POST['status'] ?? 0;
 $regdate = date('Y-m-d H:i:s');
-$userid = $_POST['userid'] ?? '';
 $max_value = $_POST['max_value'] ?? '';
 $use_min_price = $_POST['use_min_price'] ?? '';
 $use_date_type = $_POST['use_date_type'] ?? '';
@@ -59,7 +58,6 @@ try {
     coupon_ratio, 
     status, 
     regdate, 
-    userid, 
     max_value, 
     use_min_price,
     use_date_type,
@@ -74,7 +72,6 @@ try {
     '{$coupon_ratio}',
     '{$status}',
     '{$regdate}',
-    '{$_SESSION['AUID']}',
     '{$max_value}',
     '{$use_min_price}',
     '{$use_date_type}',
