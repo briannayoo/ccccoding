@@ -15,8 +15,8 @@
       <div class="content"> 
         <!-- form-list (s) -->
         <form action="coupon_ok.php" enctype="multipart/form-data" method="POST" class="form-list" onsubmit="return save()">
-          <input type="hidden" name="cid" id="cid" value="<?= $cid; ?>">
-          <input type="hidden" name="coupon_image" id="coupon_image" value="<?= $coupon_image; ?>">
+          <input type="hidden" name="cid" id="cid">
+          <input type="hidden" name="coupon_image" id="coupon_image">
           <!-- input text 1/3 (s) -->
           <div class="row">
             <label for="coupon_name" class="col-md-1 col-form-label tit-h4">쿠폰명</label>
@@ -48,7 +48,7 @@
             <label for="use_min_price" class="col-md-1 col-form-label tit-h4">최소사용금액</label>
             <div class="col-md-11">
               <div class="input-group">
-                <div class="col-md-4 ipt-wrap ipt-wrap">
+                <div class="col-md-4 ipt-wrap">
                   <input type="text" class="form-control text-end" id="use_min_price" name="use_min_price" required>
                   <span class="unit">원</span>
                 </div>
@@ -62,7 +62,7 @@
             <label for="max_value" class="col-md-1 col-form-label tit-h4">최대할인금액</label>
             <div class="col-md-11">
               <div class="input-group">
-                <div class="col-md-4 ipt-wrap ipt-wrap">
+                <div class="col-md-4 ipt-wrap">
                   <input type="text" class="form-control text-end" id="max_value" name="max_value" required>
                   <span class="unit">원</span>
                 </div>

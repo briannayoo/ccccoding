@@ -21,9 +21,10 @@ $rs = $result->fetch_object();
 
       <div class="content"> 
         <!-- form-list (s) -->
-        <form action="coupon_edit_ok.php?cid=<?= $pid;?>" enctype="multipart/form-data" method="POST" class="form-list">
-          <input type="hidden" name="cid" id="cid" value="<?= $cid; ?>">
-          <!-- <input type="hidden" name="coupon_image" id="coupon_image" value="<?= $coupon_image; ?>"> -->
+        <form action="coupon_edit_ok.php?cid=<?= $cid;?>" enctype="multipart/form-data" method="POST" class="form-list">
+          <input type="hidden" name="cid" value="<?= $cid; ?>">
+          <input type="hidden" name="coupon_image" id="coupon_image">
+
           <!-- input text 1/3 (s) -->
           <div class="row">
             <label for="coupon_name" class="col-md-1 col-form-label tit-h4">쿠폰명</label>
@@ -88,8 +89,8 @@ $rs = $result->fetch_object();
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="coupon_type" name="coupon_type" aria-label="할인 종류 선택" required>
                     <option selected>선택해주세요</option>
-                    <option value="amount" >할인금액</option>
-                    <option value="rate">할인율</option>
+                    <option value="1" <?php if($rs->coupon_type == 1){ echo "selected";}?>>할인금액</option>
+                    <option value="2" <?php if($rs->coupon_type == 2){ echo "selected";}?>>할인율</option>
                   </select>
                 </div>
                 <div class="col-md-4 ipt-wrap dc-wrap amount">
@@ -140,10 +141,10 @@ $rs = $result->fetch_object();
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
                   <!-- 240501 value값수정후 확인 -->
-                  <select class="form-select form-select-sm" id="status" name="status" aria-label="상태 선택" value="<?= $rs -> status?>"  required>
+                  <select class="form-select form-select-sm" id="status[<?= $item->cid ?>]" name="status[<?= $item->cid ?>]" aria-label="상태 선택"  required>
                     <option selected>선택해주세요</option>
-                    <option value="1" >활성화</option>
-                    <option value="2">비활성화</option>
+                    <option <?php if($item->status == 1){ echo "selected";} ?>>활성화</option>
+                    <option <?php if($item->status == 2){ echo "selected";} ?>>비활성화</option>
                   </select>
                 </div>
               </div>
@@ -156,7 +157,8 @@ $rs = $result->fetch_object();
           <div class="row tumbnail_wrap">
             <label for="form01" class="col-md-1 col-form-label tit-h4">썸네일</label>
             <div class="col-md-11">
-              <input type="file" multiple name="upfile[]" id="thumbnail" class="d-none" accept="image/*" required>
+              <img src="<?= $rs->thumbnail; ?>" alt="" class="thumbnail"><!-- 대표이미지 -->            
+              <input type="file" multiple name="thumbnail" id="thumbnail "accept="image/*" value="<?= $rs->thumbnail; ?>" required>
               <div>
                 <button type="button" class="btn btn-primary btn-sm thumb-text" id="addImage">파일 선택</button>
                 <p class="remove">*5M이하 / gif,png,jpg만 등록가능합니다.</p>

@@ -6,14 +6,18 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 
 $sql = "SELECT * FROM coupons";
+
+if(isset($_GET['cid'])) {
+  $cid = $_GET['cid'];
+} else {
+  $cid = ""; // 기본값 설정
+}
+
 $result = $mysqli->query($sql);
 
 while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
 }
-
-// $coupon_image = '';
-
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
@@ -22,7 +26,7 @@ while ($rs = $result->fetch_object()) {
       <!-- sub-page-tit-area (e) -->
 
       <div class="d-flex justify-content-end mb-5">
-        <a href="coupon_registration.php" class="btn btn-primary btn-lg">쿠폰등록</a>
+        <a href="coupon_up.php" class="btn btn-primary btn-lg">쿠폰등록</a>
       </div>
 
       <!-- form-list (s) -->
@@ -129,7 +133,7 @@ while ($rs = $result->fetch_object()) {
                   <span class="visually-hidden">수정</span>
                   <i class="fa-solid fa-pen-to-square fa-small"></i>
                 </a>
-                <a href="coupon_delete.php?cid=<?= $item->cid; ?>" class="btn del">
+                <a href="coupon_del.php?cid=<?= $item->cid;?>" class="btn del">
                   <span class="visually-hidden">삭제</span>
                   <i class="fa-solid fa-trash-can fa-small"></i>
                 </a>
