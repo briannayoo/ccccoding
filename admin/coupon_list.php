@@ -30,9 +30,9 @@ while ($rs = $result->fetch_object()) {
       </div>
 
       <!-- form-list (s) -->
-      <!-- <form action="#" class="form-list"> -->
+      <form action="#" class="form-list">
           <!-- 할인종류 (s) -->
-          <!-- <div class="row">
+          <div class="row">
             <label for="discount" class="col-md-1 col-form-label tit-h4">할인종류</label>
             <div class="col-md-11">
               <div class="input-group">
@@ -45,11 +45,11 @@ while ($rs = $result->fetch_object()) {
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
           <!-- 할인종류 (e) -->
 
           <!-- 쿠폰명 1/3 (s) -->
-          <!-- <div class="row">
+          <div class="row">
             <label for="coupon-name" class="col-md-1 col-form-label tit-h4">쿠폰명</label>
             <div class="col-md-11">
               <div class="input-group">
@@ -58,11 +58,11 @@ while ($rs = $result->fetch_object()) {
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
           <!-- 쿠폰명 1/3 (e) -->
 
           <!-- 사용기한 (s) -->
-          <!-- <div class="row">
+          <div class="row">
             <label for="use-date" class="col-md-1 col-form-label tit-h4">사용기한</label>
             <div class="col-md-11">
               <div class="input-group">
@@ -85,11 +85,11 @@ while ($rs = $result->fetch_object()) {
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
           <!-- 사용기한 (e) -->
 
           <!-- 상태 (s) -->
-          <!-- <div class="row">
+          <div class="row">
             <label for="status" class="col-md-1 col-form-label tit-h4">상태</label>
             <div class="col-md-11">
               <div class="input-group">
@@ -102,13 +102,13 @@ while ($rs = $result->fetch_object()) {
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
           <!-- 상태 (e) -->
 
-          <!-- <div class="btn-area">
+          <div class="btn-area">
             <button type="button" class="btn btn-primary btn-lg">검색</button>
-          </div> -->
-      <!-- </form> -->
+          </div>
+    </form>
       <!-- form-list (e) -->
 
       <div class="content"> 
@@ -141,7 +141,7 @@ while ($rs = $result->fetch_object()) {
               <div class="tit-group">
                 <strong class="tit-h3"><?= $item->coupon_name; ?></strong>
                 <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="toggle1">
+                  <input class="form-check-input" type="checkbox" id="toggle1" <?php if($item->status == 1) echo 'checked'; ?> >
                   <label class="form-check-label visually-hidden" for="toggle1">활성화</label>
                 </div>
               </div>
