@@ -4,11 +4,10 @@
   // include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 
-  
-  // 수정해야됨
   $osql = "SELECT o.*, m.userid, m.username
-  FROM orders AS o
-  LEFT JOIN members AS m ON o.oid = m.mid;";
+          FROM orders o
+          LEFT JOIN members m 
+          ON o.mid = m.mid";
 
   $result = $mysqli->query($osql);
 
@@ -112,7 +111,7 @@
             <tr>
               <td>
                 <div>
-                  <input class="form-check-input" type="checkbox" id="check-01" name="check-group" value="" aria-label="checkbox">
+                  <input class="form-check-input" type="checkbox" class="chk" id="" name="check-group" value="" aria-label="checkbox">
                 </div>
               </td>
               <td><?= $item->orders_date ?></td>
