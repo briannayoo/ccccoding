@@ -19,6 +19,8 @@ if(strpos($_FILES['file']['type'], 'image') !== false){
 }else{
   $is_img = 0;
 }
+//이미지 추가
+
 
 
 $sql = "INSERT INTO notice (name,title,content,date,file,is_img) values ('{$name}','{$title}','{$content}','{$date}','{$attach_name}','{$is_img}')";

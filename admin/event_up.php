@@ -1,29 +1,7 @@
 <?php
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 ?>
-    <div class="container">
-      <!-- 상단 until-list (s) -->
-      <ul class="list-unstyled top-util-list">
-        <li class="alarm">
-          <button type="button" class="btn">
-            <i class="fa-solid fa-bell fa-small" aria-hidden="true">
-            </i>
-            <span class="tit-h3">알림</span>
-            <span class="badge rounded-pill">
-              <span class="visually-hidden">읽지않은 메시지</span>
-              <em class="txt-s">9</em>
-              <span class="visually-hidden">건</span>
-            </span>
-          </button>
-        </li>
-        <li class="profile">
-          <div class="profile-wrap">
-            <img src="image/img_pf_admin.jpg" alt="프로필이미지"> <!--실제로는 경로변경해야함 ../이거빼야됨-->
-          </div>
-          <span class="admin tit-h3">관리자</span>
-        </li>
-      </ul>
-      <!-- 상단 until-list (e) -->
+
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
         <h2 class="tit-h2">이벤트 등록</h2>
@@ -122,7 +100,6 @@
             </div>
           </form>
       </div>
-    </div>
   </div>
 </body>
 </html>
