@@ -4,14 +4,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 
 
 //관리자 검사
-if (!isset($_SESSION['AUID'])) {
-  $result_data = array('result' => 'member');
-  echo json_encode($result_data);
-  exit;
-}
+// if (!isset($_SESSION['AUID'])) {
+//   $result_data = array('result' => 'member');
+//   echo json_encode($result_data);
+//   exit;
+// }
 
-$imgid = $_POST['imgid'];
-$sql = "SELECT * FROM product_image_table WHERE imgid = {$imgid}";
+$thumbnail = $_POST['thumbnail'];
+$sql = "SELECT * FROM products WHERE thumbnail = {$thumbnail}";
 $result = $mysqli->query($sql);
 $rs = $result->fetch_object(); //$rs->userid
 
@@ -20,7 +20,7 @@ if ($rs->userid !== $_SESSION['AUID']) {
   echo json_encode($result_data);
   exit;
 }
-$sql = "UPDATE product_image_table SET status = 0 where imgid = {$imgid}";
+$sql = "UPDATE thumbnail SET status = 0 where thumbnail = {$thumbnail}";
 $result = $mysqli->query($sql);
 
 if ($result) {
