@@ -68,7 +68,7 @@ function attachFile(file) {
   });
 }
 
-$('#addedimages').on('click', 'button', function() {
+$('#btn-del').on('click', 'button', function() {
   let imgid = $(this).parent().attr('id');
   file_delete(imgid);
 });

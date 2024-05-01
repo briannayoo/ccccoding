@@ -215,6 +215,6 @@
     </div>
   </div>
   <!-- 데이터피커.js / common.js-->
-  <script src="/ccccoding/admin/js/lecture.js"></script> 
+  <!-- <script src="/ccccoding/admin/js/lecture.js"></script>  -->
 </body>
 </html>

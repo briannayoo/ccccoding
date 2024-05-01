@@ -102,7 +102,6 @@ $(function() {
           let target = $('#addedImages');
           let tag = `
           <img src="${attachment}" alt="${file.name}">
-          <button class="btn btn-sm thumb-text" id="btn-del">삭제</button>
           `;
           target.html(tag);
           $('.remove').remove();
@@ -127,7 +126,7 @@ $(function() {
   // 체크박스 전체선택
   if($('#all-check').length > 0){
     $("#all-check").click(function(){
-      $('input[name="check-group"]').prop('checked', $(this).prop('checked'));
+      $('.form-check-input').prop('checked', $(this).prop('checked'));
     });
   }
 

@@ -28,7 +28,7 @@ $(function() {
     // 쿠폰 취소버튼 클릭
     $('.cancel').click(function(){
         if(confirm('취소하시겠습니까?')){
-            location.href='coupon.php';
+            location.href='coupon_list.php';
         }
     })
 

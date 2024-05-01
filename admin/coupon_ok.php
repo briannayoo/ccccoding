@@ -87,7 +87,7 @@ $coupon_image = ""; // 쿠폰 이미지 변수 초기화
   $rs = $mysqli->query($sql);
   $mysqli->commit(); // 디비에 커밋한다.
 
-  echo "<script>alert('등록했습니다.');location.href='/ccccoding/admin/coupon.php';</script>";
+  echo "<script>alert('등록했습니다.');location.href='/ccccoding/admin/coupon_list.php';</script>";
   exit;
 
 } catch (Exception $e) {

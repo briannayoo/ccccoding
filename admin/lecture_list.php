@@ -172,13 +172,13 @@
                   </div>
                 </div>
                 <!-- <label for="search" class="col-md-1 col-form-label tit-h4">타이틀</label> -->
-                <div class="col-md-7 ipt-wrap">
+                <div class="col-md-7 ipt-wrap d-flex align-items-center gap-3">
                   <input class="form-control" type="search" id="search" placeholder="검색어를 입력하세요..." aria-label="Search">
-                  <div class="input-group-append">
+                  <button type="button" class="btn btn-primary btn-sm">버튼</button>
+                  <!-- <div class="input-group-append">
                     <i class="fas fa-search lh-2"></i>
-                  </div>
+                  </div> -->
                 </div>
-  
               </div>
             </div>
           </div>
@@ -196,7 +196,7 @@
                 foreach ($rsArr as $item) {
             ?>
               <li class="lecture_list_item box-shadow">
-                <img src="image/img_lecture_01.jpg" alt="이미지">
+                <img src="<?=$item->thumbnail;?>" alt="이미지">
                 <div class="info-area">
                   <P class="lecture_chaption"><strong class="tit-h5"><?=$item->name;?></strong><i class="fa-solid fa-circle-user fa-xsmall txt-m tender-color">3.5만</i><i class="fa-solid fa-heart fa-xsmall txt-m tender-color">4.35</i></P>
                   <P class="lecture_text"><?=$item->content;?></P>
@@ -214,10 +214,10 @@
                       <span class="visually-hidden">수정</span>
                       <i class="fa-solid fa-pen-to-square fa-small"></i>
                     </a>
-                    <button type="button" class="btn del">
+                    <a href="lecture_del.php?pid=<?= $item->pid; ?>" type="button" class="btn lec-del">
                       <span class="visually-hidden">삭제</span>
                       <i class="fa-solid fa-trash-can fa-small"></i>
-                    </button>
+                    </a>
                   </div>
                 </div>
               </li>
@@ -267,5 +267,32 @@
     </div>
   </div>
   <script src="/pinkping/admin/js/makeoption.js"></script>
+  <!-- <script>
+    $('.lec-del').click(function(){
+
+      $(this).closest('li').remove();
+      //let pid =  $(this).closest('tr').find('.qty-text').attr('data-id');
+      let data = {
+        pid :pid
+      }
+      $.ajax({
+        url:'lecture_del.php',
+        async:false,
+        type: 'POST',
+        data:data,
+        dataType:'json',
+        error:function(){},
+        success:function(data){
+        console.log(data);
+        if(data.result=='ok'){
+          alert('정말 삭제하시겠습니까?');  
+          location.reload();                      
+        }else{
+          alert('오류, 다시 시도하세요');                        
+          }
+        }
+      });
+  });
+  </script> -->
 </body>
 </html>
