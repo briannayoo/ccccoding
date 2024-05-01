@@ -3,14 +3,15 @@ session_start();
 
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
-
-  $keyword = $_GET['keyword'];
-  $noticesql = "SELECT * FROM notice WHERE 1=1 and (name like '%$keyword%' or title like '%$keyword%')";
+  
+  $keyword = $_GET['keyword'] ?? '';
+  $noticesql = "SELECT * FROM notice WHERE 1=1 and (name like '%$keyword%' or title like '%$keyword%')order by idx desc ";
   $noticeResult = mysqli_query($mysqli, $noticesql);
   
   while ($row = mysqli_fetch_object($noticeResult)) {
-    
-  }   
+    $noticeArr[] = $row;
+  }  
+  
 
 ?>
       <!-- sub-page-tit-area (s) -->
@@ -60,33 +61,36 @@ session_start();
             <tbody>
               <?php
                   
-                  $sql = "SELECT * FROM notice order by idx desc";
-                  $result = $mysqli -> query($sql);
-                  while($row = mysqli_fetch_assoc($result)){
-                    $title = $row['title'];
-                    if(iconv_strlen($title) > 10){
-                    $title = str_replace($title,iconv_substr($title,0,10,'utf-8').'...', $title);
+                  // $sql = "SELECT * FROM notice order by idx desc";
+                  // $result = $mysqli -> query($sql);
+                  // while($row = mysqli_fetch_assoc($result)){
+                  //   $title = $row['title'];
+                  //   if(iconv_strlen($title) > 10){
+                  //   $title = str_replace($title,iconv_substr($title,0,10,'utf-8').'...', $title);
+                  //   }
+                  if(isset($noticeArr)){
+                    foreach($noticeArr as $na){
+                      ?>
+                    <tr>
+                      <td><?= $na -> idx;?></td>
+                      <td><a href="notice_view.php?idx=<?=$na -> idx; ?>"><?= $na -> title; ?></a></td>
+                      <td><?= $na -> name;?></td>
+                      <td><?=$na -> date;?></td>
+                      <td><?= $na -> hit;?></td>
+                      <td>
+                      <a href="notice_modify.php?idx=<?=  $na -> idx;?>">
+                          <i class="fa-solid fa-pen-to-square fa-small">수정</i>
+                        </a>
+                        <a href="notice_del.php?idx=<?=  $na -> idx;?>">
+                          <i class="fa-solid fa-trash-can fa-small">삭제</i>
+                        </a>
+                      </td>
+                    </tr> 
+                      <?php
                     }
+                  }
                 ?>
-            <tr>
-              <td><?= $row['idx'] ?></td>
-              <td><a href="notice_view.php?idx=<?= $row['idx']?>"><?= $title; ?></a></td>
-              <td><?= $row['name'] ?></td>
-              <td><?= $row['date'] ?></td>
-              <td><?= $row['hit'] ?></td>
-              <td>
-              <a href="">
-                  <i class="fa-solid fa-pen-to-square fa-small">수정</i>
-                </a>
-                <a href="">
-                  <i class="fa-solid fa-trash-can fa-small">삭제</i>
-                </a>
-              </td>
-            </tr> 
 
-              <?php
-                }
-              ?>
 
             </tbody>
           </table>

@@ -96,7 +96,7 @@
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" name="price-select" id="price-select" aria-label="위치지정">
+                  <select class="form-select form-select-sm" name="price_select" id="price_select" aria-label="판매금액">
                     <option selected value="1">유료</option>
                     <option value="2">무료</option>
                     <option value="3">부분무료</option>
@@ -215,6 +215,6 @@
     </div>
   </div>
   <!-- 데이터피커.js / common.js-->
-  <script src="/ccccoding/admin/js/lecture.js"></script> 
+  <!-- <script src="/ccccoding/admin/js/lecture.js"></script>  -->
 </body>
 </html>

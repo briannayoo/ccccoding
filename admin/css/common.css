@@ -152,8 +152,8 @@ textarea {height:250px;}
 
 /* 썸네일 */
 #addedImages {padding: 30px 0;}
-#addedImages > img{width:300px; height:300px; object-fit:cover;}
-.btn-sm.thumb-text{font-size:16px; width: 300px;}
+#addedImages img{width:300px; height:300px; object-fit:cover;}
+.btn-sm.thumb-text{font-size:16px; width: 300px; }
 p.remove {color: red;}
 
 /* icons */

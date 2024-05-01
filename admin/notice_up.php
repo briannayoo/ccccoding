@@ -20,7 +20,7 @@
                   <div class="col-md-11">
                     <div class="input-group">
                       <div class="col-md-11 ipt-wrap">
-                        <input type="text" class="form-control" id="fm-txt03" name="title" placeholder="제목을 입력해주세요">
+                        <input type="text" class="form-control" id="fm-txt03" name="title" placeholder="제목을 입력해주세요" required>
                       </div>
                       <!-- 고정체크박스 -->
                       <div class="form-check">
@@ -39,7 +39,7 @@
           <div class="col-md-11">
             <div class="input-group">
               <div class="col-md-12 ipt-wrap">
-                <input type="text" class="form-control" id="fm-txt03" name="name" placeholder="이름을 입력해주세요">
+                <input type="text" class="form-control" id="fm-txt03" name="name" placeholder="이름을 입력해주세요" required>
               </div>
             </div>
           </div>
@@ -50,29 +50,33 @@
               <div class="col-md-11">
                 <div class="input-group">
                   <div class="col-md-12 ipt-wrap">
-                    <textarea class="form-control" id="txtarea" name="content" placeholder="내용을 입력하세요."></textarea>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <label for="file" class="col-md-1 col-form-label tit-h4">파일첨부</label>
-              <div class="col-md-11">
-                <div class="input-group">
-                  <div class="col-md-12 ipt-wrap">
-                    <input class="form-control" type="file" id="file" name="file">
+                    <textarea class="form-control" id="txtarea" name="content" placeholder="내용을 입력하세요." required></textarea>
                   </div>
                 </div>
               </div>
             </div>
 
+        <div class="row">
+          <label for="file" class="col-md-1 col-form-label tit-h4">파일첨부</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-12 ipt-wrap file-input-container">
+                <input type="text" class="form-control file-input-text" placeholder="선택된 파일 없음" readonly>
+                <button class="btn btn-primary btn-sm" type="button" id="custom-button" >파일추가</button>
+                <input type="file" id="file-upload" name="file">
+              </div>
+            </div>
+          </div>
+        </div>
+
             <!-- 버튼 -->
             <div class="btn-area">
               <button type="submit" class="btn btn-primary btn-lg">등록</button>
-              <button type="reset" class="btn btn-secondary btn-lg">취소</button>
+              <button type="reset" class="btn btn-secondary btn-lg n-cancel">취소</button>
             </div>
           </form>
         </div>
   </div>
+  <script src="/ccccoding/admin/js/notice.js"></script>
 </body>
 </html>

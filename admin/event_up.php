@@ -1,29 +1,10 @@
 <?php
+  session_start();
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
+
 ?>
-    <div class="container">
-      <!-- 상단 until-list (s) -->
-      <ul class="list-unstyled top-util-list">
-        <li class="alarm">
-          <button type="button" class="btn">
-            <i class="fa-solid fa-bell fa-small" aria-hidden="true">
-            </i>
-            <span class="tit-h3">알림</span>
-            <span class="badge rounded-pill">
-              <span class="visually-hidden">읽지않은 메시지</span>
-              <em class="txt-s">9</em>
-              <span class="visually-hidden">건</span>
-            </span>
-          </button>
-        </li>
-        <li class="profile">
-          <div class="profile-wrap">
-            <img src="image/img_pf_admin.jpg" alt="프로필이미지"> <!--실제로는 경로변경해야함 ../이거빼야됨-->
-          </div>
-          <span class="admin tit-h3">관리자</span>
-        </li>
-      </ul>
-      <!-- 상단 until-list (e) -->
+
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
         <h2 class="tit-h2">이벤트 등록</h2>
@@ -36,7 +17,7 @@
             <div class="row">
               <label for="form01" class="col-md-1 col-form-label tit-h4">썸네일</label>
               <div class="col-md-11">
-                <input type="file" multiple name="upfile[]" id="upfile" class="d-none">
+                <input type="file" multiple name="" id="upfile" class="d-none">
                 <div>
                   <button type="button" class="btn btn-primary btn-sm thumb-text" id="addImage">파일 선택</button>
                 </div>
@@ -59,18 +40,22 @@
             </div>
             <!--데이트피커  -->
             <div class="row">
-              <label for="datepicker-01" class="col-md-1 col-form-label tit-h4">이벤트기한</label>
-              <div class="col-md-11">
-                <div class="input-group">
-                  <div class="col-md-4 ipt-wrap">
-                    <input type="text" class="datepicker" placeholder="YYYY-MM-DD">
-                  </div>
-                  <div class="col-md-4 ipt-wrap">
-                    <input type="text" class="datepicker" placeholder="YYYY-MM-DD">
-                  </div>
+          <label for="datepicker-01" class="col-md-1 col-form-label tit-h4">이벤트 기한</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="date-wrap">
+                <div class="col-md-6 ipt-wrap">
+                  <input type="text" class="ipt-datepicker form-control" placeholder="YYYY-MM-DD">
+                  <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
+                </div>
+                <div class="col-md-6 ipt-wrap">
+                  <input type="text" class="ipt-datepicker form-control" placeholder="YYYY-MM-DD">
+                  <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
             <!-- 참여방법 -->
             <div class="row">
               <label for="txt03" class="col-md-1 col-form-label tit-h4">참여방법</label>
@@ -122,7 +107,9 @@
             </div>
           </form>
       </div>
-    </div>
   </div>
+  <!-- wwilsman 데이트픽커 js -->
+  <script src="/ccccoding/admin/js/datepicker.js"></script>
+  <script src="/ccccoding/admin/js/event.js"></script>
 </body>
 </html>

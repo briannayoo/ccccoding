@@ -11,6 +11,7 @@
   $result = $mysqli -> query($sql);
   $rs = $result->fetch_object();
   
+  //조회
   $sql = "SELECT * FROM category where step = 1";
   $result = $mysqli->query($sql);
   while ($row = $result->fetch_object()) {
@@ -217,7 +218,7 @@
                 <p class="remove">*5M이하 / gif,png,jpg만 등록가능합니다.</p>
               </div>
               <div id="addedImages"></div>
-              <img src="<?= $rs -> thumbnail?>" alt="" class="thumbnail">
+              
             </div>
           </div>
           <!-- 강의등록 -->
@@ -229,7 +230,7 @@
       </div>
     </div>
   </div>
-  <!-- 데이터피커.js / common.js-->
+
   <script src="/ccccoding/admin/js/lecture.js"></script> 
 </body>
 </html>
