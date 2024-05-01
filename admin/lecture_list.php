@@ -12,8 +12,6 @@
   $isgold = $_GET['isgold'] ?? '';
   $issilver = $_GET['issilver'] ?? '';
   $iscopper = $_GET['iscopper'] ?? '';
-  $sale_start_date = $_GET['sale_start_date'] ?? '';
-  $sale_end_date = $_GET['sale_end_date'] ?? '';
   $search_keyword = $_GET['search_keyword'] ?? '';
   $cates = $cates1.$cate2.$cate3;
 
@@ -30,12 +28,6 @@
   }
   if($iscopper){
     $search_where .= " and iscopper = 1";
-  }
-  if($sale_start_date){
-    $search_where .= " and sale_start_date >=  CAST('{$sale_start_date}' AS date)";
-  }
-  if($sale_end_date){
-    $search_where .= " and sale_end_date >=  CAST('{$sale_end_date}' AS date)";
   }
   if($search_keyword){
     $search_where .= " and (name LIKE '%{$search_keyword}%' or content LIKE '%{$search_keyword}%')";
