@@ -124,7 +124,7 @@ $(function() {
   // 체크박스 전체선택
   if($('#all-check').length > 0){
     $("#all-check").click(function(){
-      $('.chk').prop('checked', $(this).prop('checked'));
+      $('.form-check-input').prop('checked', $(this).prop('checked'));
     });
   }
 });

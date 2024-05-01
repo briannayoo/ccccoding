@@ -1,4 +1,94 @@
 $(function() {
+    let data = {};
+    $('#cancelOrder').click(function(){
+        let oids = [];
+        let checkboxs = $('#orderTable').find('input[type="checkbox"]:checked');
+        console.log(checkboxs.length)
+        if(checkboxs.length == 0){
+            alert('항목을 선택해주세요');
+        } else {
+            checkboxs.each(function(){
+                let request = $(this).closest('tr').find('.request').text();
+                if(!request){
+                    alert('해당건만 선택해주세요.');
+                    return false;
+                } else{
+                    oids.push($(this).val())
+                        // 수강관리 취소,환불신청 
+                        data = {
+                            type : 'cancel_request',
+                            oid :oids   
+                        }
+                }                
+            });            
+        }
+        console.log(oids);
+
+        $.ajax({
+            url:'order_update.php',
+            async:false,
+            type: 'POST',
+            data:data,
+            dataType:'json',
+            error:function(){},
+            success:function(data){
+            console.log(data);
+            if(data.result=='ok'){
+                alert('취소 환불건이 업데이트 되었습니다');  
+                location.reload();                      
+            }else{
+                alert('오류, 다시 시도하세요');                        
+                }
+            }
+        });
+
+    });
+    $('#refundOrder').click(function(){
+        let oids = [];
+        let checkboxs = $('#orderTable').find('input[type="checkbox"]:checked');
+        console.log(checkboxs.length)
+        if(checkboxs.length == 0){
+            alert('해당건만 선택해주세요.');
+        } else {
+            checkboxs.each(function(){
+                let request = $(this).closest('tr').find('.refund').text();
+                if(!request){
+                    alert('환불건이 아닙니다.');
+                    return false;
+                } else{
+                    oids.push($(this).val())
+                        // 수강관리 취소,환불신청 
+                        data = {
+                            type : 'refund_request',
+                            oid :oids   
+                        }
+                }                
+            });            
+        }
+
+        console.log(data);
+
+        $.ajax({
+            url:'order_update.php',
+            async:false,
+            type: 'POST',
+            data:data,
+            dataType:'json',
+            error:function(){},
+            success:function(data){
+            console.log(data);
+            if(data.result=='ok'){
+                alert('취소 환불건이 업데이트 되었습니다');  
+                location.reload();                      
+            }else{
+                alert('오류, 다시 시도하세요');                        
+                }
+            }
+        });
+
+    });
+
+
     // 수강관리 취소, 환불 신청  
     // $(".table-bordered thead .form-check-input").change(function(){
     // if($(this).is(':checked')){
@@ -63,26 +153,7 @@ $(function() {
     // }
     // })
 
-    // 수강관리 취소,환불신청 
-    // let data = {
-    //     oid :oid    
-    // }
-    // $.ajax({
-    //     url:'order_update.php',
-    //     async:false,
-    //     type: 'POST',
-    //     data:data,
-    //     dataType:'json',
-    //     error:function(){},
-    //     success:function(data){
-    //     console.log(data);
-    //     if(data.result=='ok'){
-    //         alert('장바구니가 업데이트 되었습니다');  
-    //         location.reload();                      
-    //     }else{
-    //         alert('오류, 다시 시도하세요');                        
-    //         }
-    //     }
-    // });
+
+    
 
 });

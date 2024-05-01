@@ -115,9 +115,9 @@ $rs = $result->fetch_object();
                 <div class="col-md-4 ipt-wrap">
                   <!--240501 product_list 참고 -->
                   <select class="form-select form-select-sm" id="use_date_type" aria-label="사용기한 선택" required>
-                    <option value="<?php if($rs->locate == 0){ echo "selected";}?>">선택해주세요</option>
-                    <option value="<?php if($rs->locate == 1){ echo "selected";}?>">무제한</option>
-                    <option value=""<?php if($rs->locate == 2){ echo "selected";}?>">기간설정</option>
+                    <option value="<?php if($rs->use_date_type == 0){ echo "selected";}?>">선택해주세요</option>
+                    <option value="<?php if($rs->use_date_type == 1){ echo "selected";}?>">무제한</option>
+                    <option value=""<?php if($rs->use_date_type == 2){ echo "selected";}?>">기간설정</option>
                   </select>
                 </div>
                 <div class="date-wrap col-md-8">

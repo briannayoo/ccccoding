@@ -75,7 +75,7 @@
         </div>
 
         <!-- table(s) -->
-        <table class="table table-bordered text-center">
+        <table class="table table-bordered text-center" id="orderTable">
           <!-- 각자 크기에 맞게 위드값 조정 합쳐서 100% -->
           <colgroup>
             <colgroup>
@@ -111,7 +111,7 @@
             <tr>
               <td>
                 <div>
-                  <input class="form-check-input" type="checkbox" class="chk" id="" name="check-group" value="" aria-label="checkbox">
+                  <input class="form-check-input" type="checkbox" id="" name="check-group" value="<?= $item->oid?>" aria-label="checkbox">
                 </div>
               </td>
               <td><?= $item->orders_date ?></td>
@@ -166,8 +166,8 @@
         <!-- table(e) -->
 
         <div class="btn-area">
-          <button type="button" class="btn btn-secondary btn-sm">취소</button>
-          <button type="button" class="btn btn-secondary btn-sm">환불</button>
+          <button type="button" class="btn btn-secondary btn-sm" id="cancelOrder">취소</button>
+          <button type="button" class="btn btn-secondary btn-sm" id="refundOrder">환불</button>
         </div>
 
         <!-- pagination(s) -->
