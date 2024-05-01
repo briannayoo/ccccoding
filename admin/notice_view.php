@@ -10,6 +10,7 @@
     $sql = "SELECT * FROM notice WHERE idx = {$bno}";
     $result = $mysqli->query($sql);
     $resultArr = mysqli_fetch_assoc($result);
+    
    //조회수 업데이트
     $hit = $resultArr['hit'] + 1;
     $sqlUpdate = "UPDATE notice SET hit={$hit} WHERE idx = {$bno}";
@@ -38,11 +39,17 @@
         </div>
         <div class="attachment">
          
-          <?phpif($resultArr['is_img'] == 1){?>
-            <img src="../../upload/<?= $resultArr['file'];?>" alt="<?= $resultArr['file'];?>">
-          <?php}else{ ?>
-              <a href="../../upload/<?= $resultArr['file'];?>" target="_blank"><?= $resultArr['file'];?></a>"
-          <?php} ?>
+          <?php
+          if(isset($resultArr['is_img']) !== '' && $resultArr['is_img'] == 1){
+            ?>
+            <img src="/ccccoding/admin/upload/<?= $resultArr['file'];?>" alt="<?= $resultArr['file'];?>">
+          <?php
+        }else{
+          ?>
+              <a href="/ccccoding/admin/upload/<?= $resultArr['file'];?>" target="_blank"><?= $resultArr['file'];?></a>
+          <?php
+        } 
+        ?>
           
 
         </div>

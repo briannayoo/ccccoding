@@ -29,18 +29,27 @@
           </thead>
           <tbody>
             <?php
-              $sql = "SELECT * FROM qna order by qid desc";
-              $result = $mysqli -> query($sql);
+              $qnaSql = "SELECT * FROM qna order by qid desc";
+              $qnaResult = $mysqli -> query($qnaSql);
+              while ($qnrow = mysqli_fetch_object($qnaResult)) {
+                $qnaArr[] = $qnrow;
+              }
+
+              if(isset($qnaArr)){
+                foreach($qnaArr as $qa){
             ?>
-            <tr>
-              <td>
-                <button type="button" class="btn btn-primary btn-sm">답변완료</button>
-              </td>
-              <td><?= $row['title'] ?></td>
-              <td><?= $row['name'] ?></td>
-              <td><?= $row['date'] ?></td>
-            </tr>
-            
+              <tr>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm">답변완료</button>
+                </td>
+                <td><a href="qna_up.php?qid=<?=$qa -> qid; ?>"><?=$qa -> title; ?></a></td>
+                <td><?= $qa -> name;?></td>
+                <td><?= $qa -> date;?></td>
+              </tr>
+            <?php
+                }
+              }
+            ?>
           </tbody>
         </table>
         <nav aria-label="페이지네이션">
