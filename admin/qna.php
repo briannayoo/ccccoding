@@ -50,6 +50,17 @@
                 }
               }
             ?>
+<<<<<<< Updated upstream
+=======
+            <tr>
+              <td>
+                <button type="button" class="btn btn-primary btn-sm">답변완료</button>
+              </td>
+              <td><?= $row['title'] ?></td>
+              <td><?= $row['name'] ?></td>
+              <td><?= $row['date'] ?></td>
+            </tr>
+>>>>>>> Stashed changes
           </tbody>
         </table>
         <div class="mt-3 justify-content-end">
