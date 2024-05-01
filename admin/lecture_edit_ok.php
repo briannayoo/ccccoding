@@ -3,8 +3,8 @@ session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 
-$mysqli->autocommit(FALSE);//커밋이 안되도록 지정
-try{
+  $pid = $_POST['pid'];
+
   $cate1 = $_POST['cate1'] ?? '';
   $cate2 = $_POST['cate2'] ?? '';
   $cate3 = $_POST['cate3'] ?? '';
@@ -30,14 +30,6 @@ try{
   $sale_end_date = $_POST['sale_end_date'];
 
   $sale_start_date = str_replace(" ", "", $sale_start_date);
-
-if (!is_numeric($price)) {
-    echo "<script>
-    alert('가격은 공백없이 숫자로 입력해야 합니다.');
-    history.back();
-    </script>";
-    exit;
-}
 
   // DateTime 객체를 생성하고, MySQL DATETIME 형식으로 포맷
   $startTime = new DateTime($sale_start_date);
@@ -86,49 +78,42 @@ if (!is_numeric($price)) {
     </script>";
     exit;
   }
-  $sql = "INSERT INTO products (name,cate,content,thumbnail,price,price_select,sale_ratio,cnt,textbook,	isgold,issilver,iscopper,isrecom,locate,userid,sale_start_date,sale_end_date,reg_date,status,delivery_fee,url) VALUES (
-    '{$name}',
-    '{$cate}',
-    '{$content}',
-    '{$thumbnail}',
-    '{$price}',
-    '{$price_select}',
-    '{$sale_ratio}',
-    '{$cnt}',
-    '{$textbook}',
-    '{$isgold}',
-    '{$issilver}',
-    '{$iscopper}',
-    '{$isrecom}',
-    '{$locate}',
-    '{$userid}',
-    '{$startDateTime}',
-    '{$endDateTime}',
-    now(),
-    '{$status}',
-    '{$delivery_fee}',
-    '{$url}'
-  )";
-  
+  $sql = "UPDATE products SET
+    name ='{$name}',
+    cate ='{$cate}',
+    content ='{$content}',
+    thumbnail ='{$thumbnail}',
+    price ='{$price}',
+    price_select ='{$price_select}',
+    sale_ratio ='{$sale_ratio}',
+    cnt ='{$cnt}',
+    textbook ='{$textbook}',
+    isgold ='{$isgold}',
+    issilver ='{$issilver}',
+    iscopper = '{$iscopper}',
+    isrecom = '{$isrecom}',
+    locate = '{$locate}',
+    userid = '{$userid}',
+    sale_start_date ='{$startDateTime}',
+    sale_end_date ='{$endDateTime}',
+    reg_date =now(),
+    status ='{$status}',
+    delivery_fee ='{$delivery_fee}',
+    url ='{$url}'
+    WHERE pid={$pid}
+  ";
+
   //echo $sql;
   $result = $mysqli->query($sql);
   
-  $mysqli->commit();//디비에 커밋한다
-
   if($result) { //상품 등록 하면
     echo "<script>
-    alert('등록 완료');
+    alert('수정 완료');
     location.href = '/ccccoding/admin/lecture_list.php';
     </script>";
-    
-  }
-  } catch (Exception $e) {
-    $mysqli->rollback();
-    error_log($e->getMessage()); // 로그에 에러 메시지 기록
+  } else {
     echo "<script>
-    alert('등록 실패: " . addslashes($e->getMessage()) . "');
-    //alert('등록 실패');
-    //history.back();
+    alert('수정 실패');
+    history.back();
     </script>";
-    exit;
-  }
+}

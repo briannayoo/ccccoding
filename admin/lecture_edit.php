@@ -11,6 +11,7 @@
   $result = $mysqli -> query($sql);
   $rs = $result->fetch_object();
   
+  //조회
   $sql = "SELECT * FROM category where step = 1";
   $result = $mysqli->query($sql);
   while ($row = $result->fetch_object()) {

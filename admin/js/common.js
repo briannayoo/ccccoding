@@ -100,7 +100,10 @@ $(function() {
         console.log(attachment)
         if(attachment){
           let target = $('#addedImages');
-          let tag = `<img src="${attachment}" alt="${file.name}">`;
+          let tag = `
+          <img src="${attachment}" alt="${file.name}">
+          <button class="btn btn-sm thumb-text" id="btn-del">삭제</button>
+          `;
           target.html(tag);
           $('.remove').remove();
         }
@@ -126,5 +129,46 @@ $(function() {
     $("#all-check").click(function(){
       $('input[name="check-group"]').prop('checked', $(this).prop('checked'));
     });
+  }
+
+  //이미지 삭제
+  if($('#all-check').length > 0){
+    $('#btn-del').on('click', 'button', function() {
+      let imgid = $(this).parent().attr('id');
+      file_delete(imgid);
+    });
+
+    function file_delete(imgid) {
+      if (!confirm('정말 삭제할까요?')) {
+        return false;
+      }
+      let data = {
+        imgid: imgid
+      }
+      $.ajax({
+        async: false, //결과가 있으면 반영해줘
+        type: 'POST',
+        url: 'image_delete.php',
+        data: data,
+        dataType: 'json',
+        error: function(error) {
+          console.log('error:', error);
+        },
+        // success: function(return_data) {
+        //   if (return_data.result === 'member') {
+        //     alert('권한이 없습니다.');
+        //     return;
+        //   } else if (return_data.result === 'mine') {
+        //     alert('본인이 등록한 이미지만 삭제할 수 있습니다.');
+        //     return;
+        //   } else if (return_data.result === 'fail') {
+        //     alert('삭제 실패!');
+        //     return;
+        //   } else {
+        //     $('#' + imgid).remove();
+        //   }
+        // }
+      });
+    }
   }
 });

@@ -58,6 +58,7 @@
   while ($rs = $result->fetch_object()) {
     $rsArr[] = $rs;
   }
+
   $sql = "SELECT * FROM category where step = 1";
   $result = $mysqli->query($sql);
   while ($row = $result->fetch_object()) {
@@ -226,7 +227,7 @@
             </ul>
             <div class="btn-area">
               <a href="/ccccoding/admin/lecture_up.php" class="btn btn-primary btn-lg">강의등록</a>
-              <button class="btn btn-secondary btn-lg">일괄수정</button>
+              <a href="lecture_clear_ok.php" class="btn btn-secondary btn-lg">일괄삭제</a>
           </div>
           </form>
       </div>
