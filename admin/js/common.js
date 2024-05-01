@@ -102,7 +102,6 @@ $(function() {
           let target = $('#addedImages');
           let tag = `
           <img src="${attachment}" alt="${file.name}">
-          <button class="btn btn-sm thumb-text" id="btn-del">삭제</button>
           `;
           target.html(tag);
           $('.remove').remove();

@@ -103,7 +103,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
     WHERE pid={$pid}
   ";
 
-  //echo $sql;
+  // echo $sql;
   $result = $mysqli->query($sql);
   
   if($result) { //상품 등록 하면
