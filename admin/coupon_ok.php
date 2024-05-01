@@ -5,13 +5,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
 ini_set( 'display_errors', '1' );
 
 $mysqli->autocommit(FALSE);//커밋이 안되도록 지정
-try {
 $coupon_name = $_POST['coupon_name'];
 $coupon_desc = $_POST['coupon_desc']; // $coupon_name 변수를 $coupon_desc로 수정
 $coupon_type = $_POST['coupon_type'];
 $coupon_price = $_POST['coupon_price'] ?? 0;
 $coupon_ratio = $_POST['coupon_ratio'] ?? 0;
-$status = $_POST['status'] ?? 0;
+$status = $_POST['status'];
 $regdate = date('Y-m-d H:i:s');
 $max_value = $_POST['max_value'] ?? '';
 $use_min_price = $_POST['use_min_price'] ?? '';

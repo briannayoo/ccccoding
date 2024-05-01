@@ -140,11 +140,10 @@ $rs = $result->fetch_object();
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <!-- 240501 value값수정후 확인 -->
                   <select class="form-select form-select-sm" id="status[<?= $item->cid ?>]" name="status[<?= $item->cid ?>]" aria-label="상태 선택"  required>
-                    <option selected>선택해주세요</option>
-                    <option <?php if($item->status == 1){ echo "selected";} ?>>활성화</option>
-                    <option <?php if($item->status == 2){ echo "selected";} ?>>비활성화</option>
+                    <option value="">선택해주세요</option>
+                    <option value="1" <?php if($rs->status == 1){ echo "selected";}?>>활성화</option>
+                    <option value="2" <?php if($rs->status == 2){ echo "selected";}?>>비활성화</option>
                   </select>
                 </div>
               </div>
@@ -158,7 +157,7 @@ $rs = $result->fetch_object();
             <label for="form01" class="col-md-1 col-form-label tit-h4">썸네일</label>
             <div class="col-md-11">
               <img src="<?= $rs->thumbnail; ?>" alt="" class="thumbnail"><!-- 대표이미지 -->            
-              <input type="file" multiple name="thumbnail" id="thumbnail "accept="image/*" value="<?= $rs->thumbnail; ?>" required>
+              <input type="file" multiple name="thumbnail" id="thumbnail"  class="d-none" accept="image/*" value="<?= $rs->thumbnail; ?>" required>
               <div>
                 <button type="button" class="btn btn-primary btn-sm thumb-text" id="addImage">파일 선택</button>
                 <p class="remove">*5M이하 / gif,png,jpg만 등록가능합니다.</p>
