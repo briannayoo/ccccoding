@@ -54,6 +54,16 @@ session_start();
         </div>
 
         <!-- 답변등록 -->
+        <?php
+        $reply_sql = "SELECT * FROM qna WHERE r_idx = {$qno} order by idx desc";
+        $reply_result = $mysqli->query($reply_sql);
+        while($reply_row = mysqli_fetch_assoc($reply_result)){
+        ?>
+
+        
+        <?php
+        }
+        ?>
         <div class="answer d-flex">
           <div class="a-box box-shadow box">
             <textarea class="a-boxform form-control" id="txtarea" placeholder="내용을 입력하세요."></textarea>
