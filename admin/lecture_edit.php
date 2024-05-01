@@ -125,7 +125,7 @@
                 <div class="col-md-4 ipt-wrap d-flex">
                     <label for="textbook" class="col-md-3 col-form-label tit-h4">활동교재</label>
                     <div class="input-group search">
-                        <input class="form-control" type="search" name="textbook" id="textbook" placeholder="활동 교재를 검색하세요" aria-label="Search">
+                        <input class="form-control" type="search" name="textbook" id="textbook" placeholder="활동 교재를 검색하세요" aria-label="Search" value="<?=$rs->textbook;?>">
                         <div class="input-group-append">
                           <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
                         </div>

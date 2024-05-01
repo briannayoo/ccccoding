@@ -12,7 +12,6 @@
   $isgold = $_GET['isgold'] ?? '';
   $issilver = $_GET['issilver'] ?? '';
   $iscopper = $_GET['iscopper'] ?? '';
-  $isrecom = $_GET['isrecom'] ?? '';
   $sale_start_date = $_GET['sale_start_date'] ?? '';
   $sale_end_date = $_GET['sale_end_date'] ?? '';
   $search_keyword = $_GET['search_keyword'] ?? '';
@@ -29,15 +28,14 @@
   if($issilver){
     $search_where .= " and issilver = 1";
   }
-
-  if($isrecom){
-    $search_where .= " and isrecom = 1";
+  if($iscopper){
+    $search_where .= " and iscopper = 1";
   }
   if($sale_start_date){
-    $search_where .= " and sale_start_date >=  CAST('{$sale_start_date}' AS datetime)";
+    $search_where .= " and sale_start_date >=  CAST('{$sale_start_date}' AS date)";
   }
   if($sale_end_date){
-    $search_where .= " and sale_end_date >=  CAST('{$sale_end_date}' AS datetime)";
+    $search_where .= " and sale_end_date >=  CAST('{$sale_end_date}' AS date)";
   }
   if($search_keyword){
     $search_where .= " and (name LIKE '%{$search_keyword}%' or content LIKE '%{$search_keyword}%')";
@@ -90,14 +88,14 @@
       <div class="content">
 
         <!-- 강의검색 select-->
-        <form action="#" class="form-list lecture-search">
+        <form action="" class="form-list lecture-search" id="search_form">
           <div class="row">
             <label for="slect-01" class="col-md-1 col-form-label tit-h4">강의검색</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="cate1" name="cate1"aria-label="대분류" required>
-                    <option>대분류</option>
+                    <option selected disabled>대분류</option>
                     <?php
                     foreach ($cate1 as $c1) {
                     ?>
@@ -111,7 +109,7 @@
                 </div>
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="cate2" name="cate2" aria-label="중분류">
-                  <option>중분류</option>
+                  <option selected disabled>중분류</option>
                   <?php
                       foreach ($cate2 as $c2) {
                     ?>
@@ -123,7 +121,7 @@
                 </div>
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="cate3" name="cate3" aria-label="소분류">
-                  <option>소분류</option>
+                  <option selected disabled>소분류</option>
                   <?php
                       foreach ($cate3 as $c3) {
                     ?>
@@ -147,24 +145,24 @@
                   <div class="list-group list-group-horizontal lh-2">
                     <div class="list-group-item">
                       <div class="form-check list-mt">
-                        <input class="form-check-input" type="checkbox" value="" id="chk-list-04">
-                        <label class="form-check-label" for="chk-list-04">
+                        <input class="form-check-input" type="checkbox" value="1" id="isgold" name="isgold">
+                        <label class="form-check-label" for="isgold">
                           상
                         </label>
                       </div>
                     </div>
                     <div class="list-group-item">
                       <div class="form-check list-mt">
-                        <input class="form-check-input" type="checkbox" value="1" id="chk-list-04">
-                        <label class="form-check-label" for="chk-list-04"  value="1">
+                        <input class="form-check-input" type="checkbox" value="1" id="issilver" name="issilver">
+                        <label class="form-check-label" for="issilver">
                           중
                         </label>
                       </div>
                     </div>
                     <div class="list-group-item">
                       <div class="form-check list-mt">
-                        <input class="form-check-input" type="checkbox" value="" id="chk-list-04" value="1">
-                        <label class="form-check-label" for="chk-list-04">
+                        <input class="form-check-input" type="checkbox" value="1" id="iscopper" name="iscopper">
+                        <label class="form-check-label" for="iscopper">
                           하
                         </label>
                       </div>
@@ -173,8 +171,8 @@
                 </div>
                 <!-- <label for="search" class="col-md-1 col-form-label tit-h4">타이틀</label> -->
                 <div class="col-md-7 ipt-wrap d-flex align-items-center gap-3">
-                  <input class="form-control" type="search" id="search" placeholder="검색어를 입력하세요..." aria-label="Search">
-                  <button type="button" class="btn btn-primary btn-sm">버튼</button>
+                  <input class="form-control" type="text" name="search_keyword" id="search_keyword" placeholder="검색어를 입력하세요..." aria-label="search_keyword">
+                  <button class="btn btn-primary btn-sm">검색</button>
                   <!-- <div class="input-group-append">
                     <i class="fas fa-search lh-2"></i>
                   </div> -->
