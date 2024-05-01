@@ -52,7 +52,7 @@
             ?>
           </tbody>
         </table>
-        <div class="mt-3 d-flex justify-content-end">
+        <div class="mt-3 justify-content-end">
         <nav aria-label="페이지네이션">
           <ul class="pagination">
             <li class="page-item disabled">

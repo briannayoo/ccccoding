@@ -5,7 +5,7 @@ session_start();
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
   
   $keyword = $_GET['keyword'] ?? '';
-  $noticesql = "SELECT * FROM notice WHERE 1=1 and (name like '%$keyword%' or title like '%$keyword%')";
+  $noticesql = "SELECT * FROM notice WHERE 1=1 and (name like '%$keyword%' or title like '%$keyword%')order by idx desc ";
   $noticeResult = mysqli_query($mysqli, $noticesql);
   
   while ($row = mysqli_fetch_object($noticeResult)) {
