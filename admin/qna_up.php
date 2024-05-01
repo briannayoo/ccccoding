@@ -71,12 +71,13 @@ session_start();
         <!-- 버튼 -->
         <div class="btn-area">
           <button type="button" class="btn btn-primary btn-lg">등록</button>
-          <button type="button" class="btn btn-secondary btn-lg">취소</button>
+          <button type="button" class="btn btn-secondary btn-lg q-cencel">취소</button>
         </div>
 
 
       </div>
     </div>
   </div>
+  <script src="/ccccoding/admin/js/qna.js"></script>
 </body>
 </html>
