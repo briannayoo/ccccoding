@@ -9,6 +9,7 @@ $(function() {
   $('.gnb-list > li').filter((idx, item) => {
     if($(item).find("> a").attr('href') === url){
       ctgIdx = idx;
+      localStorage.setItem('ctgIdx', idx); // 최근 1depth index 저장
     }
     return idx;
   })
@@ -21,15 +22,19 @@ $(function() {
     }
   })
 
-  if(ctgIdx !== null){ // 1depth 없을때
+  if(ctgIdx !== null){ // 1depth 있을때
     $('.gnb-list > li').siblings().removeClass('on');
     $('.gnb-list > li').eq(ctgIdx).addClass('on');
-  }else{ // 2depth
-    ctgIdx = 4
+  }else if(ctgIdx === null && ctgIdx2dep !== null){ // 1depth 있을때 && 2depth 없을때
+    ctgIdx = 4 // 아코디언 인덱스 (아코디언 리스트 순서가 바뀔 경우 ctgIdx도 변경)
     $('.gnb-list > li').eq(ctgIdx).find('.accordion-header').addClass('on');
     $('.gnb-list > li .depth-2 > li').siblings().removeClass('on');
     $('.gnb-list > li').eq(ctgIdx).find('.depth-2 > li').eq(ctgIdx2dep).addClass('on');
     $('.gnb-list > li').eq(ctgIdx).find('.accordion-header > button').trigger('click')
+  }else if(ctgIdx === null){ // 1depth 없을때
+    ctgIdx = localStorage.getItem('ctgIdx');
+    $('.gnb-list > li').siblings().removeClass('on');
+    $('.gnb-list > li').eq(ctgIdx).addClass('on');
   }
 
 
@@ -78,6 +83,7 @@ $(function() {
     // $('.ipt-datepicker').val($('.date-wrap .open').attr('data-value'));
     // $('.ipt-datepicker').eq(0).val($('.date-wrap .open').eq(0).data('value'));
   }
+  
   // thumbnail
   if($('.tumbnail_wrap').length > 0){
     $('#addImage').click(function(){
@@ -121,5 +127,4 @@ $(function() {
       $('input[name="check-group"]').prop('checked', $(this).prop('checked'));
     });
   }
-
 });

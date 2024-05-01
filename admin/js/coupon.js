@@ -34,11 +34,11 @@ $(function() {
 
     // 쿠폰관리 
     $('.edit-btn-group .del').click(function(){
-        file_delete(cid);
+        file_delete();
     })
 
     // 삭제함수
-    function file_delete(cid) {
+    function file_delete() {
         if (!confirm('정말 삭제할까요?')) {
             return false;
         }

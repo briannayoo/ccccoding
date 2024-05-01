@@ -65,14 +65,20 @@
   };
   $sql = "SELECT * FROM category where step = 2";
   $result = $mysqli->query($sql);
+  $cate2 = [];  // 배열로 초기화
   while ($row = $result->fetch_object()) {
-    $cate2[] = $row;
+      $cate2[] = $row;
   };
-  $sql = "SELECT * FROM category where step = 3";
-  $result = $mysqli->query($sql);
-  while ($row = $result->fetch_object()) {
-    $cate3[] = $row;
-  };
+  // $sql = "SELECT * FROM category where step = 2";
+  // $result = $mysqli->query($sql);
+  // while ($row = $result->fetch_object()) {
+  //   $cate2[] = $row;
+  // };
+  // $sql = "SELECT * FROM category where step = 3";
+  // $result = $mysqli->query($sql);
+  // while ($row = $result->fetch_object()) {
+  //   $cate3[] = $row;
+  // };
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
