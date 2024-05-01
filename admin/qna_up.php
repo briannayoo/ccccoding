@@ -54,25 +54,57 @@ session_start();
         </div>
 
         <!-- 답변등록 -->
-        <div class="answer d-flex">
-          <div class="a-box box-shadow box">
-            <textarea class="a-boxform form-control" id="txtarea" placeholder="내용을 입력하세요."></textarea>
-          </div>
-          
-          <div class="pro-box2">
-            <div class="profile-box">
-              <img class="pro-img" src="image/profilimg_2.png" alt="profilimg_2">
-            </div>
-            <div>
-              <h3 class="tit-h5">관리자</h3>
-            </div>
-          </div>
-        </div>
-        <!-- 버튼 -->
-        <div class="btn-area">
-          <button type="button" class="btn btn-primary btn-lg">등록</button>
-          <button type="button" class="btn btn-secondary btn-lg q-cencel">취소</button>
-        </div>
+        <?php
+        $reply_sql = "SELECT * FROM qna WHERE r_idx = {$qno} order by idx desc";
+        $reply_result = $mysqli->query($reply_sql);
+        while($reply_row = mysqli_fetch_assoc($reply_result)){
+        ?>
+
+<dialog class="edit_dialog">
+  <!-- 댓글 수정 폼 -->
+  <form action="qna_replymod_ok.php" method="POST">
+    <input type="hidden" name="board_no" value="<?= $bno; ?>">
+    <input type="hidden" name="reply_no" value="<?= $reply_row['idx']; ?>">
+    <textarea name="content" cols="20" rows="5"><?= $reply_row['r_content'];?></textarea>
+    <button>수정</button>
+    <button type="button">취소</button>
+  </form>
+</dialog>
+<dialog class="del_dialog">
+  <!-- 댓글 삭제 폼 -->
+  <form action="qna_replydel_ok.php" method="POST">
+    <input type="hidden" name="board_no" value="<?= $bno; ?>">
+    <input type="hidden" name="reply_no" value="<?= $reply_row['idx']; ?>">
+    <button>삭제</button>
+    <button type="button">취소</button>
+  </form>        
+</dialog>
+</div><!--// reply -->
+
+<form action="reply_ok.php" method="POST">
+  <div class="answer d-flex">
+    <div class="a-box box-shadow box">
+      <textarea class="a-boxform form-control" id="txtarea" placeholder="내용을 입력하세요.">
+      </textarea>
+    </div>
+    <div class="pro-box2">
+      <div class="profile-box">
+        <img class="pro-img" src="image/profilimg_2.png" alt="profilimg_2">
+      </div>
+      <div>
+        <h3 class="tit-h5">관리자 :</h3>
+      </div>
+    </div>
+  </div>
+  <!-- 버튼 -->
+  <div class="btn-area">
+    <button type="button" class="btn btn-primary btn-lg">등록</button>
+    <button type="button" class="btn btn-secondary btn-lg q-cencel">취소</button>
+  </div>
+</form>
+        <?php
+        }
+        ?>
 
 
       </div>
