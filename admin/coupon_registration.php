@@ -172,13 +172,13 @@
   
   <script src="/ccccoding/admin/js/datepicker.js"></script>
   <script src="/ccccoding/admin/js/coupon.js"></script>
-  <script>
+  <!-- <script>
     function save() {
         if (!$('#coupon_image').val()) {
             alert('썸네일을 등록하십시오.');
             return false;
         }
     }
-  </script>
+  </script> -->
 </body>
 </html>
