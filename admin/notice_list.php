@@ -3,14 +3,15 @@ session_start();
 
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
-
+  
   $keyword = $_GET['keyword'] ?? '';
   $noticesql = "SELECT * FROM notice WHERE 1=1 and (name like '%$keyword%' or title like '%$keyword%')";
   $noticeResult = mysqli_query($mysqli, $noticesql);
   
   while ($row = mysqli_fetch_object($noticeResult)) {
     $noticeArr[] = $row;
-  }   
+  }  
+  
 
 ?>
       <!-- sub-page-tit-area (s) -->
@@ -77,10 +78,10 @@ session_start();
                       <td><?=$na -> date;?></td>
                       <td><?= $na -> hit;?></td>
                       <td>
-                      <a href="">
+                      <a href="notice_modify.php?idx=<?=  $na -> idx;?>">
                           <i class="fa-solid fa-pen-to-square fa-small">수정</i>
                         </a>
-                        <a href="">
+                        <a href="notice_del.php?idx=<?=  $na -> idx;?>">
                           <i class="fa-solid fa-trash-can fa-small">삭제</i>
                         </a>
                       </td>

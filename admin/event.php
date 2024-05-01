@@ -234,7 +234,9 @@
           </div>
         </li>
       </ul>
-      
+      <div class="mt-3 d-flex justify-content-end">
+        <a href="event_up.php" class="btn btn-primary btn-lg">이벤트 등록</a>
+        </div>
       <!-- 페이지네이션 -->
       <nav aria-label="페이지네이션">
         <ul class="pagination">
