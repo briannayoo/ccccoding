@@ -6,7 +6,7 @@
     $content = $_POST['r_content'];
 
     $replySql = "UPDATE qna_reply SET r_content ='{$content}',r_date = now() where idx = {$idx}";
-    print_r($replySql);
+    
     $replyResult = $mysqli->query($replySql);
     
 

@@ -73,7 +73,7 @@ session_start();
               </div>
           </div>
           <button class="reply-edit"><i class="fa-solid fa-pen-to-square fa-small">수정</i></button>
-          <button class="reply-del"><i class="fa-solid fa-trash-can fa-small">삭제</i></button>
+          <a href="qna_reply_del.php?rno=<?=$ra -> idx;?>" class="reply-del"><i class="fa-solid fa-trash-can fa-small">삭제</i></a>
         
         <!-- 댓글 수정 폼 -->
         <dialog class="edit_dialog">
@@ -94,17 +94,17 @@ session_start();
                 </div>
               </div>
               <button class="btn btn-primary btn-sm">수정</button>
-              <button type="button" class="btn btn-primary btn-sm" >취소</button>
+              <button type="button" class="btn btn-primary btn-sm del_check" >취소</button>
             </form>
       </dialog>
       <!-- 댓글 삭제 폼 -->
-      <dialog class="del_dialog">
-        <form action="qna_replydel.php" method="POST">
+      <!-- <dialog class="del_dialog">
+        <form action="qna_reply_del.php" method="POST">
           <input type="hidden" name="reply_no" value="<?=$ra -> idx;?>">
-          <button class="btn btn-primary btn-sm" disabled>삭제</button>
-          <button type="button" class="btn btn-primary btn-sm" disabled>취소</button>
+          <button class="btn btn-primary btn-sm">삭제</button>
+          <button type="button" class="btn btn-primary btn-sm">취소</button>
         </form>    
-      </dialog>
+      </dialog> -->
       </div>
       <?php
         }
@@ -133,7 +133,7 @@ session_start();
       <!-- 버튼 -->
       <div class="btn-area">
         <button type="submit" class="btn btn-primary btn-lg">등록</button>
-        <button type="reset" class="btn btn-secondary btn-lg q-cencel">취소</button>
+        <button type="reset" class="btn btn-secondary btn-lg del_check">취소</button>
       </div>
     </form>
     
@@ -145,4 +145,4 @@ session_start();
   <script src="/ccccoding/admin/js/common.js"></script>
   <script src="/ccccoding/admin/js/qna.js"></script>
 </body>
-</html>s
+</html>

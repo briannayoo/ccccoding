@@ -1,8 +1,9 @@
 <?php
    include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 
-   $idx = $_POST['reply_no'];
+   $idx = $_GET['rno'];
    $replySql = "DELETE FROM qna_reply WHERE idx = {$idx}";
+
 
    if($mysqli->query($replySql) === true){
       echo "<script>
