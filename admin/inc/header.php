@@ -3,6 +3,12 @@
 
 // include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
 //include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
+$sql = "SELECT * FROM qna WHERE 1=1";
+$result = $mysqli -> query($sql);
+while($row = $result ->fetch_object()){
+    $qnaArr[] = $row;
+}
 
 ?>
 
@@ -139,7 +145,7 @@
             <span class="tit-h3">알림</span>
             <span class="badge rounded-pill">
               <span class="visually-hidden">읽지않은 메시지</span>
-              <em class="txt-s">9</em>
+              <em class="txt-s"><?=count($qnaArr)?></em>
               <span class="visually-hidden">건</span>
             </span>
           </button>
@@ -152,3 +158,32 @@
         </li>
       </ul>
       <!-- 상단 until-list (e) -->
+      <!-- 상단 알림 팝업 (s) -->
+      <div class="alarm-popup box-shadow">
+        <div class="alarm-cantent">
+          <h2 class="tit-h4">새로운 알림 <span>(<?=count($qnaArr)?>)</span></h2>
+          <hr>
+          <div class="alarm_list">
+            <ul>
+            <?php
+              if(isset($qnaArr)){
+                foreach($qnaArr as $item){
+            ?>
+              <li>
+                <a href="/ccccoding/admin/qna.php?qid=<?= $item ->qid;?>" class="d-flex justify-content-between gap-3">
+                  <span>Q&A</span>
+                  <div>
+                    <h3><?=$item->title?></h3>
+                    <p><?=$item->content?></p>
+                  </div>
+                  <span><?=$item->date?></span>
+                </a>
+              </li>
+              <?php
+                }}
+              ?>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- 상단 알림 팝업 (e) -->
