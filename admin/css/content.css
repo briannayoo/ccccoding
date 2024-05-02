@@ -55,7 +55,7 @@
 .dashboard .list-stlye{line-height:45px; font-size:2.4rem; border-bottom:1px solid var(--ipt-border);} 
 .dashboard .qna-area li:last-child, 
 .dashboard .notice-area li:last-child,
-.dashboard .event-area l:last-child {border-bottom:none;}
+.dashboard .event-area li:last-child {border-bottom:none;}
 
 /* 카테고리(우예지) */
 .cate select.tit-h3 {font-size:2.4rem; font-weight:normal;}

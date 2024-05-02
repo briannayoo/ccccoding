@@ -152,3 +152,25 @@
         </li>
       </ul>
       <!-- 상단 until-list (e) -->
+      <!-- 상단 알림 팝업 (s) -->
+      <div class="alarm-popup box-shadow">
+        <div class="alarm-cantent">
+          <h2 class="tit-h4">새로운 알림 <span>(9)</span></h2>
+          <hr>
+          <div class="alarm_list">
+            <ul>
+              <li>
+                <a href="#" class="d-flex justify-content-between">
+                  <span>Q&A</span>
+                  <div>
+                    <h3>질문입니다</h3>
+                    <p>질문 내용입니다.질문 내용입니다.질문 내용입니다.질문 내용입니다.질문 내용입니다.</p>
+                  </div>
+                  <span>YYY-MM-DD</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- 상단 알림 팝업 (e) -->
