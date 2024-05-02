@@ -221,9 +221,9 @@ while ($rs = $result->fetch_object()) {
               <div class="txt-group">
                 <p class="date">사용기한:
                   <?php 
-                    if($item->use_date_type == 2) {
+                    if ($item->use_date_type == 2) {
                         echo $item->start_date . '~' . $item->end_date; 
-                    } else {
+                    } else if ($item->use_date_type == 1) {
                         echo '무제한';
                     }
                   ?>
