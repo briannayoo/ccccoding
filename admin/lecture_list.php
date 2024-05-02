@@ -186,8 +186,8 @@
                 foreach ($rsArr as $item) {
             ?>
               <li class="lecture_list_item box-shadow">
-                <img src="<?=$item->thumbnail;?>" alt="이미지">
-                <div class="info-area">
+                <a href="lecture_detail.php?pid=<?= $item->pid; ?>"><img src="<?=$item->thumbnail;?>" alt="이미지"></a>
+                <div class="lex-area">
                   <P class="lecture_chaption"><strong class="tit-h5"><?=$item->name;?></strong><i class="fa-solid fa-circle-user fa-xsmall txt-m tender-color">3.5만</i><i class="fa-solid fa-heart fa-xsmall txt-m tender-color">4.35</i></P>
                   <P class="lecture_text"><?=$item->content;?></P>
                   <P class="tender-color">수강기간 <?=$item->sale_start_date;?> ~ <?=$item->sale_end_date;?></P>
