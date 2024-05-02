@@ -193,14 +193,15 @@
                   <P class="tender-color">수강기간 <?=$item->sale_start_date;?> ~ <?=$item->sale_end_date;?></P>
                 </div>
                 <div class="etc-group">
-                  <p class="search-result"><span><?= $c1->name; ?></span><i class="fa-solid fa-angle-right fa-small"></i><span><?= $c2->name; ?></span></p>
+                  <p class="search-result txt-s"><span><?= $c1->name; ?></span><i class="fa-solid fa-angle-right fa-xsmall"></i><span><?= $c2->name; ?></span></p>
                   <select class="form-select form-select-sm" id="select-01" aria-label="select">
                     <option selected value="1">판매중</option>
                     <option value="2">판매 예정</option>
                     <option value="-1">판매 중지</option>
                   </select>
-                  <div class="edit-btn-group">
-                    <a href="lecture_edit.php?pid=<?= $item->pid; ?>" class="btn correc">
+                  <div class="edit-btn-group d-flex align-items-center">
+                    <span class="tit-h4"><?= $item->price;?>원</span>
+                    <a href="lecture_edit.php?pid=<?= $item->pid;?>" class="btn correc">
                       <span class="visually-hidden">수정</span>
                       <i class="fa-solid fa-pen-to-square fa-small"></i>
                     </a>

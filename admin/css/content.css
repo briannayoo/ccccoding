@@ -95,6 +95,7 @@
   flex-direction:column;
   justify-content:center;
 }
+.lecture_list_wrap span.lecture-price {font-size: 2.4rem; font-weight: bold;}
 .lecture_list_wrap .search-result {margin-bottom:0; text-align:center;}
 .lecture_list_wrap .btn:hover i {color:var(--primary-c);}
 .lecture_list_wrap .fa-angle-right {margin:0 10px;}
