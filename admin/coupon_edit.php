@@ -122,11 +122,11 @@ $rs = $result->fetch_object();
                 </div>
                 <div class="date-wrap col-md-8">
                   <div class="col-md-6 ipt-wrap">
-                    <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD" id="start_date" name="start_date" value="<?= $rs -> start_date?>">
+                    <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD" id="start_date" name="start_date" data-value="<?= $rs -> start_date?>">
                     <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                   </div>
                   <div class="col-md-6 ipt-wrap">
-                    <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD" id="end_date" name="end_date" value="<?= $rs -> end_date?>">
+                    <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD" id="end_date" name="end_date" data-value="<?= $rs -> end_date?>">
                     <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                   </div>
                 </div>
