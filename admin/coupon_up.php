@@ -134,7 +134,7 @@
                   <select class="form-select form-select-sm" id="status" name="status" aria-label="상태 선택"  required>
                     <option selected>선택해주세요</option>
                     <option value="1">활성화</option>
-                    <option value="0">비활성화</option>
+                    <option value="2">비활성화</option>
                   </select>
                 </div>
               </div>
