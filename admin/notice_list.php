@@ -78,7 +78,7 @@ session_start();
                       <td><?=$na -> date;?></td>
                       <td><?= $na -> hit;?></td>
                       <td>
-                      <a href="notice_modify.php?idx=<?=  $na -> idx;?>">
+                      <a href="notice_edit.php?idx=<?=  $na -> idx;?>">
                           <i class="fa-solid fa-pen-to-square fa-small">수정</i>
                         </a>
                         <a href="notice_del.php?idx=<?=  $na -> idx;?>">
