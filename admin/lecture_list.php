@@ -160,7 +160,7 @@
         <hr>
         <!-- 강의리스트 -->
           <form action="clist_save.php" method="POST" class="lecture_list_wrap">
-            <ul class="list-group box-list aic">
+            <ul class="list-group box-list aic gap-5">
             <?php
               if (isset($rsArr)) {  
                 foreach ($rsArr as $item) {
