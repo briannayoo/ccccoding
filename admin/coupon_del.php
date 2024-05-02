@@ -6,7 +6,7 @@
   if($mysqli->query($sql) === true){
     echo "<script>
     alert('내용이 삭제되었습니다.');
-    location.href='coupon.php';
+    location.href='coupon_list.php';
     </script>";
   };
 ?>

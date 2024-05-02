@@ -3,13 +3,13 @@ session_start();
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 
-  $keyword = $_GET['e_keyword'] ?? '';
-  $eventSql = "SELECT * FROM event WHERE 1=1 and (e_name like '%$keyword%' or e_title like '%$keyword%')";
-  $eventResult = mysqli_query($mysqli, $eventSql);
+  // $keyword = $_GET['e_keyword'] ?? '';
+  // $eventSql = "SELECT * FROM event WHERE 1=1 and (e_name like '%$keyword%' or e_title like '%$keyword%')";
+  // $eventResult = mysqli_query($mysqli, $eventSql);
   
-  while ($row = mysqli_fetch_object($eventResult)) {
-    $eventArr[] = $row;
-  }  
+  // while ($row = mysqli_fetch_object($eventResult)) {
+  //   $eventArr[] = $row;
+  //}  
 
 ?>
 
@@ -86,8 +86,8 @@ session_start();
 
       <!-- 이벤트 리스트 -->
       <?php
-      if(isset($eventArr)){
-        foreach($eventArr as $ea){
+      // if(isset($eventArr)){
+      //   foreach($eventArr as $ea){
           ?>
             <ul class="list-group  box-list list-3 event">
               <li class="list-group-item flex-column">
@@ -119,8 +119,8 @@ session_start();
               </li>
             </ul>    
       <?php
-        }
-      }
+      //   }
+      // }
       ?>
       </nav>
     </div>

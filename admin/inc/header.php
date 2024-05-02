@@ -103,7 +103,7 @@
           </a>
         </li>
         <li class="list-group-item">
-          <a href="/ccccoding/admin/coupon.php" class="text-decoration-none">
+          <a href="/ccccoding/admin/coupon_list.php" class="text-decoration-none">
             <i class="fa-solid fa-ticket-simple fa-big"></i>
             <span>쿠폰관리</span>
           </a>
