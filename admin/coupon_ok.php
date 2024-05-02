@@ -19,6 +19,7 @@ $start_date = $_POST['start_date'];
 $end_date = $_POST['end_date'];
 
 $coupon_image = ""; // 쿠폰 이미지 변수 초기화
+$addedImg_id = rtrim($_POST['coupon_image'], ',');
 
   if($_FILES['coupon_image']['size']>10240000) { // 10메가
       echo "<script>alert('10메가 이하만 첨부할 수 있습니다.');history.back();</script>";
@@ -83,6 +84,7 @@ $coupon_image = ""; // 쿠폰 이미지 변수 초기화
   )";
 
 //echo $sql;
+
 try{
   $rs = $mysqli->query($sql);
   $mysqli->commit(); // 디비에 커밋한다.

@@ -1,9 +1,9 @@
 <?php
   $pageNumber = $_GET['pageNumber'] ?? 1;
   $pageCount = 6;
-  $starLimit = ($pageNumber-1)*$pageCount;
+  $startLimit = ($pageNumber-1)*$pageCount;
   $endLimit = $pageCount ;
-  $totalcount = 0;
+  // $totalcount = 0;
 
   $block_ct = 10;
   $block_num = ceil($pageNumber/$block_ct);
