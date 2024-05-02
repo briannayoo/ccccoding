@@ -77,8 +77,8 @@ $mysqli->query($qnaUpdate);
         </div>
       </div>
       <div class="reply-btn">
-        <button class="reply-edit"><i class="fa-solid fa-pen-to-square fa-small">수정</i></button>
-        <a href="qna_reply_del.php?rno=<?=$ra -> idx;?>" class="reply-del"><i class="fa-solid fa-trash-can fa-small reply-a-btn ">삭제</i></a>
+        <button class="reply-edit"><i class="fa-solid fa-pen-to-square fa-small"><span class="visually-hidden">수정</span></i></button>
+        <a href="qna_reply_del.php?rno=<?=$ra -> idx;?>" class="reply-del"><i class="fa-solid fa-trash-can fa-small reply-a-btn "><span class="visually-hidden">삭제</span></i></a>
       </div>
     </div>  
       <!-- 댓글 수정 폼 -->

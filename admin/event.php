@@ -38,16 +38,11 @@ session_start();
       $search_where .= " AND coupon_name LIKE '%$e_name%'";
   }
   
-  if ($use_date == '1') {
-      $search_where .= " AND use_date_type = 1";
-  } elseif ($use_date == '2') {
-      $search_where .= " AND use_date_type = 2";
-      if ($start_date) {
-          $search_where .= " AND start_date >= '$start_date'";
-      }
-      if ($end_date) {
-          $search_where .= " AND end_date <= '$end_date'";
-      }
+  if ($start_date) {
+      $search_where .= " AND start_date >= '$start_date'";
+  }
+  if ($end_date) {
+      $search_where .= " AND end_date <= '$end_date'";
   }
   
   if ($status == '1') {
