@@ -4,6 +4,66 @@ $title = '쿠폰리스트';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
+
+// 각자 테이블 컬럼
+$discount = $_GET['discount'] ?? '';
+$coupon_name = $_GET['coupon-name'] ?? '';
+$use_date = $_GET['use-date'] ?? '';
+$start_date = $_GET['datepicker-01'] ?? '';
+$end_date = $_GET['datepicker-02'] ?? '';
+$status = $_GET['status'] ?? '';
+
+// search_whre 조건에 맞게
+$search_where = '';
+if ($discount == '1') {
+    $search_where .= " AND coupon_type = 1";
+} elseif ($discount == '2') {
+    $search_where .= " AND coupon_type = 2";
+}
+
+if ($coupon_name) {
+    $search_where .= " AND coupon_name LIKE '%$coupon_name%'";
+}
+
+if ($use_date == '1') {
+    $search_where .= " AND use_date_type = 1";
+} elseif ($use_date == '2') {
+    $search_where .= " AND use_date_type = 2";
+    if ($start_date) {
+        $search_where .= " AND start_date >= '$start_date'";
+    }
+    if ($end_date) {
+        $search_where .= " AND end_date <= '$end_date'";
+    }
+}
+
+if ($status == '1') {
+    $search_where .= " AND status = 1";
+} elseif ($status == '2') {
+    $search_where .= " AND status = 2";
+}
+
+//총개수 조회
+$sql = "SELECT COUNT(*) AS cnt FROM coupons WHERE 1=1";
+$sql .= $search_where;
+$result = $mysqli->query($sql);
+$count = $result->fetch_object();
+
+$totalcount = $count->cnt; //총검색건수
+$targetTable = 'coupons';
+include_once $_SERVER['DOCUMENT_ROOT'].'/easy_bbs/inc/pagination.php';
+
+//페이지네이션
+$sql = "SELECT * FROM coupons WHERE 1=1";
+$sql .= $search_where;
+$order = " order by cid desc";
+$sql .= $order;
+$limit = " LIMIT  $starLimit, $endLimit";
+$sql .= $limit;
+// echo $sql;
+
+$result = $mysqli->query($sql);
 
 $sql = "SELECT * FROM coupons";
 
@@ -13,7 +73,6 @@ if(isset($_GET['cid'])) {
   $cid = ""; // 기본값 설정
 }
 
-$result = $mysqli->query($sql);
 
 while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
@@ -106,14 +165,14 @@ while ($rs = $result->fetch_object()) {
           <!-- 상태 (e) -->
 
           <div class="btn-area">
-            <button type="button" class="btn btn-primary btn-lg">검색</button>
+            <button type="submit" class="btn btn-primary btn-lg">검색</button>
           </div>
-    </form>
+      </form>
       <!-- form-list (e) -->
 
       <div class="content"> 
         <div class="total">
-          <span>총 <em>8</em>건</span>
+          <span>총 <em><?=$totalcount;?></em>건</span>
           <span class="point">활성화 <em>8</em>건</span>
           <span>비활성화 <em>8</em>건</span>
         </div>
@@ -316,8 +375,8 @@ while ($rs = $result->fetch_object()) {
         <!-- pagination(s) -->
         <nav aria-label="페이지네이션">
           <ul class="pagination">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1">
+            <li class="page-item <?php echo $pageNumber == 1 ? 'disabled' : ''; ?>">
+              <a class="page-link" href="<?php echo $pageNumber == 1 ? '#' : 'coupon_list.php?pageNumber=1'; ?>" tabindex="-1">
                 <span class="visually-hidden">처음</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
@@ -325,29 +384,33 @@ while ($rs = $result->fetch_object()) {
                 </svg>
               </a>
             </li>
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1">
+            <li class="page-item <?php echo $pageNumber == 1 ? 'disabled' : ''; ?>">
+              <a class="page-link" href="<?php echo $pageNumber == 1 ? '#' : 'coupon_list.php?pageNumber=' . ($pageNumber - 1); ?>" tabindex="-1">
                 <span class="visually-hidden">이전</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
                 </svg>
               </a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active"> <!--active일떄 블라인드 현재페이지 스크립트로 넣어야함-->
-              <a class="page-link" href="#">2</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">
+            <?php
+            for($i = $block_start; $i <= $block_end; $i++) {
+              if($i == $pageNumber) {
+                echo "<li class=\"page-item active\"><a href=\"coupon_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+              } else {
+                echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+              }
+            }
+            ?>
+            <li class="page-item <?php echo $pageNumber == $total_page ? 'disabled' : ''; ?>">
+              <a class="page-link" href="<?php echo $pageNumber == $total_page ? '#' : 'coupon_list.php?pageNumber=' . ($pageNumber + 1); ?>">
                 <span class="visually-hidden">다음</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
                 </svg>
               </a>
             </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
+            <li class="page-item <?php echo $pageNumber == $total_page ? 'disabled' : ''; ?>">
+              <a class="page-link" href="<?php echo $pageNumber == $total_page ? '#' : 'coupon_list.php?pageNumber=' . $total_page; ?>">
                 <span class="visually-hidden">마지막</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"/>
