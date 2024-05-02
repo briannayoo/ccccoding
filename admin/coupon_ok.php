@@ -81,9 +81,9 @@ $coupon_image = ""; // 쿠폰 이미지 변수 초기화
     '{$start_date}',
     '{$end_date}'
   )";
-  
-try {
+
 //echo $sql;
+try{
   $rs = $mysqli->query($sql);
   $mysqli->commit(); // 디비에 커밋한다.
 
@@ -95,6 +95,5 @@ try {
   echo "<script>alert('등록하지 못했습니다. 관리자에게 문의해주십시오.');//history.back();</script>";
   exit;
 }
-
 
 ?>

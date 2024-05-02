@@ -1,7 +1,10 @@
 <?php
   session_start();
+  $title = '카테고리';
+  
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
+
   $sql = "SELECT * FROM category where step = 1";
   $result = $mysqli->query($sql);
   while ($row = $result->fetch_object()) {

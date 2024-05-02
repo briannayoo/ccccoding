@@ -187,4 +187,10 @@ $(function() {
     })
   }
   
+  //알림 팝업
+  if($('.alarm').length > 0){
+    $('.alarm').click(function(){
+      $('.alarm-popup').toggle();
+    });
+  }
 });

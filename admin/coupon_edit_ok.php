@@ -4,6 +4,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 
   $cid = $_POST['cid'];
+
+  $cid = $_POST['cid'];
   $coupon_name = $_POST['coupon_name'];
   $coupon_desc = $_POST['coupon_desc'];
   $use_min_price = $_POST['use_min_price'];
@@ -31,43 +33,40 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
     </script>";
     exit;
   }
-  //이미지 여부 검사
-  if (strpos($_FILES['thumbnail']['type'], 'image') === false) {
-    echo "<script>
-      alert('이미지만 업로드해주세요');
-      history.back();
-    </script>";
-    exit;
-  }
-  //파일 업로드
-  $save_dir = $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/upload/';
-  $filename = $_FILES["thumbnail"]["name"]; //insta.jpg
-  $ext = pathinfo($filename, PATHINFO_EXTENSION); //jpg
-  $newfilename = date("YmdHis") . substr(rand(), 0, 6); //202404111137.123123 -> 202404111137123123 
-  $savefile = $newfilename . '.' . $ext;  //202404111137123123.jpg
+     //이미지 여부 검사
+     if (strpos($_FILES['coupon_image']['type'], 'image') === false) {
+      echo "<script>
+        alert('이미지만 업로드해주세요');
+        history.back();
+      </script>";
+      exit;
+    }
 
-  if (move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $save_dir . $savefile)) {
-    $thumbnail = "/ccccoding/admin/c_upload/" . $savefile;
+  $save_dir = $_SERVER['DOCUMENT_ROOT']."/ccccoding/admin/c_upload/"; // 파일을 업로드할 디렉토리
+  $filename = $_FILES["coupon_image"]["name"];
+  $ext = pathinfo($filename,PATHINFO_EXTENSION); // 확장자 구하기
+  $newfilename = date("YmdHis").substr(rand(),0,6);
+  $savefile = $newfilename.".".$ext; // 새로운 파일이름과 확장자를 합친다
+ 
+  if(move_uploaded_file($_FILES["coupon_image"]["tmp_name"], $save_dir.$savefile)) {
+      $coupon_image = "/ccccoding/admin/c_upload/".$savefile;
   } else {
-    echo "<script>
-    alert('썸네일 등록에 실패했습니다. 관리자에게 문의해주세요');
-    //history.back();
-    </script>";
-    exit;
+      echo "<script>alert('이미지를 등록할 수 없습니다. 관리자에게 문의해주십시오.');//history.back();</script>";
+      exit;
   }
-
   $sql = "UPDATE coupons SET
-    coupon_name = '$coupon_name',
-    coupon_desc = '$coupon_desc',
-    use_min_price = $use_min_price,
-    max_value = $max_value,
-    coupon_type = $coupon_type,
-    coupon_price = $coupon_price,
-    coupon_ratio = $coupon_ratio,
-    use_date_type = $use_date_type,
-    start_date = '$start_date',
-    end_date = '$end_date',
-    status = $status
+      coupon_name = '$coupon_name',
+      coupon_desc = '$coupon_desc',
+      use_min_price = $use_min_price,
+      max_value = $max_value,
+      coupon_type = $coupon_type,
+      coupon_price = $coupon_price,
+      coupon_ratio = $coupon_ratio,
+      use_date_type = $use_date_type,
+      start_date = '$start_date',
+      end_date = '$end_date',
+      status = $status,
+      thumbnail = '$thumbnail'
   WHERE cid = $cid";
 
   // echo $sql;
@@ -76,7 +75,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
   if($result) { // 쿠폰정보 수정하면
     echo "<script>
     alert('수정 완료');
-    location.href = '/ccccoding/admin/coupon_list.php';
+    location.href = '/ccccoding/admin/lecture_list.php';
     </script>";
   } else {
     echo "<script>
