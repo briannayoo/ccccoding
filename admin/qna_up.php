@@ -8,7 +8,6 @@ session_start();
     $qnaSql = "SELECT * FROM qna WHERE qid = {$qno}";
     $qnaResult = $mysqli -> query($qnaSql);
     $qa = $qnaResult -> fetch_object();
-
    //조회수 업데이트
     $qnahit = $qa -> hit + 1;
     $qnaUpdate = "UPDATE qna SET hit={$qnahit} WHERE qid = {$qno}";
@@ -47,12 +46,39 @@ session_start();
           </div>
         </div>
         <!-- 답변등록 -->
+        </div>
       <?php
-        $rno = $_GET['qid'];
-        $reply_sql = "SELECT * FROM qna_reply WHERE r_idx = {$rno} order by idx desc";
+        $qid = $_GET['qid'];
+        $reply_sql = "SELECT * FROM qna_reply WHERE r_idx = {$qid} order by idx desc";
         $reply_result = $mysqli->query($reply_sql);
-        while($reply_row = mysqli_fetch_assoc($reply_result)){
+        while($row = mysqli_fetch_object($reply_result)){
+          $replyArr[]=$row;
+        }
+        if(isset($replyArr)){
+        
+          foreach($replyArr as $ra){
       ?>
+      <!-- 댓글 출력 -->
+        <div class="answer d-flex">
+            <div class="question box-shadow box">
+              <div class="q-box"> 
+                <p><?=$ra -> r_content; ?></p>
+              </div>
+              <div class="pro-box2">
+                <div class="profile-box">
+                  <img class="pro-img" src="image/profilimg_2.png" alt="profilimg_2">
+                </div>
+              </div>
+              <h3 class="tit-h5">관리자</h3>
+            </div>
+        </div>
+
+
+
+
+
+
+
 <dialog class="edit_dialog">
   <!-- 댓글 수정 폼 -->
   <form action="qna_replymod_ok.php" method="POST">
