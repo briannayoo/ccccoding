@@ -4,12 +4,49 @@
   // include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 
-  $osql = "SELECT o.*, m.userid, m.username
-          FROM orders o
-          LEFT JOIN members m 
-          ON o.mid = m.mid";
+    // 각자 테이블 컬럼 (검색)
 
-  $result = $mysqli->query($osql);
+    // search_whre 검색조건에 맞게
+    $search_where = '';
+    
+    //총개수 조회
+    $sql = "SELECT COUNT(*) AS cnt FROM orders WHERE 1=1";
+    $sql .= $search_where;
+    $result = $mysqli->query($sql);
+    $count = $result->fetch_object();
+
+    $totalcount = $count->cnt; //총검색건수
+    $targetTable = 'orders';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
+
+    //페이지네이션
+    $sql = "SELECT * FROM orders WHERE 1=1";
+    $sql .= $search_where;
+    $order = " order by oid desc";
+    $sql .= $order;
+    $limit = " LIMIT  $startLimit, $endLimit";
+    $sql .= $limit;
+    // echo $sql;
+
+    // $result = $mysqli->query($sql);
+    // $sql = "SELECT * FROM orders";
+
+    if(isset($_GET['oid'])) {
+      $oid = $_GET['oid'];
+    } else {
+      $oid = ""; // 기본값 설정
+    }
+
+    while ($rs = $result->fetch_object()) {
+      $rsArr[] = $rs;
+    }
+
+    $osql = "SELECT o.*, m.userid, m.username
+            FROM orders o
+            LEFT JOIN members m 
+            ON o.mid = m.mid";
+
+    $result = $mysqli->query($osql);
 
   while ($rs = $result->fetch_object()) {
     $rsArr[] = $rs;
@@ -57,13 +94,13 @@
                   <select class="form-select form-select-sm" id="info-select" name="info-select" aria-label="select">
                     <option value="1" selected>이름</option>
                     <option value="2">아이디</option>
-                    <option value="3">강좌명</option>
+                    <option value="3">강의명</option>
                   </select>
                 </div>
                 <div class="col-md-7 ipt-wrap">
                   <input type="text" class="form-control" id="search" name="search" placeholder="검색어를 입력하세요">
                 </div>
-                <button type="button" class="btn btn-primary btn-sm">검색</button>
+                <button type="submit" class="btn btn-primary btn-sm">검색</button>
               </div>
             </div>
           </div>
@@ -71,7 +108,7 @@
         </form>
 
         <div class="total">
-          <span>총 <em>8</em>건</span>
+          <span>총 <em><?=$totalcount;?></em>건</span>
         </div>
 
         <!-- table(s) -->
@@ -128,39 +165,6 @@
               }
             }
             ?>
-
-            <!-- <tr>
-              <td>
-                <div>
-                  <input class="form-check-input" type="checkbox" id="check-02" value="" aria-label="checkbox">
-                </div>
-              </td>
-              <td>YYYY-MM-DD</td>
-              <td>우공주</td>
-              <td>wgongju01</td>
-              <td>쥬쥬쌤의 css</td>
-              <td class="text-end">1,000,000,000원</td>
-              <td>20% 쿠폰</td>
-              <td>무제한</td>
-              <td></td>
-              <td>신청</td>
-            </tr>
-            <tr>
-              <td>
-                <div>
-                  <input class="form-check-input" type="checkbox" id="check-03" value="" aria-label="checkbox">
-                </div>
-              </td>
-              <td>YYYY-MM-DD</td>
-              <td>유공주</td>
-              <td>ugongju01</td>
-              <td>쥬쥬쌤의 HTML</td>
-              <td class="text-end">2,000,000,000원</td>
-              <td></td>
-              <td>무제한</td>
-              <td></td>
-              <td></td>
-            </tr> -->
           </tbody>
         </table>
         <!-- table(e) -->
@@ -173,8 +177,8 @@
         <!-- pagination(s) -->
         <nav aria-label="페이지네이션">
           <ul class="pagination">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1">
+            <li class="page-item <?php echo $pageNumber == 1 ? 'disabled' : ''; ?>">
+              <a class="page-link" href="<?php echo $pageNumber == 1 ? '#' : 'order.php?pageNumber=1'; ?>" tabindex="-1">
                 <span class="visually-hidden">처음</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
@@ -182,29 +186,33 @@
                 </svg>
               </a>
             </li>
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1">
+            <li class="page-item <?php echo $pageNumber == 1 ? 'disabled' : ''; ?>">
+              <a class="page-link" href="<?php echo $pageNumber == 1 ? '#' : 'order.php?pageNumber=' . ($pageNumber - 1); ?>" tabindex="-1">
                 <span class="visually-hidden">이전</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
                 </svg>
               </a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active"> <!--active일떄 블라인드 현재페이지 스크립트로 넣어야함-->
-              <a class="page-link" href="#">2</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">
+            <?php
+            for($i = $block_start; $i <= $block_end; $i++) {
+              if($i == $pageNumber) {
+                echo "<li class=\"page-item active\"><a href=\"order.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+              } else {
+                echo "<li class=\"page-item\"><a href=\"order.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+              }
+            }
+            ?>
+            <li class="page-item <?php echo $pageNumber == $total_page ? 'disabled' : ''; ?>">
+              <a class="page-link" href="<?php echo $pageNumber == $total_page ? '#' : 'order.php?pageNumber=' . ($pageNumber + 1); ?>">
                 <span class="visually-hidden">다음</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
                 </svg>
               </a>
             </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
+            <li class="page-item <?php echo $pageNumber == $total_page ? 'disabled' : ''; ?>">
+              <a class="page-link" href="<?php echo $pageNumber == $total_page ? '#' : 'order.php?pageNumber=' . $total_page; ?>">
                 <span class="visually-hidden">마지막</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"/>

@@ -4,8 +4,45 @@
   // include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 
-  $sql = "SELECT * FROM members";
+  // 각자 테이블 컬럼 (검색)
+  $mb_select = $_GET['mb_select'] ?? '';
+  $search_keyword = $_GET['search'] ?? ''; // 사용자가 입력한 검색어
+
+  // search_whre 검색조건에 맞게
+  $search_where = '';
+  if ($mb_select == '1') {
+      $search_where .= $search_keyword ? " AND username LIKE '%$search_keyword%'" : "";
+  } elseif ($mb_select == '2') {
+      $search_where .= $search_keyword ? " AND userid LIKE '%$search_keyword%'" : "";
+  }
+
+  //총개수 조회
+  $sql = "SELECT COUNT(*) AS cnt FROM members WHERE 1=1";
+  $sql .= $search_where;
   $result = $mysqli->query($sql);
+  $count = $result->fetch_object();
+
+  $totalcount = $count->cnt; //총검색건수
+  $targetTable = 'members';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
+
+  //페이지네이션
+  $sql = "SELECT * FROM members WHERE 1=1";
+  $sql .= $search_where;
+  $order = " order by mid desc";
+  $sql .= $order;
+  $limit = " LIMIT  $startLimit, $endLimit";
+  $sql .= $limit;
+  // echo $sql;
+
+  $result = $mysqli->query($sql);
+  $sql = "SELECT * FROM members";
+
+  if(isset($_GET['mid'])) {
+    $mid = $_GET['mid'];
+  } else {
+    $mid = ""; // 기본값 설정
+  }
 
   while ($rs = $result->fetch_object()) {
     $rsArr[] = $rs;
@@ -22,11 +59,11 @@
         <form action="#">
           <!-- select + text +button (s) -->
           <div class="row">
-            <label for="mb-select" class="col-md-1 col-form-label tit-h4 visually-hidden">회원관리 정보로 검색</label> <!-- label hidden으로 사용  -->
+            <label for="mb_select" class="col-md-1 col-form-label tit-h4 visually-hidden">회원관리 정보로 검색</label> <!-- label hidden으로 사용  -->
             <div class="col-md-12">
               <div class="input-group justify-content-between align-items-center">
                 <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="mb-select" name="mb-select" aria-label="select">
+                  <select class="form-select form-select-sm" id="mb_select" name="mb_select" aria-label="select">
                     <option value="1" selected>이름</option>
                     <option value="2">아이디</option>
                   </select>
@@ -34,7 +71,7 @@
                 <div class="col-md-7 ipt-wrap">
                   <input type="text" class="form-control" id="search" name="search" placeholder="검색어를 입력하세요">
                 </div>
-                <button type="button" class="btn btn-primary btn-sm">검색</button>
+                <button type="submit" class="btn btn-primary btn-sm">검색</button>
               </div>
             </div>
           </div>
@@ -42,7 +79,7 @@
         </form>
 
         <div class="total">
-          <span>총 <em>8</em>건</span>
+          <span>총 <em><?=$totalcount;?></em>건</span>
         </div>
 
         <!-- table(s) -->
@@ -131,8 +168,8 @@
       <!-- pagination(s) -->
       <nav aria-label="페이지네이션">
         <ul class="pagination">
-          <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1">
+          <li class="page-item <?php echo $pageNumber == 1 ? 'disabled' : ''; ?>">
+            <a class="page-link" href="<?php echo $pageNumber == 1 ? '#' : 'membership.php?pageNumber=1'; ?>" tabindex="-1">
               <span class="visually-hidden">처음</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
@@ -140,29 +177,33 @@
               </svg>
             </a>
           </li>
-          <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1">
+          <li class="page-item <?php echo $pageNumber == 1 ? 'disabled' : ''; ?>">
+            <a class="page-link" href="<?php echo $pageNumber == 1 ? '#' : 'membership.php?pageNumber=' . ($pageNumber - 1); ?>" tabindex="-1">
               <span class="visually-hidden">이전</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
               </svg>
             </a>
           </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item active"> <!--active일떄 블라인드 현재페이지 스크립트로 넣어야함-->
-            <a class="page-link" href="#">2</span></a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#">
+          <?php
+          for($i = $block_start; $i <= $block_end; $i++) {
+            if($i == $pageNumber) {
+              echo "<li class=\"page-item active\"><a href=\"membership.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+            } else {
+              echo "<li class=\"page-item\"><a href=\"membership.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+            }
+          }
+          ?>
+          <li class="page-item <?php echo $pageNumber == $total_page ? 'disabled' : ''; ?>">
+            <a class="page-link" href="<?php echo $pageNumber == $total_page ? '#' : 'membership.php?pageNumber=' . ($pageNumber + 1); ?>">
               <span class="visually-hidden">다음</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
               </svg>
             </a>
           </li>
-          <li class="page-item">
-            <a class="page-link" href="#">
+          <li class="page-item <?php echo $pageNumber == $total_page ? 'disabled' : ''; ?>">
+            <a class="page-link" href="<?php echo $pageNumber == $total_page ? '#' : 'membership.php?pageNumber=' . $total_page; ?>">
               <span class="visually-hidden">마지막</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"/>
@@ -173,7 +214,6 @@
         </ul>
       </nav>
       <!-- pagination(e) -->
-    </div>
   </div>
 </body>
 </html>

@@ -14,7 +14,7 @@ $start_date = $_GET['datepicker-01'] ?? '';
 $end_date = $_GET['datepicker-02'] ?? '';
 $status = $_GET['status'] ?? '';
 
-// search_whre 조건에 맞게
+// search_where 조건에 맞게
 $search_where = '';
 if ($discount == '1') {
     $search_where .= " AND coupon_type = 1";
