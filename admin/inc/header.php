@@ -24,8 +24,9 @@
   <link rel="stylesheet" href="/ccccoding/admin/css/content.css">
 
   <!-- 제이쿼리 -->
-  <script src="/ccccoding/admin/css/bootstrap.bundle.js"></script> <!--부트스트랩-->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="/ccccoding/admin/css/bootstrap.bundle.js"></script> <!--제이쿼리-->
+  <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
+  <script src="/ccccoding/admin/js/jquery-3.7.1.min.js"></script>
   <script src="/ccccoding/admin/js/datepicker.js"></script>
   <script src="/ccccoding/admin/js/common.js"></script>
   
