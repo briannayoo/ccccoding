@@ -122,50 +122,49 @@
           <!-- 수강신청 / 난이도 -->
           <div class="row">
             <label for="datepicker-01" class="col-md-1 col-form-label tit-h4">수강신청</label>
-              <div class="col-md-11">
-                <div class="input-group">
-                  <div class="date-wrap">
-                    <div class="col-md-4 ipt-wrap">
-                      <input type="text" name="sale_start_date" id="sale_start_date" class="ipt-datepicker" placeholder="YYYY-MM-DD">
-                      <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
-                    </div>
-                    <div class="col-md-4 ipt-wrap">
-                      <input type="text" name="sale_end_date"  id="sale_end_date" class="ipt-datepicker" placeholder="YYYY-MM-DD">
-                      <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
-                    </div>
+            <div class="col-md-11">
+              <div class="input-group">
+                <div class="date-wrap col-md-8">
+                  <div class="col-md-5 ipt-wrap">
+                    <div style="position: relative;" class="datepicker"><input type="text" name="sale_start_date" id="sale_start_date" class="ipt-datepicker" placeholder="YYYY-MM-DD"><div class="datepicker__wrapper" style="z-index: 9999; position: absolute; display: none;"></div></div>
+                    <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                   </div>
-                  <div class="ipt-wrap row">
-                    <div class="list-group list-group-horizontal">
-                      <h4 class="tit-h4">난이도</h4>
-                      <div class="list-group-item">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="1" name="isgold" id="isgold">
-                          <label class="form-check-label" for="isgold">
-                            상
-                          </label>
-                        </div>
-                      </div>
-                      <div class="list-group-item">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="1" name="issilver" id="issilver" checked>
-                          <label class="form-check-label" for="issilver">
-                            중
-                          </label>
-                        </div>
-                      </div>
-                      <div class="list-group-item">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="1" name="iscopper" id="iscopper">
-                          <label class="form-check-label" for="iscopper">
-                            하
-                          </label>
-                          </div>
-                        </div>
-                      </div>
+                  <div class="col-md-5 ipt-wrap">
+                    <div style="position: relative;" class="datepicker"><input type="text" name="sale_end_date" id="sale_end_date" class="ipt-datepicker" placeholder="YYYY-MM-DD"><div class="datepicker__wrapper" style="z-index: 9999; position: absolute; display: none;"></div></div>
+                    <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                   </div>
                 </div>
+                <div class="col-md-4 ipt-wrap ml-2">
+                  <div class="list-group list-group-horizontal">
+                    <label class="tit-h4">난이도</label>
+                    <div class="list-group-item">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="1" name="isgold" id="isgold">
+                        <label class="form-check-label" for="isgold">
+                          상
+                        </label>
+                      </div>
+                    </div>
+                    <div class="list-group-item">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="1" name="issilver" id="issilver" checked="">
+                        <label class="form-check-label" for="issilver">
+                          중
+                        </label>
+                      </div>
+                    </div>
+                    <div class="list-group-item">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="1" name="iscopper" id="iscopper">
+                        <label class="form-check-label" for="iscopper">
+                          하
+                        </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div></div>
               </div>
-          </div>
+            </div>
 
           <!-- 강의내용 -->
           <div class="row">
@@ -209,6 +208,7 @@
           <div class="btn-area">
             <button class="btn btn-primary btn-lg" id="upfile_btn">등록</button>
             <button class="btn btn-secondary btn-lg">삭제</button>
+          </div>
           </div>
         </form>
       </div>
