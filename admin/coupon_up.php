@@ -73,7 +73,6 @@
 
           <!-- select + input text 혼합(s) -->
 
-          <!-- 할인금액 선택시 (s) -->
           <div class="row">
             <label for="coupon_type" class="col-md-1 col-form-label tit-h4">할인종류</label>
             <div class="col-md-11">
@@ -81,8 +80,8 @@
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="coupon_type" name="coupon_type" aria-label="할인 종류 선택" required>
                     <option selected>선택해주세요</option>
-                    <option value="amount" >할인금액</option>
-                    <option value="rate">할인율</option>
+                    <option value="1" >할인금액</option>
+                    <option value="2">할인율</option>
                   </select>
                 </div>
                 <div class="col-md-4 ipt-wrap dc-wrap amount">
@@ -96,7 +95,6 @@
               </div>
             </div>
           </div>
-          <!-- 할인금액 선택시 (e) -->
           <!-- select + input text 혼합(e) -->
 
           <!-- 기간설정 시 (s) -->
@@ -105,19 +103,19 @@
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="use_date_type" aria-label="사용기한 선택" required>
+                  <select class="form-select form-select-sm" id="use_date_type" name="use_date_type" aria-label="사용기한 선택" required>
                     <option selected>선택해주세요</option>
-                    <option value="unlimited">무제한</option>
-                    <option value="limited">기간설정</option>
+                    <option value="1">무제한</option>
+                    <option value="2">기간설정</option>
                   </select>
                 </div>
                 <div class="date-wrap col-md-8">
                   <div class="col-md-6 ipt-wrap">
-                    <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD" id="start_date" name="start_date">
+                    <input type="text" class="ipt-datepicker form-control" placeholder="YYYY-MM-DD" id="start_date" name="start_date">
                     <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                   </div>
                   <div class="col-md-6 ipt-wrap">
-                    <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD" id="end_date" name="end_date">
+                    <input type="text" class="ipt-datepicker form-control" placeholder="YYYY-MM-DD" id="end_date" name="end_date">
                     <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                   </div>
                 </div>
@@ -170,7 +168,6 @@
   </div>
   <!-- wwilsman 데이트픽커 js -->
   
-  <script src="/ccccoding/admin/js/datepicker.js"></script>
   <script src="/ccccoding/admin/js/coupon.js"></script>
   <!-- <script>
     function save() {

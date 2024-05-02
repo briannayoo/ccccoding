@@ -80,31 +80,28 @@ $rs = $result->fetch_object();
           <!-- input text 단위 1/3 (e) -->
 
           <!-- select + input text 혼합(s) -->
-
-          <!-- 할인금액 선택시 (s) -->
           <div class="row">
             <label for="coupon_type" class="col-md-1 col-form-label tit-h4">할인종류</label>
             <div class="col-md-11">
-              <div class="input-group">
-                <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="coupon_type" name="coupon_type" aria-label="할인 종류 선택" required>
-                    <option selected>선택해주세요</option>
-                    <option value="1" <?php if($rs->coupon_type == 1){ echo "selected";}?>>할인금액</option>
-                    <option value="2" <?php if($rs->coupon_type == 2){ echo "selected";}?>>할인율</option>
-                  </select>
+                <div class="input-group">
+                    <div class="col-md-4 ipt-wrap">
+                        <select class="form-select form-select-sm" id="coupon_type" name="coupon_type" aria-label="할인 종류 선택" required>
+                            <option selected disabled>선택해주세요</option>
+                            <option value="1">할인금액</option>
+                            <option value="2">할인율</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 ipt-wrap dc-wrap amount">
+                        <input type="text" class="form-control text-end" id="coupon_price" name="coupon_price" value="<?=$rs->coupon_price ?? '';?>">
+                        <span class="unit">원</span>
+                    </div>
+                    <div class="col-md-4 ipt-wrap dc-wrap rate">
+                        <input type="text" class="form-control text-end" id="coupon_rate" name="coupon_rate" value="<?=$rs->coupon_rate ?? '';?>">
+                        <span class="unit">%</span>
+                    </div>
                 </div>
-                <div class="col-md-4 ipt-wrap dc-wrap amount">
-                  <input type="text" class="form-control text-end" id="coupon_price" name="coupon_price" value="<?= $rs->coupon_price; ?>">
-                  <span class="unit">원</span>
-                </div>
-                <div class="col-md-4 ipt-wrap dc-wrap percent">
-                  <input type="text" class="form-control text-end" id="coupon_ratio" name="coupon_ratio" value="<?= $rs->coupon_ratio; ?>">
-                  <span class="unit">%</span>
-                </div>
-              </div>
             </div>
-          </div>
-          <!-- 할인금액 선택시 (e) -->
+        </div>
           <!-- select + input text 혼합(e) -->
 
           <!-- 기간설정 시 (s) -->
@@ -121,12 +118,12 @@ $rs = $result->fetch_object();
                   </select>
                 </div>
                 <div class="date-wrap col-md-8">
-                  <div class="col-md-6 ipt-wrap">
-                    <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD" id="start_date" name="start_date" data-value="<?= $rs -> start_date?>">
+                  <div class="col-md-6 ipt-wrap" data-value="<?= $rs -> start_date;?>">
+                    <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD" id="start_date" name="start_date">
                     <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                   </div>
-                  <div class="col-md-6 ipt-wrap">
-                    <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD" id="end_date" name="end_date" data-value="<?= $rs -> end_date?>">
+                  <div class="col-md-6 ipt-wrap" data-value="<?= $rs -> end_date;?>">
+                    <input type="text" class="ipt-datepicker" placeholder="YYYY-MM-DD" id="end_date" name="end_date">
                     <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                   </div>
                 </div>
