@@ -154,35 +154,20 @@ textarea {height:250px;}
 #addedImages {padding: 30px 0;}
 #addedImages img{width:300px; height:300px; object-fit:cover;}
 .btn-sm.thumb-text{font-size:16px; width: 300px; }
-p.remove {color: red;}
 
 /* icons */
 .fa-solid.fa-small::before {font-size:24px;}
 .fa-solid.fa-xsmall::before {font-size:16px;}
 .fa-solid.fa-big::before {font-size:34px;}
-/* 파일추가 input */
-.file-input-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.file-input-button {
-  padding: 8px 12px;
-  border: 1px solid #007bff;
-  background-color: #007bff;
-  color: white;
-  border-left: none; /* Remove the left border */
-  border-radius: 0 4px 4px 0; /* Rounded right side */
-  cursor: pointer;
-}
 
-#file-upload {
-  display: none; /* Hide the default file input */
-}
+/* 파일추가 input */
+.file-input-container {display:flex; align-items:center; gap:10px;}
+.file-input-button {padding: 8px 12px; border:1px solid #007bff; background-color:#007bff; color:white; border-left:none; border-radius:0 4px 4px 0; cursor:pointer;}
+#file-upload {display: none;}
+
 /* 상단 알림 */
 .alarm-popup * {list-style:none; color:inherit; text-decoration:none;}
 .alarm-popup {width:480px; background:var(--bg-sub1-c); position:absolute; right:50px; top:80px; display:none;}
 .alarm-popup .alarm-cantent {margin:30px 18px;}
-.alarm-popup .alarm-cantent p {
-  width:230px; height:50px; overflow:hidden; white-space:normal; text-overflow:ellipsis; word-break:break-all;}
+.alarm-popup .alarm-cantent p {width:230px; height:50px; overflow:hidden; white-space:normal; text-overflow:ellipsis; word-break:break-all;}
 .alarm-popup .alarm-cantent a span:first-of-type {display: inline-block; width: 54px; height: 30px; background-color: #472ea1; color: #fff; text-align: center; line-height:30px; border-radius: 10px;} 

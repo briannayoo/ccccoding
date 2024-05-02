@@ -29,11 +29,19 @@
   if($iscopper){
     $search_where .= " and iscopper = 1";
   }
+  
   if($search_keyword){
     $search_where .= " and (name LIKE '%{$search_keyword}%' or content LIKE '%{$search_keyword}%')";
   }
 
-  $paginationTarget = 'products';
+//총개수 조회
+  $sql = "SELECT COUNT(*) AS cnt FROM products WHERE 1=1";
+  $sql .= $search_where;
+  $result = $mysqli->query($sql);
+  $count = $result->fetch_object();
+
+  $totalcount = $count->cnt; //총검색건수
+  $targetTable = 'coupons';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
 
   $sql = "SELECT * FROM products where 1=1";
@@ -42,34 +50,20 @@
   $sql .= $order;
   $limit = " LIMIT $startLimit, $endLimit";
   $sql .= $limit;
-
+  // echo $sql;
   $result = $mysqli->query($sql);
 
   while ($rs = $result->fetch_object()) {
     $rsArr[] = $rs;
   }
-
+  
+  //$count = count($rsArr);
+  
   $sql = "SELECT * FROM category where step = 1";
   $result = $mysqli->query($sql);
   while ($row = $result->fetch_object()) {
     $cate1[] = $row;
   };
-  $sql = "SELECT * FROM category where step = 2";
-  $result = $mysqli->query($sql);
-  $cate2 = [];  // 배열로 초기화
-  while ($row = $result->fetch_object()) {
-      $cate2[] = $row;
-  };
-  // $sql = "SELECT * FROM category where step = 2";
-  // $result = $mysqli->query($sql);
-  // while ($row = $result->fetch_object()) {
-  //   $cate2[] = $row;
-  // };
-  // $sql = "SELECT * FROM category where step = 3";
-  // $result = $mysqli->query($sql);
-  // while ($row = $result->fetch_object()) {
-  //   $cate3[] = $row;
-  // };
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
@@ -102,25 +96,11 @@
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="cate2" name="cate2" aria-label="중분류">
                   <option selected disabled>중분류</option>
-                  <?php
-                      foreach ($cate2 as $c2) {
-                    ?>
-                      <option value="<?= $c2->code; ?>"><?= $c2->name; ?></option>
-                    <?php
-                      }
-                    ?>
                   </select>
                 </div>
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="cate3" name="cate3" aria-label="소분류">
                   <option selected disabled>소분류</option>
-                  <?php
-                      foreach ($cate3 as $c3) {
-                    ?>
-                      <option value="<?= $c3->code; ?>"><?= $c3->name; ?></option>
-                    <?php
-                      }
-                    ?>
                   </select>
                 </div>
               </div>
@@ -175,7 +155,7 @@
         </form>
         <hr>  
           <div>
-            검색결과: <?= $count;?>
+            검색결과: <?= count($rsArr);?>
           </div>
         <hr>
         <!-- 강의리스트 -->
@@ -187,13 +167,13 @@
             ?>
               <li class="lecture_list_item box-shadow">
                 <a href="lecture_detail.php?pid=<?= $item->pid; ?>"><img src="<?=$item->thumbnail;?>" alt="이미지"></a>
-                <div class="lex-area">
+                <div class="info-area">
                   <P class="lecture_chaption"><strong class="tit-h5"><?=$item->name;?></strong><i class="fa-solid fa-circle-user fa-xsmall txt-m tender-color">3.5만</i><i class="fa-solid fa-heart fa-xsmall txt-m tender-color">4.35</i></P>
                   <P class="lecture_text"><?=$item->content;?></P>
                   <P class="tender-color">수강기간 <?=$item->sale_start_date;?> ~ <?=$item->sale_end_date;?></P>
                 </div>
                 <div class="etc-group">
-                  <p class="search-result txt-s"><span><?= $c1->name; ?></span><i class="fa-solid fa-angle-right fa-xsmall"></i><span><?= $c2->name; ?></span></p>
+                  <p class="search-result txt-s"><span><?= $c1->name; ?></span><i class="fa-solid fa-angle-right fa-xsmall"></i><span>디자인</span></p>
                   <select class="form-select form-select-sm" id="select-01" aria-label="select">
                     <option selected value="1">판매중</option>
                     <option value="2">판매 예정</option>
@@ -223,43 +203,58 @@
           </form>
       </div>
 
-        <!-- 페이지 네이션 -->
+        <!-- pagination(s) -->
         <nav aria-label="페이지네이션">
           <ul class="pagination">
+            <li class="page-item <?php echo $pageNumber == 1 ? 'disabled' : ''; ?>">
+              <a class="page-link" href="<?php echo $pageNumber == 1 ? '#' : 'lecture_list.php?pageNumber=1'; ?>" tabindex="-1">
+                <span class="visually-hidden">처음</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                  <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                </svg>
+              </a>
+            </li>
+            <li class="page-item <?php echo $pageNumber == 1 ? 'disabled' : ''; ?>">
+              <a class="page-link" href="<?php echo $pageNumber == 1 ? '#' : 'lecture_list.php?pageNumber=' . ($pageNumber - 1); ?>" tabindex="-1">
+                <span class="visually-hidden">이전</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                </svg>
+              </a>
+            </li>
             <?php
-              if($pageNumber > 1){
-                echo "<li class=\"page-item\"><a href=\"product_list.php?pageNumber=1\" class=\"page-link\" >처음</a></li>";
-                //이전
-                if($block_num > 1){
-                  $prev = 1 + ($block_num - 2) * $block_ct;
-                  echo "<li class=\"page-item\"><a href=\"product_list.php?pageNumber=$prev\" class=\"page-link\">이전</a></li>";
-                }
+            for($i = $block_start; $i <= $block_end; $i++) {
+              if($i == $pageNumber) {
+                echo "<li class=\"page-item active\"><a href=\"lecture_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+              } else {
+                echo "<li class=\"page-item\"><a href=\"lecture_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
               }
-
-                for($i=$block_start;$i<=$block_end;$i++){
-                  if($i == $pageNumber){
-                    echo "<li class=\"page-item active\"><a href=\"product_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
-                  }else{
-                    echo "<li class=\"page-item\"><a href=\"product_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
-                  }            
-                }  
-
-                if($pageNumber < $total_page){
-                  if($total_block > $block_num){
-                    $next = $block_num * $block_ct + 1;
-                    echo "<li class=\"page-item\"><a href=\"product_list.php?pageNumber=$next\" class=\"page-item\">다음</a></li>";
-                  }
-                  echo "<li class=\"page-item\"><a href=\"product_list.php?pageNumber=$total_page\" class=\"page-link\">마지막</a></li>";
-                }        
+            }
             ?>
+            <li class="page-item <?php echo $pageNumber == $total_page ? 'disabled' : ''; ?>">
+              <a class="page-link" href="<?php echo $pageNumber == $total_page ? '#' : 'lecture_list.php?pageNumber=' . ($pageNumber + 1); ?>">
+                <span class="visually-hidden">다음</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                </svg>
+              </a>
+            </li>
+            <li class="page-item <?php echo $pageNumber == $total_page ? 'disabled' : ''; ?>">
+              <a class="page-link" href="<?php echo $pageNumber == $total_page ? '#' : 'lecture_list.php?pageNumber=' . $total_page; ?>">
+                <span class="visually-hidden">마지막</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"/>
+                  <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"/>
+                </svg>
+              </a>
+            </li>
           </ul>
         </nav>
+        <!-- pagination(e) -->
       </div>
     </div>
   </div>
-  <script src="/pinkping/admin/js/makeoption.js"></script>
-  <script>
-
-  </script>
+  <script src="/ccccoding/admin/js/makeoption.js"></script>
 </body>
 </html>

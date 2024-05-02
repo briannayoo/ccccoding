@@ -4,7 +4,7 @@ $title = '쿠폰리스트';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
+
 
 // 각자 테이블 컬럼
 $discount = $_GET['discount'] ?? '';
@@ -14,7 +14,7 @@ $start_date = $_GET['datepicker-01'] ?? '';
 $end_date = $_GET['datepicker-02'] ?? '';
 $status = $_GET['status'] ?? '';
 
-// search_whre 조건에 맞게
+// search_where 조건에 맞게
 $search_where = '';
 if ($discount == '1') {
     $search_where .= " AND coupon_type = 1";
@@ -66,14 +66,14 @@ $count = $result->fetch_object();
 
 $totalcount = $count->cnt; //총검색건수
 $targetTable = 'coupons';
-include_once $_SERVER['DOCUMENT_ROOT'].'/easy_bbs/inc/pagination.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
 
 //페이지네이션
 $sql = "SELECT * FROM coupons WHERE 1=1";
 $sql .= $search_where;
 $order = " order by cid desc";
 $sql .= $order;
-$limit = " LIMIT  $starLimit, $endLimit";
+$limit = " LIMIT  $startLimit, $endLimit";
 $sql .= $limit;
 // echo $sql;
 

@@ -17,16 +17,7 @@
   while ($row = $result->fetch_object()) {
     $cate1[] = $row;
   };
-    // $sql = "SELECT * FROM category where step = 2";
-  // $result = $mysqli->query($sql);
-  // while ($row = $result->fetch_object()) {
-  //   $cate2[] = $row;
-  // };
-  // $sql = "SELECT * FROM category where step = 3";
-  // $result = $mysqli->query($sql);
-  // while ($row = $result->fetch_object()) {
-  //   $cate3[] = $row;
-  // };
+
   //카테고리 확인
   $cates = $rs->cate; //A0001B0001C0001  str_split(문자열, 개수);
   $cateArray = str_split($cates, 5);
@@ -230,7 +221,7 @@
       </div>
     </div>
   </div>
-
-  <script src="/ccccoding/admin/js/lecture.js"></script> 
+  <script src="/ccccoding/admin/js/makeoption.js"></script>
+  <!-- <script src="/ccccoding/admin/js/lecture.js"></script>  -->
 </body>
 </html>

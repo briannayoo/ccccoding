@@ -10,16 +10,16 @@
   while ($row = $result->fetch_object()) {
     $cate1[] = $row;
   };
-  $sql = "SELECT * FROM category where step = 2";
-  $result = $mysqli->query($sql);
-  while ($row = $result->fetch_object()) {
-    $cate2[] = $row;
-  };
-  $sql = "SELECT * FROM category where step = 3";
-  $result = $mysqli->query($sql);
-  while ($row = $result->fetch_object()) {
-    $cate3[] = $row;
-  };
+  // $sql = "SELECT * FROM category where step = 2";
+  // $result = $mysqli->query($sql);
+  // while ($row = $result->fetch_object()) {
+  //   $cate2[] = $row;
+  // };
+  // $sql = "SELECT * FROM category where step = 3";
+  // $result = $mysqli->query($sql);
+  // while ($row = $result->fetch_object()) {
+  //   $cate3[] = $row;
+  // };
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
@@ -38,7 +38,7 @@
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm tit-h3" id="cate1" aria-label="대분류">
-                  <option selected>대분류</option>
+                  <option selected disabled>대분류</option>
                   <?php
                     foreach ($cate1 as $c1) {
                   ?>
@@ -51,26 +51,12 @@
                 </div>
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm tit-h3" id="cate2"  aria-label="중분류">
-                    <option selected>중분류</option>
-                      <?php
-                      foreach ($cate2 as $c2) {
-                    ?>
-                      <option value="<?= $c2->code; ?>"><?= $c2->name; ?></option>
-                    <?php
-                      }
-                    ?>
+                  <option selected disabled>중분류</option>
                   </select>
                 </div>
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm tit-h3" id="cate3"  aria-label="소분류">
-                    <option selected>소분류</option>
-                      <?php
-                      foreach ($cate3 as $c3) {
-                    ?>
-                      <option value="<?= $c3->code; ?>"><?= $c3->name; ?></option>
-                    <?php
-                      }
-                    ?>
+                  <option selected disabled>소분류</option>
                   </select>
                 </div>
               </div>
@@ -172,14 +158,7 @@
                   </div>
                   <div class="col">
                     <select class="form-select" aria-label="중분류" id="pcode3">
-                      <option selected disabled>중분류를 선택해주세요</option>
-                        <?php
-                        foreach ($cate2 as $c2) {
-                        ?>
-                          <option value="<?= $c2->code; ?>"><?= $c2->name; ?></option>
-                        <?php
-                        }
-                        ?>
+
                     </select>
                   </div>
                 </div>
@@ -204,6 +183,7 @@
       </div>
     </div>
   </div>
+  <script src="/ccccoding/admin/js/makeoption.js"></script>
   <script>
     let categorySubmitBtn = $(".modal button[type='submit']");
 
@@ -255,7 +235,7 @@
             location.reload(); //강제 새로고침
           } else if (data.result === 'member') {
             alert('관리자가 아닙니다.');
-            location.href = '/pinkping/admin/login.php';
+            location.href = '/ccccoding/admin/login.php';
           } else {
             alert('등록 실패');
             location.reload(); // 새로고침

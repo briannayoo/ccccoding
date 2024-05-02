@@ -16,6 +16,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
   $use_date_type = $_POST['use_date_type'] ?? 1;
   $start_date = $_POST['start_date'];
   $end_date = $_POST['end_date'];
+  $coupon_image = $_POST['coupon_image'];
 
   $start_date = str_replace(" ", "", $start_date);
   $end_date = str_replace(" ", "", $end_date);
@@ -23,24 +24,24 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
   $status = $_POST['status'] ?? 1;
 
   $url = $_POST['url'] ?? '';
-  $addedImg_id = rtrim($_POST['coupon_image'], ',');
 
   //파일 사이즈 검사
-  if ($_FILES['thumbnail']['size'] > 10240000) {
+  if ($_FILES['coupon_image']['size'] > 10240000) {
     echo "<script>
       alert('10MB 이하만 업로드해주세요');
       history.back();
     </script>";
     exit;
   }
-     //이미지 여부 검사
-     if (strpos($_FILES['coupon_image']['type'], 'image') === false) {
-      echo "<script>
-        alert('이미지만 업로드해주세요');
-        history.back();
-      </script>";
-      exit;
-    }
+
+  //이미지 여부 검사
+  if (strpos($_FILES['coupon_image']['type'], 'image') === false) {
+    echo "<script>
+      alert('이미지만 업로드해주세요');
+      history.back();
+    </script>";
+    exit;
+  }
 
   $save_dir = $_SERVER['DOCUMENT_ROOT']."/ccccoding/admin/c_upload/"; // 파일을 업로드할 디렉토리
   $filename = $_FILES["coupon_image"]["name"];
@@ -54,6 +55,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
       echo "<script>alert('이미지를 등록할 수 없습니다. 관리자에게 문의해주십시오.');//history.back();</script>";
       exit;
   }
+
   $sql = "UPDATE coupons SET
       coupon_name = '$coupon_name',
       coupon_desc = '$coupon_desc',
@@ -66,12 +68,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
       start_date = '$start_date',
       end_date = '$end_date',
       status = $status,
-      thumbnail = '$thumbnail'
+      coupon_image = '$coupon_image'
   WHERE cid = $cid";
 
   // echo $sql;
   $result = $mysqli->query($sql);
-  
+
   if($result) { // 쿠폰정보 수정하면
     echo "<script>
     alert('수정 완료');
