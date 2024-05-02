@@ -2,7 +2,6 @@
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 ?>
-      <!-- 상단 until-list (e) -->
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
         <h2 class="tit-h2">Q&amp;A</h2>

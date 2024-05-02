@@ -170,4 +170,21 @@ $(function() {
       });
     }
   }
+
+  //취소 체크
+  if($('.del_check').length > 0){
+    $('.del_check').click(function(){
+      if(confirm('취소하시겠습니까?')){
+        history.back();
+      }
+    })
+  }
+  if($('.logout_click').length > 0){
+    $('.logout_click').click(function(){
+      if(confirm('로그아웃 하시겠습니까?')){
+        history.back();
+      }
+    })
+  }
+  
 });

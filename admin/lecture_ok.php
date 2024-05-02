@@ -31,13 +31,13 @@ try{
 
   $sale_start_date = str_replace(" ", "", $sale_start_date);
 
-// if (!is_numeric($price)) {
-//     echo "<script>
-//     alert('가격은 공백없이 숫자로 입력해야 합니다.');
-//     history.back();
-//     </script>";
-//     exit;
-// }
+if (!is_numeric($price)) {
+    echo "<script>
+    alert('가격은 공백없이 숫자로 입력해야 합니다.');
+    history.back();
+    </script>";
+    exit;
+}
 
   // DateTime 객체를 생성하고, MySQL DATETIME 형식으로 포맷
   $startTime = new DateTime($sale_start_date);

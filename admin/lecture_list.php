@@ -12,9 +12,6 @@
   $isgold = $_GET['isgold'] ?? '';
   $issilver = $_GET['issilver'] ?? '';
   $iscopper = $_GET['iscopper'] ?? '';
-  $isrecom = $_GET['isrecom'] ?? '';
-  $sale_start_date = $_GET['sale_start_date'] ?? '';
-  $sale_end_date = $_GET['sale_end_date'] ?? '';
   $search_keyword = $_GET['search_keyword'] ?? '';
   $cates = $cates1.$cate2.$cate3;
 
@@ -29,15 +26,8 @@
   if($issilver){
     $search_where .= " and issilver = 1";
   }
-
-  if($isrecom){
-    $search_where .= " and isrecom = 1";
-  }
-  if($sale_start_date){
-    $search_where .= " and sale_start_date >=  CAST('{$sale_start_date}' AS datetime)";
-  }
-  if($sale_end_date){
-    $search_where .= " and sale_end_date >=  CAST('{$sale_end_date}' AS datetime)";
+  if($iscopper){
+    $search_where .= " and iscopper = 1";
   }
   if($search_keyword){
     $search_where .= " and (name LIKE '%{$search_keyword}%' or content LIKE '%{$search_keyword}%')";
@@ -90,14 +80,14 @@
       <div class="content">
 
         <!-- 강의검색 select-->
-        <form action="#" class="form-list lecture-search">
+        <form action="" class="form-list lecture-search" id="search_form">
           <div class="row">
             <label for="slect-01" class="col-md-1 col-form-label tit-h4">강의검색</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="cate1" name="cate1"aria-label="대분류" required>
-                    <option>대분류</option>
+                    <option selected disabled>대분류</option>
                     <?php
                     foreach ($cate1 as $c1) {
                     ?>
@@ -111,7 +101,7 @@
                 </div>
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="cate2" name="cate2" aria-label="중분류">
-                  <option>중분류</option>
+                  <option selected disabled>중분류</option>
                   <?php
                       foreach ($cate2 as $c2) {
                     ?>
@@ -123,7 +113,7 @@
                 </div>
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="cate3" name="cate3" aria-label="소분류">
-                  <option>소분류</option>
+                  <option selected disabled>소분류</option>
                   <?php
                       foreach ($cate3 as $c3) {
                     ?>
@@ -147,24 +137,24 @@
                   <div class="list-group list-group-horizontal lh-2">
                     <div class="list-group-item">
                       <div class="form-check list-mt">
-                        <input class="form-check-input" type="checkbox" value="" id="chk-list-04">
-                        <label class="form-check-label" for="chk-list-04">
+                        <input class="form-check-input" type="checkbox" value="1" id="isgold" name="isgold">
+                        <label class="form-check-label" for="isgold">
                           상
                         </label>
                       </div>
                     </div>
                     <div class="list-group-item">
                       <div class="form-check list-mt">
-                        <input class="form-check-input" type="checkbox" value="1" id="chk-list-04">
-                        <label class="form-check-label" for="chk-list-04"  value="1">
+                        <input class="form-check-input" type="checkbox" value="1" id="issilver" name="issilver">
+                        <label class="form-check-label" for="issilver">
                           중
                         </label>
                       </div>
                     </div>
                     <div class="list-group-item">
                       <div class="form-check list-mt">
-                        <input class="form-check-input" type="checkbox" value="" id="chk-list-04" value="1">
-                        <label class="form-check-label" for="chk-list-04">
+                        <input class="form-check-input" type="checkbox" value="1" id="iscopper" name="iscopper">
+                        <label class="form-check-label" for="iscopper">
                           하
                         </label>
                       </div>
@@ -173,8 +163,8 @@
                 </div>
                 <!-- <label for="search" class="col-md-1 col-form-label tit-h4">타이틀</label> -->
                 <div class="col-md-7 ipt-wrap d-flex align-items-center gap-3">
-                  <input class="form-control" type="search" id="search" placeholder="검색어를 입력하세요..." aria-label="Search">
-                  <button type="button" class="btn btn-primary btn-sm">버튼</button>
+                  <input class="form-control" type="text" name="search_keyword" id="search_keyword" placeholder="검색어를 입력하세요..." aria-label="search_keyword">
+                  <button class="btn btn-primary btn-sm">검색</button>
                   <!-- <div class="input-group-append">
                     <i class="fas fa-search lh-2"></i>
                   </div> -->
@@ -185,7 +175,7 @@
         </form>
         <hr>  
           <div>
-            검색결과: <?= $count;  ?>
+            검색결과: <?= $count;?>
           </div>
         <hr>
         <!-- 강의리스트 -->
@@ -203,18 +193,19 @@
                   <P class="tender-color">수강기간 <?=$item->sale_start_date;?> ~ <?=$item->sale_end_date;?></P>
                 </div>
                 <div class="etc-group">
-                  <p class="search-result"><span><?= $c1->name; ?></span><i class="fa-solid fa-angle-right fa-small"></i><span><?= $c2->name; ?></span></p>
+                  <p class="search-result txt-s"><span><?= $c1->name; ?></span><i class="fa-solid fa-angle-right fa-xsmall"></i><span><?= $c2->name; ?></span></p>
                   <select class="form-select form-select-sm" id="select-01" aria-label="select">
                     <option selected value="1">판매중</option>
                     <option value="2">판매 예정</option>
                     <option value="-1">판매 중지</option>
                   </select>
-                  <div class="edit-btn-group">
-                    <a href="lecture_edit.php?pid=<?= $item->pid; ?>" class="btn correc">
+                  <div class="edit-btn-group d-flex align-items-center">
+                    <span class="tit-h4"><?= $item->price;?>원</span>
+                    <a href="lecture_edit.php?pid=<?= $item->pid;?>" class="btn correc">
                       <span class="visually-hidden">수정</span>
                       <i class="fa-solid fa-pen-to-square fa-small"></i>
                     </a>
-                    <a href="lecture_del.php?pid=<?= $item->pid; ?>" type="button" class="btn lec-del">
+                    <a href="lecture_del.php?pid=<?= $item->pid; ?>" type="button" class="btn lec-del del_check">
                       <span class="visually-hidden">삭제</span>
                       <i class="fa-solid fa-trash-can fa-small"></i>
                     </a>
@@ -267,32 +258,8 @@
     </div>
   </div>
   <script src="/pinkping/admin/js/makeoption.js"></script>
-  <!-- <script>
-    $('.lec-del').click(function(){
+  <script>
 
-      $(this).closest('li').remove();
-      //let pid =  $(this).closest('tr').find('.qty-text').attr('data-id');
-      let data = {
-        pid :pid
-      }
-      $.ajax({
-        url:'lecture_del.php',
-        async:false,
-        type: 'POST',
-        data:data,
-        dataType:'json',
-        error:function(){},
-        success:function(data){
-        console.log(data);
-        if(data.result=='ok'){
-          alert('정말 삭제하시겠습니까?');  
-          location.reload();                      
-        }else{
-          alert('오류, 다시 시도하세요');                        
-          }
-        }
-      });
-  });
-  </script> -->
+  </script>
 </body>
 </html>

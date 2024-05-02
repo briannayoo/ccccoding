@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="btn-area">
-        <a href="notice_modify.php?idx=<?= $bno;?>" class="btn btn-primary btn-lg">수정</a>
+        <a href="notice_edit.php?idx=<?= $bno;?>" class="btn btn-primary btn-lg">수정</a>
         <a href="notice_del.php?idx=<?= $bno;?>" class="btn btn-secondary btn-lg">삭제</a>
       </div>
     </div>
