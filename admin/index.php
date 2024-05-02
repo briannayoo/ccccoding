@@ -10,7 +10,7 @@
       <div class="content dashboard">
         <!-- 이달의 매출 -->
         <div class="sales-area box-shadow big-box main-m">
-          <h3 class="txt-title">이달의 매출</h3>
+          <h3 class="txt-title">매출관리</h3>
           <div class="chart">
             <canvas id="bar-chart"></canvas>
           </div>
