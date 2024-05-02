@@ -185,4 +185,4 @@ p.remove {color: red;}
 .alarm-popup .alarm-cantent {margin:30px 18px;}
 .alarm-popup .alarm-cantent p {
   width:230px; height:50px; overflow:hidden; white-space:normal; text-overflow:ellipsis; word-break:break-all;}
-.alarm-popup .alarm-cantent a span:first-of-type {display: inline-block; width: 54px; height: 30px; background-color: #472ea1; color: #fff; text-align: center; line-height:30px; border-radius: 10px;}
+.alarm-popup .alarm-cantent a span:first-of-type {display: inline-block; width: 54px; height: 30px; background-color: #472ea1; color: #fff; text-align: center; line-height:30px; border-radius: 10px;} 
