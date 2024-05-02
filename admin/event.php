@@ -1,7 +1,10 @@
 <?php
+$title = '이벤트관리';
 session_start();
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
 
   // $keyword = $_GET['e_keyword'] ?? '';
   // $eventSql = "SELECT * FROM event WHERE 1=1 and (e_name like '%$keyword%' or e_title like '%$keyword%')";
@@ -11,6 +14,96 @@ session_start();
   //   $eventArr[] = $row;
   //}  
 
+  
+  // 각자 테이블 컬럼
+  $eid = $_GET['eid'] ?? '';
+  $e_name = $_GET['e_name'] ?? '';
+  $e_text = $_GET['e_text'] ?? '';
+  $e_img = $_GET['e_img'] ?? '';
+  $e_file = $_GET['e_file'] ?? '';
+  $e_startdate = $_GET['e_startdate'] ?? '';
+  $e_enddate = $_GET['e_enddate'] ?? '';
+  $e_status = $_GET['e_status'] ?? '';
+  
+  // search_where 조건에 맞게
+  $search_where = '';
+
+  // if ($discount == '1') {
+  //     $search_where .= " AND coupon_type = 1";
+  // } elseif ($discount == '2') {
+  //     $search_where .= " AND coupon_type = 2";
+  // }
+  
+  if ($e_name) {
+      $search_where .= " AND coupon_name LIKE '%$e_name%'";
+  }
+  
+  if ($use_date == '1') {
+      $search_where .= " AND use_date_type = 1";
+  } elseif ($use_date == '2') {
+      $search_where .= " AND use_date_type = 2";
+      if ($start_date) {
+          $search_where .= " AND start_date >= '$start_date'";
+      }
+      if ($end_date) {
+          $search_where .= " AND end_date <= '$end_date'";
+      }
+  }
+  
+  if ($status == '1') {
+      $search_where .= " AND status = 1";
+  } elseif ($status == '2') {
+      $search_where .= " AND status = 2";
+  }
+  
+  // 활성화 값이 1인 경우의 개수 조회
+  $sql_act_1 = "SELECT COUNT(*) AS act_1_cnt FROM coupons WHERE status = 1";
+  $sql_act_1 .= $search_where;
+  $result_act_1 = $mysqli->query($sql_act_1);
+  $count_act_1 = $result_act_1->fetch_object();
+  $count_act_1 = $count_act_1->act_1_cnt;
+  
+  // 비활성화 값이 2인 경우의 개수 조회
+  $sql_act_2 = "SELECT COUNT(*) AS act_2_cnt FROM coupons WHERE status = 2";
+  $sql_act_2 .= $search_where;
+  $result_act_2 = $mysqli->query($sql_act_2);
+  $count_act_2 = $result_act_2->fetch_object();
+  $count_act_2 = $count_act_2->act_2_cnt;
+  
+  //총개수 조회
+  $sql = "SELECT COUNT(*) AS cnt FROM coupons WHERE 1=1";
+  $sql .= $search_where;
+  $result = $mysqli->query($sql);
+  $count = $result->fetch_object();
+  
+  $totalcount = $count->cnt; //총검색건수
+  $targetTable = 'coupons';
+  include_once $_SERVER['DOCUMENT_ROOT'].'/easy_bbs/inc/pagination.php';
+  
+  //페이지네이션
+  $sql = "SELECT * FROM coupons WHERE 1=1";
+  $sql .= $search_where;
+  $order = " order by cid desc";
+  $sql .= $order;
+  $limit = " LIMIT  $starLimit, $endLimit";
+  $sql .= $limit;
+  // echo $sql;
+  
+  $result = $mysqli->query($sql);
+  
+  $sql = "SELECT * FROM coupons";
+  
+  if(isset($_GET['cid'])) {
+    $cid = $_GET['cid'];
+  } else {
+    $cid = ""; // 기본값 설정
+  }
+  
+  
+  while ($rs = $result->fetch_object()) {
+    $rsArr[] = $rs;
+  }
+  ?>
 ?>
 
 <div class="page-tit-area">

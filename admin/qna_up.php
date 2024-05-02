@@ -1,5 +1,6 @@
 <?php
 session_start();
+$title = 'Q$A답변등록';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 

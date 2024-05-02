@@ -1,13 +1,13 @@
 <?php
  session_start();
-
+ $title = '공지사항등록';
  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 ?>
       <!-- 상단 until-list (e) -->
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
-        <h2 class="tit-h2">공지사항</h2>
+        <h2 class="tit-h2">공지사항 등록</h2>
       </div>
       <!-- sub-page-tit-area (e) -->
 
