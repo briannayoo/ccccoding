@@ -2,6 +2,7 @@
 @import url(common.css);
 
 /* 대쉬보드 (우예지) */
+.login_logo {width: 200px;}
 .chart{width:565px; height:260px;}
 .chart-2 {width:290px; height:260px;}
 .chart-3 {width:565px; height:245px; transform: translateY(-245px);}

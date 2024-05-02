@@ -115,7 +115,7 @@
       </ul>
 
       <ul class="list-group util-list">
-        <li class="list-group-item">
+        <li class="list-group-item logout_click">
           <a href="/ccccoding/admin/logout.php" class="text-decoration-none">
             <i class="fa-solid fa-power-off fa-small"></i>
             <span>로그아웃</span>
