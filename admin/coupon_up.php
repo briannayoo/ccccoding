@@ -103,7 +103,7 @@
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="use_date_type" aria-label="사용기한 선택" required>
+                  <select class="form-select form-select-sm" id="use_date_type" name="use_date_type" aria-label="사용기한 선택" required>
                     <option selected>선택해주세요</option>
                     <option value="1">무제한</option>
                     <option value="2">기간설정</option>
@@ -111,7 +111,7 @@
                 </div>
                 <div class="date-wrap col-md-8">
                   <div class="col-md-6 ipt-wrap">
-                    <input type="text" class="ipt-datepicke1 form-control" placeholder="YYYY-MM-DD" id="start_date" name="start_date">
+                    <input type="text" class="ipt-datepicker form-control" placeholder="YYYY-MM-DD" id="start_date" name="start_date">
                     <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                   </div>
                   <div class="col-md-6 ipt-wrap">
@@ -168,7 +168,6 @@
   </div>
   <!-- wwilsman 데이트픽커 js -->
   
-  <script src="/ccccoding/admin/js/datepicker.js"></script>
   <script src="/ccccoding/admin/js/coupon.js"></script>
   <!-- <script>
     function save() {
