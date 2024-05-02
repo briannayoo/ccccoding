@@ -146,7 +146,15 @@ while ($rs = $result->fetch_object()) {
                 </div>
               </div>
               <div class="txt-group">
-                <p class="date">사용기한: <?= $item->start_date; ?> ~ <?= $item->end_date; ?></p>
+                <p class="date">사용기한:
+                  <?php 
+                    if($item->use_date_type == 2) {
+                        echo $item->start_date . '~' . $item->end_date; 
+                    } else {
+                        echo '무제한';
+                    }
+                  ?>
+                </p>
                 <p class="money">최소사용금액 :  <?= $item->use_min_price; ?>원</p>
                 <p class="discount"><?= $item->coupon_price; ?>원 할인</p>
               </div>

@@ -6,7 +6,7 @@ $(function() {
         if(val == 1){
             $('.dc-wrap.amount').show();
             $('.dc-wrap.percent').hide();
-        }else if(val == 'rate'){
+        }else if(val == 2){
             $('.dc-wrap.amount').hide();
             $('.dc-wrap.percent').show();
         }else{
@@ -18,7 +18,7 @@ $(function() {
     $('.date-wrap').hide();
     $('#use_date_type').change(function(){
         const value = $(this).val();
-        if(value == 'limited'){
+        if(value == '2'){
             $('.date-wrap').show();
         }else{
             $('.date-wrap').hide();
