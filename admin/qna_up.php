@@ -48,7 +48,7 @@ session_start();
         </div>
         <!-- 답변등록 -->
       <?php
-        $rno = $_GET['idx'];
+        $rno = $_GET['qid'];
         $reply_sql = "SELECT * FROM qna_reply WHERE r_idx = {$rno} order by idx desc";
         $reply_result = $mysqli->query($reply_sql);
         while($reply_row = mysqli_fetch_assoc($reply_result)){
@@ -73,6 +73,9 @@ session_start();
   </form>        
 </dialog>
 </div><!--// reply -->
+        <?php
+        }
+        ?>
 
 <form action="qna_reply_ok.php" method="POST">
   <div class="answer d-flex">
@@ -95,9 +98,6 @@ session_start();
     <button type="button" class="btn btn-secondary btn-lg q-cencel">취소</button>
   </div>
 </form>
-        <?php
-        }
-        ?>
 
 
       </div>
