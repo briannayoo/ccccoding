@@ -36,11 +36,11 @@
                 </div>
                 <div class="date-wrap col-md-8">
                   <div class="col-md-6 ipt-wrap">
-                    <input type="text" class="ipt-datepicker" id="datepicker-01" name="datepicker-01" placeholder="YYYY-MM-DD">
+                    <input type="text" class="ipt-datepicker form-control" id="datepicker-01" name="datepicker-01" placeholder="YYYY-MM-DD">
                     <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                   </div>
                   <div class="col-md-6 ipt-wrap">
-                    <input type="text" class="ipt-datepicker" id="datepicker-02" name="datepicker-02" placeholder="YYYY-MM-DD">
+                    <input type="text" class="ipt-datepicker form-control" id="datepicker-02" name="datepicker-02" placeholder="YYYY-MM-DD">
                     <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                   </div>
                 </div>

@@ -34,7 +34,7 @@ $(function() {
             success:function(data){
             console.log(data);
             if(data.result=='ok'){
-                alert('취소 환불건이 업데이트 되었습니다');  
+                alert('취소처리완료되었습니다.');  
                 location.reload();                      
             }else{
                 alert('오류, 다시 시도하세요');                        
@@ -78,7 +78,7 @@ $(function() {
             success:function(data){
             console.log(data);
             if(data.result=='ok'){
-                alert('취소 환불건이 업데이트 되었습니다');  
+                alert('환불처리완료되었습니다.');  
                 location.reload();                      
             }else{
                 alert('오류, 다시 시도하세요');                        
