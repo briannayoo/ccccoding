@@ -100,11 +100,13 @@
 .lecture_list_wrap .search-result {margin-bottom:0; text-align:center;}
 .lecture_list_wrap .btn:hover i {color:var(--primary-c);}
 .lecture_list_wrap .fa-angle-right {margin:0 10px;}
+.list-group.box-list .info-area {width: 98%;}
 
 /* 강의 상세 (우예지) */
 .lecture_detail {padding:30px 18px;}
 .lecture_detail img {width:500px;}
-.lecture_detail .lecture_video {padding:10px; border:1px solid var(--primary-c); border-radius:10px;}
+
+.lecture_detail .lecture_video {padding:10px; border:1px solid var(--primary-c); border-radius:10px; width: 204px;}
 .lecture_detail .lecture_video a {color:inherit; text-decoration:none; text-align:center;}
 .lecture_detail> .d-flex {flex-direction:column; gap:26px;}
 

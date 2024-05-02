@@ -32,17 +32,17 @@
       <!-- sub-page-tit-area (e) -->
 
       <div class="content">
-        <div class="lecture_detail box-shadow d-flex gap-5">
+        <div class="lecture_detail box-shadow d-flex gap-5 align-items-center">
         <?php
           if (isset($rsArr)) {  
             foreach ($rsArr as $item) {
         ?>
           <img src="<?=$item->thumbnail;?>" alt="">
           <div class="d-flex">
-            <h2 class="bnr-tit-m"><?= $item->pid;?></h2>
-            <p class="tit-h4"><?= $item->pid;?></p>
+            <h2 class="bnr-tit-m"><?= $item->name;?></h2>
+            <p class="tit-h4"><?= $item->content;?></p>
             <p><span><?= $item->sale_start_date;?></span> ~ <span><?= $item->sale_end_date;?></span></p>
-            <div class="lecture_video tit-h4"><a href="<?= $item->pid;?>">강의영상보러 바로가기</a></div>
+            <div class="lecture_video tit-h4"><a href="<?= $item->url;?>">강의영상보러 바로가기</a></div>
           </div>
         </div>
         <div class="btn-area">
