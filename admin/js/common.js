@@ -9,7 +9,7 @@ $(function() {
   $('.gnb-list > li').filter((idx, item) => {
     if($(item).find("> a").attr('href') === url){
       ctgIdx = idx;
-      localStorage.setItem('ctgIdx', idx); // 최근 1depth index 저장
+      sessionStorage.setItem('ctgIdx', idx); // 최근 1depth index 저장
     }
     return idx;
   })
@@ -32,7 +32,7 @@ $(function() {
     $('.gnb-list > li').eq(ctgIdx).find('.depth-2 > li').eq(ctgIdx2dep).addClass('on');
     $('.gnb-list > li').eq(ctgIdx).find('.accordion-header > button').trigger('click')
   }else if(ctgIdx === null){ // 1depth 없을때
-    ctgIdx = localStorage.getItem('ctgIdx');
+    ctgIdx = sessionStorage.getItem('ctgIdx');
     $('.gnb-list > li').siblings().removeClass('on');
     $('.gnb-list > li').eq(ctgIdx).addClass('on');
   }
@@ -128,6 +128,28 @@ $(function() {
     $("#all-check").click(function(){
       $('.form-check-input').prop('checked', $(this).prop('checked'));
     });
+  }
+
+  if($('.table-bordered thead .form-check-input').length > 0){
+    $(".table-bordered thead .form-check-input").change(function(){
+      if($(this).is(':checked')){
+        $(".table-bordered tbody .form-check-input").prop('checked', true)
+      }else{
+        $(".table-bordered tbody .form-check-input").prop('checked', false)
+      }
+    })
+
+    $(".table-bordered tbody .form-check-input").change(function(){
+      const chkNum = $(".table-bordered tbody .form-check-input").filter((idx, item) => {
+        return $(item).is(":checked") ? true : false
+      }).length
+
+      if($(".table-bordered tbody .form-check-input").length === chkNum){
+        $(".table-bordered thead .form-check-input").prop('checked', true)
+      }else{
+        $(".table-bordered thead .form-check-input").prop('checked', false)
+      }
+    })
   }
 
   //이미지 삭제
