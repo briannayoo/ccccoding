@@ -37,7 +37,7 @@ session_start();
   <div id="login-wrap">
     <div class="login-bg">
       <form action="login_ok.php" method="POST" class="form-list row justify-content-center">
-        <h1 class="text-center bnr-tit-l mb-6"><a href="index.html">관리자 로그인</a></h1>
+        <h1 class="text-center bnr-tit-l mb-3 logo"><img src="/ccccoding/admin/image/logo.png" alt="" class="login_logo">관리자 로그인</h1>
         <div class="form-floating mb-3">
           <input type="text" class="form-control" name="userid" id="userid" placeholder="ID: admin">
           <label for="userid">아이디</label>
