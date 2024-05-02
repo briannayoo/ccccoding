@@ -3,7 +3,7 @@ $(function() {
     $('.dc-wrap').hide();
     $('#coupon_type').change(function(){
         const val = $(this).val();
-        if(val == 'amount'){
+        if(val == 1){
             $('.dc-wrap.amount').show();
             $('.dc-wrap.percent').hide();
         }else if(val == 'rate'){
