@@ -10,7 +10,7 @@
 
       <div class="content">
         
-        <table class="table table-bordered text-center">
+        <table class="table table-bordered text-center qna-table">
           <!-- 각자 크기에 맞게 위드값 조정 합쳐서 100% -->
           <colgroup>
             <col style="width:auto">
