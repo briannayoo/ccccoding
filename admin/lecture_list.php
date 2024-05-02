@@ -34,7 +34,7 @@
     $search_where .= " and (name LIKE '%{$search_keyword}%' or content LIKE '%{$search_keyword}%')";
   }
 
-  $paginationTarget = 'products';
+  // $paginationTarget = 'products';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
 
   $sql = "SELECT * FROM products where 1=1";
@@ -43,12 +43,14 @@
   $sql .= $order;
   $limit = " LIMIT $startLimit, $endLimit";
   $sql .= $limit;
-
+  // echo $sql;
   $result = $mysqli->query($sql);
 
   while ($rs = $result->fetch_object()) {
     $rsArr[] = $rs;
   }
+  
+  $count = count($rsArr);
 
   $sql = "SELECT * FROM category where step = 1";
   $result = $mysqli->query($sql);
@@ -227,32 +229,49 @@
         <!-- 페이지 네이션 -->
         <nav aria-label="페이지네이션">
           <ul class="pagination">
+            <li class="page-item <?php echo $pageNumber == 1 ? 'disabled' : ''; ?>">
+              <a class="page-link" href="<?php echo $pageNumber == 1 ? '#' : 'lecture_list.php?pageNumber=1'; ?>" tabindex="-1">
+                <span class="visually-hidden">처음</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                  <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                </svg>
+              </a>
+            </li>
+            <li class="page-item <?php echo $pageNumber == 1 ? 'disabled' : ''; ?>">
+              <a class="page-link" href="<?php echo $pageNumber == 1 ? '#' : 'lecture_list.php?pageNumber=' . ($pageNumber - 1); ?>" tabindex="-1">
+                <span class="visually-hidden">이전</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                </svg>
+              </a>
+            </li>
             <?php
-              if($pageNumber > 1){
-                echo "<li class=\"page-item\"><a href=\"product_list.php?pageNumber=1\" class=\"page-link\" >처음</a></li>";
-                //이전
-                if($block_num > 1){
-                  $prev = 1 + ($block_num - 2) * $block_ct;
-                  echo "<li class=\"page-item\"><a href=\"product_list.php?pageNumber=$prev\" class=\"page-link\">이전</a></li>";
-                }
+            for($i = $block_start; $i <= $block_end; $i++) {
+              if($i == $pageNumber) {
+                echo "<li class=\"page-item active\"><a href=\"lecture_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+              } else {
+                echo "<li class=\"page-item\"><a href=\"lecture_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
               }
-
-                for($i=$block_start;$i<=$block_end;$i++){
-                  if($i == $pageNumber){
-                    echo "<li class=\"page-item active\"><a href=\"product_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
-                  }else{
-                    echo "<li class=\"page-item\"><a href=\"product_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
-                  }            
-                }  
-
-                if($pageNumber < $total_page){
-                  if($total_block > $block_num){
-                    $next = $block_num * $block_ct + 1;
-                    echo "<li class=\"page-item\"><a href=\"product_list.php?pageNumber=$next\" class=\"page-item\">다음</a></li>";
-                  }
-                  echo "<li class=\"page-item\"><a href=\"product_list.php?pageNumber=$total_page\" class=\"page-link\">마지막</a></li>";
-                }        
+            }
             ?>
+            <li class="page-item <?php echo $pageNumber == $total_page ? 'disabled' : ''; ?>">
+              <a class="page-link" href="<?php echo $pageNumber == $total_page ? '#' : 'lecture_list.php?pageNumber=' . ($pageNumber + 1); ?>">
+                <span class="visually-hidden">다음</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                </svg>
+              </a>
+            </li>
+            <li class="page-item <?php echo $pageNumber == $total_page ? 'disabled' : ''; ?>">
+              <a class="page-link" href="<?php echo $pageNumber == $total_page ? '#' : 'lecturen_list.php?pageNumber=' . $total_page; ?>">
+                <span class="visually-hidden">마지막</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"/>
+                  <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"/>
+                </svg>
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
