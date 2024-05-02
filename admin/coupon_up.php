@@ -73,7 +73,6 @@
 
           <!-- select + input text 혼합(s) -->
 
-          <!-- 할인금액 선택시 (s) -->
           <div class="row">
             <label for="coupon_type" class="col-md-1 col-form-label tit-h4">할인종류</label>
             <div class="col-md-11">
@@ -96,7 +95,6 @@
               </div>
             </div>
           </div>
-          <!-- 할인금액 선택시 (e) -->
           <!-- select + input text 혼합(e) -->
 
           <!-- 기간설정 시 (s) -->

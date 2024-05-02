@@ -8,7 +8,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
 
 // 각자 테이블 컬럼
 $discount = $_GET['discount'] ?? '';
-$coupon_name = $_GET['coupon-name'] ?? '';
+$coupon_name = $_GET['coupon_name'] ?? '';
 $use_date = $_GET['use-date'] ?? '';
 $start_date = $_GET['datepicker-01'] ?? '';
 $end_date = $_GET['datepicker-02'] ?? '';
@@ -229,7 +229,15 @@ while ($rs = $result->fetch_object()) {
                   ?>
                 </p>
                 <p class="money">최소사용금액 :  <?= $item->use_min_price; ?>원</p>
-                <p class="discount"><?= $item->coupon_price; ?>원 할인</p>
+                <p class="discount">
+                <?php
+                if ($item->coupon_type == '1') {
+                    echo $item->coupon_price . '원 할인';
+                } elseif ($item->coupon_type == '2') {
+                    echo $item->coupon_ratio . '% 할인';
+                }
+                ?>
+                </p>
               </div>
             </div>
           </li>
@@ -237,153 +245,6 @@ while ($rs = $result->fetch_object()) {
             }
           }
           ?>
-          <!--
-          <li class="list-group-item">
-            <a href="#" class="img-wrap">
-              <img src="image/img_coupon_02.jpg" alt="이미지">
-            </a>
-            <div class="info-area">
-              <div class="edit-btn-group">
-                <button type="button" class="btn correc">
-                  <span class="visually-hidden">수정</span>
-                  <i class="fa-solid fa-pen-to-square fa-small"></i>
-                </button>
-                <button type="button" class="btn del">
-                  <span class="visually-hidden">삭제</span>
-                  <i class="fa-solid fa-trash-can fa-small"></i>
-                </button>
-              </div>
-              <div class="tit-group">
-                <strong class="tit-h3">쿠폰제목</strong>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="toggle1">
-                  <label class="form-check-label visually-hidden" for="toggle1">활성화</label>
-                </div>
-              </div>
-              <div class="txt-group">
-                <p class="date">사용기한 YYYY-MM-DD</p>
-                <p class="money">최소사용금액 :  25,000원</p>
-                <p class="discount">2,000원 할인</p>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <a href="#" class="img-wrap">
-              <img src="image/img_coupon_03.jpg" alt="이미지">
-            </a>
-            <div class="info-area">
-              <div class="edit-btn-group">
-                <button type="button" class="btn correc">
-                  <span class="visually-hidden">수정</span>
-                  <i class="fa-solid fa-pen-to-square fa-small"></i>
-                </button>
-                <button type="button" class="btn del">
-                  <span class="visually-hidden">삭제</span>
-                  <i class="fa-solid fa-trash-can fa-small"></i>
-                </button>
-              </div>
-              <div class="tit-group">
-                <strong class="tit-h3">쿠폰제목</strong>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="toggle1">
-                  <label class="form-check-label visually-hidden" for="toggle1">활성화</label>
-                </div>
-              </div>
-              <div class="txt-group">
-                <p class="date">사용기한 YYYY-MM-DD</p>
-                <p class="money">최소사용금액 :  25,000원</p>
-                <p class="discount">2,000원 할인</p>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <a href="#" class="img-wrap">
-              <img src="image/img_coupon_04.jpg" alt="이미지">
-            </a>
-            <div class="info-area">
-              <div class="edit-btn-group">
-                <button type="button" class="btn correc">
-                  <span class="visually-hidden">수정</span>
-                  <i class="fa-solid fa-pen-to-square fa-small"></i>
-                </button>
-                <button type="button" class="btn del">
-                  <span class="visually-hidden">삭제</span>
-                  <i class="fa-solid fa-trash-can fa-small"></i>
-                </button>
-              </div>
-              <div class="tit-group">
-                <strong class="tit-h3">쿠폰제목</strong>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="toggle1">
-                  <label class="form-check-label visually-hidden" for="toggle1">활성화</label>
-                </div>
-              </div>
-              <div class="txt-group">
-                <p class="date">사용기한 YYYY-MM-DD</p>
-                <p class="money">최소사용금액 :  25,000원</p>
-                <p class="discount">2,000원 할인</p>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <a href="#" class="img-wrap">
-              <img src="image/img_coupon_05.jpg" alt="이미지">
-            </a>
-            <div class="info-area">
-              <div class="edit-btn-group">
-                <button type="button" class="btn correc">
-                  <span class="visually-hidden">수정</span>
-                  <i class="fa-solid fa-pen-to-square fa-small"></i>
-                </button>
-                <button type="button" class="btn del">
-                  <span class="visually-hidden">삭제</span>
-                  <i class="fa-solid fa-trash-can fa-small"></i>
-                </button>
-              </div>
-              <div class="tit-group">
-                <strong class="tit-h3">쿠폰제목</strong>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="toggle1">
-                  <label class="form-check-label visually-hidden" for="toggle1">활성화</label>
-                </div>
-              </div>
-              <div class="txt-group">
-                <p class="date">사용기한 YYYY-MM-DD</p>
-                <p class="money">최소사용금액 :  25,000원</p>
-                <p class="discount">2,000원 할인</p>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <a href="#" class="img-wrap">
-              <img src="image/img_coupon_06.jpg" alt="이미지">
-            </a>
-            <div class="info-area">
-              <div class="edit-btn-group">
-                <button type="button" class="btn correc">
-                  <span class="visually-hidden">수정</span>
-                  <i class="fa-solid fa-pen-to-square fa-small"></i>
-                </button>
-                <button type="button" class="btn del">
-                  <span class="visually-hidden">삭제</span>
-                  <i class="fa-solid fa-trash-can fa-small"></i>
-                </button>
-              </div>
-              <div class="tit-group">
-                <strong class="tit-h3">쿠폰제목</strong>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="toggle1">
-                  <label class="form-check-label visually-hidden" for="toggle1">활성화</label>
-                </div>
-              </div>
-              <div class="txt-group">
-                <p class="date">사용기한 YYYY-MM-DD</p>
-                <p class="money">최소사용금액 :  25,000원</p>
-                <p class="discount">2,000원 할인</p>
-              </div>
-            </div>
-          </li>
--->
         </ul>
 
         <!-- pagination(s) -->
