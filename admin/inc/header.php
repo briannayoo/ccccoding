@@ -4,7 +4,8 @@
 // include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
 //include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
-$sql = "SELECT * FROM qna WHERE 1=1";
+
+$sql = "SELECT * FROM qna WHERE 1=1 ORDER BY qid DESC LIMIT 0, 10";
 $result = $mysqli -> query($sql);
 while($row = $result ->fetch_object()){
     $qnaArr[] = $row;
