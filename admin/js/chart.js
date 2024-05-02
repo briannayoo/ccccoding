@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const sales2022 = {
     label: '2022년',
     data: [90, 86, 89, 93, 95,95,95,95,95,95,95,95,],
-    borderWidth: 2
+    borderWidth: 2,
+
   }
   const sales2023 = {
     label: '2023년',
@@ -22,17 +23,20 @@ document.addEventListener("DOMContentLoaded", function() {
   const sales2024 = {
     label: '2024년',
     data: [60, 66, 69, 63, 65,],
-    borderWidth: 2
+    borderWidth: 2,
+    
   }
   new Chart(barChart, {
     type: 'line',
     data: {
       labels: ['1월', '2월', '3월', '4월', '5월','6월','7월','8월','9월','10월','11월','12월'],
       datasets: [
-        sales2022,sales2023,sales2024
+        {sales2022,sales2023,sales2024,
+        backgroundColor: 'rgba(255,0,0,0.5)'}
       ]
     },
     options: {
+      
       cutout:'90%',
       maintainAspectRatio:false,
       plugins: {
@@ -40,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
             Position: 'bottom',
             display: true,
             labels: {
+              
                 color: '#222',
                 font: {
                   size: 16
