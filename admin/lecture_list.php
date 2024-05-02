@@ -175,7 +175,7 @@
         </form>
         <hr>  
           <div>
-            검색결과: <?= $count;  ?>
+            검색결과: <?= $count;?>
           </div>
         <hr>
         <!-- 강의리스트 -->
@@ -204,7 +204,7 @@
                       <span class="visually-hidden">수정</span>
                       <i class="fa-solid fa-pen-to-square fa-small"></i>
                     </a>
-                    <a href="lecture_del.php?pid=<?= $item->pid; ?>" type="button" class="btn lec-del">
+                    <a href="lecture_del.php?pid=<?= $item->pid; ?>" type="button" class="btn lec-del del_check">
                       <span class="visually-hidden">삭제</span>
                       <i class="fa-solid fa-trash-can fa-small"></i>
                     </a>
@@ -257,32 +257,8 @@
     </div>
   </div>
   <script src="/pinkping/admin/js/makeoption.js"></script>
-  <!-- <script>
-    $('.lec-del').click(function(){
+  <script>
 
-      $(this).closest('li').remove();
-      //let pid =  $(this).closest('tr').find('.qty-text').attr('data-id');
-      let data = {
-        pid :pid
-      }
-      $.ajax({
-        url:'lecture_del.php',
-        async:false,
-        type: 'POST',
-        data:data,
-        dataType:'json',
-        error:function(){},
-        success:function(data){
-        console.log(data);
-        if(data.result=='ok'){
-          alert('정말 삭제하시겠습니까?');  
-          location.reload();                      
-        }else{
-          alert('오류, 다시 시도하세요');                        
-          }
-        }
-      });
-  });
-  </script> -->
+  </script>
 </body>
 </html>

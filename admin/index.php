@@ -107,7 +107,7 @@
   </div>
   <!-- chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
-  <script src="/ccccoding/admin/js/chart.js"></script>
   <script src="/ccccoding/admin/js/dashboard.js"></script>
+  <script src="/ccccoding/admin/js/chart.js"></script>
 </body>
 </html>
