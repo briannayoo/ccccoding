@@ -38,7 +38,7 @@ $title = '공지사항';
         </form>
 
           <!-- table(s) -->
-          <table class="table table-bordered text-center notice-table">
+          <table class="table table-bordered text-center notice-table notice_table">
             <!-- 각자 크기에 맞게 위드값 조정 합쳐서 100% -->
             <colgroup>
               <col style="width:10%">

@@ -41,7 +41,8 @@
             ?>
               <tr>
                 <td>
-                  <button type="button" class="btn btn-primary btn-sm">답변완료</button>
+                  <button type="button" class="btn btn-<?php if ($qa->status == 1) {echo 'primary';} else { echo 'secondary';};  ?> btn-sm"><?php if ($qa->status == 1) { echo '답변완료';} else { echo '답변미답';}; ?></button>
+                  
                 </td>
                 <td><a href="qna_up.php?qid=<?=$qa -> qid; ?>"><?=$qa -> title; ?></a></td>
                 <td><?= $qa -> name;?></td>

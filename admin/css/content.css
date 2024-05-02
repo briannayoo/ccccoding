@@ -173,12 +173,14 @@
 .pro-img {width: 100%; height: 100%; object-fit:cover;}
 .question{margin-top:26px; width:1300px;}
 .q-box{padding:26px;}
-.a-box{margin-top:26px; width:1300px;}
+.a-box{margin-top:26px; width:1300px; height: 114px;}
 .pro-box{margin-top:26px;}
 .a-boxform{border:none;}
-.answer{gap:10px;}
+.answer{ gap:10px;}
 .pro-box{width:100px; text-align:center; display:grid; place-items:center;}
 .pro-box2{width:100px; height:100px; display:grid; place-items: center; text-align: center;}
 .pro-box3{margin-top:26px; width:700px; text-align:center; place-items:center; gap:5px;}
-.qna-table a
-{color:inherit; text-decoration:none;}
+.qna-table a, .notice_table a{color:inherit; text-decoration:none;}
+.reply-del {color:inherit; text-decoration:none;}
+.reply-edit{background: none; border: none;}
+.reply-btn{float: right; margin-right: 200px;}
