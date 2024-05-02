@@ -1,7 +1,7 @@
 
 <?php
   session_start();
-
+  $title = '공지사항';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 
