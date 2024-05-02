@@ -113,6 +113,7 @@ $rs = $result->fetch_object();
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
+                  <!--240501 product_list 참고 -->
                   <select class="form-select form-select-sm" id="use_date_type" aria-label="사용기한 선택" required>
                     <option value="<?php if($rs->use_date_type == 0){ echo "selected";}?>">선택해주세요</option>
                     <option value="<?php if($rs->use_date_type == 1){ echo "selected";}?>">무제한</option>
@@ -153,9 +154,10 @@ $rs = $result->fetch_object();
 
           <!-- thumbnail image (s) -->
           <div class="row tumbnail_wrap">
-            <label for="thumbnail" class="col-md-1 col-form-label tit-h4">썸네일</label>
+            <label for="form01" class="col-md-1 col-form-label tit-h4">썸네일</label>
             <div class="col-md-11">
-              <input type="file" multiple name="coupon_image" id="thumbnail" class="d-none" accept="image/*">
+              <img src="<?= $rs->thumbnail; ?>" alt="" class="thumbnail"><!-- 대표이미지 -->            
+              <input type="file" multiple name="thumbnail" id="thumbnail"  class="d-none" accept="image/*" value="<?= $rs->thumbnail; ?>" required>
               <div>
                 <button type="button" class="btn btn-primary btn-sm thumb-text" id="addImage">파일 선택</button>
                 <p class="remove">*5M이하 / gif,png,jpg만 등록가능합니다.</p>
@@ -178,4 +180,5 @@ $rs = $result->fetch_object();
   </div>
   <!-- wwilsman 데이트픽커 js -->
   
+  <script src="/ccccoding/admin/js/datepicker.js"></script>
   <script src="/ccccoding/admin/js/coupon.js"></script>

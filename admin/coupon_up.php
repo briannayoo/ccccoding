@@ -81,8 +81,8 @@
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="coupon_type" name="coupon_type" aria-label="할인 종류 선택" required>
                     <option selected>선택해주세요</option>
-                    <option value="1" >할인금액</option>
-                    <option value="2">할인율</option>
+                    <option value="amount" >할인금액</option>
+                    <option value="rate">할인율</option>
                   </select>
                 </div>
                 <div class="col-md-4 ipt-wrap dc-wrap amount">
@@ -107,8 +107,8 @@
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="use_date_type" aria-label="사용기한 선택" required>
                     <option selected>선택해주세요</option>
-                    <option value="1">무제한</option>
-                    <option value="2">기간설정</option>
+                    <option value="unlimited">무제한</option>
+                    <option value="limited">기간설정</option>
                   </select>
                 </div>
                 <div class="date-wrap col-md-8">
@@ -134,7 +134,7 @@
                   <select class="form-select form-select-sm" id="status" name="status" aria-label="상태 선택"  required>
                     <option selected>선택해주세요</option>
                     <option value="1">활성화</option>
-                    <option value="2">비활성화</option>
+                    <option value="0">비활성화</option>
                   </select>
                 </div>
               </div>
