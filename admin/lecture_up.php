@@ -133,36 +133,36 @@
                       <input type="text" name="sale_end_date"  id="sale_end_date" class="ipt-datepicker" placeholder="YYYY-MM-DD">
                       <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                     </div>
-                    <div class="ipt-wrap row">
-                      <div class="list-group list-group-horizontal">
-                        <h4 class="tit-h4">난이도</h4>
-                        <div class="list-group-item">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="1" name="isgold" id="isgold">
-                            <label class="form-check-label" for="isgold">
-                              상
-                            </label>
+                  </div>
+                  <div class="ipt-wrap row">
+                    <div class="list-group list-group-horizontal">
+                      <h4 class="tit-h4">난이도</h4>
+                      <div class="list-group-item">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="1" name="isgold" id="isgold">
+                          <label class="form-check-label" for="isgold">
+                            상
+                          </label>
+                        </div>
+                      </div>
+                      <div class="list-group-item">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="1" name="issilver" id="issilver" checked>
+                          <label class="form-check-label" for="issilver">
+                            중
+                          </label>
+                        </div>
+                      </div>
+                      <div class="list-group-item">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="1" name="iscopper" id="iscopper">
+                          <label class="form-check-label" for="iscopper">
+                            하
+                          </label>
                           </div>
                         </div>
-                        <div class="list-group-item">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="1" name="issilver" id="issilver" checked>
-                            <label class="form-check-label" for="issilver">
-                              중
-                            </label>
-                          </div>
-                        </div>
-                        <div class="list-group-item">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="1" name="iscopper" id="iscopper">
-                            <label class="form-check-label" for="iscopper">
-                              하
-                            </label>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    </div>
+                      </div>
+                  </div>
                 </div>
               </div>
           </div>
