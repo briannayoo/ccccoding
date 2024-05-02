@@ -34,7 +34,14 @@
     $search_where .= " and (name LIKE '%{$search_keyword}%' or content LIKE '%{$search_keyword}%')";
   }
 
-  // $paginationTarget = 'products';
+//총개수 조회
+  $sql = "SELECT COUNT(*) AS cnt FROM products WHERE 1=1";
+  $sql .= $search_where;
+  $result = $mysqli->query($sql);
+  $count = $result->fetch_object();
+
+  $totalcount = $count->cnt; //총검색건수
+  $targetTable = 'coupons';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
 
   $sql = "SELECT * FROM products where 1=1";
@@ -50,29 +57,13 @@
     $rsArr[] = $rs;
   }
   
-  $count = count($rsArr);
-
+  //$count = count($rsArr);
+  
   $sql = "SELECT * FROM category where step = 1";
   $result = $mysqli->query($sql);
   while ($row = $result->fetch_object()) {
     $cate1[] = $row;
   };
-  $sql = "SELECT * FROM category where step = 2";
-  $result = $mysqli->query($sql);
-  $cate2 = [];  // 배열로 초기화
-  while ($row = $result->fetch_object()) {
-      $cate2[] = $row;
-  };
-  // $sql = "SELECT * FROM category where step = 2";
-  // $result = $mysqli->query($sql);
-  // while ($row = $result->fetch_object()) {
-  //   $cate2[] = $row;
-  // };
-  // $sql = "SELECT * FROM category where step = 3";
-  // $result = $mysqli->query($sql);
-  // while ($row = $result->fetch_object()) {
-  //   $cate3[] = $row;
-  // };
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
@@ -105,25 +96,11 @@
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="cate2" name="cate2" aria-label="중분류">
                   <option selected disabled>중분류</option>
-                  <?php
-                      foreach ($cate2 as $c2) {
-                    ?>
-                      <option value="<?= $c2->code; ?>"><?= $c2->name; ?></option>
-                    <?php
-                      }
-                    ?>
                   </select>
                 </div>
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="cate3" name="cate3" aria-label="소분류">
                   <option selected disabled>소분류</option>
-                  <?php
-                      foreach ($cate3 as $c3) {
-                    ?>
-                      <option value="<?= $c3->code; ?>"><?= $c3->name; ?></option>
-                    <?php
-                      }
-                    ?>
                   </select>
                 </div>
               </div>
@@ -178,7 +155,7 @@
         </form>
         <hr>  
           <div>
-            검색결과: <?= $count;?>
+            검색결과: <?= count($rsArr);?>
           </div>
         <hr>
         <!-- 강의리스트 -->
@@ -189,14 +166,14 @@
                 foreach ($rsArr as $item) {
             ?>
               <li class="lecture_list_item box-shadow">
-                <img src="<?=$item->thumbnail;?>" alt="이미지">
+                <a href="lecture_detail.php?pid=<?= $item->pid; ?>"><img src="<?=$item->thumbnail;?>" alt="이미지"></a>
                 <div class="info-area">
                   <P class="lecture_chaption"><strong class="tit-h5"><?=$item->name;?></strong><i class="fa-solid fa-circle-user fa-xsmall txt-m tender-color">3.5만</i><i class="fa-solid fa-heart fa-xsmall txt-m tender-color">4.35</i></P>
                   <P class="lecture_text"><?=$item->content;?></P>
                   <P class="tender-color">수강기간 <?=$item->sale_start_date;?> ~ <?=$item->sale_end_date;?></P>
                 </div>
                 <div class="etc-group">
-                  <p class="search-result txt-s"><span><?= $c1->name; ?></span><i class="fa-solid fa-angle-right fa-xsmall"></i><span><?= $c2->name; ?></span></p>
+                  <p class="search-result txt-s"><span><?= $c1->name; ?></span><i class="fa-solid fa-angle-right fa-xsmall"></i><span>디자인</span></p>
                   <select class="form-select form-select-sm" id="select-01" aria-label="select">
                     <option selected value="1">판매중</option>
                     <option value="2">판매 예정</option>
@@ -226,7 +203,7 @@
           </form>
       </div>
 
-        <!-- 페이지 네이션 -->
+        <!-- pagination(s) -->
         <nav aria-label="페이지네이션">
           <ul class="pagination">
             <li class="page-item <?php echo $pageNumber == 1 ? 'disabled' : ''; ?>">
@@ -264,7 +241,7 @@
               </a>
             </li>
             <li class="page-item <?php echo $pageNumber == $total_page ? 'disabled' : ''; ?>">
-              <a class="page-link" href="<?php echo $pageNumber == $total_page ? '#' : 'lecturen_list.php?pageNumber=' . $total_page; ?>">
+              <a class="page-link" href="<?php echo $pageNumber == $total_page ? '#' : 'lecture_list.php?pageNumber=' . $total_page; ?>">
                 <span class="visually-hidden">마지막</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"/>
@@ -274,12 +251,10 @@
             </li>
           </ul>
         </nav>
+        <!-- pagination(e) -->
       </div>
     </div>
   </div>
-  <script src="/pinkping/admin/js/makeoption.js"></script>
-  <script>
-
-  </script>
+  <script src="/ccccoding/admin/js/makeoption.js"></script>
 </body>
 </html>
