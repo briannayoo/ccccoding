@@ -46,7 +46,7 @@ session_start();
           </div>
         </div>
         <!-- 답변등록 -->
-        </div>
+      </div>
       <?php
         $qid = $_GET['qid'];
         $reply_sql = "SELECT * FROM qna_reply WHERE r_idx = {$qid} order by idx desc";
@@ -59,76 +59,87 @@ session_start();
           foreach($replyArr as $ra){
       ?>
       <!-- 댓글 출력 -->
-        <div class="answer d-flex">
-            <div class="question box-shadow box">
-              <div class="q-box"> 
-                <p><?=$ra -> r_content; ?></p>
-              </div>
-              <div class="pro-box2">
-                <div class="profile-box">
-                  <img class="pro-img" src="image/profilimg_2.png" alt="profilimg_2">
+      <div class="reply-wrapper">
+          <div class="answer d-flex">
+              <div class="question box-shadow box">
+                <div class="q-box"> 
+                  <p><?=$ra -> r_content; ?></p>
                 </div>
+                <div class="pro-box2">
+                  <div class="profile-box">
+                    <img class="pro-img" src="image/profilimg_2.png" alt="profilimg_2">
+                  </div>
+                </div>
+                <h3 class="tit-h5">관리자</h3>
               </div>
-              <h3 class="tit-h5">관리자</h3>
-            </div>
-        </div>
-
-
-
-
-
-
-
-<dialog class="edit_dialog">
-  <!-- 댓글 수정 폼 -->
-  <form action="qna_replymod_ok.php" method="POST">
-    <input type="hidden" name="board_no" value="<?= $bno; ?>">
-    <input type="hidden" name="reply_no" value="<?= $reply_row['idx']; ?>">
-    <textarea name="content" cols="20" rows="5"><?= $reply_row['r_content'];?></textarea>
-    <button>수정</button>
-    <button type="button">취소</button>
-  </form>
-</dialog>
-<dialog class="del_dialog">
-  <!-- 댓글 삭제 폼 -->
-  <form action="qna_replydel_ok.php" method="POST">
-    <input type="hidden" name="board_no" value="<?= $bno; ?>">
-    <input type="hidden" name="reply_no" value="<?= $reply_row['idx']; ?>">
-    <button>삭제</button>
-    <button type="button">취소</button>
-  </form>        
-</dialog>
-</div><!--// reply -->
-        <?php
+          </div>
+          <button class="reply-edit"><i class="fa-solid fa-pen-to-square fa-small">수정</i></button>
+          <button class="reply-del"><i class="fa-solid fa-trash-can fa-small">삭제</i></button>
+      </div>
+      <!-- 댓글 수정 폼 -->
+      <dialog class="edit_dialog">
+        <form action="qna_replymod_ok.php" method="POST">
+          <input type="hidden" name="reply_no" value="<?=$ra -> idx;?>">
+          <div class="answer d-flex">
+                <div class="question box-shadow box">
+                  <div class="q-box"> 
+                    <p><?=$ra -> r_content;?></p>
+                  </div>
+                  <div class="pro-box2">
+                    <div class="profile-box">
+                      <img class="pro-img" src="image/profilimg_2.png" alt="profilimg_2">
+                    </div>
+                  </div>
+                  <h3 class="tit-h5">관리자</h3>
+                </div>
+          </div>
+          <button class="btn btn-primary btn-sm" disabled>수정</button>
+          <button type="button" class="btn btn-primary btn-sm" disabled>취소</button>
+        </form>
+      </dialog>
+      <!-- 댓글 삭제 폼 -->
+      <dialog class="del_dialog">
+        <form action="qna_replydel_ok.php" method="POST">
+          <input type="hidden" name="reply_no" value="<?=$ra -> idx;?>">
+          <button class="btn btn-primary btn-sm" disabled>삭제</button>
+          <button type="button" class="btn btn-primary btn-sm" disabled>취소</button>
+        </form>    
+      </dialog>
+      </div><!--// reply -->
+      <?php
         }
-        ?>
-
-<form action="qna_reply_ok.php" method="POST">
-  <div class="answer d-flex">
-    <div class="a-box box-shadow box">
-      <textarea class="a-boxform form-control" id="txtarea" placeholder="내용을 입력하세요.">
-      </textarea>
-    </div>
-    <div class="pro-box2">
-      <div class="profile-box">
-        <img class="pro-img" src="image/profilimg_2.png" alt="profilimg_2">
+      }
+      ?>
+      <!-- 댓글 입력창 -->
+    <form action="qna_reply_ok.php" method="POST">
+      <input type="hidden" name="idx" value="<?=$qid;?>">
+      <input type="hidden" name="r_name" value="관리자">
+      <div class="answer d-flex">
+        <div class="a-box box-shadow box">
+          <textarea class="a-boxform form-control" id="txtarea" name="r_content" placeholder="내용을 입력하세요.">
+          </textarea>
+        </div>
+        <div class="pro-box2">
+          <div class="profile-box">
+            <img class="pro-img" src="image/profilimg_2.png" alt="profilimg_2">
+          </div>
+          <div>
+            <h3 class="tit-h5">관리자</h3>
+          </div>
+        </div>
       </div>
-      <div>
-        <h3 class="tit-h5">관리자 :</h3>
+      <!-- 버튼 -->
+      <div class="btn-area">
+        <button type="submit" class="btn btn-primary btn-lg">등록</button>
+        <button type="reset" class="btn btn-secondary btn-lg q-cencel">취소</button>
+      </div>
+    </form>
+
+
       </div>
     </div>
   </div>
-  <!-- 버튼 -->
-  <div class="btn-area">
-    <button type="button" class="btn btn-primary btn-lg">등록</button>
-    <button type="button" class="btn btn-secondary btn-lg q-cencel">취소</button>
-  </div>
-</form>
-
-
-      </div>
-    </div>
-  </div>
+  <script src="/ccccoding/admin/js/common.js"></script>
   <script src="/ccccoding/admin/js/qna.js"></script>
 </body>
-</html>
+</html>s

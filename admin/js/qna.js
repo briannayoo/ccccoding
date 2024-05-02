@@ -1,6 +1,6 @@
-    // 쿠폰 취소버튼 클릭
-    $('.q-cencel').click(function(){
-      if(confirm('취소하시겠습니까?')){
-          location.href='qna.php';
-      }
-  })
+//댓글 수정버튼 클릭시
+$('.reply-wrapper .reply-edit').click(function(){
+
+    let target = $(this).closest('.reply-wrapper').find('.edit_dialog');
+    target.attr('open','open');
+  });
