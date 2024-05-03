@@ -35,9 +35,9 @@
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade d-flex justify-content-between align-items-center" id="rules-tab-pane" role="tabpanel" aria-labelledby="rules-tab" tabindex="0">
               <div class="lecture-condition">
-                <p><em>총 강의</em><span>N건</span></p>
-                <p><em>활성화 강의</em><span>N건</span></p>
-                <p><em>비활성화 강의</em><span>N건</span></p>
+                <p><em>총 강의</em><span>83건</span></p>
+                <p><em>활성화 강의</em><span>60건</span></p>
+                <p><em>비활성화 강의</em><span>23건</span></p>
               </div>
               <div class="chart-2 lecture-box d-flex justify-content-between">
                 <canvas id="bar-chart2"></canvas>
@@ -67,11 +67,11 @@
             <a href="#" class="fa-solid fa-circle-plus fa-small"></a>
           </div>
           <ul>
-            <li class="list-stlye"><a href="#"><span>질문입니다.</span><span>2024.04.26</span></a></li>
-            <li class="list-stlye"><a href="#"><span>질문입니다.</span><span>2024.04.26</span></a></li>
-            <li class="list-stlye"><a href="#"><span>질문입니다.</span><span>2024.04.26</span></a></li>
-            <li class="list-stlye"><a href="#"><span>질문입니다.</span><span>2024.04.26</span></a></li>
-            <li class="list-stlye"><a href="#"><span>질문입니다.</span><span>2024.04.26</span></a></li>
+            <li class="list-stlye"><a href="#"><span>안돼서 짜증나요</span><span>2024.05.03</span></a></li>
+            <li class="list-stlye"><a href="#"><span>공부는 어떻게 하나요</span><span>2024.04.26</span></a></li>
+            <li class="list-stlye"><a href="#"><span>리엑트 강의 있나요</span><span>2024.04.05</span></a></li>
+            <li class="list-stlye"><a href="#"><span>고객센터가 전화 안받아요</span><span>2024.03.11</span></a></li>
+            <li class="list-stlye"><a href="#"><span>알려주세요 제발!</span><span>2024.02.10</span></a></li>
           </ul>
         </div>
         <!-- 공지사항 -->
@@ -81,11 +81,11 @@
             <a href="#" class="fa-solid fa-circle-plus fa-small"></a>
           </div>
           <ul>
-            <li class="list-stlye"><a href="#"><span>공지사항 입니다.</span><span>2024.04.26</span></a></li>
-            <li class="list-stlye"><a href="#"><span>공지사항 입니다.</span><span>2024.04.26</span></a></li>
-            <li class="list-stlye"><a href="#"><span>공지사항 입니다.</span><span>2024.04.26</span></a></li>
-            <li class="list-stlye"><a href="#"><span>공지사항 입니다.</span><span>2024.04.26</span></a></li>
-            <li class="list-stlye"><a href="#"><span>공지사항 입니다.</span><span>2024.04.26</span></a></li>
+            <li class="list-stlye"><a href="#"><span>ㅋㅋㅋ코딩 여름휴가</span><span>2024.07.06</span></a></li>
+            <li class="list-stlye"><a href="#"><span>고객센터 공지</span><span>2024.05.30</span></a></li>
+            <li class="list-stlye"><a href="#"><span>취업 연계 공지</span><span>2024.05.30</span></a></li>
+            <li class="list-stlye"><a href="#"><span>면접비 지원 안내</span><span>2024.05.30</span></a></li>
+            <li class="list-stlye"><a href="#"><span>환불,최소 안내</span><span>2024.05.30</span></a></li>
           </ul>
         </div>
         <!-- 이벤트 -->
@@ -95,11 +95,11 @@
             <a href="#" class="fa-solid fa-circle-plus fa-small"></a>
           </div>
           <ul>
-            <li class="list-stlye"><a href="#"><span>이벤트 입니다.</span><span>2024.04.26</span></a></li>
-            <li class="list-stlye"><a href="#"><span>이벤트 입니다.</span><span>2024.04.26</span></a></li>
-            <li class="list-stlye"><a href="#"><span>이벤트 입니다.</span><span>2024.04.26</span></a></li>
-            <li class="list-stlye"><a href="#"><span>이벤트 입니다.</span><span>2024.04.26</span></a></li>
-            <li class="list-stlye"><a href="#"><span>이벤트 입니다.</span><span>2024.04.26</span></a></li>
+            <li class="list-stlye"><a href="#"><span>첫 만남 축하 이벤트</span><span>2024.10.26</span></a></li>
+            <li class="list-stlye"><a href="#"><span>이달의 룰렛!</span><span>2024.09.09</span></a></li>
+            <li class="list-stlye"><a href="#"><span>매일 출석체크 이벤트</span><span>2024.08.25</span></a></li>
+            <li class="list-stlye"><a href="#"><span>썸머 이벤트</span><span>2024.07.26</span></a></li>
+            <li class="list-stlye"><a href="#"><span>수강률 TOP을 뽑아라</span><span>2024.05.29</span></a></li>
           </ul>
         </div>
       </div>
