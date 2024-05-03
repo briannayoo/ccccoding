@@ -16,7 +16,6 @@ $title = '공지사항';
   // 각자 테이블 컬럼
 $idx = $_GET['idx '] ?? '';
 $name = $_GET['name'] ?? '';
-$pw = $_GET['pw'] ?? '';
 $title = $_GET['title'] ?? '';
 $content = $_GET['content'] ?? '';
 $date = $_GET['date'] ?? '';
