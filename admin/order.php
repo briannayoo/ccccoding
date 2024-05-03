@@ -155,7 +155,7 @@
               <td><?= $item->username ?></td>
               <td><?= $item->userid ?></td>
               <td><?= $item->lecture_name ?></td>
-              <td><?= $item->price ?></td>
+              <td><?= $item->price ?>원</td>
               <td><?= $item->coupon_used ?></td>
               <td><?= $item->start_date ?> ~ <?= $item->end_date ?></td>
               <td class="request"><?= $item->cancel_request ?></td>

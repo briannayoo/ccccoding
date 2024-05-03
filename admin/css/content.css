@@ -150,3 +150,7 @@
 .reply-edit{background: none; border: none;}
 .reply-btn{float: right; margin-right: 200px;}
 
+/* 쿠폰 */
+.dc-wrap {display:none;}
+.edit .dc-wrap {display:block;}
+

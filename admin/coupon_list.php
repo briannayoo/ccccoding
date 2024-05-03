@@ -206,10 +206,10 @@ while ($rs = $result->fetch_object()) {
                   <span class="visually-hidden">수정</span>
                   <i class="fa-solid fa-pen-to-square fa-small"></i>
                 </a>
-                <a href="coupon_del.php?cid=<?= $item->cid;?>" class="btn del">
+                <button type="button" class="btn del">
                   <span class="visually-hidden">삭제</span>
                   <i class="fa-solid fa-trash-can fa-small"></i>
-                </a>
+                </button>
               </div>
               <div class="tit-group">
                 <strong class="tit-h3"><?= $item->coupon_name; ?></strong>

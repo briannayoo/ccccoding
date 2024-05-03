@@ -9,17 +9,16 @@ $cid = $_GET['cid'];
 $sql = "SELECT * FROM coupons WHERE cid = {$cid}";
 $result = $mysqli -> query($sql);
 $rs = $result->fetch_object();
-
 ?>
 
 
 <!-- sub-page-tit-area (s) -->
-<div class="page-tit-area">
+      <div class="page-tit-area">
         <h2 class="tit-h2">쿠폰수정</h2>
       </div>
       <!-- sub-page-tit-area (e) -->
 
-      <div class="content"> 
+      <div class="content edit"> 
         <!-- form-list (s) -->
         <form action="coupon_edit_ok.php?cid=<?= $cid;?>" enctype="multipart/form-data" method="POST" class="form-list">
           <input type="hidden" name="cid" value="<?= $cid; ?>">
@@ -83,11 +82,14 @@ $rs = $result->fetch_object();
           <div class="row">
             <label for="coupon_type" class="col-md-1 col-form-label tit-h4">할인종류</label>
             <div class="col-md-11">
-                <div class="input-group">
+                <?php
+                if($rs->coupon_type == 1){
+                ?>
+                  <div class="input-group">
                     <div class="col-md-4 ipt-wrap">
                         <select class="form-select form-select-sm" id="coupon_type" name="coupon_type" aria-label="할인 종류 선택" required>
                             <option selected disabled>선택해주세요</option>
-                            <option value="1">할인금액</option>
+                            <option value="1" selected>할인금액</option>
                             <option value="2">할인율</option>
                         </select>
                     </div>
@@ -95,11 +97,36 @@ $rs = $result->fetch_object();
                         <input type="text" class="form-control text-end" id="coupon_price" name="coupon_price" value="<?=$rs->coupon_price ?? '';?>">
                         <span class="unit">원</span>
                     </div>
-                    <div class="col-md-4 ipt-wrap dc-wrap rate">
-                        <input type="text" class="form-control text-end" id="coupon_rate" name="coupon_rate" value="<?=$rs->coupon_rate ?? '';?>">
+                    <div class="col-md-4 ipt-wrap dc-wrap percent d-none">
+                        <input type="text" class="form-control text-end" id="coupon_ratio" name="coupon_ratio" value="<?=$rs->coupon_ratio ?? '';?>">
                         <span class="unit">%</span>
                     </div>
                 </div>
+
+                <?php
+                }elseif($rs->coupon_type == 2){
+                ?>
+                  <div class="input-group">
+                    <div class="col-md-4 ipt-wrap">
+                        <select class="form-select form-select-sm" id="coupon_type" name="coupon_type" aria-label="할인 종류 선택" required>
+                            <option selected disabled>선택해주세요</option>
+                            <option value="1">할인금액</option>
+                            <option value="2" selected>할인율</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 ipt-wrap dc-wrap amount d-none">
+                        <input type="text" class="form-control text-end" id="coupon_price" name="coupon_price" value="<?=$rs->coupon_price ?? '';?>">
+                        <span class="unit">원</span>
+                    </div>
+                    <div class="col-md-4 ipt-wrap dc-wrap percent">
+                        <input type="text" class="form-control text-end" id="coupon_ratio" name="coupon_ratio" value="<?=$rs->coupon_ratio ?? '';?>">
+                        <span class="unit">%</span>
+                    </div>
+                </div>
+                <?php
+                }
+                ?>
+                
             </div>
         </div>
           <!-- select + input text 혼합(e) -->
@@ -111,10 +138,10 @@ $rs = $result->fetch_object();
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
                   <!--240501 product_list 참고 -->
-                  <select class="form-select form-select-sm" id="use_date_type" aria-label="사용기한 선택" required>
-                    <option value="<?php if($rs->use_date_type == 0){ echo "selected";}?>">선택해주세요</option>
-                    <option value="<?php if($rs->use_date_type == 1){ echo "selected";}?>">무제한</option>
-                    <option value=""<?php if($rs->use_date_type == 2){ echo "selected";}?>">기간설정</option>
+                  <select class="form-select form-select-sm" id="use_date_type" name="use_date_type" aria-label="사용기한 선택" required>
+                    <option value="0">선택해주세요</option>
+                    <option value="1" <?php if($rs->use_date_type == 1){ echo "selected";}?>>무제한</option>
+                    <option value="2" <?php if($rs->use_date_type == 2){ echo "selected";}?>>기간설정</option>
                   </select>
                 </div>
                 <div class="date-wrap col-md-8">
@@ -153,14 +180,15 @@ $rs = $result->fetch_object();
           <div class="row tumbnail_wrap">
             <label for="thumbnail" class="col-md-1 col-form-label tit-h4">썸네일</label>
             <div class="col-md-11">
-              <input type="file" multiple name="thumbnail" id="thumbnail" class="d-none" accept="image/*">
+              <input type="file" multiple name="coupon_image" id="thumbnail" class="d-none" accept="image/*">
               <div>
                 <button type="button" class="btn btn-primary btn-sm thumb-text" id="addImage">파일 선택</button>
+                <!-- <p class="remove">*5M이하 / gif,png,jpg만 등록가능합니다.</p> -->
               </div>
               <div id="addedImages">
                 <img src="<?=$rs-> coupon_image; ?>" alt="">
               </div>
-              <p class="remove">*5M이하 / gif,png,jpg만 등록가능합니다.</p>
+              
             </div>
           </div>
           <!-- thumbnail image (e) -->
@@ -177,5 +205,34 @@ $rs = $result->fetch_object();
   </div>
   <!-- wwilsman 데이트픽커 js -->
   
+ 
+  <script>
+    console.log($('#use_date_type').find('option:selected').val())
+    if($('#use_date_type').find('option:selected').val() == 2){
+      $('.date-wrap').show();
+    }else{
+      $('.date-wrap').hide();
+    }
+
+    // $('.edit #use_date_type').change(function(){
+    //   const val = $(this).val();
+    //   if(val == '1'){
+    //       $('.dc-wrap.amount').removeClass('d-none');
+    //       $('.dc-wrap.amount').show();
+    //       $('.dc-wrap.percent').hide();
+    //   }else if(val == 2){
+    //     $('.dc-wrap.percent').removeClass('d-none');
+    //       $('.dc-wrap.amount').hide();
+    //       $('.dc-wrap.percent').show();
+    //   }else{
+    //       $('.dc-wrap').hide();
+    //   }
+    // })
+  </script>
+
   <script src="/ccccoding/admin/js/datepicker.js"></script>
   <script src="/ccccoding/admin/js/coupon.js"></script>
+
+  
+
+  
