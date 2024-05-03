@@ -172,3 +172,21 @@ textarea {height:250px;}
 .alarm-popup .alarm-cantent {margin:30px 18px;}
 .alarm-popup .alarm-cantent p {width:230px; height:50px; overflow:hidden; white-space:normal; text-overflow:ellipsis; word-break:break-all;}
 .alarm-popup .alarm-cantent a span:first-of-type {display: inline-block; width: 54px; height: 30px; background-color: #472ea1; color: #fff; text-align: center; line-height:30px; border-radius: 10px;} 
+
+/* 모달 */
+.info-modal *{text-decoration:none; font-style:normal;}
+.info-modal {position:fixed; left:5%; top:5%; z-index:999999999; border:1px solid var(--primary-c); border-bottom:none;}
+.info-modal .modal_wrapper {background:var(--white); padding:20px; box-sizing: border-box;}
+.info-modal.hide{display:none;}
+.info-modal img {display:block; width:250px; margin:10px auto;}
+.info-modal .modal_wrapper h2 {font-size:20px; line-height:24px; text-align:center; display:block; color:var(--primary-c);}
+.info-modal .modal_wrapper > p, .modal_wrapper span{font-size:18px; line-height:26px; padding:2px 0;}
+.info-modal .modal_wrapper em{font-weight:bold;}
+.info-modal .modal_wrapper a {font-size: 18px; line-height: 26px; font-weight:bold; border-bottom:1px solid var(--primary-c);}
+.info-modal .modal_wrapper .color {color:var(--primary-c);}
+.info-modal .modal_wrapper hr {border:none; border-bottom:1px solid var(--primary-c); margin:27px 0;}
+.info-modal .modal_input {position:relative; padding:8px 2%; border:1px solid #000; border-top:none; font-size:14px; background:#000; color: var(--white); margin:0;}
+#checkbox {width:13px; height:13px; border:1px solid var(--white); border-radius:50%; vertical-align:middle; appearance:none; cursor:pointer;}
+.info-modal input[type="checkbox"]:checked {background:var(--primary-c);}
+.info-modal label {cursor:pointer;}
+.info-modal .modal_close {position: absolute; right: 10px; cursor: pointer;}
