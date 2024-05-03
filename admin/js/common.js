@@ -152,6 +152,22 @@ $(function() {
     })
   }
 
+  // $(".btn-secondary").click(function(){
+  //   if($(".table-bordered tbody .form-check-input").is(":checked")){
+  //     if($(this).text() === '삭제' && confirm("삭제 하시겠습니까?")){
+  //       for(let i=0; $(".table-bordered tbody .form-check-input").length > i; i++){
+  //         if($(".table-bordered tbody .form-check-input").eq(i).is(":checked")){
+  //           console.log($(".table-bordered tbody > tr").eq(i))
+  //           // 실행
+  //           $(".table-bordered tbody > tr").eq(i).css({"display": "none"});
+  //         }
+  //       }
+  //     }
+  //   }else{
+  //     alert('선택해주세요.')
+  //   }
+  // });
+
   //이미지 삭제
   if($('#all-check').length > 0){
     $('#btn-del').on('click', 'button', function() {

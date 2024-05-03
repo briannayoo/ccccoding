@@ -197,7 +197,7 @@ while ($rs = $result->fetch_object()) {
               foreach($rsArr as $item){
           ?>
           <li class="list-group-item">
-            <a href="coupon_edit.php" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
+            <a href="coupon_view.php?cid=<?= $item->cid; ?>" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
               <img src="<?= $item->coupon_image; ?>" alt="이미지">
             </a>
             <div class="info-area">

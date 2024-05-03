@@ -151,16 +151,16 @@ $rs = $result->fetch_object();
 
           <!-- thumbnail image (s) -->
           <div class="row tumbnail_wrap">
-            <label for="form01" class="col-md-1 col-form-label tit-h4">썸네일</label>
+            <label for="thumbnail" class="col-md-1 col-form-label tit-h4">썸네일</label>
             <div class="col-md-11">
-              <img src="<?= $rs->thumbnail; ?>" alt="" class="thumbnail"><!-- 대표이미지 -->            
-              <input type="file" multiple name="thumbnail" id="thumbnail"  class="d-none" accept="image/*" value="<?= $rs->thumbnail; ?>" required>
+              <input type="file" multiple name="thumbnail" id="thumbnail" class="d-none" accept="image/*">
               <div>
                 <button type="button" class="btn btn-primary btn-sm thumb-text" id="addImage">파일 선택</button>
-                <p class="remove">*5M이하 / gif,png,jpg만 등록가능합니다.</p>
               </div>
               <div id="addedImages">
+                <img src="<?=$rs-> coupon_image; ?>" alt="">
               </div>
+              <p class="remove">*5M이하 / gif,png,jpg만 등록가능합니다.</p>
             </div>
           </div>
           <!-- thumbnail image (e) -->
