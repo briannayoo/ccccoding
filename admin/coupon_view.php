@@ -13,7 +13,7 @@
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
-        <h2 class="tit-h2">쿠폰등록</h2>
+        <h2 class="tit-h2">쿠폰상세</h2>
       </div>
       <!-- sub-page-tit-area (e) -->
 
