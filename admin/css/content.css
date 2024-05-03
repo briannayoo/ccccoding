@@ -32,7 +32,7 @@
   display:inline-block;
   margin-right:120px;
   font-style:normal;
-  font-size:2.6rem;
+  font-size:2.0rem;
   width:256px;
   overflow:hidden;
   text-overflow:ellipsis;
@@ -48,7 +48,7 @@
 .dashboard .qna-area li a, 
 .dashboard .notice-area li a,
 .dashboard .event-area li a {display:flex; justify-content:space-between; align-items:center;}
-.dashboard .list-stlye{line-height:45px; font-size:2.4rem; border-bottom:1px solid var(--ipt-border);} 
+.dashboard .list-stlye{line-height:45px; font-size:1.8rem; border-bottom:1px solid var(--ipt-border);} 
 .dashboard .qna-area li:last-child, 
 .dashboard .notice-area li:last-child,
 .dashboard .event-area li:last-child {border-bottom:none;}
