@@ -23,6 +23,7 @@ session_start();
   $e_file = $_GET['e_file'] ?? '';
   $e_startdate = $_GET['e_startdate'] ?? '';
   $e_enddate = $_GET['e_enddate'] ?? '';
+  $e_date_type = $_GET['e_date_type'] ?? '';
   $e_status = $_GET['e_status'] ?? '';
   
   // search_where 조건에 맞게

@@ -8,9 +8,12 @@
   
     
     $replySql = "INSERT INTO qna_reply (r_name,r_idx,r_content,r_date) values ('{$name}',{$idx},'{$content}',now())";
-    // $reSql = "UPDATE qna where qid = $idx"
-  
+    
     if($mysqli->query($replySql) === true){
+
+      $reSql = "UPDATE qna set status = 1  where qid = $idx";
+      $mysqli->query($reSql);
+
       echo "<script>
           alert('댓글 작성 완료');
           location.href='qna.php';
