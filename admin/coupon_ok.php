@@ -25,12 +25,12 @@ $coupon_image =$_FILES['coupon_image'];
       exit;
   }
 
-  // if($_FILES['coupon_image']['type']!='image/jpeg' and $_FILES['coupon_image']['type']!='image/gif' and $_FILES['coupon_image']['type']!='image/png') { // 이미지가 아니면, 다른 type은 and로 추가
-  //     echo "<script>alert('이미지만 첨부할 수 있습니다.');history.back();</script>";
-  //     exit;
-  // }
+  if($_FILES['coupon_image']['type']!='image/jpeg' and $_FILES['coupon_image']['type']!='image/gif' and $_FILES['coupon_image']['type']!='image/png') { // 이미지가 아니면, 다른 type은 and로 추가
+      echo "<script>alert('이미지만 첨부할 수 있습니다.');history.back();</script>";
+      exit;
+  }
 
-    //이미지 여부 검사
+    // 이미지 여부 검사
     if (strpos($_FILES['coupon_image']['type'], 'image') === false) {
       echo "<script>
         alert('이미지만 업로드해주세요');
@@ -82,7 +82,7 @@ $coupon_image =$_FILES['coupon_image'];
     '{$end_date}'
   )";
 
-// echo $sql;
+echo $sql;
 
 try{
   $rs = $mysqli->query($sql);
