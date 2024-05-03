@@ -48,12 +48,12 @@ $(function() {
         let checkboxs = $('#orderTable').find('input[type="checkbox"]:checked');
         console.log(checkboxs.length)
         if(checkboxs.length == 0){
-            alert('해당건만 선택해주세요.');
+            alert('항목을 선택해주세요..');
         } else {
             checkboxs.each(function(){
                 let request = $(this).closest('tr').find('.refund').text();
                 if(!request){
-                    alert('환불건이 아닙니다.');
+                    alert('해당건만 선택해주세요.');
                     return false;
                 } else{
                     oids.push($(this).val())
