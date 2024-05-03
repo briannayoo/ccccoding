@@ -47,7 +47,7 @@
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="cate1"  name="cate1" aria-label="대분류">
-                    <option selected>대분류</option>
+                    <option selected disabled>대분류</option>
                   <?php
                     foreach ($cate1 as $c1) {
                   ?>
