@@ -30,7 +30,7 @@ $mysqli->query($qnaUpdate);
           <h4 class="txt-m"><?=$qa -> date; ?></h4>
         </div>
       </div>
-      <div class="qnatitle">
+      <div class="qnatitle align-self-center">
         <div class="qna">
           <h3 class="tit-h3"><?=$qa -> title; ?></h3>
         </div>
@@ -67,7 +67,7 @@ $mysqli->query($qnaUpdate);
             <p><?=$ra -> r_content; ?></p>
           </div>
         </div>
-        <div class="pro-box2">
+        <div class="pro-box2 align-self-center">
           <div class="profile-box">
             <img class="pro-img" src="image/profilimg_2.png" alt="profilimg_2">
           </div>
@@ -76,7 +76,7 @@ $mysqli->query($qnaUpdate);
           </div>
         </div>
       </div>
-      <div class="reply-btn">
+      <div class="reply-btn pt-3">
         <button class="reply-edit"><i class="fa-solid fa-pen-to-square fa-small"><span class="visually-hidden">수정</span></i></button>
         <a href="qna_reply_del.php?rno=<?=$ra -> idx;?>" class="reply-del"><i class="fa-solid fa-trash-can fa-small reply-a-btn "><span class="visually-hidden">삭제</span></i></a>
       </div>
@@ -109,29 +109,24 @@ $mysqli->query($qnaUpdate);
     ?>
     <!--// reply -->
     <!-- 댓글 입력창 -->
-    <form action="qna_reply_ok.php" method="POST">
-      <input type="hidden" name="idx" value="<?=$qid;?>">
-      <input type="hidden" name="r_name" value="관리자">
-      <div class="answer d-flex">
-        <div class="a-box box-shadow box">
-          <textarea class="a-boxform form-control" id="txtarea" name="r_content" placeholder="내용을 입력하세요.">
-          </textarea>
-        </div>
-        <div class="pro-box2">
-          <div class="profile-box">
-            <img class="pro-img" src="image/profilimg_2.png" alt="profilimg_2">
-          </div>
-          <div>
-            <h3 class="tit-h5">관리자</h3>
+    <div class="reply-new">
+      <h4 class="tit-h4">답변등록</h4>
+      <form action="qna_reply_ok.php" class="reply-form" method="POST">
+        <input type="hidden" name="idx" value="<?=$qid;?>">
+        <input type="hidden" name="r_name" value="관리자">
+        <div class="answer d-flex">
+          <div class="a-box">
+            <textarea class=" form-control" id="txtarea" name="r_content" placeholder="내용을 입력하세요.">
+            </textarea>
           </div>
         </div>
-      </div>
-      <!-- 버튼 -->
-      <div class="btn-area">
-        <button type="submit" class="btn btn-primary btn-lg">등록</button>
-        <button type="reset" class="btn btn-secondary btn-lg del_check">취소</button>
-      </div>
-    </form>
+        <!-- 버튼 -->
+        <div class="btn-area">
+          <button type="submit" class="btn btn-primary btn-lg">등록</button>
+          <button type="reset" class="btn btn-secondary btn-lg del_check">취소</button>
+        </div>
+      </form>
+    </div>
   </div>
 <script src="/ccccoding/admin/js/common.js"></script>
 <script src="/ccccoding/admin/js/qna.js"></script>

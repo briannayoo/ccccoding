@@ -3,7 +3,66 @@
   $title = 'Q&A';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
+
+
+
+
+// 각자 테이블 컬럼
+$status = $_GET['status'] ?? '';
+$title = $_GET['title'] ?? '';
+$content = $_GET['content'] ?? '';
+$name = $_GET['name'] ?? '';
+$date = $_GET['date'] ?? '';
+$qid = $_GET['qid'] ?? '';
+$hit = $_GET['hit'] ?? '';
+
+// search_where 조건에 맞게
+$search_where = '';
+
+if ($name) {
+    $search_where .= " AND name LIKE '%$name%'";
+}
+
+if ($date == '1') {
+    $search_where .= " AND date = 1";
+} else if ($date == '2') {
+    $search_where .= " AND date = 2";
+}
+
+if ($status == '1') {
+    $search_where .= " AND status = 1";
+} elseif ($status == '2') {
+    $search_where .= " AND status = 2";
+}
+
+
+
+    //총개수 조회
+    $sql = "SELECT COUNT(*) AS cnt FROM qna WHERE 1=1";
+    $sql .= $search_where;
+    $result = $mysqli->query($sql);
+    $count = $result->fetch_object();
+
+    $totalcount = $count->cnt; //총검색건수
+   
+
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
+
+          //페이지네이션
+          $sql = "SELECT * FROM qna WHERE 1=1";
+          $sql .= $search_where;
+          $order = " order by qid desc";
+          $sql .= $order;
+          $limit = " LIMIT  $startLimit, $endLimit";
+          $sql .= $limit;
+          // echo $sql;
+
+          $result = $mysqli->query($sql);
+
+
+          while ($ns = $result->fetch_object()) {
+            $rsArr[] = $ns;
+          }
 
 ?>
       <!-- sub-page-tit-area (s) -->
@@ -32,14 +91,9 @@
           </thead>
           <tbody>
             <?php
-              $qnaSql = "SELECT * FROM qna order by qid desc";
-              $qnaResult = $mysqli -> query($qnaSql);
-              while ($qnrow = mysqli_fetch_object($qnaResult)) {
-                $qnaArr[] = $qnrow;
-              }
 
-              if(isset($qnaArr)){
-                foreach($qnaArr as $qa){
+              if(isset($rsArr)){
+                foreach($rsArr as $qa){
             ?>
               <tr>
                 <td>
@@ -56,34 +110,6 @@
             ?>
           </tbody>
         </table>
-        <?php
-          $search_where = '';
-
-          //페이지네이션
-          $sql = "SELECT * FROM qna WHERE 1=1";
-          $sql .= $search_where;
-          $order = " order by qid desc";
-          $sql .= $order;
-          $limit = " LIMIT  $startLimit, $endLimit";
-          $sql .= $limit;
-          // echo $sql;
-
-          $result = $mysqli->query($sql);
-
-          $sql = "SELECT * FROM qna";
-
-          if(isset($_GET['qid'])) {
-            $idx = $_GET['qid'];
-          } else {
-            $idx = ""; // 기본값 설정
-          }
-
-
-          while ($ns = $result->fetch_object()) {
-            $rsArr[] = $ns;
-          }
-
-        ?>
         <div class="mt-3 justify-content-end">
                 <!-- pagination(s) -->
                 <nav aria-label="페이지네이션">

@@ -3,7 +3,7 @@ session_start();
 $title = '공지사항';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
+
   
   $keyword = $_GET['keyword'] ?? '';
   $noticesql = "SELECT * FROM notice WHERE 1=1 and (name like '%$keyword%' or title like '%$keyword%')order by idx desc ";
@@ -13,7 +13,46 @@ $title = '공지사항';
     $noticeArr[] = $row;
   }  
 
-  $search_where = '';
+  // 각자 테이블 컬럼
+$idx = $_GET['idx '] ?? '';
+$name = $_GET['name'] ?? '';
+$pw = $_GET['pw'] ?? '';
+$title = $_GET['title'] ?? '';
+$content = $_GET['content'] ?? '';
+$date = $_GET['date'] ?? '';
+$hit = $_GET['hit'] ?? '';
+$thumbsup = $_GET['thumbsup'] ?? '';
+$is_img = $_GET['is_img'] ?? '';
+$file = $_GET['file'] ?? '';
+
+// search_where 조건에 맞게
+$search_where = '';
+
+if ($name) {
+    $search_where .= " AND name LIKE '%$name%'";
+}
+
+if ($date == '1') {
+    $search_where .= " AND date = 1";
+} else if ($date == '2') {
+    $search_where .= " AND date = 2";
+}
+
+
+
+
+
+    //총개수 조회
+    $sql = "SELECT COUNT(*) AS cnt FROM notice WHERE 1=1";
+    $sql .= $search_where;
+    $result = $mysqli->query($sql);
+    $count = $result->fetch_object();
+
+    $totalcount = $count->cnt; //총검색건수
+   
+
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
+
 
   //페이지네이션
   $sql = "SELECT * FROM notice WHERE 1=1";
@@ -26,7 +65,7 @@ $title = '공지사항';
 
   $result = $mysqli->query($sql);
 
-  $sql = "SELECT * FROM coupons";
+  $sql = "SELECT * FROM notice";
 
   if(isset($_GET['idx'])) {
     $idx = $_GET['idx'];
