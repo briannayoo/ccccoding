@@ -59,26 +59,12 @@
                 </div>
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="cate2"  name="cate2" aria-label="중분류">
-                  <option selected disabled>중분류</option>
-                      <?php
-                      foreach ($cate2 as $c2) {
-                    ?>
-                      <option value="<?= $c2->code; ?>"><?= $c2->name; ?></option>
-                    <?php
-                      }
-                    ?>
+
                   </select>
                 </div>
                 <div class="col-md-4 ipt-wrap">
                   <select class="form-select form-select-sm" id="cate3" name="cate3" aria-label="소분류">
-                  <option selected disabled>소분류</option>
-                      <?php
-                      foreach ($cate3 as $c3) {
-                    ?>
-                      <option value="<?= $c3->code; ?>"><?= $c3->name; ?></option>
-                    <?php
-                      }
-                    ?>
+
                   </select>
                 </div>
               </div>
@@ -206,9 +192,11 @@
               <input type="file" multiple name="thumbnail" id="thumbnail" class="d-none" accept="image/*">
               <div>
                 <button type="button" class="btn btn-primary btn-sm thumb-text" id="addImage">파일 선택</button>
-                <p class="remove">*5M이하 / gif,png,jpg만 등록가능합니다.</p>
+                <!-- <p class="remove">*5M이하 / gif,png,jpg만 등록가능합니다.</p> -->
               </div>
-              <div id="addedImages"></div>
+              <div id="addedImages">
+                <img src="<?=$rs->thumbnail?>" alt="">
+              </div>
               
             </div>
           </div>
