@@ -16,49 +16,50 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
   $use_date_type = $_POST['use_date_type'] ?? 1;
   $start_date = $_POST['start_date'];
   $end_date = $_POST['end_date'];
-  $coupon_image = $_POST['coupon_image'];
+  $coupon_image = $_FILES['coupon_image'] ?? '';
 
   $start_date = str_replace(" ", "", $start_date);
   $end_date = str_replace(" ", "", $end_date);
 
   $status = $_POST['status'] ?? 1;
 
-  $addedImg_id = rtrim($_POST['coupon_image'], ',');
+ 
+  if(strlen($_FILES['coupon_image']['name']) > 0){
 
-  //파일 사이즈 검사
-  if ($_FILES['thumbnail']['size'] > 10240000) {
-    echo "<script>
-      alert('10MB 이하만 업로드해주세요');
-      history.back();
-    </script>";
-    exit;
-  }
-  //이미지 여부 검사
-  if (strpos($_FILES['thumbnail']['type'], 'image') === false) {
-    echo "<script>
-      alert('이미지만 업로드해주세요');
-      history.back();
-    </script>";
-    exit;
-  }
-  //파일 업로드
-  $save_dir = $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/upload/';
-  $filename = $_FILES["thumbnail"]["name"]; //insta.jpg
-  $ext = pathinfo($filename, PATHINFO_EXTENSION); //jpg
-  $newfilename = date("YmdHis") . substr(rand(), 0, 6); //202404111137.123123 -> 202404111137123123 
-  $savefile = $newfilename . '.' . $ext;  //202404111137123123.jpg
+     //파일 사이즈 검사
+    if($_FILES['coupon_image']['size'] > 10240000) {
+      echo "<script>
+        alert('10MB 이하만 업로드해주세요');
+        history.back();
+      </script>";
+      exit;
+    }
+    //이미지 여부 검사
+    if (strpos($_FILES['coupon_image']['type'], 'image') === false) {
+      echo "<script>
+        alert('이미지만 업로드해주세요');
+        // history.back();
+      </script>";
+      exit;
+    }
+    //파일 업로드
+    $save_dir = $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/upload/';
+    $filename = $_FILES["coupon_image"]["name"]; //insta.jpg
+    $ext = pathinfo($filename, PATHINFO_EXTENSION); //jpg
+    $newfilename = date("YmdHis") . substr(rand(), 0, 6); //202404111137.123123 -> 202404111137123123 
+    $savefile = $newfilename . '.' . $ext;  //202404111137123123.jpg
 
-  if (move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $save_dir . $savefile)) {
-    $thumbnail = "/ccccoding/admin/upload/" . $savefile;
-  } else {
-    echo "<script>
-    alert('썸네일 등록에 실패했습니다. 관리자에게 문의해주세요');
-    //history.back();
-    </script>";
-    exit;
-  }
-
-  $sql = "UPDATE coupons SET
+    if (move_uploaded_file($_FILES["coupon_image"]["tmp_name"], $save_dir . $savefile)) {
+      $coupon_image = "/ccccoding/admin/c_upload/" . $savefile;
+    } else {
+      echo "<script>
+      alert('썸네일 등록에 실패했습니다. 관리자에게 문의해주세요');
+      //history.back();
+      </script>";
+      exit;
+    }
+    
+    $sql = "UPDATE coupons SET
       coupon_name = '$coupon_name',
       coupon_desc = '$coupon_desc',
       use_min_price = $use_min_price,
@@ -70,11 +71,25 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
       start_date = '$start_date',
       end_date = '$end_date',
       status = $status,
-      coupon_image = '$coupon_image',
-      thumbnail ='{$thumbnail}'
+      coupon_image ='{$coupon_image}'
       WHERE cid = $cid";
+  }else{
+    $sql = "UPDATE coupons SET
+      coupon_name = '$coupon_name',
+      coupon_desc = '$coupon_desc',
+      use_min_price = $use_min_price,
+      max_value = $max_value,
+      coupon_type = $coupon_type,
+      coupon_price = $coupon_price,
+      coupon_ratio = $coupon_ratio,
+      use_date_type = $use_date_type,
+      start_date = '$start_date',
+      end_date = '$end_date',
+      status = $status
+      WHERE cid = $cid";
+  }
+  
 
-  // echo $sql;
   $result = $mysqli->query($sql);
 
   if($result) { // 쿠폰정보 수정하면

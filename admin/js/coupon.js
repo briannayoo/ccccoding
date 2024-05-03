@@ -1,6 +1,6 @@
 $(function() {
     // 할인금액/ 할인율 선택
-    $('.dc-wrap').hide();
+    console.log($('.edit').length)
     $('#coupon_type').change(function(){
         const val = $(this).val();
         if(val == '1'){
@@ -14,10 +14,12 @@ $(function() {
         }
     });
 
+    // editpage
+
     // 기간설정
-    $('.date-wrap').hide();
     $('#use_date_type').change(function(){
         const value = $(this).val();
+        console.log(value)
         if(value == '2'){
             $('.date-wrap').show();
         }else{
@@ -40,6 +42,7 @@ $(function() {
     // 삭제함수
     function file_delete() {
         if (!confirm('정말 삭제할까요?')) {
+            alert('cccc')
             return false;
         }
         let data = {

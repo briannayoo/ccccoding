@@ -32,7 +32,7 @@
   display:inline-block;
   margin-right:120px;
   font-style:normal;
-  font-size:2.6rem;
+  font-size:2.0rem;
   width:256px;
   overflow:hidden;
   text-overflow:ellipsis;
@@ -48,7 +48,7 @@
 .dashboard .qna-area li a, 
 .dashboard .notice-area li a,
 .dashboard .event-area li a {display:flex; justify-content:space-between; align-items:center;}
-.dashboard .list-stlye{line-height:45px; font-size:2.4rem; border-bottom:1px solid var(--ipt-border);} 
+.dashboard .list-stlye{line-height:45px; font-size:1.8rem; border-bottom:1px solid var(--ipt-border);} 
 .dashboard .qna-area li:last-child, 
 .dashboard .notice-area li:last-child,
 .dashboard .event-area li:last-child {border-bottom:none;}
@@ -105,11 +105,12 @@
 #login-wrap h1.mb-6{margin-bottom:60px;}
 /* #login-wrap form input{width: 100%;} */
 #login-wrap form label{margin-left: 18px;}
+/* .form-floating>.form-control{padding-top:2.5rem;} */
 .form-floating>.form-control:focus {padding-top:2.5rem;}
 .form-floating>.form-control:not(:placeholder-shown) {padding-top:2.5rem;}
 .form-floating>.form-control,
 .form-floating>.form-control-plaintext,
-.form-floating>.form-select{height: auto;}
+.form-floating>.form-select{height: auto; padding-top:2.5rem;}
 .log-btn {width:563px; height:42px;}
 
 /* 컨텐츠리스트 (쿠폰+이벤트)(박소현) */
@@ -151,3 +152,9 @@
 .reply-new{width:1300px; margin-top: 46px;}
 .answer textarea{ width:1300px; height: 114px; resize: none; color: black; border: 3px solid #0000007e; outline: none;}
 .reply-form{font-size:1.6rem; padding:4px 40px 4px 10px;}
+.reply-edit{background: none; border: none;}
+.reply-btn{float: right; margin-right: 200px;}
+/* 쿠폰 */
+.dc-wrap {display:none;}
+.edit .dc-wrap {display:block;}
+
