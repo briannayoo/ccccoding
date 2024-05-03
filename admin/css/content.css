@@ -32,7 +32,7 @@
   display:inline-block;
   margin-right:120px;
   font-style:normal;
-  font-size:2.6rem;
+  font-size:2.0rem;
   width:256px;
   overflow:hidden;
   text-overflow:ellipsis;
@@ -48,7 +48,7 @@
 .dashboard .qna-area li a, 
 .dashboard .notice-area li a,
 .dashboard .event-area li a {display:flex; justify-content:space-between; align-items:center;}
-.dashboard .list-stlye{line-height:45px; font-size:2.4rem; border-bottom:1px solid var(--ipt-border);} 
+.dashboard .list-stlye{line-height:45px; font-size:1.8rem; border-bottom:1px solid var(--ipt-border);} 
 .dashboard .qna-area li:last-child, 
 .dashboard .notice-area li:last-child,
 .dashboard .event-area li:last-child {border-bottom:none;}
@@ -136,20 +136,24 @@
 /* qna (유부현) */
 .profile-box {width:70px; height:70px; border-radius:70%; overflow: hidden;}
 .pro-img {width: 100%; height: 100%; object-fit:cover;}
-.question{margin-top:26px; width:1300px;}
+.question{margin-top:26px; width:1300px; height: 114px;}
 .q-box{padding:26px;}
 .a-box{margin-top:26px; width:1300px; height: 114px;}
 .pro-box{margin-top:26px;}
 .a-boxform{border:none;}
 .answer{ gap:10px;}
 .pro-box{width:100px; text-align:center; display:grid; place-items:center;}
-.pro-box2{width:100px; height:100px; display:grid; place-items: center; text-align: center;}
+.pro-box2{width:100px; height:100px; display:grid; place-items: center; text-align: center; padding-top: 20px;}
 .pro-box3{margin-top:26px; width:700px; text-align:center; place-items:center; gap:5px;}
 .qna-table a, .notice_table a{color:inherit; text-decoration:none;}
 .reply-del {color:inherit; text-decoration:none;}
+.reply-edit{background: none; border: none; gap: 5px;}
+.reply-btn{float: right; margin-right: 150px;}
+.reply-new{width:1300px; margin-top: 46px;}
+.answer textarea{ width:1300px; height: 114px; resize: none; color: black; border: 3px solid #0000007e; outline: none;}
+.reply-form{font-size:1.6rem; padding:4px 40px 4px 10px;}
 .reply-edit{background: none; border: none;}
 .reply-btn{float: right; margin-right: 200px;}
-
 /* 쿠폰 */
 .dc-wrap {display:none;}
 .edit .dc-wrap {display:block;}

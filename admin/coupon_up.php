@@ -170,10 +170,6 @@
   <!-- wwilsman 데이트픽커 js -->
   
   <script src="/ccccoding/admin/js/coupon.js"></script>
-
-  <script>
-    $('.date-wrap').hide();
-  </script>
   <!-- <script>
     function save() {
         if (!$('#coupon_image').val()) {

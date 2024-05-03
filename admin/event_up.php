@@ -1,120 +1,95 @@
 <?php
   session_start();
   $title = '이벤트등록';
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
+
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
-
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 ?>
-
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
         <h2 class="tit-h2">이벤트 등록</h2>
       </div>
       <!-- sub-page-tit-area (e) -->
 
-      <div class="content">
-        <form action="event.php" enctype="multipart/form-data" method="POST" onsubmit="return save()">
-          <input type="hidden" name="eid" id="eid">
-          <input type="hidden" name="e_img" id="e_img">
-          <!-- 썸네일 -->
-            <div class="row">
-              <label for="event_thumbnail" class="col-md-1 col-form-label tit-h4">썸네일</label>
+      <div class="content"> <!--temp-area 빼야됨-->
+      <form action="event_up_ok.php" class="form-list" enctype="multipart/form-data"  method="POST" onsubmit="return save()">
+        <input type="hidden" name="eid" id="eid">
+        <input type="hidden" name="e-img" id="e-img">
+        <!-- 썸네일 -->
+            <div class="row tumbnail_wrap">
+              <label for="e_tumbnail" class="col-md-1 col-form-label tit-h4">썸네일</label>
               <div class="col-md-11">
-                <input type="file" multiple name="e_img" id="event_thumbnail" class="d-none" accept="image/*">
+                <input type="file" multiple name="e_img" id="thumbnail" class="d-none"  accept="image/*">
                 <div>
                   <button type="button" class="btn btn-primary btn-sm thumb-text" id="addImage">파일 선택</button>
                   <p class="remove">*5M이하 / gif,png,jpg만 등록가능합니다.</p>
                 </div>
-                <div id="addedImages" class="d-flex gap-3">
+                <div id="addedImages">
                 </div>
               </div>
             </div>
-          </form>
-          <form action="#" class="form-list">
+
             <!-- 제목 -->
             <div class="row">
-              <label for="e_name" class="col-md-1 col-form-label tit-h4">이벤트 제목</label>
+              <label for="e_name" class="col-md-1 col-form-label tit-h4">이벤트명</label>
               <div class="col-md-11">
                 <div class="input-group">
                   <div class="col-md-12 ipt-wrap">
-                    <input type="text" class="form-control" id="e_name"  name="e_name" placeholder="제목을 입력해주세요" required>
+                  <input type="text" class="form-control" id="e_name" name="e_name" placeholder="이벤트명을 입력하세요." required>
                   </div>
                 </div>
               </div>
             </div>
+
             <!--데이트피커  -->
             <div class="row">
-          <label for="datepicker-01" class="col-md-1 col-form-label tit-h4">이벤트 기한</label>
-          <div class="col-md-11">
-            <div class="input-group">
-              <div class="date-wrap">
-                <div class="col-md-6 ipt-wrap">
-                  <input type="text" class="ipt-datepicker form-control" placeholder="YYYY-MM-DD">
-                  <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
+            <label for="e_date_type" class="col-md-1 col-form-label tit-h4">이벤트 기한</label>
+            <div class="col-md-11">
+              <div class="input-group">
+                <div class="col-md-4 ipt-wrap">
+                  <select class="form-select form-select-sm" id="e_date_type" name="e_date_type" aria-label="기한선택" required>
+                    <option selected>선택해주세요</option>
+                    <option value="1">1주</option>
+                    <option value="2">1개월</option>
+                    <option value="3">6개월</option>
+                  </select>
                 </div>
-                <div class="col-md-6 ipt-wrap">
-                  <input type="text" class="ipt-datepicker form-control" placeholder="YYYY-MM-DD">
-                  <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
+                <div class="date-wrap col-md-8">
+                  <div class="col-md-6 ipt-wrap">
+                    <input type="text" class="ipt-datepicker form-control" placeholder="YYYY-MM-DD" id="e_startdate" name="e_startdate">
+                    <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
+                  </div>
+                  <div class="col-md-6 ipt-wrap">
+                    <input type="text" class="ipt-datepicker form-control" placeholder="YYYY-MM-DD" id="e_enddate" name="e_enddate">
+                    <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-            <!-- 참여방법 -->
-            <div class="row">
-              <label for="txt03" class="col-md-1 col-form-label tit-h4">참여방법</label>
-              <div class="col-md-11">
-                <div class="input-group">
-                  <div class="col-md-12 ipt-wrap">
-                    <input type="text" class="form-control" id="fm-txt03" placeholder="내용을 입력해주세요">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- 당첨안내 -->
-            <div class="row">
-              <label for="txt03" class="col-md-1 col-form-label tit-h4">당첨안내</label>
-              <div class="col-md-11">
-                <div class="input-group">
-                  <div class="col-md-12 ipt-wrap">
-                    <input type="text" class="form-control" id="fm-txt03" placeholder="내용을 입력해주세요">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- 이벤트 내용 -->
-            <div class="row">
-              <label for="txt03" class="col-md-1 col-form-label tit-h4">이벤트 내용</label>
-              <div class="col-md-11">
-                <div class="input-group">
-                  <div class="col-md-12 ipt-wrap">
-                    <input type="text" class="form-control" id="fm-txt03" placeholder="내용을 입력해주세요">
-                  </div>
-                </div>
-              </div>
-            </div>
+           
             <!-- 첨부파일 -->
-            <div class="row">
-              <label for="file" class="col-md-1 col-form-label tit-h4">파일첨부</label>
-              <div class="col-md-11">
-                <div class="input-group">
-                  <div class="col-md-12 ipt-wrap">
-                    <input class="form-control" type="file" id="file">
-                  </div>
-                </div>
+        <div class="row">
+          <label for="file" class="col-md-1 col-form-label tit-h4">파일첨부</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-12 ipt-wrap file-input-container">
+                <input type="text" class="form-control file-input-text" name="e_file" id="e_file" placeholder="파일을 선택해주세요" readonly>
+                <button type="button" class="btn btn-primary btn-sm" id="custom-button">파일추가</button>
+                <input type="file" id="file-upload">
               </div>
             </div>
+          </div>
+        </div>
             <!-- 버튼 -->
             <div class="btn-area">
-              <button type="button" class="btn btn-primary btn-lg">등록</button>
-              <button type="button" class="btn btn-secondary btn-lg">취소</button>
+            <button type="submit" class="btn btn-primary btn-lg">등록</button>
+            <button type="button" class="btn btn-secondary btn-lg cancel">취소</button>
             </div>
           </form>
       </div>
+    </div>
   </div>
-  <!-- wwilsman 데이트픽커 js -->
-  <script src="/ccccoding/admin/js/datepicker.js"></script>
-  <script src="/ccccoding/admin/js/event.js"></script>
 </body>
 </html>
