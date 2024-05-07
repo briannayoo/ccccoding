@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ㅋㅋㅋ 가이드페이지</title>
+  <!-- 부트스트랩 css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- 폰트어썸 css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- wwilsman 데이트픽커 css -->
+  <link rel="stylesheet" href="../css/datepicker.material.css"> <!--경로수정해야됨 ../빼기-->
+  <!-- 공통 css -->
+  <link rel="stylesheet" href="../css/common.css"> <!--경로수정해야됨 ../빼기-->
+  <link rel="stylesheet" href="css/guide.css">
+  <!-- 부트스트랩 js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- 제이쿼리 -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <!-- wwilsman 데이트픽커 js -->
+  <script src="../js/datepicker.js"></script> <!--경로수정해야됨 ../빼기-->
+
+  <!-- 공통 js -->
+  <script src="../js/common.js"></script> <!--경로수정해야됨 ../빼기-->
+</head>
+<body>
+  <ul class="nav nav-tabs guide" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="rules-tab" data-bs-toggle="tab" data-bs-target="#rules-tab-pane" type="button" role="tab" aria-controls="rules-tab-pane" aria-selected="true">RULES</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="guide-tab" data-bs-toggle="tab" data-bs-target="#guide-tab-pane" type="button" role="tab" aria-controls="guide-tab-pane" aria-selected="false">GUIDE</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="ia-tab" data-bs-toggle="tab" data-bs-target="#ia-tab-pane" type="button" role="tab" aria-controls="ia aria-selected="false">IA</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="sub-tab" data-bs-toggle="tab" data-bs-target="#sub-tab-pane" type="button" role="tab" aria-controls="sub-tab-pane" aria-selected="false">SUB GUIDE</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <!-- 규칙 (s) -->
+    <div class="tab-pane fade" id="rules-tab-pane" role="tabpanel" aria-labelledby="rules-tab" tabindex="0">
+      <div class="promise mb-5">
+        <h2 class="tit-h2">시크릿 쥬쥬의 즐거운! 행복한! 유쾌한! ㅋㅋㅋ 작업 지켜주세요~</h2>
+        <ol class="list-group list-group-numbered">
+          <li class="list-group-item">작업 전에 업데이트 꼭 받기!!!</li>
+          <li class="list-group-item">규칙 지켜서 작업하기!!</li>
+          <li class="list-group-item">좋은결과물 만들어서 상금때리고 제주도 가자!!!</li>
+          <li class="list-group-item">대기업 가즈아!!</li>
+        </ol>
+      </div>
+
+      <h3 class="tit-h3 mb-3 mt-3">클래스명 규칙</h3>
+      <ol class="list-group list-group-numbered">
+        <li class="list-group-item">소문자만 작성 가능</li>
+        <li class="list-group-item">단어와 단어 사이에는 -로 구분</li>
+        <li class="list-group-item">ex) tit-area</li>
+      </ol>
+
+      <h3 class="tit-h3 mb-3 mt-3">css 작성규칙 규칙</h3>
+      <ol class="list-group list-group-numbered">
+        <li class="list-group-item">속성과 속성값 사이는 띄어쓰기 없고 (;) 뒤에는 1칸 띄어쓰기{속성명:속성값; 속성명:속성값;}</li>
+        <li class="list-group-item">마지막 속성도 반드시 (;)로 끝내기</li>
+        <li class="list-group-item">다중 선택자 선언시 (,) 후 줄바꿈 하기<br>
+          img,<br>
+          input {font-size:1.6rem;}
+        </li>
+      </ol>
+
+      <h3 class="tit-h3 mb-3 mt-3">스크립트 규칙</h3>
+      <ol class="list-group list-group-numbered">
+        <li class="list-group-item">변수명/함수명 명사로 시작</li>
+        <li class="list-group-item">낙타기법 사용</li>
+        <li class="list-group-item">ex) currentIdx</li>
+      </ol>
+      
+      <h3 class="tit-h3 mb-3 mt-3">이미지명 규칙</h3>
+      <ol class="list-group list-group-numbered">
+        <li class="list-group-item">소문자만 작성 가능</li>
+        <li class="list-group-item">스네이크기법 사용</li>
+        <li class="list-group-item">ex) bg_juju.jpg, img_juju.jpg</li>
+        <li class="list-group-item">
+          이미지명 시작하는 단어 <br>
+          백그라운드 :bg_ <br>
+          버튼 :btn_ <br>
+          아이콘 :ico_ <br>
+          이미지 :img_ <br>
+        </li>
+      </ol>
+
+      <h3 class="tit-h3 mb-3 mt-3">주석 규칙</h3>
+      <ol class="list-group list-group-numbered">
+        <li class="list-group-item">여기서 s는 콘텐츠의 시작 start e는 콘텐츠의 끝 end</li>
+        <li class="list-group-item">
+          기본 작업 주석 <br>
+          html<br>
+          &lt;!-- 콘텐츠명 (s) --&gt;<br>
+          &lt;!-- 콘텐츠명 (e) --&gt;<br>
+    
+          css<br>
+          큰 구조의 주석<br>
+          /*=====분류 콘텐츠명=====*/  (선택)<br>
+          /* 콘텐츠명 */<br>
+    
+          script<br>
+          //콘텐츠명(s)<br>
+          //콘텐츠명(e)
+        </li>
+        <li class="list-group-item">
+          수정 작업 주석(완료되고 작업할 때) <br>
+          html<br>
+          한줄일 때 (html 마크업 뒤에 주석 달기)<br>
+          &lt;!-- 수정 240419 박소현: 제목변경 --&gt;<br>
+          &lt;!-- 수정 240419 박소현 레이웃변경 (s) --&gt;<br>
+          &lt;!-- 수정 240419 박소현 레이웃변경 (e) --&gt;<br>
+    
+          css {} 괄호 뒤에 주석 달기<br>
+          /* 수정 240419 박소현 컬러변경 */<br>
+    
+          script 한줄 일 때<br>
+          //수정 240419 함수명 변경<br>
+          script 두줄이상 일 때<br>
+          //수정 240419 박소현 스크립트 전체 변경(s) <br>
+          //수정 240419 박소현 스크립트 전체 변경(e)
+        </li>
+      </ol>
+
+      <h3 class="tit-h3 mb-3 mt-3">네이버의 css 작성 규칙(참고만 해보기)</h3>
+      <a href="https://uxkm.io/publishing/css/03-cssMiddleclass/10-css_attr_rule#gsc.tab=0" class="tit-h4">작성규칙 보러가기</a>
+
+      <h3 class="tit-h3 mb-3 mt-3">커밋메시지 규칙 (회의해봐요)</h3>
+      <ol class="list-group list-group-numbered">
+        <li class="list-group-item">[new]박소현/html,css/헤더레이아웃작업</li>
+        <li class="list-group-item">[mod]박소현/html,css/헤더레이아웃작업</li>
+    </div>
+    <!-- 규칙 (e) -->
+
+    <!-- 가이드 (s) -->
+    <div class="tab-pane fade show active" id="guide-tab-pane" role="tabpanel" aria-labelledby="guide-tab" tabindex="0">
+      <h3 class="tit-h3">임시로 채워 넣을 때 쓰는 Temp</h3> <!--가이드타이틀-->
+      <div class="temp-area">ㅇㅇㅇ작업</div>
+
+      <!-- sub-page-tit-area (s) -->
+      <div class="page-tit-area">
+        <h2 class="tit-h1">서브페이지 타이틀입니다.</h2>
+      </div>
+      <!-- sub-page-tit-area (e) -->
+
+      <h3 class="tit-h3">Text</h3> <!--가이드타이틀-->
+      <p class="txt-xs">txt-xs(font-size:12px)</p>
+      <p class="txt-sm">txt-sm(font-size:14px)</p>
+      <p class="txt-md">txt-md(font-size:16px)</p>
+      <p class="txt-lg">txt-lg(font-size:20px)</p>
+      <p class="txt-xl">txt-xl(font-size:24px)</p>
+
+      <h3 class="tit-h3 mt-5">Title</h3> <!--가이드타이틀-->
+      <p class="bnr-tit">배너타이틀(font-size:40px)</p> <!--태그는 특성에 맞게 변경-->
+
+      <h2 class="tit-h1">tit-h1(font-size:32px)</h2>
+      <h2 class="tit-h2">tit-h2(font-size:28px)</h2>
+      <h3 class="tit-h3">tit-h3(font-size:24px)</h3>
+      <h4 class="tit-h4">tit-h4(font-size:20px)</h4>
+      <h5 class="tit-h5">tit-h5(font-size:18px)</h5>
+      <h5 class="tit-h6">tit-h6(font-size:16px)</h5>
+
+      <h3 class="tit-h3 mt-5">Colors(정리 후 작업해야함)</h3> <!--가이드타이틀-->
+      <p class="bg-basic-c">bg 컬러(기본 / #eeeafe)-확인해바야함</p>
+      <p class="bg-sub1-c">bg 컬러(서브1 / #eeeafe)</p>
+      <p class="bg-sub2-c">bg 컬러(서브2 / #eee)</p>
+      <p class="primary-c">primary 컬러(#472ea1)</p>
+      <p class="secondary-c">secondary 컬러(#383838)</p>
+      <p class="txt-c">txt 컬러(기본 / #222)</p>
+      <p class="sub-txt-c">sub txt 컬러(#bcb cbc)</p>
+      <p class="placeh-c">placeholder 컬러(#969696)</p>
+
+      <h3 class="tit-h3 mt-5">Buttons</h3> <!--가이드타이틀-->
+      <h4 class="tit-h4 mt-5">Buttons-Primary</h4> <!--가이드타이틀-->
+      <h5 class="tit-h5 mt-1">Buttons- L</h5> <!--가이드타이틀-->
+      <a href="# " class="btn btn-primary btn-lg">버튼</a>
+      <button type="button" class="btn btn-primary btn-lg">버튼</button>
+      <input type="button" class="btn btn-primary btn-lg" value="버튼">
+
+      <h5 class="tit-h5 mt-1">Buttons- M</h5> <!--가이드타이틀-->
+      <a href="# " class="btn btn-primary btn-md">버튼</a>
+      <button type="button" class="btn btn-primary btn-md">버튼</button>
+      <input type="button" class="btn btn-primary btn-md" value="버튼">
+
+      <h5 class="tit-h5 mt-1">Buttons- S</h5> <!--가이드타이틀-->
+      <a href="# " class="btn btn-primary btn-sm">버튼</a>
+      <button type="button" class="btn btn-primary btn-sm">버튼</button>
+      <input type="button" class="btn btn-primary btn-sm" value="버튼">
+
+      <h4 class="tit-h4 mt-5">Buttons-Primary-disabled</h4> <!--가이드타이틀-->
+      <h5 class="tit-h5 mt-1">Buttons- L</h5> <!--가이드타이틀-->
+      <button type="button" class="btn btn-primary btn-lg" disabled>버튼</button>
+      <input type="button" class="btn btn-primary btn-lg" value="버튼" disabled>
+
+      <h5 class="tit-h5 mt-1">Buttons- M</h5> <!--가이드타이틀-->
+      <button type="button" class="btn btn-primary btn-md" disabled>버튼</button>
+      <input type="button" class="btn btn-primary btn-md" value="버튼" disabled>
+
+      <h5 class="tit-h5 mt-1">Buttons- S</h5> <!--가이드타이틀-->
+      <button type="button" class="btn btn-primary btn-sm" disabled>버튼</button>
+      <input type="button" class="btn btn-primary btn-sm" value="버튼" disabled>
+
+      <h4 class="tit-h4 mt-5">Buttons-Secondary(line)</h4> <!--가이드타이틀-->
+      <h5 class="tit-h5 mt-1">Buttons- L</h5> <!--가이드타이틀-->
+      <a href="#" class="btn btn-outline-secondary btn-lg">버튼</a>
+      <button type="button" class="btn btn-outline-secondary btn-lg">버튼</button>
+      <input type="button" class="btn btn-outline-secondary btn-lg" value="버튼">
+
+      <h5 class="tit-h5 mt-1">Buttons- M</h5> <!--가이드타이틀-->
+      <a href="# " class="btn btn-outline-secondary btn-md">버튼</a>
+      <button type="button" class="btn btn-outline-secondary btn-md">버튼</button>
+      <input type="button" class="btn btn-outline-secondary btn-md" value="버튼">
+
+      <h5 class="tit-h5 mt-1">Buttons- S</h5> <!--가이드타이틀-->
+      <a href="# " class="btn btn-outline-secondary btn-sm">버튼</a>
+      <button type="button" class="btn btn-outline-secondary btn-sm">버튼</button>
+      <input type="button" class="btn btn-outline-secondary btn-sm" value="버튼">
+      
+      <h4 class="tit-h4 mt-5">버튼 2개 케이스 (양옆 16px 간격 / 상단 간격 : 52px(두칸)</h4> <!--가이드타이틀-->
+      <h5 class="tit-h5 mt-1">버튼 2개 케이스 라지</h5> <!--가이드타이틀-->
+      <!-- 버튼 2개 case (s) -->
+      <div class="btn-area">
+        <button type="button" class="btn btn-primary btn-lg">버튼</button>
+        <button type="button" class="btn btn-outline-secondary btn-lg">버튼</button>
+      </div>
+      <!-- 버튼 2개 case (e) -->
+
+      <h5 class="tit-h5 mt-1">버튼 2개 케이스 미디움</h5> <!--가이드타이틀-->
+      <!-- 버튼 2개 case (s) -->
+      <div class="btn-area">
+        <button type="button" class="btn btn-primary btn-md">버튼</button>
+        <button type="button" class="btn btn-outline-secondary btn-md">버튼</button>
+      </div>
+      <!-- 버튼 2개 case (e) -->
+
+
+      <h5 class="tit-h5 mt-1">버튼 2개 케이스 스몰</h5> <!--가이드타이틀-->
+      <!-- 버튼 2개 case (s) -->
+      <div class="btn-area">
+        <button type="button" class="btn btn-primary btn-sm">버튼</button>
+        <button type="button" class="btn btn-outline-secondary btn-sm">버튼</button>
+      </div>
+      <!-- 버튼 2개 case (e) -->
+
+      <h5 class="tit-h5 mt-1">버튼 2개 케이스 왼쪽 (기본이 center입니다.)</h5> <!--가이드타이틀-->
+      <!-- 버튼 2개 case (s) -->
+      <div class="btn-area justify-content-start">
+        <button type="button" class="btn btn-primary btn-md">버튼</button>
+        <button type="button" class="btn btn-outline-secondary btn-md">버튼</button>
+      </div>
+      <!-- 버튼 2개 case (e) -->
+
+      <h5 class="tit-h5 mt-1">버튼 2개 케이스 오른쪽</h5> <!--가이드타이틀-->
+      <!-- 버튼 2개 case (s) -->
+      <div class="btn-area justify-content-end">
+        <button type="button" class="btn btn-primary btn-md">버튼</button>
+        <button type="button" class="btn btn-outline-secondary btn-md">버튼</button>
+      </div>
+      <!-- 버튼 2개 case (e) -->
+
+      <h3 class="tit-h3 mt-5">form-list</h3> <!--가이드타이틀-->
+      <a href="https://wwilsman.github.io/Datepicker.js/">데이트픽커 라이브러리</a>
+      <!-- form-list (s) -->
+      <form action="#" class="form-list">
+        <!-- input text 1/3 (s) -->
+        <div class="row">
+          <label for="txt01-01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-4 ipt-wrap ipt-wrap">
+                <input type="text" class="form-control" id="txt01-01" placeholder="쿠폰명을 입력하세요.">
+              </div>
+              <div class="col-md-4 ipt-wrap">
+                <input type="text" class="form-control" id="txt01-02" placeholder="각자 입력하세요.">
+              </div>
+              <div class="col-md-4 ipt-wrap">
+                <input type="text" class="form-control" id="txt01-03" placeholder="각자 입력하세요.">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- input text 1/3 (e) -->
+
+        <!-- input text 1/2 (s) -->
+        <div class="row">
+          <label for="txt02-01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-6 ipt-wrap">
+                <input type="text" class="form-control" id="txt02-01" placeholder="각자 입력하세요.">
+              </div>
+              <div class="col-md-6 ipt-wrap">
+                <input type="text" class="form-control" id="txt02-02" placeholder="각자 입력하세요.">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- input text 1/2 (e) -->
+
+        <!-- input text 1 (s) -->
+        <div class="row">
+          <label for="txt03" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-12 ipt-wrap">
+                <input type="text" class="form-control" id="fm-txt03" placeholder="1줄짜리 설명을 입력하세요 할때">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- input text 1 (e) -->
+
+        <!-- select 1/3 (s) -->
+        <div class="row">
+          <label for="slect-01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-4 ipt-wrap">
+                <select class="form-select form-select-sm" id="select-01" aria-label="selectf">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-md-4 ipt-wrap">
+                <select class="form-select form-select-sm" id="select-02"  aria-label="selectf">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-md-4 ipt-wrap">
+                <select class="form-select form-select-sm" id="select-03"  aria-label="selectf">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- select 1/3 (e) -->
+
+        <!-- select 1/2 (s) -->
+        <div class="row">
+          <label for="select-04" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-6 ipt-wrap">
+                <select class="form-select form-select-sm" id="select-04" aria-label="select">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-md-6 ipt-wrap">
+                <select class="form-select form-select-sm" id="select-05" aria-label="select">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- select 1/2 (e) -->
+
+        <!-- select + input text 혼합(s) -->
+        <div class="row">
+          <label for="mix-01" class="col-md-1 col-form-label tit-h4">타이틀(혼합)</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-4 ipt-wrap">
+                <select class="form-select form-select-sm" id="mix-01" aria-label="select">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-md-4 ipt-wrap">
+                <input type="text" class="form-control" id="mix-02" placeholder="각자 입력하세요.">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- select + input text 혼합(e) -->
+
+        <!-- input text 단위 1/3 (s) -->
+        <div class="row">
+          <label for="unit-01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-4 ipt-wrap">
+                <input type="text" class="form-control text-end" id="unit-01">
+                <span class="unit">원</span>
+              </div>
+              <div class="col-md-4 ipt-wrap">
+                <input type="text" class="form-control text-end" id="unit-02">
+                <span class="unit">원</span>
+              </div>
+              <div class="col-md-4 ipt-wrap">
+                <input type="text" class="form-control text-end" id="unit-04">
+                <span class="unit">원</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- input text 단위 1/3 (e) -->
+
+        <!-- textarea 1 (s) -->
+        <div class="row">
+          <label for="txtarea" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-12 ipt-wrap">
+                <textarea class="form-control" id="txtarea" placeholder="내용을 입력하세요."></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- textarea 1 (e) -->
+
+        <!-- datepicker 1/3 (s) -->
+        <div class="row">
+          <label for="datepicker-01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="date-wrap">
+                <div class="col-md-6 ipt-wrap">
+                  <input type="text" class="ipt-datepicker form-control" placeholder="YYYY-MM-DD">
+                  <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
+                </div>
+                <div class="col-md-6 ipt-wrap">
+                  <input type="text" class="ipt-datepicker form-control" placeholder="YYYY-MM-DD">
+                  <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- datepicker 1/3 (e) -->
+
+        <!-- file 1 (s) -->
+        <div class="row">
+          <label for="file" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-12 ipt-wrap file-input-container">
+                <input type="text" class="form-control file-input-text" placeholder="선택된 파일 없음" readonly>
+                <button class="btn btn-primary btn-sm" id="custom-button">파일추가</button>
+                <input type="file" id="file-upload">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- file 1 (e) -->
+
+        <!-- search 1/2 (s) -->
+        <div class="row">
+          <label for="search" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <div class="col-md-11">
+            <div class="input-group search">
+              <div class="col-md-6 ipt-wrap">
+                <input class="form-control" type="search" id="search" placeholder="검색어를 입력하세요..." aria-label="Search">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <!-- search 1/2 (e) -->
+
+        <!-- search 1/3 (s) -->
+        <div class="row">
+          <label for="form01" class="col-md-1 col-form-label tit-h4">타이틀</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-4 ipt-wrap">
+                <input class="form-control" type="search" placeholder="검색어를 입력하세요..." aria-label="Search">
+              </div>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- search 1/3 (e) -->
+      </form>
+
+        <!-- thumbnail image (s) -->
+        <form action="#" enctype="multipart/form-data">
+          <div class="row tumbnail_wrap">
+            <label for="form01" class="col-md-1 col-form-label tit-h4">썸네일</label>
+            <div class="col-md-11">
+              <input type="file" multiple name="upfile[]" id="thumbnail" class="d-none">
+              <div>
+                <button type="button" class="btn btn-primary btn-sm thumb-text" id="addImage">파일 선택</button>
+                <p class="remove">*5M이하 / gif,png,jpg만 등록가능합니다.</p>
+              </div>
+              <div id="addedImages">
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- thumbnail image (e) -->
+      <!-- form-list (e) -->
+
+      <h3 class="tit-h3 mt-5">form-list이외의 단독으로 쓰일 때</h3> <!--가이드타이틀-->
+      <form action="#">
+        <!-- select 1/3 (s) -->
+        <div class="row">
+          <label for="single-slect-01" class="col-md-1 col-form-label tit-h4 visually-hidden">블라인드텍스트써주세요</label> <!-- label hidden으로 사용 -->
+          <div class="col-md-12">
+            <div class="input-group">
+              <div class="col-md-4 ipt-wrap">
+                <select class="form-select form-select-sm" id="select-01" aria-label="select">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-md-4 ipt-wrap">
+                <select class="form-select form-select-sm" id="single-slect-02"  aria-label="select">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-md-4 ipt-wrap">
+                <select class="form-select form-select-sm" id="single-slect-03"  aria-label="select">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- select 1/3 (e) -->
+      </form>
+      <h3 class="tit-h3 mt-5">form-list이외의 단독으로 쓰일 때-셀렉트+데이트픽커</h3> <!--가이드타이틀-->
+      <form action="#">
+        <!-- select + datepicker (s) -->
+        <div class="row">
+          <label for="single-slect-01" class="col-md-1 col-form-label tit-h4 visually-hidden">블라인드텍스트써주세요</label> <!-- label hidden으로 사용  -->
+          <div class="col-md-12">
+            <div class="input-group justify-content-between align-items-center">
+              <div class="col-md-4 ipt-wrap">
+                <select class="form-select form-select-sm" id="select-01" aria-label="select">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="date-wrap col-md-8">
+                <div class="col-md-6 ipt-wrap">
+                  <input type="text" class="ipt-datepicker form-control" id="datepicker-01" name="datepicker-01" placeholder="YYYY-MM-DD">
+                  <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
+                </div>
+                <div class="col-md-6 ipt-wrap">
+                  <input type="text" class="ipt-datepicker form-control" id="datepicker-02" name="datepicker-02" placeholder="YYYY-MM-DD">
+                  <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- elect + datepicker 1/3 (e) -->
+      </form>
+
+      <!-- 240423수정(s) -->
+      <h3 class="tit-h3 mt-5">form-list이외의 단독으로 쓰일 때-셀렉트+텍스트+버튼</h3> <!--가이드타이틀-->
+      <form action="#">
+        <!-- select + text + 버튼 (s) -->
+        <div class="row">
+          <label for="single-slect-01" class="col-md-1 col-form-label tit-h4 visually-hidden">블라인드텍스트써주세요</label> <!-- label hidden으로 사용  -->
+          <div class="col-md-12">
+            <div class="input-group justify-content-between align-items-center">
+              <div class="col-md-4 ipt-wrap">
+                <select class="form-select form-select-sm" id="select-01" aria-label="select">
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-md-7 ipt-wrap">
+                <input type="text" class="form-control" placeholder="검색어를 입력해주세요.">
+              </div>
+              <button type="button" class="btn btn-primary btn-sm">버튼</button>
+            </div>
+          </div>
+        </div>
+        <!-- elect + text + 버튼(e) -->
+      </form>
+      <!-- 240423수정(e) -->
+
+      <h3 class="tit-h3 mt-5">checkbox</h3> <!--가이드타이틀-->
+      <h3 class="tit-h4 mt-5">checkbox(단독)</h3> <!--가이드타이틀-->
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+          Default checkbox
+        </label>
+      </div>
+      <h3 class="tit-h4 mt-5">checkbox(리스트)</h3> <!--가이드타이틀-->
+      <div class="list-group">
+        <div class="list-group-item">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="chk-list-01">
+            <label class="form-check-label" for="chk-list-01">
+              Default checkbox
+            </label>
+          </div>
+        </div>
+        <div class="list-group-item">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="chk-list-02" checked>
+            <label class="form-check-label" for="chk-list-02">
+              Checked checkbox
+            </label>
+          </div>
+        </div>
+        <div class="list-group-item">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="chk-list-03" disabled>
+            <label class="form-check-label" for="chk-list-03">
+              disabled checkbox
+            </label>
+          </div>
+        </div>
+      </div>
+      <h3 class="tit-h4 mt-5">checkbox(리스트-horizental)</h3> <!--가이드타이틀-->
+      <div class="list-group list-group-horizontal">
+        <div class="list-group-item">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="chk-list-04">
+            <label class="form-check-label" for="chk-list-04">
+              Default checkbox
+            </label>
+          </div>
+        </div>
+        <div class="list-group-item">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="chk-list-05" checked>
+            <label class="form-check-label" for="chk-list-05">
+              Checked checkbox
+            </label>
+          </div>
+        </div>
+        <div class="list-group-item">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="chk-list-06" disabled>
+            <label class="form-check-label" for="chk-list-06">
+              disabled checkbox
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="tit-h4 mt-5">checkbox(label 없을 때)</h3> <!--가이드타이틀-->
+      <div>
+        <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="checkbox">
+      </div>
+
+      <h3 class="tit-h3 mt-5">radio</h3> <!--가이드타이틀-->
+      <h3 class="tit-h4 mt-5">radio(label 없을 때)</h3> <!--가이드타이틀-->
+      <div>
+        <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="" aria-label="radio">
+      </div>
+
+      <h3 class="tit-h4 mt-5">radio(리스트)</h3> <!--가이드타이틀-->
+      <div class="list-group">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="radio-list" id="radio1">
+          <label class="form-check-label" for="radio1">
+            Default radio
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="radio-list" id="radio2">
+          <label class="form-check-label" for="radio2">
+            Default radio
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="radio-list" id="radio3">
+          <label class="form-check-label" for="radio3">
+            Default radio
+          </label>
+        </div>
+      </div>
+      <h3 class="tit-h4 mt-5">radio(리스트-horizental)</h3> <!--가이드타이틀-->
+      <div class="list-group list-group-horizontal">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="radio-list2" id="radio4">
+          <label class="form-check-label" for="radio4">
+            Default radio
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="radio-list2" id="radio5">
+          <label class="form-check-label" for="radio5">
+            Default radio
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="radio-list2" id="radio6">
+          <label class="form-check-label" for="radio6">
+            Default radio
+          </label>
+        </div>
+      </div>
+
+      <h3 class="tit-h3 mt-5">toggle</h3> <!--가이드타이틀-->
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+      </div>
+
+      <h3 class="tit-h3 mt-5">Table (테이블 위드값 조정하는 거 알려주기)</h3> <!--가이드타이틀-->
+      <!-- table(s) -->
+      <table class="table table-bordered text-center">
+        <!-- 각자 크기에 맞게 위드값 조정 합쳐서 100% -->
+        <colgroup>
+          <col style="width:10%">
+          <col style="width:20%">
+          <col style="width:10%">
+          <col style="width:10%">
+          <col style="width:10%">
+          <col style="width:10%">
+          <col style="width:10%">
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">타이틀</th>
+            <th scope="col">타이틀</th>
+            <th scope="col">타이틀</th>
+            <th scope="col">타이틀</th>
+            <th scope="col">타이틀</th>
+            <th scope="col">타이틀</th>
+            <th scope="col">타이틀</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>내용</td>
+            <td>내용</td>
+            <td>내용</td>
+            <td>내용</td>
+            <td>내용</td>
+            <td>내용</td>
+            <td>내용</td>
+          </tr>
+          <tr>
+            <td>내용</td>
+            <td>내용</td>
+            <td>내용</td>
+            <td>내용</td>
+            <td>내용</td>
+            <td>내용</td>
+            <td>내용</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- table(e) -->
+
+      <h3 class="tit-h3 mt-5">pagination(php작업필요)</h3> <!--가이드타이틀-->
+      <!-- pagination(s) -->
+      <nav aria-label="페이지네이션">
+        <ul class="pagination">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">
+              <span class="visually-hidden">처음</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+              </svg>
+            </a>
+          </li>
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">
+              <span class="visually-hidden">이전</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+              </svg>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item active"> <!--active일떄 블라인드 현재페이지 스크립트로 넣어야함-->
+            <a class="page-link" href="#">2</span></a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">
+              <span class="visually-hidden">다음</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+              </svg>
+            </a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">
+              <span class="visually-hidden">마지막</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"/>
+                <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- pagination(e) -->
+
+
+      <h3 class="tit-h3 mt-5">Icons</h3> <!--가이드타이틀-->
+      <div class="">
+        <div class="small-Icon">
+          <h3>작은 아이콘 24x24</h3>
+          <i class="fa-solid fa-magnifying-glass fa-small">검색</i>
+          <i class="fa-solid fa-pen-to-square fa-small">수정</i>
+          <i class="fa-solid fa-trash-can fa-small">삭제</i>
+          <i class="fa-solid fa-trash-can fa-small">삭제</i>
+          <i class="fa-solid fa-caret-down fa-small">다운</i>
+          <i class="fa-solid fa-angles-right fa-small">더블 오른쪽</i>
+          <i class="fa-solid fa-angle-right fa-small">오른쪽</i>
+          <i class="fa-solid fa-angles-left fa-small">더블 왼쪽</i>
+          <i class="fa-solid fa-angle-left fa-small">왼쪽</i>
+          <i class="fa-solid fa-bell fa-small">알림</i>
+          <i class="fa-solid fa-power-off fa-small">로그아웃</i>
+          <i class="fa-solid fa-gear fa-small">설정</i>
+          <i class="fa-solid fa-calendar-days fa-small">달력</i>
+          <i class="fa-solid fa-heart fa-xsmall">좋아요</i>
+          <i class="fa-solid fa-circle-user fa-xsmall">유저</i>
+          <i class="fa-solid fa-circle-plus fa-small">플러스</i>
+        </div>
+        <div class="big-icon">
+          <h3>큰 아이콘 34x34</h3>
+          <i class="fa-solid fa-house fa-big">대시보드</i>
+          <i class="fa-solid fa-list fa-big">카테고리</i>
+          <i class="fa-solid fa-chalkboard-user fa-big">강의관리</i>
+          <i class="fa-solid fa-address-card fa-big">회원관리</i>
+          <i class="fa-solid fa-gift fa-big">이벤트</i>
+          <i class="fa-solid fa-cart-plus fa-big">수강관리</i>
+          <i class="fa-solid fa-ticket-simple fa-big">쿠폰</i>
+          <i class="fa-solid fa-comments fa-big">카뮤니티</i>
+        </div>
+
+      </div>
+
+      <!-- 박스쉐도우 -->
+      <h3 class="tit-h3 mt-5">박스쉐도우</h3> 
+      <div class="box-shadow box"></div> <!--.box-shadow만 넣기-->
+
+
+      <h3 class="tit-h3 mt-5">총건수</h3> <!--가이드타이틀-->
+      <div class="total">
+        <span>총 <em>8</em>건</span>
+        <span class="point">활성화 <em>8</em>건</span>
+        <span>비활성화 <em>8</em>건</span>
+      </div>
+
+
+    </div>
+    <!-- 가이드 (e) -->
+
+    <!-- IA (s) -->
+    <div class="tab-pane fade" id="ia-tab-pane" role="tabpanel" aria-labelledby="ia-tab" tabindex="0">
+      <a href="ia.html">ia바로가기</a>
+      
+    </div>
+    <!-- IA (e) -->
+
+    <!-- SUB PAGE GUIDE (s) -->
+    <div class="tab-pane fade" id="sub-tab-pane" role="tabpanel" aria-labelledby="sub-tab" tabindex="0">
+      <a href="sub_guide.html">메인 가이드 페이지로 이동</a>
+    </div>
+    <!-- SUB PAGE GUIDE (e) -->
+  </div>
+</body>
+</html>

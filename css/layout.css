@@ -1,0 +1,43 @@
+@import url(common.css);
+
+/* 메인레이아웃 */
+.admin-wrapper {display:flex;}
+.admin-wrapper .container {padding:0 62px 48px 398px; margin:0; min-width:100%;}
+
+/* gnb */
+.gnb {position:fixed; top:0; z-index:100; height:100vh; padding:36px 42px; background-color:var(--bg-sub1-c, #eeeafe); font-family:var(--laundrygothic,'LaundryGothic', sans-serif);}
+.gnb .logo > a {display:block; width:252px; height:90px; background:url(../image/logo.png) no-repeat center center / 252px auto;}
+.gnb .gnb-list {margin-top:50px; gap:0;}
+.gnb .gnb-list > li {padding:10px 0; margin:0 -42px;} 
+.gnb .gnb-list a,
+.gnb-list .accordion .accordion-button {display:flex; align-items:center; gap:30px; padding:0 42px; font-size:2.6rem; color:var(--body-text, #222);}
+.gnb .gnb-list > .on,
+.gnb .gnb-list > .acco .accordion-header.on {background-color:var(--primary-c, #472ea1);}
+.gnb .gnb-list > .acco .accordion-header {margin:0; padding:10px 0;}
+.gnb .gnb-list > .on a,
+.gnb .gnb-list > .acco .accordion-header.on .accordion-button {padding:0 42px; color:var(--white, #fff);}
+/* .gnb .gnb-list > .on.acco {background:none; padding:0; margin:0 -42px;} */
+.gnb-list .accordion {border:none;}
+.gnb-list .accordion .accordion-item {border:none; background:none;}
+.gnb-list .accordion .accordion-button {padding:0 42px; background:none; box-shadow:none;}
+.gnb-list .accordion .accordion-button::after {position:absolute; top:10px; right:42px; padding:0; border-width:8px 8px; border-style:solid; border-color:var(--body-text, #222) transparent transparent transparent; background-image:none; border-radius:3px; width:auto; height:auto;}
+.gnb-list .accordion .accordion-button:not(.collapsed)::after {top:0;}
+.gnb .gnb-list > .acco .accordion-header.on .accordion-button:after {border-color:var(--white, #fff) transparent transparent transparent;}
+.gnb-list .accordion-body {padding:24px 0;}
+
+.gnb .gnb-list ul.depth-2 a {display:block; padding:0 112px; font-size:2.0rem; color:var(--body-text, #222);}
+.gnb .gnb-list ul.depth-2 > li.on a {color:var(--primary-c, #472ea1); font-weight:var(--bold,bold);}
+.gnb .util-list {display:flex; flex-direction:row; margin-top:48px; justify-content:space-between;}
+.gnb .util-list a {font-size:2.4rem; color:var(--body-text, #222);;}
+
+/* 상단 utillist */
+.top-util-list {display:flex; justify-content:flex-end; align-items:center; gap:30px; margin-top:30px;}
+.top-util-list > li {display:flex; align-items:center; gap:16px;}
+.top-util-list .alarm .btn {position:relative; padding:0;}
+.top-util-list .alarm .btn > i {font-size:2.4rem;}
+.top-util-list .alarm .btn .tit-h3 {margin-left:16px;}
+.top-util-list .alarm .btn .badge {position:absolute; top:2px; left:10px; width:16px; height:16px; padding:0; border-radius:50% !important; background-color:var(--primary-c,#472ea1);}
+.top-util-list .alarm .btn .badge > em {display:block; height:16px; padding:0 3px; line-height:16px;}
+.top-util-list .profile .profile-wrap {display:inline-block; width:40px; height:40px; overflow:hidden; border-radius:50%; border:1px solid var(--body-text);}
+.top-util-list .profile .profile-wrap > img {width:100%; height:100%;}
+.top-util-list .profile .admin {display:inline-block;}

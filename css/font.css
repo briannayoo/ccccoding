@@ -1,0 +1,33 @@
+
+/*
+Copyright (c) 2021 Kil Hyung-jin, with Reserved Font Name Pretendard.
+https://github.com/orioncactus/pretendard
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+프리텐다드
+*/
+
+@font-face {
+	font-family: 'Pretendard Variable';
+	font-weight: 45 920;
+	font-style: normal;
+	font-display: swap;
+	src: url('../../fonts/PretendardVariable.woff2') format('woff2-variations');
+}
+
+/* 런드리 고딕 */
+@font-face {
+  font-family: 'LaundryGothic';
+  src: url('../../fonts/LaundryGothic_Regular.woff') format('woff2');
+  font-weight: regular;
+  
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LaundryGothic';
+  src: url('../../fonts/LaundryGothic_Bold.woff') format('woff2');
+  font-weight: bold;
+  font-style : normal;
+}

@@ -1,0 +1,160 @@
+@charset "utf-8";
+@import url(common.css);
+
+/* 대쉬보드 (우예지) */
+.login_logo {width: 200px;}
+.chart{width:565px; height:260px;}
+.chart-2 {width:290px; height:260px;}
+.chart-3 {width:565px; height:245px; transform:translateY(-245px);}
+.dashboard {display:grid; grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr; grid-template-rows:354px 354px 354px; grid-gap: 10px;}
+.dashboard .txt-title{font-size:26px; text-transform:uppercase; color:var(--primary-c);}
+.main-m{padding:36px 18px;}
+.dashboard .nav-link {color:var(--body-text);}
+.dashboard .nav-tabs {--bs-nav-tabs-link-active-color:var(--primary-c);}
+.dashboard * {list-style: none;}
+.dashboard a {text-decoration: none; color: inherit;}
+/* grid */
+.dashboard .sales-area{ grid-column: 1 / 4; grid-row: 1 / 2;}
+.dashboard .member-area {grid-column: 4 / 7; grid-row: 1 / 2;}
+.dashboard .lecture-area {grid-column: 1 / 4; grid-row: 2 / 3;}
+.dashboard .best3-area {grid-column: 4 / 7; grid-row: 2 / 3;}
+.dashboard .qna-area {grid-column: -7 / -5; grid-row: 3 / 4;}
+.dashboard .notice-area {grid-column: -5 / -3; grid-row: 3 / 4;}
+.dashboard .event-area {grid-column: -3 / -1; grid-row: 3 / 4;}
+
+.dashboard .chaption {margin-bottom: 36px;}
+.dashboard .best3-area li {display:flex;align-items:center;line-height:70px;}
+.lecture-condition {width: 50%; padding: 0 10px; box-sizing: border-box;}
+.lecture-condition p{display: flex; justify-content: space-between;}
+.dashboard .lecture-condition em,
+.dashboard .lecture-condition span {font-style: normal; font-size: 2.6rem;}
+.dashboard .best3-area em {
+  display:inline-block;
+  margin-right:120px;
+  font-style:normal;
+  font-size:2.0rem;
+  width:256px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap
+}
+.dashboard .best3-area span {margin-right: 40px;}
+.dashboard .best3-area span,
+.dashboard .best3-area i {font-size: 2rem;}
+.dashboard .best3-area .chaption,
+.dashboard .qna-area div, 
+.dashboard .notice-area div,
+.dashboard .event-area div,
+.dashboard .qna-area li a, 
+.dashboard .notice-area li a,
+.dashboard .event-area li a {display:flex; justify-content:space-between; align-items:center;}
+.dashboard .list-stlye{line-height:45px; font-size:1.8rem; border-bottom:1px solid var(--ipt-border);} 
+.dashboard .qna-area li:last-child, 
+.dashboard .notice-area li:last-child,
+.dashboard .event-area li:last-child {border-bottom:none;}
+
+/* 카테고리(우예지) */
+.cate select.tit-h3 {font-size:2.4rem; font-weight:normal;}
+.cate option {text-align:center;}
+.cate .modal-content {width:800px; padding:27px;}
+.cate .form-select {height:60px;}
+.cate .modal-body .form-select {height:45px; box-sizing:border-box;}
+.cate .form-control {height:45px;}
+.cate .modal-body {padding:16px;}
+
+/* 강의등록 / 강의관리(우예지) */
+.lh-2{line-height:34px;}
+.list-mt input {margin-top:8px;}
+.lecture-search {margin-bottom:48px;}
+.lecture_list_wrap .btn-area {justify-content:flex-end;}
+.lecture_list_wrap {width:100%;}
+.lecture_list_item {display:flex; gap:30px; width:100%; padding:18px; border:1px solid var(--ipt-border,#DEE2E6); }
+.lecture_list_item img {width:216px; height:144px; object-fit:cover; border-radius:10px;}
+.list-group.box-list.aic {align-items:center;}
+.lecture_list_wrap .lecture_chaption {display:flex; gap:10px; align-items:center;}
+.lecture_list_wrap .lecture_text {height:65px; overflow:hidden; text-overflow:ellipsis; word-break:break-all;}
+.lecture_list_wrap .tender-color {color:#696969;}
+.lecture_list_wrap .etc-group {width:340px; display:flex; gap:16px; flex-direction:column; justify-content:center;}
+.lecture_list_wrap span.lecture-price {font-size: 2.4rem; font-weight: bold;}
+.lecture_list_wrap .search-result {margin-bottom:0; text-align:center;}
+.lecture_list_wrap .btn:hover i {color:var(--primary-c);}
+.lecture_list_wrap .fa-angle-right {margin:0 10px;}
+.list-group.box-list .info-area {width: 98%;}
+
+/* 강의 상세 (우예지) */
+.lecture_detail {padding:30px 18px;}
+.lecture_detail img {width:500px;}
+.lecture_detail .lecture_video {padding:10px; border:1px solid var(--primary-c); border-radius:10px; width: 204px;}
+.lecture_detail .lecture_video a {color:inherit; text-decoration:none; text-align:center;}
+.lecture_detail> .d-flex {flex-direction:column; gap:26px;}
+
+/* 로그인 (우예지) */
+#login-wrap {background:var(--bg-sub1-c); height:100vh; position:relative;}
+#login-wrap .login-bg {
+  width: 900px;
+  height: 900px;
+  background-image: url(../image/login-bg.png);
+  background-position:bottom center;
+  background-repeat:no-repeat;
+  background-size:contain;
+  position:absolute;
+  left:50%; bottom:0;
+  transform:translateX(-50%);
+}
+#login-wrap form {width:578px; position:absolute; left:50%; top:50%; transform:translate(-50%, -50%);}
+#login-wrap h1.mb-6{margin-bottom:60px;}
+/* #login-wrap form input{width: 100%;} */
+#login-wrap form label{margin-left: 18px;}
+/* .form-floating>.form-control{padding-top:2.5rem;} */
+.form-floating>.form-control:focus {padding-top:2.5rem;}
+.form-floating>.form-control:not(:placeholder-shown) {padding-top:2.5rem;}
+.form-floating>.form-control,
+.form-floating>.form-control-plaintext,
+.form-floating>.form-select{height: auto; padding-top:2.5rem;}
+.log-btn {width:563px; height:42px;}
+
+/* 컨텐츠리스트 (쿠폰+이벤트)(박소현) */
+.list-group.box-list {display:flex; flex-direction:row; flex-wrap:wrap; justify-content:space-between; gap:0;}
+.list-group.box-list > .list-group-item  {display:flex; gap:30px; width:calc((100% / 2) - 15px); padding:18px;  border:1px solid var(--ipt-border,#DEE2E6); border-radius:10px; box-shadow: 0px 4px 4px 2px rgba(222, 226, 230, 0.5);}
+.list-group.box-list > .list-group-item:nth-child(n+3)  {margin-top:32px;}
+.list-group.box-list .img-wrap {flex:0 0 292px; width:292px; height:292px; border-radius:10px; overflow:hidden;}
+.list-group.box-list .img-wrap img {width:100%; height:100%;}
+.list-group.box-list .info-area {width:100%;}
+.list-group.box-list .edit-btn-group {display:flex; justify-content:end; gap:16px}
+.list-group.box-list .edit-btn-group >button {width:24px; height:24px; padding:0;}
+.list-group.box-list .edit-btn-group >button > i {font-size:2.4rem;}
+.list-group.box-list .tit-group {display:flex; justify-content:space-between; align-items:center; margin:55px 0 35px;}
+.list-group.box-list .txt-group > p {margin-top:16px; font-size:2rem;}
+
+/* 리스트 3개일때 .list-3클래스 */
+.list-group.box-list.list-3 .list-group-item {width:calc((100% / 3) - 30px);}
+.list-group.box-list.list-3 .list-group-item:nth-child(n+3)  {margin-top:0;}
+.list-group.box-list.list-3 .list-group-item:nth-child(n+4)  {margin-top:32px;}
+
+/* 공지사항 (유부현) */
+
+/* qna (유부현) */
+.profile-box {width:70px; height:70px; border-radius:70%; overflow: hidden;}
+.pro-img {width: 100%; height: 100%; object-fit:cover;}
+.question{margin-top:26px; width:1300px; height: 114px;}
+.q-box{padding:26px;}
+.a-box{margin-top:26px; width:1300px; height: 114px;}
+.pro-box{margin-top:26px;}
+.a-boxform{border:none;}
+.answer{ gap:10px;}
+.pro-box{width:100px; text-align:center; display:grid; place-items:center;}
+.pro-box2{width:100px; height:100px; display:grid; place-items: center; text-align: center; padding-top: 20px;}
+.pro-box3{margin-top:26px; width:700px; text-align:center; place-items:center; gap:5px;}
+.qna-table a, .notice_table a{color:inherit; text-decoration:none;}
+.reply-del {color:inherit; text-decoration:none;}
+.reply-edit{background: none; border: none; gap: 5px;}
+.reply-btn{float: right; margin-right: 150px;}
+.reply-new{width:1300px; margin-top: 46px;}
+.answer textarea{ width:1300px; height: 114px; resize: none; color: black; border: 3px solid #0000007e; outline: none;}
+.reply-form{font-size:1.6rem; padding:4px 40px 4px 10px;}
+.reply-edit{background: none; border: none;}
+.reply-btn{float: right; margin-right: 200px;}
+/* 쿠폰 */
+.dc-wrap {display:none;}
+.edit .dc-wrap {display:block;}
+
