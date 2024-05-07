@@ -85,6 +85,8 @@ input::placeholder {color: var(--placeh-c, #969696);}
 .btn.btn-outline-secondary {border:1px solid #CED4DA; color:var(--body-text, #222); background:none}
 .btn.btn-outline-secondary:hover,
 .btn.btn-outline-secondary:focus {border:1px solid #CED4DA; background:none; color:var(--body-text, #222);}
+
+.btn.btn-outline-secondary.pm-line {border:1px solid var(--primary-c, #472ea1); color:var(--primary-c, #472ea1);}
 /* sm */
 .btn.btn-sm {min-width:120px; height:34px; line-height:34px; font-weight: var(--regular);}
 
