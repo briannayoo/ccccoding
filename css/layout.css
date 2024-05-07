@@ -3,4 +3,12 @@
 .container{max-width:1400px; margin:0 auto; padding:0;}
 
 /*===== 서브페이지 레이아웃 =====*/
-.sub {}
+.sub .container {display:flex; justify-content:space-between; flex-wrap:wrap;}
+.sub .sub-menu {width:212px;}
+.sub .con-wrap {width:calc(100% - 212px);}
+.sub .filter-area {display:flex; align-items:center; justify-content:flex-end; gap:30px;}
+.sub .filter-area .difficulty {display:flex; align-items:center; gap:30px;}
+.sub .filter-area .ipt-wrap {position:relative;}
+.sub .filter-area .ico-search {position:absolute; top:0; right:0;}
+.sub .sort-area {display:flex; justify-content:flex-end; margin-top:26px;}
+.sub .sort-area .form-select {width:auto; min-width:100px; padding:8px; background:url(../image/ico_select_arrow.png) no-repeat right 8px center / 10px auto;}
