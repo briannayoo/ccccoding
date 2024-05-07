@@ -5,25 +5,29 @@
 .temp-area {display:flex; justify-content:center; align-items:center; width:100%; height:500px; background-color:#ccc; font-size:20px;} /*임시*/
 
 :root {
+  /* 폰트 */
   --pretendard:'Pretendard', sans-serif;
   --laundrygothic:'LaundryGothic', sans-serif;
   --font-size:10px;
   --bold:700;
   --medium:500;
   --regular:400;
+  /* 인풋 */
   --ipt-border:#DEE2E6;
   --placeh-c:#969696;
+  /* bg */
   --bg-sub1-c:#eeeafe;
   --bg-sub2-c:#eee;
   --white:#fff;
   --primary-c:#472ea1;
   --secondary-c:#CED4DA;
+  /* text */
   --body-text:#222;
   --text-c2:#C47CFD;
   --text-c3:#333236; 
   --text-c4:#4D4C51;
   --text-c5:#66666E;
-  --text-c6:##888893;
+  --text-c6:#888893;
   --sub-txt-c:#bcbcbc;
 }
 
@@ -69,16 +73,20 @@ input::placeholder {color: var(--placeh-c, #969696);}
 
 /*========== Color ==========*/
 /* bg */
-.bg-basic-c {background-color:var(--bg-basic-c, #eeeafe);}
-.bg-sub1-c {background-color:var(--bg-sub1-c);} /*확인해봐야 함*/
-.bg-sub2-c {background-color:var(--bg-sub2-c, #eee);}
+.bg-sub1-c {background-color:var(--bg-sub-c, #eeeafe);}
+.bg-sub2-c {background-color:var(--bg-sub2, #eee);}
+.white {background-color:var(--white, #fff);}
+.primary-c {background-color:var(--primary-c, );}
+.secondary-c {background-color:var(--secondary-c, );}
 
 /* text */
-.primary-c {color:var(--primary-c, #472ea1);}
-.secondary-c {color:var(--secondary-c, #CED4DA);}
-.txt-c {color:var(--body-text, #222);}
+.body-text {color:var(--body-text, #222);}
+.text-c2 {color:var(--text-c2, #C47CFD);}
+.text-c3 {color:var(--text-c3, #333236);}
+.text-c4 {color:var(--text-c4, #4D4C51);}
+.text-c5 {color:var(--text-c5, #66666E);}
+.text-c6 {color:var(--text-c6, #888893);}
 .sub-txt-c {color:var(--sub-txt-c, #bcbcbc);}
-.placeh-c {color:var(--placeh-c, #969696);}
 
 /*========== Buttons ==========*/
 .btn[class*="btn-"] {padding:0 24px; text-align:center; font-size:2rem; font-family:var(--pretendard, 'Pretendard', sans-serif); font-weight:var(--bold);  border-radius:10px;}
