@@ -1,11 +1,10 @@
 @import url(common.css);
 
+.container{width:1400px; margin:0 auto;}
 
 /* =====메인페이지 레이아웃===== */
 /* header */
 
 /* 메인 */
-main > .section {width:1400px; margin:0 auto;}
-main > .section.full {width:100%;}
 
 /* footer */
