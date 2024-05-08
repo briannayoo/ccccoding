@@ -247,7 +247,10 @@
       <a href="# " class="btn btn-outline-secondary btn-sm pm-line">버튼</a>
       <button type="button" class="btn btn-outline-secondary btn-sm pm-line">버튼</button>
       <input type="button" class="btn btn-outline-secondary btn-sm pm-line" value="버튼">
-      
+
+      <h4 class="tit-h4 mt-5">텍스트버튼(링크)</h4> <!--가이드타이틀-->
+      <a href="# " class="links">회원탈퇴하기</a>
+
       <h4 class="tit-h4 mt-5">버튼 2개 케이스 (양옆 16px 간격 / 상단 간격 : 52px(두칸)</h4> <!--가이드타이틀-->
       <h5 class="tit-h5 mt-1">버튼 2개 케이스 라지</h5> <!--가이드타이틀-->
       <!-- 버튼 2개 case (s) -->
@@ -290,12 +293,6 @@
       </div>
       <!-- 버튼 2개 case (e) -->
 
-      <h3 class="tit-h3 mt-5">form-list</h3> <!--가이드타이틀-->
-      <form action="">
-        
-      </form>
-      <!-- form-list (e) -->
-      
       <h3 class="tit-h3 mt-5">checkbox</h3> <!--가이드타이틀-->
       <h3 class="tit-h4 mt-5">checkbox(단독)</h3> <!--가이드타이틀-->
       <div class="form-check">
@@ -479,8 +476,78 @@
         <li class="list-group-item">텍스트</li>
       </ul>
 
+      <h3 class="tit-h3 mt-5">form</h3>  <!--가이드타이틀-->
+      <!-- form-list (s) -->
+      <form action="#" class="form-list">
+
+        <!-- input text 1 (s) -->
+        <div class="row">
+          <label for="name" class="col-md-1 col-form-label tit-h4">이름</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="ipt-wrap">
+                <input type="text" class="form-control" id="name" placeholder="이름을 입력해주세요">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- input text 1 (e) -->
+
+        <!-- input password (s) -->
+        <div class="row pw">
+          <label for="password" class="col-md-1 col-form-label tit-h4">비밀번호</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="ipt-wrap">
+                <input type="password" class="form-control" id="password" placeholder="현재 비밀번호">
+              </div>
+              <div class="ipt-wrap">
+                <input type="password" class="form-control" id="password" placeholder="새 비밀번호">
+              </div>
+              <div class="ipt-wrap">
+                <input type="password" class="form-control" id="password" placeholder="새 비밀번호 확인">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- input password (e) -->
+
+        <!-- input email + button (s) -->
+        <div class="row mix">
+          <label for="name" class="col-md-1 col-form-label tit-h4">이메일</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="ipt-wrap">
+                <input type="email" class="form-control" id="name" placeholder="이메일을 입력해주세요.">
+              </div>
+              <button type="button" class="btn btn-outline-secondary btn-sm">인증</button>
+            </div>
+          </div>
+        </div>
+        <!-- input email + button (e) -->
+
+        <!-- input tel + button (s) -->
+        <div class="row mix">
+          <label for="name" class="col-md-1 col-form-label tit-h4">휴대폰번호</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="ipt-wrap">
+                <input type="tel" class="form-control" id="name" placeholder="휴대폰번호를 입력해주세요.">
+              </div>
+              <button type="button" class="btn btn-outline-secondary btn-sm">인증</button>
+              <p class="txt-info">*휴대폰번호 변경 후 재인증 필요</p>
+            </div>
+          </div>
+        </div>
+        <!-- input tel + button (e) -->
+      </form>
+      <!-- form-list (e) -->
+
+      <h3 class="tit-h3 mt-5">summer note</h3>  <!--가이드타이틀-->
       <!-- 썸머노트 (s) -->
-      <div id="summernote"><p>Hello Summernote</p></div>
+      <div id="summernote">
+        <p>Hello Summernote</p>
+      </div>
       <!-- 썸머노트 (e) -->
 
       <!-- 썸머노트 스크립트 (s) -->
