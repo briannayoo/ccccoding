@@ -5,6 +5,10 @@
 /*===== 서브페이지 레이아웃 =====*/
 .sub .container {display:flex; justify-content:space-between; flex-wrap:wrap;}
 .sub .sub-menu {width:212px;}
+.sub .sub-menu .accordion-item {border:0;}
+.sub .sub-menu .accordion-button {font-size:2rem; background:none; box-shadow:none; padding:10px 24px; font-weight:var(--bold,700);}
+.sub .sub-menu .accordion-button::after {content:none;}
+.sub .sub-menu .accordion-body {padding: 10px 60px; font-size:20px;}
 .sub .con-wrap {width:calc(100% - 360px);}
 .sub .filter-area {display:flex; align-items:center; justify-content:flex-end; gap:30px;}
 .sub .filter-area .difficulty {display:flex; align-items:center; gap:30px;}
