@@ -18,3 +18,13 @@
 .sub .filter-area .ico-search > i {font-size:1.6rem; color:var(--placeh-c,#969696);}
 .sub .sort-area {display:flex; justify-content:flex-end; margin:10px 0 26px;}
 .sub .sort-area .form-select {width:auto; min-width:100px; padding:2px 8px; background:url(../image/ico_select_arrow.png) no-repeat right 8px center / 10px auto; font-size:1.4rem;}
+
+/*===== footer =====*/
+footer {padding:52px 0; background-color:var(--primary-c,#472ea1);}
+footer .logo {display:inline-block; width:100px;}
+footer .etc-list {margin-bottom:10px;}
+footer .etc-list.link {margin-bottom:26px;}
+footer .etc-list > li:after {height:10px; }
+footer .etc-list li,
+footer .etc-list a,
+footer .copy {color:#fff; font-size:1.4rem;}
