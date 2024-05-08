@@ -155,6 +155,7 @@ textarea {height:250px;}
 .input-group .ipt-wrap {flex:1 1 100%;}
 .input-group .txt-info {width:100%; font-size:1rem; color:#FF0000;}
 .pw .input-group {gap:26px;}
+.mix .input-group {gap:30px}
 .mix .input-group .ipt-wrap {flex:1 1 auto;}
 .mix .input-group .btn {height:26px; line-height:26px; min-width:60px;}
 .form-list {display:flex; flex-direction:column; gap:26px;}
