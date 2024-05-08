@@ -43,6 +43,7 @@ body {
   line-height:2.6rem;
 }
 hr {background: var(--ipt-border); margin:30px 0;}
+a {color:var(--body-text,#222);}
 a:hover,
 a:focus {color:inherit;}
 input::placeholder {color: var(--placeh-c, #969696);}
