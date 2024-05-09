@@ -149,7 +149,7 @@ p {margin:0;}
 /*========== Forms ==========*/
 /* 공통 */
 .form-select,
-.form-control {height:26px; line-height:26px; font-size:1.6rem; padding:3px 16px 3px 16px;}
+.form-control {height:32px; line-height:32px; font-size:1.6rem; padding:3px 16px 3px 16px;}
 textarea {height:250px;}
 .form-check-input:checked {background-color:var(--primary-c); border-color:var(--primary-c);}
 .form-switch .form-check-input:checked {border-color:var(--primary-c);}
@@ -157,11 +157,10 @@ textarea {height:250px;}
 
 .input-group {align-items:center;}
 .input-group .ipt-wrap {flex:1 1 100%;}
-.input-group .txt-info {width:100%; font-size:1rem; color:#FF0000;}
+.input-group .txt-info {width:100%; font-size:1.2rem; color:#FF0000;}
 .pw .input-group {gap:26px;}
-.mix .input-group {gap:30px}
-.mix .input-group .ipt-wrap {flex:1 1 auto;}
-.mix .input-group .btn {height:26px; line-height:26px; min-width:60px;}
+.mix .input-group .ipt-wrap {flex:1 1 auto; margin-right:30px;}
+.mix .input-group .btn {height:32px; line-height:32px; min-width:60px;}
 .form-list {display:flex; flex-direction:column; gap:26px;}
 .form-list .row {align-items:start; margin:0; padding:0;}
 .form-list .col-form-label {padding:0;}
