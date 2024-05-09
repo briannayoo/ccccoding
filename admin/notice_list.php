@@ -210,7 +210,7 @@ if ($date == '1') {
           </ul>
         </nav>
         <!-- pagination(e) -->
-          </nav>
+      </nav>
       </div>
         </div>
   </div>
