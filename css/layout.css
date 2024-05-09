@@ -7,6 +7,8 @@
 .sub .sub-menu {width:212px;}
 .sub .sub-menu .list-group {gap:0;}
 .sub .sub-menu > ul > li {border-bottom:1px solid var(--ipt-border,#DEE2E6);}
+.sub .sub-menu .logout {margin:26px 0 0 10px;}
+.sub .sub-menu .logout a {color:var(--text-c6,#888893);}
 
 .sub .sub-menu .accordion-item {border:0;}
 .sub .sub-menu .accordion-button {display:flex; gap:16px; font-size:2rem; background:none; box-shadow:none; padding:10px 22px; font-weight:var(--bold,700);}

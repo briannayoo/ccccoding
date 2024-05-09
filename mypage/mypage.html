@@ -30,23 +30,37 @@
     <div class="section">
       <div class="container">
         <div class="my-gnb-wrap">
-          <div class="profile temp-area">
-            프로필영역
+          <div class="profile temp-area" style="width:212px;">
+            프로필영역(공통가이드) + 쿠폰/포인트영역
           </div>
           <nav class="sub-menu">
             <ul class="list-group">
               <li class="list-group-item">
-                <a href="#" class="accordion-button">HOME</a>
+                <a href="#" class="accordion-button tit-h4">HOME</a>
               </li>
-  
               <li class="list-group-item">
-                <a href="#" class="accordion-button">컴퓨터 사이언스</a>
+                <a href="#" class="accordion-button tit-h4">내강의 보기</a>
               </li>
-  
               <li class="list-group-item">
-                <a href="#" class="accordion-button">프로그래밍 사이언스</a>
+                <a href="#" class="accordion-button tit-h4">수강바구니</a>
+              </li>
+              <li class="list-group-item">
+                <a href="#" class="accordion-button tit-h4">구매내역</a>
+              </li>
+              <li class="list-group-item">
+                <a href="#" class="accordion-button tit-h4">문의내역</a>
+              </li>
+              <li class="list-group-item">
+                <a href="#" class="accordion-button tit-h4">쿠폰&amp;포인트</a>
+              </li>
+              <li class="list-group-item">
+                <a href="#" class="accordion-button tit-h4">회원정보 수정</a>
               </li>
             </ul>
+
+            <div class="logout">
+              <a href="#" class="tit-h4">로그아웃</a>
+            </div>
           </nav>
         </div>
         
@@ -54,59 +68,82 @@
           <div class="page-tit-area">
             <h2 class="tit-h1">마이페이지</h2>
           </div>
+          <!-- 공통 부분 (e) -->
 
-          <form action="" class="filter-area">
-            <div class="difficulty">
-              <strong class="tit-h5">난이도</strong>
-              <div class="list-group list-group-horizontal">
-                <div class="list-group-item">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="difficulty_01" name="difficulty_01">
-                    <label class="form-check-label" for="difficulty_01">
-                      상
-                    </label>
-                  </div>
-                </div>
-                <div class="list-group-item">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="difficulty_02" name="difficulty_02">
-                    <label class="form-check-label" for="difficulty_02">
-                      중
-                    </label>
-                  </div>
-                </div>
-                <div class="list-group-item">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="difficulty_03" name="difficulty_03">
-                    <label class="form-check-label" for="difficulty_03">
-                      하
-                    </label>
+          <!-- 아래에서 부터 작업영역입니다 -->
+          <h3 class="tit-h4">이미지프로필</h3>
+          <form action="" class="form-list">
+            <div class="temp-area">프로필영역(공통가이드)</div>
+
+            <!-- input text 1 (s) -->
+            <div class="row">
+              <label for="name" class="col-md-1 col-form-label tit-h4">이름</label>
+              <div class="col-md-11">
+                <div class="input-group">
+                  <div class="ipt-wrap">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="이름을 입력해주세요">
                   </div>
                 </div>
               </div>
             </div>
-            <div class="ipt-wrap">
-              <input type="search" class="form-control" placeholder="검색어를 입력하세요.">
-              <button class="ico-search">
-                <span class="visually-hidden">검색</span>
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
+            <!-- input text 1 (e) -->
+
+            <!-- input email + button (s) -->
+            <div class="row mix">
+              <label for="email" class="col-md-1 col-form-label tit-h4">이메일</label>
+              <div class="col-md-11">
+                <div class="input-group">
+                  <div class="ipt-wrap">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="이메일을 입력해주세요.">
+                  </div>
+                  <button type="button" class="btn btn-outline-secondary btn-sm">인증</button>
+                  <p class="txt-info">*이메일 변경 후 재인증 필요</p>
+                </div>
+              </div>
+            </div>
+            <!-- input email + button (e) -->
+
+            <!-- input password (s) -->
+            <div class="row pw">
+              <label for="password" class="col-md-1 col-form-label tit-h4">비밀번호</label>
+              <div class="col-md-11">
+                <div class="input-group">
+                  <div class="ipt-wrap">
+                    <input type="password" class="form-control" id="password" placeholder="현재 비밀번호">
+                  </div>
+                  <div class="ipt-wrap">
+                    <input type="password" class="form-control" id="password" placeholder="새 비밀번호">
+                  </div>
+                  <div class="ipt-wrap">
+                    <input type="password" class="form-control" id="password" placeholder="새 비밀번호 확인">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- input password (e) -->
+
+            <!-- input tel + button (s) -->
+            <div class="row mix">
+              <label for="name" class="col-md-1 col-form-label tit-h4">휴대폰번호</label>
+              <div class="col-md-11">
+                <div class="input-group">
+                  <div class="ipt-wrap">
+                    <input type="tel" class="form-control" id="name" placeholder="휴대폰번호를 입력해주세요.">
+                  </div>
+                  <button type="button" class="btn btn-outline-secondary btn-sm">인증</button>
+                  <p class="txt-info">*휴대폰번호 변경 후 재인증 필요</p>
+                </div>
+              </div>
+            </div>
+            <!-- input tel + button (e) -->
+
+            <a href="# " class="links">회원탈퇴하기</a>
+
+            <div class="btn-area">
+              <button type="button" class="btn btn-primary btn-md">수정완료</button>
             </div>
           </form>
-
-          <div class="sort-area">
-            <select class="form-select" aria-label="정렬 순서 선택">
-              <option value="1" selected>최신순</option>
-              <option value="2">인기순</option>
-              <option value="3">추천순</option>
-            </select>
-          </div>
-          <!-- 공통 부분 (e) -->
-
-          <!-- 아래에서 부터 작업영역입니다 -->
-          <div class="temp-area"> <!--temp-area 지우고 본인 작업 영역하면됨!-->
-            작업영역
-          </div>
+          </form>
         </div>
       </div>
     </div>
