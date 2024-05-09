@@ -246,3 +246,25 @@ textarea {height:250px;}
 .etc-list {display:flex; flex-direction:row; gap:32px;}
 .etc-list > li:after {content:''; position:absolute; top:50%; transform:translateY(-50%); width:1px; height:16px; background-color:var(--ipt-border, #DEE2E6); margin-left:16px;}
 .etc-list > li:last-child:after {content:none;}
+
+/* flag */
+[class^="flag-state-"] {display:inline-block; padding:4px 4px; background-color:#913dd3; color:#fff; border-radius:4px;}
+.flag-state-primary {background-color:#913dd3;}
+.flag-state-negative {background-color:#ae2549;}
+.flag-state-complete {background-color:#25ae30;}
+.flag-state-incomplete {background-color:#dcd6d4; color:#222;}
+
+/* box list */
+.box-list {}
+.box-list .item-inner {display:flex; justify-content:space-between;}
+.box-list.line .item-inner {margin-top:10px; padding:22px 16px; border:1px solid #ccc; border-radius:10px;}
+.box-list:not([class*="list-"]) .list {margin-top:30px;}
+.box-list:not([class*="list-"]) .list:first-child {margin-top:0;}
+.box-list .list .item {}
+.box-list .list .item .inner > * {display:inline-block;}
+.box-list .list .item:last-child {flex: 0 0 auto; padding-left: 16px;}
+.box-list .list .item .orderNum {margin-left:8px;}
+/* box list - 3개 */
+.box-list[class*="list-"] {display:flex; flex-wrap:wrap;}
+.box-list.list-3 {}
+.box-list.list-3 .list {flex:0 0 33.333%; padding:0 10px; box-sizing:border-box;}
