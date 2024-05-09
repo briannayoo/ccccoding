@@ -74,6 +74,8 @@ p {margin:0;}
 .main-tit-area .desc {color:var(--text-c6, #888893);}
 
 .page-tit-area {margin:12px 0 48px;}
+.page-tit-area .desc {margin-top:4px;}
+.page-tit-area .desc > em {color:var(--text-c2, #C47CFD); font-style:normal;}
 [class^=tit-] {font-weight:var(--bold, 700);}
 .tit-h1 {font-size:3.2rem; line-height:4.8rem; font-family:var(--laundrygothic, 'LaundryGothic', sans-serif);}
 .tit-h2 {font-size:2.8rem; line-height:4.2rem; font-family:var(--laundrygothic, 'LaundryGothic', sans-serif);}
