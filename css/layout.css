@@ -5,7 +5,7 @@
 /*===== 서브페이지 레이아웃 =====*/
 .sub .container {display:flex; justify-content:space-between; flex-wrap:wrap;}
 .sub .sub-menu {width:212px;}
-.sub .sub-menu > ul {gap:0;}
+.sub .sub-menu .list-group {gap:0;}
 .sub .sub-menu > ul > li {border-bottom:1px solid var(--ipt-border,#DEE2E6);}
 
 .sub .sub-menu .accordion-item {border:0;}
