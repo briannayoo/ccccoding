@@ -14,16 +14,19 @@
   left:50%; bottom:0;
   transform:translateX(-50%);
 }
-#login-wrap form {width:578px; position:absolute; left:50%; top:50%; transform:translate(-50%, -50%);}
-#login-wrap h1.mb-6{margin-bottom:60px;}
+#login-wrap img {width:380px;}
+#login-wrap form {width:578px; position:absolute; left:46%; top:50%; transform:translate(-50%, -50%);}
+#login-wrap h1.mb-6{margin-bottom:34px;}
+#login-wrap .etc-list{justify-content: center;}
 /* #login-wrap form input{width: 100%;} */
-#login-wrap form label{margin-left: 18px;}
+#login-wrap form .label_ml{margin-left: 18px;}
 /* .form-floating>.form-control{padding-top:2.5rem;} */
 .form-floating>.form-control:focus {padding-top:2.5rem;}
 .form-floating>.form-control:not(:placeholder-shown) {padding-top:2.5rem;}
 .form-floating>.form-control,
 .form-floating>.form-control-plaintext,
-.form-floating>.form-select{height: auto; padding-top:2.5rem;}
-.log-btn {width:563px; height:42px;}
+.form-floating>.form-select{height:auto; padding-top:2.5rem;}
+#login-wrap .log-btn {width:563px; height:57px; font-size:2.8rem; font-family:var(--laundrygothic, 'LaundryGothic', sans-serif);}
+#login-wrap .list-group.list-group-horizontal {justify-content:end;}
 
 /* 공지사항 (유부현) */
