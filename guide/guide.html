@@ -575,7 +575,7 @@
           환불완료
         </span>
         <span class="flag-state-incomplete">
-          완료
+          미완료
         </span>
       </div>
 
@@ -589,23 +589,23 @@
       </div>
       <!-- progress bar (e) -->
 
-      <h3 class="tit-h3 mt-5">box-list(line)</h3>  <!--가이드타이틀-->
-      <!-- box-list(s) -->
-      <div class="box-list line">
+      <h3 class="tit-h3 mt-5">line-box-list</h3>  <!--가이드타이틀-->
+      <!-- line-box-list(s) -->
+      <div class="line-box-list">
         <div class="list">
           <span class="date">주문날짜: <em>YYYY-MM-DD</em></span>
-          <div class="item-inner">
+          <div class="inner">
             <div class="item">
-              <div class="inner">
+              <div class="top">
                 <span class="flag-state-primary">
                   결제완료
                 </span>
-                <span class="orderNum">
+                <span class="order-num">
                   주문번호:
                   <em>1111-1111-1111</em>
                 </span>
               </div>
-              <div class="tit">
+              <div class="tit-h4">
                 따라하며 배우는 리액트 A-Z
               </div>
             </div>
@@ -613,24 +613,24 @@
               <div class="price">
                 <em>7,900</em>원
               </div>
-              <button type="button">강의로 이동</button>
+              <a href="#" class="btn btn-primary">강의로 이동</a>
             </div>
           </div>
         </div>
         <div class="list">
-          주문날짜: <em>YYYY-MM-DD</em>
-          <div class="item-inner">
+          <span class="date">주문날짜: <em>YYYY-MM-DD</em></span>
+          <div class="inner">
             <div class="item">
-              <div class="inner">
-                <span class="flag-state-primary">
-                  결제완료
+              <div class="top">
+                <span class="flag-state-negative">
+                  결제취소
                 </span>
-                <span class="orderNum">
+                <span class="order-num">
                   주문번호:
                   <em>1111-1111-1111</em>
                 </span>
               </div>
-              <div class="tit">
+              <div class="tit-h4">
                 따라하며 배우는 리액트 A-Z
               </div>
             </div>
@@ -638,24 +638,24 @@
               <div class="price">
                 <em>7,900</em>원
               </div>
-              <button type="button">강의로 이동</button>
+              <a href="#" class="btn btn-primary">강의로 이동</a>
             </div>
           </div>
         </div>
         <div class="list">
-          주문날짜: <em>YYYY-MM-DD</em>
-          <div class="item-inner">
+          <span class="date">주문날짜: <em>YYYY-MM-DD</em></span>
+          <div class="inner">
             <div class="item">
-              <div class="inner">
-                <span class="flag-state-primary">
-                  결제완료
+              <div class="top">
+                <span class="flag-state-complete">
+                  환불완료
                 </span>
-                <span class="orderNum">
+                <span class="order-num">
                   주문번호:
                   <em>1111-1111-1111</em>
                 </span>
               </div>
-              <div class="tit">
+              <div class="tit-h4">
                 따라하며 배우는 리액트 A-Z
               </div>
             </div>
@@ -663,138 +663,67 @@
               <div class="price">
                 <em>7,900</em>원
               </div>
-              <button type="button">강의로 이동</button>
+              <a href="#" class="btn btn-primary">강의로 이동</a>
             </div>
           </div>
         </div>
       </div>
-      <!-- box-list(e) -->
+      <!-- line-box-list(e) -->
 
-      <h3 class="tit-h3 mt-5">box-list(line) 3개</h3>  <!--가이드타이틀-->
-      <div class="box-list line list-3">
+      <h3 class="tit-h3 mt-5">line-box-list</h3>  <!--가이드타이틀-->
+      <div class="line-box-list qa">
         <div class="list">
-          주문날짜: <em>YYYY-MM-DD</em>
-          <div class="item-inner">
+          <span class="date">문의날짜: <em>YYYY-MM-DD</em></span>
+          <div class="inner">
             <div class="item">
-              <div class="inner">
-                <span class="flag-state-primary">
-                  결제완료
+              <div class="top">
+                <span class="flag-state-incomplete">
+                  미해결
                 </span>
-                <span class="orderNum">
-                  주문번호:
-                  <em>1111-1111-1111</em>
-                </span>
+                <p class="state-txt">답변을 준비중입니다.</p>
               </div>
-              <div class="tit">
+              <div class="tit-h4">
                 따라하며 배우는 리액트 A-Z
               </div>
-            </div>
-            <div class="item">
-              <div class="price">
-                <em>7,900</em>원
-              </div>
-              <button type="button">강의로 이동</button>
             </div>
           </div>
         </div>
         <div class="list">
-          주문날짜: <em>YYYY-MM-DD</em>
-          <div class="item-inner">
+          <span class="date">문의날짜: <em>YYYY-MM-DD</em></span>
+          <div class="inner">
             <div class="item">
-              <div class="inner">
+              <div class="top">
                 <span class="flag-state-primary">
-                  결제완료
+                  답변완료
                 </span>
-                <span class="orderNum">
-                  주문번호:
-                  <em>1111-1111-1111</em>
-                </span>
+                <p class="state-txt bold">답변을 완료하였습니다.</p>
               </div>
-              <div class="tit">
+              <div class="tit-h4">
                 따라하며 배우는 리액트 A-Z
               </div>
-            </div>
-            <div class="item">
-              <div class="price">
-                <em>7,900</em>원
-              </div>
-              <button type="button">강의로 이동</button>
             </div>
           </div>
         </div>
+      </div>
+
+      <h3 class="tit-h3 mt-5">line-box-list 3개</h3>  <!--가이드타이틀-->
+      <div class="line-box-list list-3">
         <div class="list">
-          주문날짜: <em>YYYY-MM-DD</em>
-          <div class="item-inner">
-            <div class="item">
-              <div class="inner">
-                <span class="flag-state-primary">
-                  결제완료
-                </span>
-                <span class="orderNum">
-                  주문번호:
-                  <em>1111-1111-1111</em>
-                </span>
-              </div>
-              <div class="tit">
-                따라하며 배우는 리액트 A-Z
-              </div>
-            </div>
-            <div class="item">
-              <div class="price">
-                <em>7,900</em>원
-              </div>
-              <button type="button">강의로 이동</button>
-            </div>
+          <div class="inner">
+            <div class="tit-h4">모든 수강신청 강의</div>
+            <span class="num">10</span>
           </div>
         </div>
         <div class="list">
-          주문날짜: <em>YYYY-MM-DD</em>
-          <div class="item-inner">
-            <div class="item">
-              <div class="inner">
-                <span class="flag-state-primary">
-                  결제완료
-                </span>
-                <span class="orderNum">
-                  주문번호:
-                  <em>1111-1111-1111</em>
-                </span>
-              </div>
-              <div class="tit">
-                따라하며 배우는 리액트 A-Z
-              </div>
-            </div>
-            <div class="item">
-              <div class="price">
-                <em>7,900</em>원
-              </div>
-              <button type="button">강의로 이동</button>
-            </div>
+          <div class="inner">
+            <div class="tit-h4">수강중인 강의</div>
+            <span class="num">8</span>
           </div>
         </div>
         <div class="list">
-          주문날짜: <em>YYYY-MM-DD</em>
-          <div class="item-inner">
-            <div class="item">
-              <div class="inner">
-                <span class="flag-state-primary">
-                  결제완료
-                </span>
-                <span class="orderNum">
-                  주문번호:
-                  <em>1111-1111-1111</em>
-                </span>
-              </div>
-              <div class="tit">
-                따라하며 배우는 리액트 A-Z
-              </div>
-            </div>
-            <div class="item">
-              <div class="price">
-                <em>7,900</em>원
-              </div>
-              <button type="button">강의로 이동</button>
-            </div>
+          <div class="inner">
+            <div class="tit-h4">수강완료</div>
+            <span class="num">2</span>
           </div>
         </div>
       </div>

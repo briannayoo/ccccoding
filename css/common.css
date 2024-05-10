@@ -255,16 +255,21 @@ textarea {height:250px;}
 .flag-state-complete {background-color:#00BE2F;}
 .flag-state-incomplete {background-color:#CCCCCC; color:var(--body-text,#222);}
 
-/* box list */
-.box-list .item-inner {display:flex; justify-content:space-between;}
-.box-list.line .item-inner {margin-top:10px; padding:24px 16px; border:1px solid #ccc; border-radius:10px;}
-.box-list:not([class*="list-"]) .list {margin-top:30px;}
-.box-list:not([class*="list-"]) .list:first-child {margin-top:0;}
-.box-list .list .date {color:var(--text-c4,#4D4C51);}
-.box-list .list .item .inner > * {display:inline-block;}
-.box-list .list .item:last-child {flex: 0 0 auto; padding-left: 16px;}
-.box-list .list .item .orderNum {margin-left:8px;}
-/* box list - 3개 */
-.box-list[class*="list-"] {display:flex; flex-wrap:wrap;}
-.box-list.list-3 {}
-.box-list.list-3 .list {flex:0 0 33.333%; padding:0 10px; box-sizing:border-box;}
+/* line-line-box list*/
+.line-box-list {display:flex; flex-direction:column; gap:26px;}
+.line-box-list .list .date {color:var(--text-c4, #4D4C51);}
+.line-box-list .list > .inner {border:1px solid var(--ipt-border, #DEE2E6); border-radius:10px; padding:24px 16px; margin-top:10px; display:flex; justify-content:space-between; align-items:center;}
+.line-box-list .list .item .top {display:flex; gap:16px; margin-bottom:4px;}
+.line-box-list .list .item .price {text-align:right; font-size:20px; line-height:30px; font-weight:var(--bold, 700); margin-bottom:4px;}
+.line-box-list .list .item .btn {min-width:80px; line-height:26px; padding:6px 8px; font-size:1.4rem;}
+
+/* line-box list- qa */
+.line-box-list.qa {justify-content:start;}
+.line-box-list.qa .state-txt {color:var(--text-c3, #333236);}
+.line-box-list.qa .state-txt.bold {font-weight:var(--bold, 700);}
+
+/* line-box list 3개 */
+.line-box-list.list-3 {flex-direction:row;}
+.line-box-list.list-3 .list {width:calc(100% / 3);}
+.line-box-list.list-3 .list .inner {flex-direction:column; justify-content:center; gap:4px; padding:30px;}
+.line-box-list.list-3 .num {font-size:3.2rem; line-height:4.8rem; font-weight:var(--bold, 700);}
