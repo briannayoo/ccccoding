@@ -133,6 +133,11 @@ p {margin:0;}
 /* sm */
 .btn.btn-sm {min-width:74px; height:42px; line-height:42px; font-size:1.6rem;}
 
+/* 회색버튼 */
+.btn.gray,
+.btn.gray:hover,
+.btn.gray:focus {background-color:var(--bg-sub2-c,#eee); color:var(--body-text, #222);}
+
 /* links */
 .links {color:var(--body-text, #222); text-decoration:underline;}
 

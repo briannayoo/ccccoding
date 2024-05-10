@@ -91,3 +91,8 @@
 .count em {font-size:15px; font-weight:700;}
 .count {display:block; padding-top:24px; text-align:right;}
 .txt {display:block; text-align:right;}
+
+/* 마이페이지 회원 프로필 */
+[class^=tit-] + .form-list .pf-area {margin-top:32px;}
+.pf-area .content > .btn {min-width:34px; height:26px; padding:4px; font-size:1.4rem;}
+.pf-area .content > .txt-xs {color:var(--body-txt, #222); margin-top:8px;}
