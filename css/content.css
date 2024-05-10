@@ -96,3 +96,8 @@
 [class^=tit-] + .form-list .pf-area {margin-top:32px;}
 .pf-area .content > .btn {min-width:34px; height:26px; padding:4px; font-size:1.4rem;}
 .pf-area .content > .txt-xs {color:var(--body-txt, #222); margin-top:8px;}
+
+/* 쿠폰&포인트 */
+.point-txt > em {color:var(--primary-c, #472ea1); font-weight:var(--bold, 700);}
+.coupon-list {display:flex; justify-content:space-between;}
+.coupon-list .list {width:calc(100% / 3);}

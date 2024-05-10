@@ -198,51 +198,117 @@
           <!-- 공통 부분 (e) -->
 
           <!-- 아래에서 부터 작업영역입니다 -->
-          <!-- line-box-list(s) -->
-          <div class="line-box-list qa">
+          <h3 class="tit-h2">쿠폰</h3>
+          <div class="coupon-list">
             <div class="list">
-              <span class="date">문의날짜: <em>YYYY-MM-DD</em></span>
-              <div class="inner">
-                <div class="item">
-                  <div class="top">
-                    <span class="flag-state-incomplete">
-                      미해결
-                    </span>
-                    <p class="state-txt">답변을 준비중입니다.</p>
-                  </div>
-                  <div class="tit-h4">
-                    따라하며 배우는 리액트 A-Z
-                  </div>
-                </div>
-              </div>
+              <span class="flag-state-primary">
+                사용가능
+              </span>
+              <span class="tit">가입환영 5000원 할인쿠폰(점점점 처리하세요!)</span>
+              <span class="date">YYYY-MM-DD~YYYY-MM-DD</span>
             </div>
             <div class="list">
-              <span class="date">문의날짜: <em>YYYY-MM-DD</em></span>
-              <div class="inner">
-                <div class="item">
-                  <div class="top">
-                    <span class="flag-state-primary">
-                      답변완료
-                    </span>
-                    <p class="state-txt bold">답변을 완료하였습니다.</p>
-                  </div>
-                  <div class="tit-h4">
-                    따라하며 배우는 리액트 A-Z
-                  </div>
-                </div>
-              </div>
+              <span class="flag-state-negative">
+                만료임박
+              </span>
+              <span class="tit">가입환영 5000원 할인쿠폰(점점점 처리하세요!)</span>
+              <span class="date">YYYY-MM-DD~YYYY-MM-DD</span>
+            </div>
+            <div class="list">
+              <span class="flag-state-incomplete">
+                사용완료
+              </span>
+              <span class="tit">가입환영 5000원 할인쿠폰(점점점 처리하세요!)</span>
+              <span class="date">YYYY-MM-DD~YYYY-MM-DD</span>
+            <div class="list">
+              <span class="flag-state-primary">
+                사용가능
+              </span>
+              <span class="tit">가입환영 5000원 할인쿠폰(점점점 처리하세요!)</span>
+              <span class="date">YYYY-MM-DD~YYYY-MM-DD</span>
+            </div>
+            <div class="list">
+              <span class="flag-state-negative">
+                만료임박
+              </span>
+              <span class="tit">가입환영 5000원 할인쿠폰(점점점 처리하세요!)</span>
+              <span class="date">YYYY-MM-DD~YYYY-MM-DD</span>
+            </div>
+            <div class="list">
+              <span class="flag-state-incomplete">
+                사용완료
+              </span>
+              <span class="tit">가입환영 5000원 할인쿠폰(점점점 처리하세요!)</span>
+              <span class="date">YYYY-MM-DD~YYYY-MM-DD</span>
             </div>
           </div>
-          <!-- line-box-list(e) -->
+          </div>
 
           <!-- nodata(s) -->
           <div class="nodata">
-            <p class="txt">문의하신 내역이 없습니다.</p>
+            <p class="txt">쿠폰 내역이 없습니다.</p>
             <div class="btn-area">
-              <a href="#" class="btn btn-outline-secondary btn-sm">강의찾기</a>
             </div>
           </div>
           <!-- nodata(e) -->
+
+          <h3 class="tit-h2">포인트</h3>
+          <p class="tit-h3 point-txt">현재 사용가능한 포인트는 <em>10P</em>입니다.</p>
+
+          <!-- nodata(s) -->
+          <div class="nodata">
+            <p class="txt">포인트 내역이 없습니다.</p>
+            <div class="btn-area">
+            </div>
+          </div>
+          <!-- nodata(e) -->
+
+          <!-- pagination(s) -->
+          <nav aria-label="페이지네이션">
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">
+                  <span class="visually-hidden">처음</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                    <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                  </svg>
+                </a>
+              </li>
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">
+                  <span class="visually-hidden">이전</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                  </svg>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item active"> <!--active일떄 블라인드 현재페이지 스크립트로 넣어야함-->
+                <a class="page-link" href="#">2</span></a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <span class="visually-hidden">다음</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                  </svg>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <span class="visually-hidden">마지막</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"/>
+                    <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"/>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- pagination(e) -->
+
         </div>
       </div>
     </div>
