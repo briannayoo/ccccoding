@@ -276,3 +276,11 @@ textarea {height:250px;}
 .line-box-list.list-3 .list {width:calc(100% / 3);}
 .line-box-list.list-3 .list .inner {flex-direction:column; justify-content:center; gap:4px; padding:30px;}
 .line-box-list.list-3 .num {font-size:3.2rem; line-height:4.8rem; font-weight:var(--bold, 700);}
+
+/* 검색영역 */
+.filter-area {display:flex; align-items:center; justify-content:flex-end; gap:30px;}
+.filter-area .difficulty {display:flex; align-items:center; gap:30px;}
+.filter-area .ipt-wrap {position:relative; height:30px;}
+.filter-area .ipt-wrap > input {height:100%; line-height:100%; width:360px; padding:14px 40px 14px 16px;}
+.filter-area .ico-search {position:absolute; top:50%; transform:translateY(-50%); right:16px; width:24px; height:24px; display:flex; justify-content:center; align-items:center; border:none; background:none;}
+.filter-area .ico-search > i {font-size:1.6rem; color:var(--placeh-c,#969696);}
