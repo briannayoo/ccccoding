@@ -94,5 +94,11 @@
 
 /* 쿠폰&포인트 (박소현) */
 .point-txt > em {color:var(--primary-c, #472ea1); font-weight:var(--bold, 700);}
-.coupon-list {display:flex; justify-content:space-between;}
-.coupon-list .list {width:calc(100% / 3);}
+.coupon-list {display:flex; justify-content:flex-start; flex-wrap:wrap;}
+.coupon-list .list {width:calc((100% / 3) - 26px); height:156px; margin-right:26px; border:1px solid var(--body-txt, #222); background:url(../image/bg_coupon.png) no-repeat top center / 372px auto;}
+.coupon-list .list .inner {padding:26px 10px;}
+.coupon-list .list:nth-child(3n) {margin-right:0;}
+.coupon-list .list:nth-child(n+4) {margin-top:26px;}
+.coupon-list .list .inner > * {display:block;}
+.coupon-list .tit-h5 {margin:16px 0; font-weight:var(--bold, 700); max-width:216px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.coupon-list .date {font-size:1.4rem; color:var( --text-c4,#4D4C51);}
