@@ -74,89 +74,40 @@
             <h2 class="tit-h1">Q&amp;A</h2>
           </div>
 
-          <form action="" class="filter-area">
-            <div class="ipt-wrap">
-              <input type="search" class="form-control" placeholder="검색어를 입력하세요.">
-              <button class="ico-search">
-                <span class="visually-hidden">검색</span>
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </div>
-          </form>
-
-          <div class="sort-area">
-            <select class="form-select" aria-label="정렬 순서 선택">
-              <option value="1" selected>최신순</option>
-              <option value="2">인기순</option>
-              <option value="3">추천순</option>
-            </select>
-          </div>
-          <!-- 공통 부분 (e) -->
-          <hr>
-          <!-- qna start -->
-          <div class="">
-            <div class="border-bottom qna-list">
-              <h2 class="txt-xl list-h2">readmore 클리시 쿼리내용 받아오는게 이해가 안되요</h2>
-              <p class="txt-md qna-text">ajax 방식으로 fetch 통해 page값을 넘겨Domparser 사용해서 html을 새로 그린다는건 알겠는데 get방법을 사용한 이..... </p>
-              <div class="d-flex justify-content-between">
-                  <div class="d-flex list-text">
-                    <p>답변 : <span class="qna-span">답변등록</span></p>
-                    <p><i class="fa-solid fa-eye fa-small"></i> : 303</p>
-                    <p><i class="fa-solid fa-heart fa-small"></i> : 16</p>
-                  </div>
-                  <div class="d-flex list-text">
-                    <p>작성자 : 유공주</p>
-                    <p>2024-04-01</p>
-                  </div>
-                </div>
+          <div class="d-flex justify-content-between">
+            <div class="d-flex">
+              <div class="qna-icon">
+                <h2 class="tit-h1 question-icon">Q</h2>
               </div>
-          <!-- pagination(s) -->
-            <nav aria-label="페이지네이션">
-              <ul class="pagination">
-                <li class="page-item disabled">
-                  <a class="page-link" href="#" tabindex="-1">
-                    <span class="visually-hidden">처음</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
-                      <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
-                    </svg>
-                  </a>
-                </li>
-                <li class="page-item disabled">
-                  <a class="page-link" href="#" tabindex="-1">
-                    <span class="visually-hidden">이전</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
-                    </svg>
-                  </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active"> <!--active일떄 블라인드 현재페이지 스크립트로 넣어야함-->
-                  <a class="page-link" href="#">2</span></a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    <span class="visually-hidden">다음</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
-                    </svg>
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    <span class="visually-hidden">마지막</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"/>
-                      <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"/>
-                    </svg>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          <!-- pagination(e) -->
-
+              <p class="tit-h3 question-title">readmore 클릭시 쿼리 내용 받아오는게 이해가 안되요</p>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm">답변등록</button>
           </div>
+          <hr>
+          <div class="d-flex list-text question-data">
+            <p>작성자 : 유공주</p>
+            <p><i class="fa-solid fa-eye fa-small"></i> : 303</p>
+            <p><i class="fa-solid fa-heart fa-small"></i> : 16</p>
+            <p>2024-04-01</p>F
+          </div>
+          <div class="border rounded-2">
+            <div class="question-text">
+              <p class="">ajax 방식으로 fetch 통해 page값을 넘겨
+                Domparser 사용해서 html을 새로 그린다는건 알겠는데 get방법을 사용한 이유가 있나요?
+                왜 li태그 안에내용만 쿼리내용이 업데이트되어 그려질수 있는지 모르겠는데 조금 더 자세한 설명 없나요?
+                page값이 변경된 새로운 쿼리를 실행시켜 실행된 값들을 저장하는 코드가 어느부분인걸가요?
+              </p>
+              <button><i class="fa-solid fa-heart fa-small"></i> : 16</button>
+            </div>
+          </div>
+          <hr>
+
+
+
+          
+
+
+
         </div>
       </div>
     </div>

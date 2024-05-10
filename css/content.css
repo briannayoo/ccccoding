@@ -62,7 +62,23 @@
 .lecture-list li img:hover {border-color:var(--text-c2);}
 .lecture-list li span {line-height: 46px;}
 
+/* 공지,qna 공통(유부현) */
+.list-h2{font-weight:var(--bold, 700); padding-bottom: 10px;}
+.list-text{gap:16px}
+
 /* 공지사항 (유부현) */
+.notice-list{padding-top: 26px; padding-bottom: 26px; padding-left: 11px;}
+/* qna (유부현) */
+.qna-list{padding-top: 26px; padding: 26px 11px;}
+.qna-text{padding-bottom: 10px;}
+.qna-span{color: var( --text-c2);}
+.qna-icon{background-color: var(--primary-c); opacity : 0.5; border-radius: 50%; width: 60px; height: 60px; position: relative;}
+.question-icon{color: var(--sub-txt-c); text-align: center; padding: 8px 0;}
+.question-data{padding-bottom: 26px;}
+.question-title{font-weight: 600; padding: 10px 16px;}
+.question-text{padding: 26px 40px;}
+.question-text > button{float: right; border: none; background-color: transparent;}
+
 
 /* 마이페이지(박소현) */
 .my-gnb-wrap .sub-menu .accordion-button {padding:4px 10px;}
