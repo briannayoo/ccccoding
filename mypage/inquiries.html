@@ -35,7 +35,7 @@
           </div>
           <nav class="sub-menu">
             <ul class="list-group">
-              <li class="list-group-item on">
+              <li class="list-group-item">
                 <a href="#" class="accordion-button tit-h4">HOME</a>
               </li>
               <li class="list-group-item">
@@ -47,7 +47,7 @@
               <li class="list-group-item">
                 <a href="#" class="accordion-button tit-h4">구매내역</a>
               </li>
-              <li class="list-group-item">
+              <li class="list-group-item on">
                 <a href="#" class="accordion-button tit-h4">문의내역</a>
               </li>
               <li class="list-group-item">
@@ -66,40 +66,56 @@
         
         <div class="con-wrap">
           <div class="page-tit-area">
-            <h2 class="tit-h1">마이페이지</h2>
-            <p class="desc tit-h3">ㅋㅋㅋ코딩과 <em>100일</em>째 성장중!</p>
+            <h2 class="tit-h1">문의내역</h2>
           </div>
           <!-- 공통 부분 (e) -->
 
           <!-- 아래에서 부터 작업영역입니다 -->
-          <div class="line-box-list list-3">
+          <!-- line-box-list(s) -->
+          <div class="line-box-list qa">
             <div class="list">
+              <span class="date">문의날짜: <em>YYYY-MM-DD</em></span>
               <div class="inner">
-                <div class="tit-h4">모든 수강신청 강의</div>
-                <span class="num">10</span>
+                <div class="item">
+                  <div class="top">
+                    <span class="flag-state-incomplete">
+                      미해결
+                    </span>
+                    <p class="state-txt">답변을 준비중입니다.</p>
+                  </div>
+                  <div class="tit-h4">
+                    따라하며 배우는 리액트 A-Z
+                  </div>
+                </div>
               </div>
             </div>
             <div class="list">
+              <span class="date">문의날짜: <em>YYYY-MM-DD</em></span>
               <div class="inner">
-                <div class="tit-h4">수강중인 강의</div>
-                <span class="num">8</span>
-              </div>
-            </div>
-            <div class="list">
-              <div class="inner">
-                <div class="tit-h4">수강완료</div>
-                <span class="num">2</span>
+                <div class="item">
+                  <div class="top">
+                    <span class="flag-state-primary">
+                      답변완료
+                    </span>
+                    <p class="state-txt bold">답변을 완료하였습니다.</p>
+                  </div>
+                  <div class="tit-h4">
+                    따라하며 배우는 리액트 A-Z
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          <!-- line-box-list(e) -->
 
-          <h3 class="tit-h2">평균학습 진도율</h3>
-          <div class="progress">
-            <div class="graph" style="width:0%;">
-              <span class="count"><em>0</em>%</span>
-              <span class="txt">얼마 안남았어요! 힘을 내요!</span>
+          <!-- nodata(s) -->
+          <div class="nodata">
+            <p class="txt">문의하신 내역이 없습니다.</p>
+            <div class="btn-area">
+              <a href="#" class="btn btn-outline-secondary btn-sm">강의찾기</a>
             </div>
           </div>
+          <!-- nodata(e) -->
         </div>
       </div>
     </div>

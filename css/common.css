@@ -85,6 +85,9 @@ p {margin:0;}
 .tit-h5 {font-size:1.8rem; font-weight:var(--regular, 400);}
 .tit-h6 {font-size:1.6rem; font-weight:var(--regular, 400);}
 
+/* 서브페이지 타이틀 간격 */
+.sub .tit-h2 {margin:26px 0;} /*가이드 다르면 변경될 수도 있음*/
+
 /*========== Color ==========*/
 /* bg */
 .bg-sub1-c {background-color:var(--bg-sub-c, #eeeafe);}
