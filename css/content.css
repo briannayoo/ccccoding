@@ -79,12 +79,7 @@
 .question-text{padding: 26px 40px;}
 .question-text > button{float: right; border: none; background-color: transparent;}
 
-
-/* 마이페이지(박소현) */
-.my-gnb-wrap {width:212px; padding:48px 0 26px}
-.my-gnb-wrap .sub-menu .accordion-button {padding:4px 10px;}
-
-/* progressbar */
+/* progressbar(박소현)  */
 .progress {width:100%; height:12px; margin-bottom:42px; background-color:var(--bg-sub2-c, #eee);}
 .progress .graph {display:block; position:relative; width:0; height:12px; background-color:#913dd3;}
 .count,
@@ -92,12 +87,12 @@
 .count {display:block; padding-top:24px; text-align:right;}
 .txt {display:block; text-align:right;}
 
-/* 마이페이지 회원 프로필 */
+/* 마이페이지 회원 프로필(박소현) */
 [class^=tit-] + .form-list .pf-area {margin-top:32px;}
 .pf-area .content > .btn {min-width:34px; height:26px; padding:4px; font-size:1.4rem;}
 .pf-area .content > .txt-xs {color:var(--body-txt, #222); margin-top:8px;}
 
-/* 쿠폰&포인트 */
+/* 쿠폰&포인트 (박소현) */
 .point-txt > em {color:var(--primary-c, #472ea1); font-weight:var(--bold, 700);}
 .coupon-list {display:flex; justify-content:space-between;}
 .coupon-list .list {width:calc(100% / 3);}
