@@ -48,6 +48,7 @@ a:hover,
 a:focus {color:inherit;}
 input::placeholder {color: var(--placeh-c, #969696);}
 img{width:100%; height:100%;}
+em {font-style:normal;}
 
 /* 접근성 블라인드 */
 /* bootstrap 블라인드 클래스 visually-hidden */
@@ -255,12 +256,11 @@ textarea {height:250px;}
 .flag-state-incomplete {background-color:#CCCCCC; color:var(--body-text,#222);}
 
 /* box list */
-.box-list {}
 .box-list .item-inner {display:flex; justify-content:space-between;}
-.box-list.line .item-inner {margin-top:10px; padding:22px 16px; border:1px solid #ccc; border-radius:10px;}
+.box-list.line .item-inner {margin-top:10px; padding:24px 16px; border:1px solid #ccc; border-radius:10px;}
 .box-list:not([class*="list-"]) .list {margin-top:30px;}
 .box-list:not([class*="list-"]) .list:first-child {margin-top:0;}
-.box-list .list .item {}
+.box-list .list .date {color:var(--text-c4,#4D4C51);}
 .box-list .list .item .inner > * {display:inline-block;}
 .box-list .list .item:last-child {flex: 0 0 auto; padding-left: 16px;}
 .box-list .list .item .orderNum {margin-left:8px;}
