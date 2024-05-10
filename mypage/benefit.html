@@ -169,10 +169,10 @@
               <li class="list-group-item">
                 <a href="#" class="accordion-button tit-h4">문의내역</a>
               </li>
-              <li class="list-group-item">
+              <li class="list-group-item on">
                 <a href="#" class="accordion-button tit-h4">쿠폰&amp;포인트</a>
               </li>
-              <li class="list-group-item on">
+              <li class="list-group-item">
                 <a href="#" class="accordion-button tit-h4">회원정보 수정</a>
               </li>
             </ul>
@@ -185,83 +185,56 @@
         
         <div class="con-wrap">
           <div class="page-tit-area">
-            <h2 class="tit-h1">마이페이지</h2>
+            <h2 class="tit-h1">쿠폰&amp;포인트</h2>
           </div>
           <!-- 공통 부분 (e) -->
 
           <!-- 아래에서 부터 작업영역입니다 -->
-          <h3 class="tit-h4">이미지프로필</h3>
-          <form action="" class="form-list">
-            <div class="temp-area">프로필영역(공통가이드)</div>
-
-            <!-- input text 1 (s) -->
-            <div class="row">
-              <label for="name" class="col-md-1 col-form-label tit-h4">이름</label>
-              <div class="col-md-11">
-                <div class="input-group">
-                  <div class="ipt-wrap">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="이름을 입력해주세요">
+          <!-- line-box-list(s) -->
+          <div class="line-box-list qa">
+            <div class="list">
+              <span class="date">문의날짜: <em>YYYY-MM-DD</em></span>
+              <div class="inner">
+                <div class="item">
+                  <div class="top">
+                    <span class="flag-state-incomplete">
+                      미해결
+                    </span>
+                    <p class="state-txt">답변을 준비중입니다.</p>
+                  </div>
+                  <div class="tit-h4">
+                    따라하며 배우는 리액트 A-Z
                   </div>
                 </div>
               </div>
             </div>
-            <!-- input text 1 (e) -->
-
-            <!-- input email + button (s) -->
-            <div class="row mix">
-              <label for="email" class="col-md-1 col-form-label tit-h4">이메일</label>
-              <div class="col-md-11">
-                <div class="input-group">
-                  <div class="ipt-wrap">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="이메일을 입력해주세요.">
+            <div class="list">
+              <span class="date">문의날짜: <em>YYYY-MM-DD</em></span>
+              <div class="inner">
+                <div class="item">
+                  <div class="top">
+                    <span class="flag-state-primary">
+                      답변완료
+                    </span>
+                    <p class="state-txt bold">답변을 완료하였습니다.</p>
                   </div>
-                  <button type="button" class="btn btn-outline-secondary btn-sm">인증</button>
-                  <p class="txt-info">*이메일 변경 후 재인증 필요</p>
-                </div>
-              </div>
-            </div>
-            <!-- input email + button (e) -->
-
-            <!-- input password (s) -->
-            <div class="row pw">
-              <label for="password" class="col-md-1 col-form-label tit-h4">비밀번호</label>
-              <div class="col-md-11">
-                <div class="input-group">
-                  <div class="ipt-wrap">
-                    <input type="password" class="form-control" id="password" placeholder="현재 비밀번호">
-                  </div>
-                  <div class="ipt-wrap">
-                    <input type="password" class="form-control" id="password" placeholder="새 비밀번호">
-                  </div>
-                  <div class="ipt-wrap">
-                    <input type="password" class="form-control" id="password" placeholder="새 비밀번호 확인">
+                  <div class="tit-h4">
+                    따라하며 배우는 리액트 A-Z
                   </div>
                 </div>
               </div>
             </div>
-            <!-- input password (e) -->
+          </div>
+          <!-- line-box-list(e) -->
 
-            <!-- input tel + button (s) -->
-            <div class="row mix">
-              <label for="name" class="col-md-1 col-form-label tit-h4">휴대폰번호</label>
-              <div class="col-md-11">
-                <div class="input-group">
-                  <div class="ipt-wrap">
-                    <input type="tel" class="form-control" id="name" placeholder="휴대폰번호를 입력해주세요.">
-                  </div>
-                  <button type="button" class="btn btn-outline-secondary btn-sm">인증</button>
-                  <p class="txt-info">*휴대폰번호 변경 후 재인증 필요</p>
-                </div>
-              </div>
-            </div>
-            <!-- input tel + button (e) -->
-
-            <a href="# " class="links">회원탈퇴하기</a>
-
+          <!-- nodata(s) -->
+          <div class="nodata">
+            <p class="txt">문의하신 내역이 없습니다.</p>
             <div class="btn-area">
-              <button type="button" class="btn btn-primary btn-md">수정완료</button>
+              <a href="#" class="btn btn-outline-secondary btn-sm">강의찾기</a>
             </div>
-          </form>
+          </div>
+          <!-- nodata(e) -->
         </div>
       </div>
     </div>
