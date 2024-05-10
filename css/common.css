@@ -248,11 +248,11 @@ textarea {height:250px;}
 .etc-list > li:last-child:after {content:none;}
 
 /* flag */
-[class^="flag-state-"] {display:inline-block; padding:4px 4px; background-color:#913dd3; color:#fff; border-radius:4px;}
-.flag-state-primary {background-color:#913dd3;}
-.flag-state-negative {background-color:#ae2549;}
-.flag-state-complete {background-color:#25ae30;}
-.flag-state-incomplete {background-color:#dcd6d4; color:#222;}
+[class^="flag-state-"] {display:inline-block; min-width:68px; background-color:var(--primary-c,#472ea1); color:#fff; border-radius:5px; font-size:1.4rem; text-align:center;}
+.flag-state-primary {background-color:var(--primary-c);}
+.flag-state-negative {background-color:#FF3636;}
+.flag-state-complete {background-color:#00BE2F;}
+.flag-state-incomplete {background-color:#CCCCCC; color:var(--body-text,#222);}
 
 /* box list */
 .box-list {}
