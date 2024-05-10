@@ -81,6 +81,7 @@
 
 
 /* 마이페이지(박소현) */
+.my-gnb-wrap {width:212px; padding:48px 0 26px}
 .my-gnb-wrap .sub-menu .accordion-button {padding:4px 10px;}
 
 /* progressbar */

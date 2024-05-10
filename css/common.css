@@ -284,3 +284,9 @@ textarea {height:250px;}
 .filter-area .ipt-wrap > input {height:100%; line-height:100%; width:360px; padding:14px 40px 14px 16px;}
 .filter-area .ico-search {position:absolute; top:50%; transform:translateY(-50%); right:16px; width:24px; height:24px; display:flex; justify-content:center; align-items:center; border:none; background:none;}
 .filter-area .ico-search > i {font-size:1.6rem; color:var(--placeh-c,#969696);}
+
+/* 프로필영역 */
+.pf-area {display:flex; align-items:center; gap:16px; margin-bottom:16px;}
+.pf-area .img-wrap {display:flex; justify-content:center; align-items:center; width:68px; height:68px; border-radius:50%; border:1px solid var(--body-text, #222); overflow:hidden;}
+.pf-area .content > span {display:block; color:var(--text-c5, #66666E); font-size:1.4rem;}
+.pf-area .content span > em {color:var(--primary-c,#472ea1); font-size:1.6rem; font-weight:var(--bold, 700);}
