@@ -48,19 +48,7 @@
 #sign-wrap .log-btn {width:563px; height:57px; font-size:2.8rem; font-family:var(--laundrygothic, 'LaundryGothic', sans-serif);}
 #sign-wrap .list-group-horizontal {justify-content:end;}
 
-/* 풀배너, 섹션1~2 (우예지) */
-#banner li {list-style: none;}
-#banner .slidewrapper {width:100%; height:344px; position:relative; overflow:hidden;}
-#banner .slidecontainer {position:relative; height:100%;}
-#banner .slide {position:absolute; width:100%; height:344px;}
-#banner .slidewrapper .pager{position:absolute; left:200px; bottom:20px; display:flex; gap:10px; z-index:10;}
-#banner .slidewrapper .pager a {width:15px; height:15px; background:var(--text-c6); border-radius:50%; text-indent:-9999em;}
-#banner .slidewrapper .pager a.active {background:var( --text-c2); width:30px; border-radius:50px;}
-.lecture-list ul {gap:40px}
-.lecture-list li {list-style:none; text-align:center;}
-.lecture-list li img {width:100px; height:100px; object-fit:cover; display:block; border:2px solid var(--ipt-border); border-radius:10px;}
-.lecture-list li img:hover {border-color:var(--text-c2);}
-.lecture-list li span {line-height: 46px;}
+
 
 /* 공지,qna 공통(유부현) */
 .list-h2{font-weight:var(--bold, 700); padding-bottom: 10px;}
