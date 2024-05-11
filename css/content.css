@@ -73,7 +73,9 @@
 .qna-text{padding-bottom: 10px;}
 .qna-span{color: var( --text-c2);}
 .qna-icon{background-color: var(--primary-c); opacity : 0.5; border-radius: 50%; width: 60px; height: 60px; position: relative;}
+.qna-icon2{background-color: #6ED48B; border-radius: 50%; width: 60px; height: 60px; position: relative;}
 .question-icon{color: var(--sub-txt-c); text-align: center; padding: 8px 0;}
+.comment-icon{color: #fff; text-align: center; padding: 8px 0;}
 .question-data{padding-bottom: 26px;}
 .question-title{font-weight: 600; padding: 10px 16px;}
 .question-text{padding: 26px 40px;}
