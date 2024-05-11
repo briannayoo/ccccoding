@@ -73,6 +73,15 @@
 .order-pay ul li:first-child {color:var(--placeh-c);}
 .order-pay ul li:nth-child(2) {color:red;}
 .order-pay ul li:last-child {margin-top:26px;}
+
+/* 강의 리스트(우예지) */
+.lecture-area ul {display:grid; grid-template-columns:repeat(3, auto); grid-gap:30px;}
+.lecture-area li {list-style:none; width:370px; height:340px; border-radius:10px; overflow:hidden;}
+.lecture-area li a {display:block; width:100%;}
+.lecture-area li img {width:370px; height:183px; object-fit:cover;}
+.lecture-area h3 {margin:10px 0;}
+.lecture-area p {height: 78px; word-spacing:normal; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis;}
+
 /* 공지,qna 공통(유부현) */
 .list-h2{font-weight:var(--bold, 700); padding-bottom: 10px;}
 .list-text{gap:16px}
