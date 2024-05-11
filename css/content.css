@@ -59,14 +59,14 @@
 .order-list .p-small span {color:red; margin-right:10px;}
 .order-payment {width:450px; position: sticky; top: 100px;}
 .order-infor,
-.order-pay{border:1px solid var(--ipt-border); border-radius:10px; padding:26px;}
+.order-pay {border:1px solid var(--ipt-border); border-radius:10px; padding:26px;}
 .order-infor h3 a {text-decoration:underline; color:var(--text-c4);}
 .order-infor ul {color:var(--text-c6); margin-top:26px;}
 .order-infor ul li:first-child span {margin-left:95px;}
 .order-infor ul li:nth-child(2) span {margin-left:80px;}
 .order-infor ul li:last-child span {margin-left:50px;}
 .order-pay {margin-top:26px;}
-.order-pay div::after{content: '사용가능 (1)'; position:absolute; right:0; top:-24px; color:var(--text-c5); font-size:1.4rem;}
+.order-pay div::after{content:'사용가능 (1)'; position:absolute; right:0; top:-24px; color:var(--text-c5); font-size:1.4rem;}
 .order-pay div{position:relative; margin:26px 0;}
 .order-pay input {width:280px; height:42px; line-height:42px; font-size:1.6rem;}
 .order-pay ul li {line-height:30px;}
@@ -81,6 +81,31 @@
 .lecture-area li img {width:370px; height:183px; object-fit:cover;}
 .lecture-area h3 {margin:10px 0;}
 .lecture-area p {height: 78px; word-spacing:normal; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis;}
+
+/* 강의 상세(우예지) */
+.lecture-detail {background-color:var(--bg-sub1-c); padding:78px 0;}
+.lecture-detail .container {gap:26px;}
+.lecture-detail .container img {width:394px; height:200px; object-fit:cover; display:block; margin-bottom:26px; border-radius:5px;} 
+.lecture-detail .page-nav,
+.lecture-detail .container h2 {margin-bottom:26px;}
+.lecture-detail .page i {margin:0 5px;}
+.lecture-bottom li {list-style:none;}
+.lecture-detail-tit {width:800px;}
+.lecture-bottom .tit-h2 {margin:78px 0;}
+.lecture-bottom hr {border-color:var(--ipt-border);}
+.lecture-bottom .explan-box {border-radius:10px; border:1px solid var(--ipt-border); padding: 52px; gap:52px; width:800px; margin-top:10px;}
+.lecture-bottom .explan-box .big-ico i {display:block; color:var(--primary-c); margin-bottom:26px;}
+.lecture-bottom .explan-box .fa-check {color:var(--text-c2); margin-right:16px;}
+.lecture_most {display:grid; grid-template-columns:repeat(4, auto); grid-gap:30px;}
+.lecture_most li {list-style:none; width:330px; height:340px; border-radius:10px; overflow:hidden;}
+.lecture_most li a {display:block; width:100%;}
+.lecture_most li img {width:330px; height:183px; object-fit:cover;}
+.lecture_most h3 {margin:10px 0;}
+.lecture_most p {word-spacing:normal; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis;}
+.lecture-bottom .order-infor {padding: 10px 26px; margin-top:10px;}
+.lecture-bottom {position: relative;}
+.lecture-bottom .order-payment {position: absolute; right: 0; top: 0;}
+
 
 /* 공지,qna 공통(유부현) */
 .list-h2{font-weight:var(--bold, 700); padding-bottom: 10px;}
