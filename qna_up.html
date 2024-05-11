@@ -69,71 +69,38 @@
             </li>
           </ul>
         </nav>
-
+        <!-- 질문하기 start -->
         <div class="con-wrap">
           <div class="page-tit-area">
-            <h2 class="tit-h1">Q&amp;A</h2>
+            <h2 class="tit-h1">질문하기</h2>
           </div>
 
-          <!-- question-view -->
-          <div class="d-flex justify-content-between">
-            <div class="d-flex">
-              <div class="qna-icon">
-                <h2 class="tit-h1 question-icon">Q</h2>
-              </div>
-              <p class="tit-h3 question-title">readmore 클릭시 쿼리 내용 받아오는게 이해가 안되요</p>
+          <!-- 제목쓰기 -->
+          <div>
+            <p>질문에 핵심내용을 요약해보세요.</p>
+          </div>
+          <div>
+             <textarea id="summernote" name="editordata">
+                -학습관련 질문을 입력해주세요.
+
+                -서로 예의를 지키며 존중하는 문화를 만들어가요
+             </textarea>
+            <!-- 썸머노트 스크립트 (s) -->
+            <script>
+                $(document).ready(function() {
+                    $('#summernote').summernote({
+                    placeholder: 'Hello Bootstrap 5',
+                    tabsize: 2,
+                    height: 100
+                    });
+                });
+            </script>
+      <!-- 썸머노트 스크립트 (e) -->
             </div>
-            <button type="button" class="btn btn-primary btn-sm">답변등록</button>
-          </div>
-          <hr>
-          <div class="d-flex list-text question-data">
-            <p>작성자 : 유공주</p>
-            <p><i class="fa-solid fa-eye fa-small"></i> : 303</p>
-            <p><i class="fa-solid fa-heart fa-small"></i> : 16</p>
-            <p>2024-04-01</p>
-          </div>
-          <div class="border rounded-2">
-            <div class="question-text">
-              <p class="">ajax 방식으로 fetch 통해 page값을 넘겨
-                Domparser 사용해서 html을 새로 그린다는건 알겠는데 get방법을 사용한 이유가 있나요?
-                왜 li태그 안에내용만 쿼리내용이 업데이트되어 그려질수 있는지 모르겠는데 조금 더 자세한 설명 없나요?
-                page값이 변경된 새로운 쿼리를 실행시켜 실행된 값들을 저장하는 코드가 어느부분인걸가요?
-              </p>
-              <button><i class="fa-solid fa-heart fa-small"></i> : 16</button>
+            <div class="btn-area d-flex justify-content-end">
+                <button type="button" class="btn btn-primary btn-sm">버튼</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm">버튼</button>
             </div>
-          </div>
-          <hr>
-          <!-- comment view -->
-          <div class="border rounded-2">
-            <div class="question-text">
-              <div class="d-flex justify-content-between">
-                <div class="d-flex">
-                  <div class="qna-icon2">
-                    <h2 class="tit-h1 comment-icon">A</h2>
-                  </div>
-                  <p class="tit-h3 question-title">답변이 등록되었어요</p>
-                </div>  
-              </div>
-              <div class="d-flex list-text question-data">
-                <p>작성자 : 유공주</p>
-                <p>2024-04-01</p>
-              </div>
-              <p class="">ajax 방식으로 fetch 통해 page값을 넘겨
-                Domparser 사용해서 html을 새로 그린다는건 알겠는데 get방법을 사용한 이유가 있나요?
-                왜 li태그 안에내용만 쿼리내용이 업데이트되어 그려질수 있는지 모르겠는데 조금 더 자세한 설명 없나요?
-                page값이 변경된 새로운 쿼리를 실행시켜 실행된 값들을 저장하는 코드가 어느부분인걸가요?
-              </p>
-            </div>
-          </div>
-          <div class="btn-area d-flex justify-content-end">
-            <button type="button" class="btn btn-primary btn-sm">버튼</button>
-            <button type="button" class="btn btn-outline-secondary btn-sm">버튼</button>
-          </div>
-
-
-          
-
-
 
         </div>
       </div>
