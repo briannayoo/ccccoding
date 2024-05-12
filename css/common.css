@@ -295,3 +295,6 @@ textarea {height:250px;}
 .pf-area .img-wrap {display:flex; justify-content:center; align-items:center; width:68px; height:68px; border-radius:50%; border:1px solid var(--body-text, #222); overflow:hidden;}
 .pf-area .content > span {display:block; color:var(--text-c5, #66666E); font-size:1.4rem;}
 .pf-area .content span > em {color:var(--primary-c,#472ea1); font-size:1.6rem; font-weight:var(--bold, 700);}
+
+/* 노 데이타 */
+.container.no-data {display: block;}
