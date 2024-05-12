@@ -9,7 +9,17 @@
 #banner .slidewrapper .pager a {width:15px; height:15px; background:var(--text-c6); border-radius:50%; text-indent:-9999em;}
 #banner .slidewrapper .pager a.active {background:var( --text-c2); width:30px; border-radius:50px;}
 .lecture-list ul {gap:40px}
-.lecture-list li {list-style:none; text-align:center;}
+.lecture-list li {list-style:none; text-align:center; cursor:pointer;}
 .lecture-list li img {width:100px; height:100px; object-fit:cover; display:block; border:2px solid var(--ipt-border); border-radius:10px;}
 .lecture-list li img:hover {border-color:var(--text-c2);}
 .lecture-list li span {line-height: 46px;}
+.new-lecture-item {display:grid; grid-template-columns:repeat(4, auto); grid-gap:26px;}
+.new-lecture-item li {list-style:none; width:320px; height:340px; border-radius:10px; overflow:hidden;}
+.new-lecture-item li a {display:block; width:100%;}
+.new-lecture-item li img {width:330px; height:183px; object-fit:cover;}
+.new-lecture-itemt h3 {margin:10px 0;}
+.new-lecture-item p {word-spacing:normal; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis;}
+.best-lecture-item {display:grid; grid-template-columns:repeat(4, auto); grid-gap:26px;}
+.best-lecture-item li {list-style:none; width:320px; border-radius:10px; overflow:hidden;}
+.best-lecture-item li a {display:block; width:100%;}
+.best-lecture-item li img {width:100%; height:100%; object-fit:cover;}
