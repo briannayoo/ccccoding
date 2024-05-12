@@ -70,9 +70,7 @@
 .order-pay div{position:relative; margin:26px 0;}
 .order-pay input {width:280px; height:42px; line-height:42px; font-size:1.6rem;}
 .order-pay ul li {line-height:30px;}
-.order-pay ul li:first-child {color:var(--placeh-c);}
-.order-pay ul li:nth-child(2) {color:red;}
-.order-pay ul li:last-child {margin-top:26px;}
+.order-pay ul li.mt-26 {margin-top:26px;}
 
 /* 강의 리스트(우예지) */
 .lecture-area ul {display:grid; grid-template-columns:repeat(3, auto); grid-gap:30px;}
@@ -104,9 +102,9 @@
 .lecture_most p {word-spacing:normal; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis;}
 .lecture-bottom .order-infor {padding: 10px 26px; margin-top:10px;}
 .lecture-bottom {position: relative;}
-.lecture-bottom .order-payment {position: absolute; right: 0; top: 0;}
-
-
+.lecture-bottom .order-payment {position:absolute; right: 0; top: 0;} /*포지션 물어보기*/
+.cart-box h3 {color:var(--primary-c);}
+.cart-box p {margin-bottom:10px;}
 /* 공지,qna 공통(유부현) */
 .list-h2{font-weight:var(--bold, 700); padding-bottom: 10px;}
 .list-text{gap:16px}

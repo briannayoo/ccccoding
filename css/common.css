@@ -30,6 +30,7 @@
   --text-c5:#66666E;
   --text-c6:#888893;
   --sub-txt-c:#bcbcbc;
+  --text-red:#ff0000;
 }
 
 html,
@@ -95,6 +96,7 @@ p {margin:0;}
 .white {background-color:var(--white, #fff);}
 .primary-c {background-color:var(--primary-c, );}
 .secondary-c {background-color:var(--secondary-c, );}
+.etc-c {background-color:var(--bg-sub1-c);}
 
 /* text */
 .body-text {color:var(--body-text, #222);}
@@ -104,6 +106,8 @@ p {margin:0;}
 .text-c5 {color:var(--text-c5, #66666E);}
 .text-c6 {color:var(--text-c6, #888893);}
 .sub-txt-c {color:var(--sub-txt-c, #bcbcbc);}
+.text-red {color:var(--text-red, #ff0000);}
+.text-place {color:var(--placeh-c, #969696);}
 
 /*========== Buttons ==========*/
 .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating),
