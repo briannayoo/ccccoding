@@ -153,6 +153,7 @@
 .count em {font-size:15px; font-weight:700;}
 .count {display:block; padding-top:24px; text-align:right;}
 .txt {display:block; text-align:right;}
+.lecture-area .progress {margin-top:52px;}
 
 /* 마이페이지 회원 프로필(박소현) */
 [class^=tit-] + .form-list .pf-area {margin-top:32px;}
