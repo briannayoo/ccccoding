@@ -19,7 +19,7 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   
   <!-- 공통 js -->
-  <script src="../js/common.js"></script> <!--경로수정해야됨 ../빼기-->
+  <script src="js/common.js"></script> <!--경로수정해야됨 ../빼기-->
 
 </head>
 <body>
@@ -80,22 +80,9 @@
             <p class="tit-h3 qna-up-title">질문에 핵심내용을 요약해보세요.</p>
           </div>
           <div class="border qna-up-text">
-             <textarea id="summernote" name="editordata">
-                -학습관련 질문을 입력해주세요.
-
-                -서로 예의를 지키며 존중하는 문화를 만들어가요
+             <textarea id="summernote" name="editordata" class="txt-md qna-up-info">
              </textarea>
-            <!-- 썸머노트 스크립트 (s) -->
-            <script>
-                $(document).ready(function() {
-                    $('#summernote').summernote({
-                    placeholder: 'Hello Bootstrap 5',
-                    tabsize: 2,
-                    height: 100
-                    });
-                });
-            </script>
-      <!-- 썸머노트 스크립트 (e) -->
+
             </div>
             <div class="btn-area d-flex justify-content-end">
                 <button type="button" class="btn btn-primary btn-sm">버튼</button>

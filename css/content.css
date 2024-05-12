@@ -131,9 +131,10 @@
 .question-text > button{float: right; border: none; background-color: transparent;}
 .qna-up-title{color: var(--text-c6); font-weight: 600; padding-bottom: 26px;}
 .qna-up-text{ }
+.qna-up-info{color: var(--text-c6);}
 /* event (유부현) */
 .list-group.box-list {display:flex; flex-direction:row; flex-wrap:wrap; justify-content:space-between; gap:0;}
-.list-group.box-list > .list-group-item  {display:flex; gap:30px; width:calc((100% / 2) - 15px); padding:18px;  border:1px solid var(--ipt-border,#DEE2E6); border-radius:10px; box-shadow: 0px 4px 4px 2px rgba(222, 226, 230, 0.5);}
+.list-group.box-list > .list-group-item  {/*display:flex; gap:30px;*/ width:calc((100% / 2) - 15px); padding:18px; border:1px solid var(--ipt-border,#DEE2E6); border-radius:10px; box-shadow: 0px 4px 4px 2px rgba(222, 226, 230, 0.5);}
 .list-group.box-list > .list-group-item:nth-child(n+3)  {margin-top:32px;}
 .list-group.box-list .img-wrap {flex:0 0 292px; width:292px; height:292px; border-radius:10px; overflow:hidden;}
 .list-group.box-list .img-wrap img {width:100%; height:100%;}
@@ -143,6 +144,9 @@
 .list-group.box-list .edit-btn-group >button > i {font-size:2.4rem;}
 .list-group.box-list .tit-group {display:flex; justify-content:space-between; align-items:center; margin:55px 0 35px;}
 .list-group.box-list .txt-group > p {margin-top:16px; font-size:2rem;}
+
+.event-top-btn > button{border: none; background: none; }
+
 
 /* progressbar(박소현)  */
 .progress {width:100%; height:12px; margin-bottom:42px; background-color:var(--bg-sub2-c, #eee);}
