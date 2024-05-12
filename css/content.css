@@ -86,7 +86,7 @@
 .lecture-detail {background-color:var(--bg-sub1-c); padding:78px 0;}
 .lecture-detail .container {gap:26px;}
 .lecture-detail .container img {width:394px; height:200px; object-fit:cover; display:block; margin-bottom:26px; border-radius:5px;} 
-.lecture-detail .page-nav,
+.lecture-detail .page-nav, 
 .lecture-detail .container h2 {margin-bottom:26px;}
 .lecture-detail .page i {margin:0 5px;}
 .lecture-bottom li {list-style:none;}
