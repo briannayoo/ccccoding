@@ -67,34 +67,38 @@ $(function(){
   */
 
    //Main section event
-  let img_num = Math.floor(Math.random()*4+1);
+  // let img_num = Math.floor(Math.random()*4+1);
 
-  document.getElementById('gnb_img').src='./images/gnbrandom0'+img_num+'.png';
+  // document.getElementById('gnb_img').src='./images/gnbrandom0'+img_num+'.png';
 
 
   // mypage submenu(박소현)
   if($('.mypage .sub-menu').length >0){
-    $('.mypage .sub-menu >ul > li').click(function() {
-      $('.mypage .sub-menu >ul > li').removeClass('on');
+    $('.mypage .sub-menu > ul > li').click(function() {
+      $('.mypage .sub-menu > ul > li').removeClass('on');
       $(this).addClass('on');
     });
 
-    // 현재 URL의 파라미터 가져오기!!
-    const urlParams = new URLSearchParams(window.location.search);
-    const currentPage = urlParams.get('page');
+    // 현재 URL을 가져오기
+    const currentURL = window.location.href;
 
-    $('.mypage .sub-menu >ul > li').each(function() {
-      const link = $(this).find('a');
-      const linkPage = link.attr('href').split('.')[0]; //링크 페이지 이름 가져오기!!
-      if (linkPage === currentPage) {
+    $('.mypage .sub-menu > ul > li').each(function() {
+      const link = $(this).find('a').attr('href');
+
+      if (currentURL.includes(link)) {
         $(this).addClass('on');
+      } else {
+        $(this).removeClass('on');
       }
     });
 
-    $('.mypage .sub-menu >ul > li').click(function() {
-      $('.mypage .sub-menu >ul > li').removeClass('on');
+    // 클릭 이벤트 리스너를 추가합니다.
+    $('.mypage .sub-menu > ul > li').click(function() {
+      $('.mypage .sub-menu > ul > li').removeClass('on');
+
       $(this).addClass('on');
     });
+
   };
 
 
