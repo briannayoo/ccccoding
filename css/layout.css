@@ -13,7 +13,7 @@
 .sub .sub-menu .accordion-item {border:0;}
 .sub .sub-menu .accordion-button {display:flex; gap:16px; font-size:2rem; background:none; box-shadow:none; padding:10px 22px; font-weight:var(--bold,700);}
 .sub .sub-menu .accordion-button::after {content:none;}
-.sub-menu .on .accordion-button {color:var(--primary-c,#472ea1);}
+.sub-menu .on .accordion-button {color:red;}
 .sub .sub-menu .accordion-button > span {display:inline-block;}
 .sub .sub-menu .accordion-body {padding: 10px 60px; font-size:20px;}
 .sub .con-wrap {width:calc(100% - 240px);}
