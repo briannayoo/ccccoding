@@ -66,6 +66,12 @@ $(function(){
   });
   */
 
+   //Main section event
+  let img_num = Math.floor(Math.random()*4+1);
+
+  document.getElementById('gnb_img').src='./images/gnbrandom0'+img_num+'.png';
+
+
   // mypage submenu(박소현)
   if($('.mypage .sub-menu').length >0){
     $('.mypage .sub-menu >ul > li').click(function() {
