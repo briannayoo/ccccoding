@@ -71,6 +71,19 @@ $(function(){
 
   // document.getElementById('gnb_img').src='./images/gnbrandom0'+img_num+'.png';
 
+  // submenu
+  if($('.sub .sub-menu').length >0){
+    $('.sub-menu .accordion-button').on('click', function() {
+      $(this).closest('li').addClass('on');
+      $(this).closest('li').siblings().removeClass('on');
+    });
+
+    $('.sub-menu .depth-2 a').on('click', function() {
+      $(this).closest('li').addClass('on');
+      $(this).closest('li').siblings().removeClass('on');
+    });
+  };
+
 
   // mypage submenu(박소현)
   if($('.mypage .sub-menu').length >0){
