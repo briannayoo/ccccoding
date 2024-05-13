@@ -21,7 +21,7 @@
 .sub .sort-area .form-select {width:auto; min-width:100px; padding:2px 8px; background:url(../image/ico_select_arrow.png) no-repeat right 8px center / 10px auto; font-size:1.4rem;}
 
 /*===== header(박소현) =====*/
-header {background-color:var(--white, #fff); box-shadow:0px 4px 4px 0px rgba(0,0,0,.25);}
+header {position:fixed; top:0; left:0; width:100%; z-index:101; background-color:var(--white, #fff); box-shadow:0px 4px 4px 0px rgba(0,0,0,.25);}
 header .top-area {height:40px; display:flex; align-items:center;}
 header .util-list {flex-direction:row; gap:16px; justify-content:flex-end;}
 header .util-list .user-menu {position:relative; cursor:pointer;}
@@ -53,6 +53,10 @@ header .filter-area .ipt-wrap > input {background-color:#ebebeb; border:none;}
 /* sticky */
 header .gnb-area.sticky {position:fixed; top:0; left:0; width:100%; z-index:101; background-color:var(--white, #fff); box-shadow:0px 4px 4px 0px rgba(0,0,0,.25);}
 
+/* main */
+main {padding-top:104px;}
+main.sub {padding-top:156px;}
+
 /*===== footer(박소현) =====*/
 footer {padding:52px 0; margin-top:78px; background-color:var(--primary-c,#472ea1);}
 footer .logo {display:inline-block; width:100px;}
@@ -65,7 +69,7 @@ footer .copy {color:#fff; font-size:1.4rem;}
 
 /* 마이페이지 (박소현) */
 .sub.mypage .sub-menu {margin-top:26px;}
-.my-gnb-wrap {width:212px; padding:48px 0 26px}
+.my-gnb-wrap {width:212px; padding:0 0 26px}
 .my-gnb-wrap .sub-menu .accordion-button {padding:4px 10px;}
 
 .user-bf-list.list-group {gap:8px; padding:0 10px;}
