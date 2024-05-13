@@ -66,7 +66,30 @@ $(function(){
   });
   */
 
-  
+  // mypage submenu(박소현)
+  if($('.mypage .sub-menu').length >0){
+    $('.mypage .sub-menu >ul > li').click(function() {
+      $('.mypage .sub-menu >ul > li').removeClass('on');
+      $(this).addClass('on');
+    });
+
+    // 현재 URL의 파라미터 가져오기!!
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentPage = urlParams.get('page');
+
+    $('.mypage .sub-menu >ul > li').each(function() {
+      const link = $(this).find('a');
+      const linkPage = link.attr('href').split('.')[0]; //링크 페이지 이름 가져오기!!
+      if (linkPage === currentPage) {
+        $(this).addClass('on');
+      }
+    });
+
+    $('.mypage .sub-menu >ul > li').click(function() {
+      $('.mypage .sub-menu >ul > li').removeClass('on');
+      $(this).addClass('on');
+    });
+  };
 
 
 
