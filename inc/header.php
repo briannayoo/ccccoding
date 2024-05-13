@@ -14,17 +14,17 @@
   <!-- 부트스트랩 css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="stylesheet" href="css/common.css"> <!--php때 경로수정-->
-  <link rel="stylesheet" href="css/main.css"> <!--php때 경로수정-->
-  <link rel="stylesheet" href="css/layout.css"> <!--php때 경로수정-->
-  <link rel="stylesheet" href="css/content.css"> <!--php때 경로수정-->
+  <link rel="stylesheet" href="/ccccoding/css/common.css">
+  <link rel="stylesheet" href="/ccccoding/css/main.css"> 
+  <link rel="stylesheet" href="/ccccoding/css/layout.css"> 
+  <link rel="stylesheet" href="/ccccoding/css/content.css"> 
 
   <!-- 제이쿼리 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <!-- <script src="/ccccoding/admin/css/bootstrap.bundle.js"></script> -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script src="js/common.js"></script>
+  <script src="/ccccoding/js/common.js"></script>
   
 </head>
 <body>

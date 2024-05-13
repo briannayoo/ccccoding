@@ -94,7 +94,7 @@
 .lecture-bottom .explan-box {border-radius:10px; border:1px solid var(--ipt-border); padding: 52px; gap:52px; width:800px; margin-top:10px;}
 .lecture-bottom .explan-box .big-ico i {display:block; color:var(--primary-c); margin-bottom:26px;}
 .lecture-bottom .explan-box .fa-check {color:var(--text-c2); margin-right:16px;}
-.lecture_most {display:grid; grid-template-columns:repeat(4, auto); grid-gap:26px;}
+.lecture_most {display:grid; grid-template-columns:repeat(4, auto); grid-gap:26px; padding:0;}
 .lecture_most li {list-style:none; width:320px; height:340px; border-radius:10px; overflow:hidden;}
 .lecture_most li a {display:block; width:100%;}
 .lecture_most li img {width:330px; height:183px; object-fit:cover;}
