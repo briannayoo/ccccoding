@@ -46,7 +46,7 @@ header .gnb-list > li .sub-wrap {display:none; position:absolute; top:100%; left
 header .gnb-list > li:hover .sub-wrap {display:flex;}
 header .gnb-list > li > a {font-weight:var(--bold, 700);}
 header .gnb-list .sub-wrap > ul {gap:6px;}
-header .gnb-list .sub-wrap > ul a {font-size:1.4rem;}
+header .gnb-list .sub-wrap > ul a {font-size:1.4rem; white-space: nowrap;}
 header .gnb-list .sub-wrap > ul a:hover {border-bottom:1px solid var(--body-text,#222);}
 header .filter-area .ipt-wrap > input {background-color:#ebebeb; border:none;}
 
