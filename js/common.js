@@ -101,6 +101,20 @@ $(function(){
 
   };
 
+  // header
+  if($('header').length > 0) {
+    $(window).scroll(function() {
+      var gnbArea = $('.gnb-area');
+      var scrollPosition = $(window).scrollTop();
+    
+      if (scrollPosition > 0) {
+        gnbArea.addClass('sticky');
+      } else {
+        gnbArea.removeClass('sticky');
+      }
+    });
+  }
+
 
 
 
