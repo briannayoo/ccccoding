@@ -8,22 +8,144 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <!-- 폰트어썸 css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- 썸머노트 css -->
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="css/common.css"> <!--실제로는 경로변경해야함 ../이거빼야됨-->
   <link rel="stylesheet" href="css/layout.css"> <!--실제로는 경로변경해야함 ../이거빼야됨-->
   <link rel="stylesheet" href="css/content.css"> <!--실제로는 경로변경해야함 ../이거빼야됨-->
   <!-- 부트스트랩 js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- 썸머노트 js -->
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
   
   <!-- 제이쿼리 -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   
   <!-- 공통 js -->
-  <script src="js/common.js"></script> <!--경로수정해야됨 ../빼기-->
+  <script src="js/common.js"></script>
+  <script src="js/qna_up.js"></script>
 
 </head>
 <body>
-  <header class="temp-area mb-5">header</header>
+  <header>
+    <div class="top-area">
+      <div class="container">
+        <ul class="list-group util-list">
+          <!-- 로그인 전(s) -->
+          <li class="list-group-item">
+            <a href="#">회원가입</a>
+          </li>
+          <li class="list-group-item">
+            <a href="#">로그인</a>
+          </li>
+          <li class="list-group-item">
+            <a href="#">고객센터</a>
+          </li>
+          <!-- 로그인 전(e) -->
+          <!-- 로그인 후(s) -->
+          <li class="list-group-item user-menu">
+            <div class="login-profile">
+              <div class="img-wrap">
+                <img src="image/img_header_pf.png" alt="프로필 이미지">
+              </div>
+              <span class="id">시크릿쥬쥬</span>님
+            </div>
+            <ul class="list-group user-menu-list">
+              <li class="list-group-item">
+                <a href="#">내 강의 보기</a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">구매내역</a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">문의내역</a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">회원정보 수정</a>
+              </li>
+              <li class="list-group-item line">
+                <a href="#">로그아웃</a>
+              </li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <a href="#">수강바구니</a>
+          </li>
+          <li class="list-group-item">
+            <a href="#">고객센터</a>
+          </li>
+          <!-- 로그인 후(e) -->
+        </ul>
+      </div>
+    </div>
+    <div class="gnb-area">
+      <div class="container">
+        <div class="gnb">
+          <div class="left">
+            <h1 class="logo">
+              <a href="index.html">
+                <span class="visually-hidden">ㅋㅋㅋ코딩</span>
+              </a>
+            </h1>
+            <ul class="list-group gnb-list">
+              <li class="list-group-item">
+                <a href="#">카테고리</a>
+                <div class="sub-wrap">
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <a href="#">웹개발</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#">데이터 사이언스</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#">컴퓨터 사이언스</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#">프로그래임 언어</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#">디자인</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <a href="#">수강후기</a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">이벤트</a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">커뮤니티</a>
+                <div class="sub-wrap">
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <a href="#">공지사항</a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#">Q&amp;A</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <form action="" class="filter-area">
+            <div class="ipt-wrap">
+              <input type="search" class="form-control" placeholder="찾고싶은 강의 주제를 입력해주세요.">
+              <button class="ico-search">
+                <span class="visually-hidden">검색</span>
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
 
   <!-- 공통 부분 (s) -->
   <main class="sub">
@@ -80,10 +202,8 @@
             <p class="tit-h3 qna-up-title">질문에 핵심내용을 요약해보세요.</p>
           </div>
           <div class="border qna-up-text">
-             <textarea id="summernote" name="editordata" class="txt-md qna-up-info">
-             </textarea>
-
-            </div>
+            <div id="summernote" name="desc" class="w-100" ></div>
+          </div>
             <div class="btn-area d-flex justify-content-end">
                 <button type="button" class="btn btn-primary btn-sm">버튼</button>
                 <button type="button" class="btn btn-outline-secondary btn-sm">버튼</button>
