@@ -5,47 +5,45 @@
   <!-- 공통 부분 (s) -->
   <main class="sub">
     <div class="section">
-      <div class="container">
-        <nav class="sub-menu">
-          <ul class="list-group">
-            <!-- 아코디언 하위메뉴 있을 때 case(s) -->
+        <div class="container">
+            <nav class="sub-menu">
+                <ul class="list-group">
+                    <!-- 아코디언 하위메뉴 있을 때 case(s) -->
+                    <li class="list-group-item acco">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                        <i class="fa-solid fa-comment-dots fa-middle"></i>
+                                        <span>커뮤니티</span>
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <ul class="list-group depth-2">
+                                            <li class="list-group-item">
+                                                <a href="/ccccoding/community/notice.php">공지사항</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="/ccccoding/community/qna.php">Q&amp;A</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 
-            <li class="list-group-item acco">
-              <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                      <i class="fa-solid fa-comment-dots fa-middle"></i>
-                      <span>커뮤니티</span>
-                    </button>
-                  </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <ul class="list-group depth-2">
-                        <li class="list-group-item on">
-                          <a href="#">전체</a>
-                        </li>
-                        <li class="list-group-item">
-                          <a href="#">공지사항</a>
-                        </li>
-                        <li class="list-group-item">
-                          <a href="#">Q&amp;A</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <li class="list-group-item">
-              <a href="#" class="accordion-button">
-                <i class="fa-solid fa-gift fa-middle"></i>
-                <span>이벤트</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+                    <li class="list-group-item">
+                        <a href="/ccccoding/event/event.php" class="accordion-button">
+                            <i class="fa-solid fa-gift fa-middle"></i>
+                            <span>이벤트</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         <!-- 질문하기 start -->
         <div class="con-wrap">
           <div class="page-tit-area">

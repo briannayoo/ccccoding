@@ -5,47 +5,45 @@
   <!-- 공통 부분 (s) -->
   <main class="sub">
     <div class="section">
-      <div class="container">
-        <nav class="sub-menu">
-          <ul class="list-group">
-            <!-- 아코디언 하위메뉴 있을 때 case(s) -->
+        <div class="container">
+            <nav class="sub-menu">
+                <ul class="list-group">
+                    <!-- 아코디언 하위메뉴 있을 때 case(s) -->
+                    <li class="list-group-item acco">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                        <i class="fa-solid fa-comment-dots fa-middle"></i>
+                                        <span>커뮤니티</span>
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <ul class="list-group depth-2">
+                                            <li class="list-group-item">
+                                                <a href="/ccccoding/community/notice.php">공지사항</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="/ccccoding/community/qna.php">Q&amp;A</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 
-            <li class="list-group-item acco">
-              <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                      <i class="fa-solid fa-comment-dots fa-middle"></i>
-                      <span>커뮤니티</span>
-                    </button>
-                  </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <ul class="list-group depth-2">
-                        <li class="list-group-item on">
-                          <a href="#">전체</a>
-                        </li>
-                        <li class="list-group-item">
-                          <a href="#">공지사항</a>
-                        </li>
-                        <li class="list-group-item">
-                          <a href="#">Q&amp;A</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <li class="list-group-item">
-              <a href="#" class="accordion-button">
-                <i class="fa-solid fa-gift fa-middle"></i>
-                <span>이벤트</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+                    <li class="list-group-item">
+                        <a href="/ccccoding/event/event.php" class="accordion-button">
+                            <i class="fa-solid fa-gift fa-middle"></i>
+                            <span>이벤트</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         <div class="con-wrap">
           <div class="page-tit-area">
             <h2 class="tit-h1">Q&amp;A</h2>
@@ -68,25 +66,36 @@
               <option value="3">추천순</option>
             </select>
           </div>
+          <div class="d-flex justify-content-end">
+            <a href="/ccccoding/community/qna_up.php" class="btn btn-primary btn-sm ">질문하기</a>
+          </div>
           <!-- 공통 부분 (e) -->
           <hr>
           <!-- qna start -->
-          <div class="">
-            <div class="border-bottom qna-list">
-              <h2 class="txt-xl list-h2">readmore 클리시 쿼리내용 받아오는게 이해가 안되요</h2>
-              <p class="txt-md qna-text">ajax 방식으로 fetch 통해 page값을 넘겨Domparser 사용해서 html을 새로 그린다는건 알겠는데 get방법을 사용한 이..... </p>
-              <div class="d-flex justify-content-between">
-                  <div class="d-flex list-text">
-                    <p>답변 : <span class="qna-span">답변등록</span></p>
-                    <p><i class="fa-solid fa-eye fa-small"></i> : 303</p>
-                    <p><i class="fa-solid fa-heart fa-small"></i> : 16</p>
-                  </div>
-                  <div class="d-flex list-text">
-                    <p>작성자 : 유공주</p>
-                    <p>2024-04-01</p>
+          <?php
+            $sql = "SELECT * FROM qna";
+            $result = $mysqli -> query($sql);
+            while($row = mysqli_fetch_assoc($result)){
+            ?>
+            <div class="">
+              <div class="border-bottom qna-list">
+                <h2 class="txt-xl list-h2"><?= $row['title']?></h2>
+                <p class="txt-md qna-text"><?= $row['content']?></p>
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex list-text">
+                      <p>답변 : <span class="qna-span"><?= $row['status']?></span></p>
+                      <p><i class="fa-solid fa-eye fa-small"></i> : <?= $row['hit']?></p>
+                      <p><i class="fa-solid fa-heart fa-small"></i> : <?= $row['thumbsup']?></p>
+                    </div>
+                    <div class="d-flex list-text">
+                      <p>작성자 : <?= $row['name']?></p>
+                      <p><?= $row['date']?></p>
+                    </div>
                   </div>
                 </div>
-              </div>
+            <?php
+            }
+          ?>
           
           <!-- pagination(s) -->
             <nav aria-label="페이지네이션">
