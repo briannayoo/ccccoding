@@ -39,7 +39,7 @@
               <a href="/ccccoding/mypage/course.php" class="accordion-button tit-h4">내강의 보기</a>
             </li>
             <li class="list-group-item">
-              <a href="/ccccoding/mypage/order.php" class="accordion-button tit-h4">수강바구니</a>
+              <a href="/ccccoding/padata/order.php" class="accordion-button tit-h4">수강바구니</a>
             </li>
             <li class="list-group-item">
               <a href="/ccccoding/mypage/payment.php" class="accordion-button tit-h4">구매내역</a>
