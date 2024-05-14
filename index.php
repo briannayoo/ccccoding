@@ -1,6 +1,14 @@
 <?php
   $title = 'ccccoding';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
+
+  $sql = "SELECT * FROM products where 1=1";
+  $result = $mysqli->query($sql);
+
+  while ($rs = $result->fetch_object()) {
+    $rsArr[] = $rs;
+  }
+  
 ?>
     <main>
       <!-- 풀배너,섹션2~4 우예지(s) -->
@@ -181,8 +189,11 @@
         </div>
       </div>
       <!-- 섹션5~6 유부현(e) -->
-
     </main>
+  <script>
+    
+  </script>
 <?php
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/footer.php';
 ?>
+  
