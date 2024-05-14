@@ -22,7 +22,5 @@ function issue_coupon($mysqli, $uid, $num, $reason){
         alert('회원가입 완료!, $couponName 쿠폰이 발행되었습니다.');
         location.href='/ccccoding/index.php';
     </script>";
-
-
 }
 ?>

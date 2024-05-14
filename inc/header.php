@@ -1,4 +1,5 @@
 <?php
+  session_start();
   require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/dbcon.php';
 ?>
 
@@ -53,6 +54,9 @@
       <div class="top-area">
         <div class="container">
           <ul class="list-group util-list">
+          <?php
+          if (!isset($_SESSION['UID'])) { //없다면
+          ?>
             <!-- 로그인 전(s) -->
             <li class="list-group-item">
               <a href="/ccccoding/member/signup.php">회원가입</a>
@@ -64,11 +68,14 @@
               <a href="#">고객센터</a>
             </li>
             <!-- 로그인 전(e) -->
+          <?php
+          } else{ //있다면
+          ?>  
             <!-- 로그인 후(s) -->
             <li class="list-group-item user-menu">
               <div class="login-profile">
                 <div class="img-wrap">
-                  <img src="image/img_header_pf.png" alt="프로필 이미지">
+                  <img src="/ccccoding/image/img_header_pf.png" alt="프로필 이미지">
                 </div>
                 <span class="id">시크릿쥬쥬</span>님
               </div>
@@ -91,12 +98,15 @@
               </ul>
             </li>
             <li class="list-group-item">
-              <a href="#">수강바구니</a>
+              <a href="/ccccoding/padata/order.php">수강바구니</a>
             </li>
             <li class="list-group-item">
               <a href="#">고객센터</a>
             </li>
             <!-- 로그인 후(e) -->
+          <?php
+          }
+          ?>
           </ul>
         </div>
       </div>
@@ -105,7 +115,7 @@
           <div class="gnb">
             <div class="left">
               <h1 class="logo">
-                <a href="index.php">
+                <a href="/ccccoding/index.php">
                   <span class="visually-hidden">ㅋㅋㅋ코딩</span>
                 </a>
               </h1>
