@@ -55,19 +55,19 @@
               </div>
               <ul class="list-group user-menu-list">
                 <li class="list-group-item">
-                  <a href="#">내 강의 보기</a>
+                  <a href="mypage/course.php">내 강의 보기</a>
                 </li>
                 <li class="list-group-item">
-                  <a href="#">구매내역</a>
+                  <a href="mypage/payment.php">구매내역</a>
                 </li>
                 <li class="list-group-item">
-                  <a href="#">문의내역</a>
+                  <a href="mypage/inquiries.php">문의내역</a>
                 </li>
                 <li class="list-group-item">
-                  <a href="#">회원정보 수정</a>
+                  <a href="mypage/member.php">회원정보 수정</a>
                 </li>
                 <li class="list-group-item line">
-                  <a href="#">로그아웃</a>
+                  <a href="logout.php">로그아웃</a>
                 </li>
               </ul>
             </li>
@@ -86,7 +86,7 @@
           <div class="gnb">
             <div class="left">
               <h1 class="logo">
-                <a href="">
+                <a href="index.php">
                   <span class="visually-hidden">ㅋㅋㅋ코딩</span>
                 </a>
               </h1>
