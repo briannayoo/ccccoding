@@ -20,7 +20,7 @@ function issue_coupon($mysqli, $uid, $num, $reason){
 
     echo "<script>
         alert('회원가입 완료!, $couponName 쿠폰이 발행되었습니다.');
-        location.href='/pinkping/index.php';
+        location.href='/ccccoding/index.php';
     </script>";
 
 

@@ -32,7 +32,7 @@ if (isset($_SESSION['UID'])) {
   <!-- 우예지(s) -->
   <div id="login-wrap">
     <div class="login-bg">
-      <form action="login_ok.php" method="POST" class="form-list row justify-content-center">
+      <form action="login_ok.php" method="POST" class="form-list row justify-content-center" id="loginForm">
         <h1 class="text-center bnr-tit-l mb-6"><img src="/ccccoding/image/logo_big.png" alt="로고"></h1>
         <div class="form-floating mb-3">
           <input type="text" class="form-control" name="userid" id="userid" placeholder="아이디">
@@ -45,7 +45,7 @@ if (isset($_SESSION['UID'])) {
         <div class="list-group list-group-horizontal">
           <div class="list-group-item">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="chk-list-04" checked>
+              <input class="form-check-input" type="checkbox" value="" id="chk-list-04" checked  id="rememberMe">
               <label class="form-check-label" for="chk-list-04">
                 아이디 저장
               </label>
@@ -71,6 +71,7 @@ if (isset($_SESSION['UID'])) {
       </form>
     </div>
   </div>
+  <script src="/ccccoding/js/login_cookie.js"></script>
     <!-- 우예지(e) -->
 </body>
 </html>
