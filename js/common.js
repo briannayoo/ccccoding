@@ -29,8 +29,8 @@ $(function(){
     function moveSlide(num){
       let currentSlide = slides.eq(currentIdx);
       let nextSlide = slides.eq(num);
-      currentSlide.css({left:0}).animate({left:'-100%'});
-      nextSlide.css({left:'100%'}).animate({left:'0'});
+      currentSlide.css({left:0}).stop().animate({left:'-100%'});
+      nextSlide.css({left:'100%'}).stop().animate({left:'0'});
       currentIdx = num;
 
       //페이저 활성화

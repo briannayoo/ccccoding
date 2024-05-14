@@ -10,17 +10,17 @@
     $search_where = '';
     
     //총개수 조회
-    $sql = "SELECT COUNT(*) AS cnt FROM orders WHERE 1=1";
+    $sql = "SELECT COUNT(*) AS cnt FROM payments WHERE 1=1";
     $sql .= $search_where;
     $result = $mysqli->query($sql);
     $count = $result->fetch_object();
 
     $totalcount = $count->cnt; //총검색건수
-    $targetTable = 'orders';
+    $targetTable = 'payments';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
 
     //페이지네이션
-    $sql = "SELECT * FROM orders WHERE 1=1";
+    $sql = "SELECT * FROM payments WHERE 1=1";
     $sql .= $search_where;
     $order = " order by oid desc";
     $sql .= $order;
@@ -29,7 +29,7 @@
     // echo $sql;
 
     // $result = $mysqli->query($sql);
-    // $sql = "SELECT * FROM orders";
+    // $sql = "SELECT * FROM payments";
 
     if(isset($_GET['oid'])) {
       $oid = $_GET['oid'];
@@ -42,7 +42,7 @@
     }
 
     $osql = "SELECT o.*, m.userid, m.username
-            FROM orders o
+            FROM payments o
             LEFT JOIN members m 
             ON o.mid = m.mid";
 
@@ -151,7 +151,7 @@
                   <input class="form-check-input" type="checkbox" id="" name="check-group" value="<?= $item->oid?>" aria-label="checkbox">
                 </div>
               </td>
-              <td><?= $item->orders_date ?></td>
+              <td><?= $item->orders_date?></td>
               <td><?= $item->username ?></td>
               <td><?= $item->userid ?></td>
               <td><?= $item->lecture_name ?></td>
