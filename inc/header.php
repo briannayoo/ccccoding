@@ -36,10 +36,10 @@
           <ul class="list-group util-list">
             <!-- 로그인 전(s) -->
             <li class="list-group-item">
-              <a href="#">회원가입</a>
+              <a href="/ccccoding/member/signup.php">회원가입</a>
             </li>
             <li class="list-group-item">
-              <a href="#">로그인</a>
+              <a href="/ccccoding/member/login.php">로그인</a>
             </li>
             <li class="list-group-item">
               <a href="#">고객센터</a>
