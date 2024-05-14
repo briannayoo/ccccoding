@@ -55,19 +55,19 @@
               </div>
               <ul class="list-group user-menu-list">
                 <li class="list-group-item">
-                  <a href="mypage/course.php">내 강의 보기</a>
+                  <a href="/ccccoding/mypage/course.php">내 강의 보기</a>
                 </li>
                 <li class="list-group-item">
-                  <a href="mypage/payment.php">구매내역</a>
+                  <a href="/ccccoding/mypage/payment.php">구매내역</a>
                 </li>
                 <li class="list-group-item">
-                  <a href="mypage/inquiries.php">문의내역</a>
+                  <a href="/ccccoding/mypage/inquiries.php">문의내역</a>
                 </li>
                 <li class="list-group-item">
-                  <a href="mypage/member.php">회원정보 수정</a>
+                  <a href="/ccccoding/mypage/member.php">회원정보 수정</a>
                 </li>
                 <li class="list-group-item line">
-                  <a href="logout.php">로그아웃</a>
+                  <a href="/ccccoding/logout.php">로그아웃</a>
                 </li>
               </ul>
             </li>
