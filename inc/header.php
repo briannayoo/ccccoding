@@ -77,7 +77,7 @@
                 <div class="img-wrap">
                   <img src="/ccccoding/image/img_header_pf.png" alt="프로필 이미지">
                 </div>
-                <span class="id">시크릿쥬쥬</span>님
+                <span class="id"><?= $_SESSION['UID'] ?></span>님
               </div>
               <ul class="list-group user-menu-list">
                 <li class="list-group-item">
