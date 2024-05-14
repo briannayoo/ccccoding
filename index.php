@@ -155,8 +155,8 @@
             <h2 class="tit-h1">프로모션 &amp; 이벤트</h2>
           </div>
 
-          <div class="temp-area">
-            각자 컨텐츠 작업 (유부현)
+          <div class="event-section" id="event-banner">
+            <a href=""><img src="image/event_section1.png" alt=""></a>
           </div>
         </div>
       </div>
@@ -168,8 +168,15 @@
             <h2 class="tit-h1">코딩입문을 위한 컨텐츠</h2>
           </div>
           
-          <div class="temp-area">
-            각자 컨텐츠 작업 (유부현)
+          <div class="main-content">
+            <div class="d-flex justify-content-between">
+              <div>
+                <img src="image/main_section_content1.png" alt="컨텐츠 이미지">
+              </div>
+              <div>
+                <img src="image/main_section_content2.png" alt="컨텐츠 이미지">
+              </div>
+            </div>
           </div>
         </div>
       </div>

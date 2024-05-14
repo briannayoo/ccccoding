@@ -8,8 +8,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <!-- 폰트어썸 css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- 썸머노트 css -->
-  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="css/common.css"> <!--php때 경로수정-->
   <link rel="stylesheet" href="css/main.css"> <!--php때 경로수정-->
@@ -17,15 +15,12 @@
   <link rel="stylesheet" href="css/content.css"> <!--php때 경로수정-->
   <!-- 부트스트랩 js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <!-- 썸머노트 js -->
-  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
   
   <!-- 제이쿼리 -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   
   <!-- 공통 js -->
-  <script src="js/common.js"></script>
-  <script src="js/qna_up.js"></script>
+  <script src="../js/common.js"></script> <!--경로수정해야됨 ../빼기-->
 
 </head>
 <body>
@@ -192,24 +187,94 @@
             </li>
           </ul>
         </nav>
-        <!-- 질문하기 start -->
         <div class="con-wrap">
           <div class="page-tit-area">
-            <h2 class="tit-h1">질문하기</h2>
+            <h2 class="tit-h1">Q&amp;A</h2>
           </div>
 
-          <!-- 제목쓰기 -->
-          <div>
-            <p class="tit-h3 qna-up-title">질문에 핵심내용을 요약해보세요.</p>
-          </div>
-          <div class="border qna-up-text">
-            <div id="summernote" name="desc" class="w-100" ></div>
-          </div>
-            <div class="btn-area d-flex justify-content-end">
-                <button type="button" class="btn btn-primary btn-sm">버튼</button>
-                <button type="button" class="btn btn-outline-secondary btn-sm">버튼</button>
+          <form action="" class="filter-area">
+            <div class="ipt-wrap">
+              <input type="search" class="form-control" placeholder="검색어를 입력하세요.">
+              <button class="ico-search">
+                <span class="visually-hidden">검색</span>
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
             </div>
+          </form>
 
+          <div class="sort-area">
+            <select class="form-select" aria-label="정렬 순서 선택">
+              <option value="1" selected>최신순</option>
+              <option value="2">인기순</option>
+              <option value="3">추천순</option>
+            </select>
+          </div>
+          <!-- 공통 부분 (e) -->
+          <hr>
+          <!-- qna start -->
+          <div class="">
+            <div class="border-bottom qna-list">
+              <h2 class="txt-xl list-h2">readmore 클리시 쿼리내용 받아오는게 이해가 안되요</h2>
+              <p class="txt-md qna-text">ajax 방식으로 fetch 통해 page값을 넘겨Domparser 사용해서 html을 새로 그린다는건 알겠는데 get방법을 사용한 이..... </p>
+              <div class="d-flex justify-content-between">
+                  <div class="d-flex list-text">
+                    <p>답변 : <span class="qna-span">답변등록</span></p>
+                    <p><i class="fa-solid fa-eye fa-small"></i> : 303</p>
+                    <p><i class="fa-solid fa-heart fa-small"></i> : 16</p>
+                  </div>
+                  <div class="d-flex list-text">
+                    <p>작성자 : 유공주</p>
+                    <p>2024-04-01</p>
+                  </div>
+                </div>
+              </div>
+          <!-- pagination(s) -->
+            <nav aria-label="페이지네이션">
+              <ul class="pagination">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">
+                    <span class="visually-hidden">처음</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                      <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                    </svg>
+                  </a>
+                </li>
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">
+                    <span class="visually-hidden">이전</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                    </svg>
+                  </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active"> <!--active일떄 블라인드 현재페이지 스크립트로 넣어야함-->
+                  <a class="page-link" href="#">2</span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    <span class="visually-hidden">다음</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                    </svg>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    <span class="visually-hidden">마지막</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"/>
+                      <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"/>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          <!-- pagination(e) -->
+
+          </div>
         </div>
       </div>
     </div>

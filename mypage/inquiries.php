@@ -1,148 +1,7 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ccccoding</title>
-  <!-- 부트스트랩 css -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <!-- 폰트어썸 css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/content.css">
-  <!-- 부트스트랩 js -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  
-  <!-- 제이쿼리 -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  
-  <!-- 공통 js -->
-  <script src="../js/common.js"></script>
-
-</head>
-<body>
-  <!-- header 박소현 (s) -->
-  <header>
-    <div class="top-area">
-      <div class="container">
-        <ul class="list-group util-list">
-          <!-- 로그인 전(s) -->
-          <li class="list-group-item">
-            <a href="#">회원가입</a>
-          </li>
-          <li class="list-group-item">
-            <a href="#">로그인</a>
-          </li>
-          <li class="list-group-item">
-            <a href="#">고객센터</a>
-          </li>
-          <!-- 로그인 전(e) -->
-          <!-- 로그인 후(s) -->
-          <li class="list-group-item user-menu">
-            <div class="login-profile">
-              <div class="img-wrap">
-                <img src="../image/img_header_pf.png" alt="프로필 이미지">
-              </div>
-              <span class="id">시크릿쥬쥬</span>님
-            </div>
-            <ul class="list-group user-menu-list">
-              <li class="list-group-item">
-                <a href="#">내 강의 보기</a>
-              </li>
-              <li class="list-group-item">
-                <a href="#">구매내역</a>
-              </li>
-              <li class="list-group-item">
-                <a href="#">문의내역</a>
-              </li>
-              <li class="list-group-item">
-                <a href="#">회원정보 수정</a>
-              </li>
-              <li class="list-group-item line">
-                <a href="#">로그아웃</a>
-              </li>
-            </ul>
-          </li>
-          <li class="list-group-item">
-            <a href="#">수강바구니</a>
-          </li>
-          <li class="list-group-item">
-            <a href="#">고객센터</a>
-          </li>
-          <!-- 로그인 후(e) -->
-        </ul>
-      </div>
-    </div>
-    <div class="gnb-area">
-      <div class="container">
-        <div class="gnb">
-          <div class="left">
-            <h1 class="logo">
-              <a href="../index.html">
-                <span class="visually-hidden">ㅋㅋㅋ코딩</span>
-              </a>
-            </h1>
-            <ul class="list-group gnb-list">
-              <li class="list-group-item">
-                <a href="#">카테고리</a>
-                <div class="sub-wrap">
-                  <ul class="list-group">
-                    <li class="list-group-item">
-                      <a href="#">웹개발</a>
-                    </li>
-                    <li class="list-group-item">
-                      <a href="#">데이터 사이언스</a>
-                    </li>
-                    <li class="list-group-item">
-                      <a href="#">컴퓨터 사이언스</a>
-                    </li>
-                    <li class="list-group-item">
-                      <a href="#">프로그래임 언어</a>
-                    </li>
-                    <li class="list-group-item">
-                      <a href="#">디자인</a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <a href="#">수강후기</a>
-              </li>
-              <li class="list-group-item">
-                <a href="#">이벤트</a>
-              </li>
-              <li class="list-group-item">
-                <a href="#">커뮤니티</a>
-                <div class="sub-wrap">
-                  <ul class="list-group">
-                    <li class="list-group-item">
-                      <a href="#">공지사항</a>
-                    </li>
-                    <li class="list-group-item">
-                      <a href="#">Q&amp;A</a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <form action="" class="filter-area">
-            <div class="ipt-wrap">
-              <input type="search" class="form-control" placeholder="찾고싶은 강의 주제를 입력해주세요.">
-              <button class="ico-search">
-                <span class="visually-hidden">검색</span>
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- header 박소현 (e) -->
+<?php
+  $title = '마이페이지-문의내역';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
+?>
 
   <!-- 공통 부분 (s) -->
   <main class="sub mypage">
@@ -151,7 +10,7 @@
         <!-- 프로필 (s) -->
         <div class="pf-area">
           <div class="img-wrap">
-            <img src="../image/img_my_profile.png" alt="">
+            <img src="/ccccoding/image/img_my_profile.png" alt="">
           </div>
           <div class="content">
             <span>반갑습니다!</span>
@@ -163,36 +22,36 @@
         <ul class="list-group user-bf-list">
           <li class="list-group-item">
             <div class="item">쿠폰</div>
-            <div class="val"><a href="benefit.html" class="num">0</a>개</div>
+            <div class="val"><a href="/ccccoding/mypage/benefit.php" class="num">0</a>개</div>
           </li>
           <li class="list-group-item">
             <div class="item">포인트</div>
-            <div class="val"><a href="benefit.html" class="num">10</a>P</div>
+            <div class="val"><a href="/ccccoding/mypage/benefit.php" class="num">10</a>P</div>
           </li>
         </ul>
         <!-- 가지고 있는 쿠폰/ 리스트(e) -->
         <nav class="sub-menu">
           <ul class="list-group">
             <li class="list-group-item">
-              <a href="mypage.html" class="accordion-button tit-h4">HOME</a>
+              <a href="/ccccoding/mypage/mypage.php" class="accordion-button tit-h4">HOME</a>
             </li>
             <li class="list-group-item">
-              <a href="course.html" class="accordion-button tit-h4">내강의 보기</a>
+              <a href="/ccccoding/mypage/course.php" class="accordion-button tit-h4">내강의 보기</a>
             </li>
             <li class="list-group-item">
-              <a href="#" class="accordion-button tit-h4">수강바구니</a> <!--url나오면 넣기-->
+              <a href="/ccccoding/mypage/order.php" class="accordion-button tit-h4">수강바구니</a>
             </li>
             <li class="list-group-item">
-              <a href="payment.html" class="accordion-button tit-h4">구매내역</a>
+              <a href="/ccccoding/mypage/payment.php" class="accordion-button tit-h4">구매내역</a>
             </li>
             <li class="list-group-item">
-              <a href="inquiries.html" class="accordion-button tit-h4">문의내역</a>
+              <a href="/ccccoding/mypage/inquiries.php" class="accordion-button tit-h4">문의내역</a>
             </li>
             <li class="list-group-item">
-              <a href="benefit.html" class="accordion-button tit-h4">쿠폰&amp;포인트</a>
+              <a href="/ccccoding/mypage/benefit.php" class="accordion-button tit-h4">쿠폰&amp;포인트</a>
             </li>
             <li class="list-group-item">
-              <a href="member.html" class="accordion-button tit-h4">회원정보 수정</a>
+              <a href="/ccccoding/mypage/member.php" class="accordion-button tit-h4">회원정보 수정</a>
             </li>
           </ul>
 

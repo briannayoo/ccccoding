@@ -57,10 +57,12 @@ $(function(){
     autoSlide()
   }
 
-   //Main section event
-  // let img_num = Math.floor(Math.random()*4+1);
 
-  // document.getElementById('gnb_img').src='./images/gnbrandom0'+img_num+'.png';
+  //Main section event
+  if($('#event-banner img').length > 0){
+    let img_num = Math.floor(Math.random()*4+1);
+    document.getElementById('gnb_img').src='images/event_section'+img_num+'.png'; 
+  }
 
   // submenu
   if($('.sub .sub-menu').length >0){
