@@ -1,5 +1,5 @@
 <?php
-  $title = '질문하기';
+  $title = '공지사항';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
 ?>
   <!-- 공통 부분 (s) -->
@@ -48,7 +48,7 @@
         </nav>
         <div class="con-wrap">
           <div class="page-tit-area">
-            <h2 class="tit-h1">Q&amp;A</h2>
+            <h2 class="tit-h1">공지사항</h2>
           </div>
 
           <form action="" class="filter-area">
@@ -70,23 +70,17 @@
           </div>
           <!-- 공통 부분 (e) -->
           <hr>
-          <!-- qna start -->
+          <!-- notie start -->
           <div class="">
-            <div class="border-bottom qna-list">
-              <h2 class="txt-xl list-h2">readmore 클리시 쿼리내용 받아오는게 이해가 안되요</h2>
-              <p class="txt-md qna-text">ajax 방식으로 fetch 통해 page값을 넘겨Domparser 사용해서 html을 새로 그린다는건 알겠는데 get방법을 사용한 이..... </p>
-              <div class="d-flex justify-content-between">
-                  <div class="d-flex list-text">
-                    <p>답변 : <span class="qna-span">답변등록</span></p>
-                    <p><i class="fa-solid fa-eye fa-small"></i> : 303</p>
-                    <p><i class="fa-solid fa-heart fa-small"></i> : 16</p>
-                  </div>
-                  <div class="d-flex list-text">
-                    <p>작성자 : 유공주</p>
-                    <p>2024-04-01</p>
-                  </div>
-                </div>
+
+            <div class="border-bottom notice-list">
+              <h2 class="txt-xl list-h2">ㅋㅋㅋ코딩 개인정보 처리방침 개정 안내(2024.03.01)</h2>
+              <div class="d-flex list-text">
+                <p>작성자 : 관리자</p>
+                <p><i class="fa-solid fa-eye fa-small"></i> : 26</p>
+                <p>2024-03-01</p>
               </div>
+            </div>
           <!-- pagination(s) -->
             <nav aria-label="페이지네이션">
               <ul class="pagination">
@@ -139,6 +133,6 @@
     </div>
   </main>
 
-  <?php
+<?php
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/footer.php';
 ?>
