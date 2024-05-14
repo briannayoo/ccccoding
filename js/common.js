@@ -76,6 +76,7 @@ $(function(){
     $('.sub-menu .accordion-button').on('click', function() {
       $(this).closest('li').addClass('on');
       $(this).closest('li').siblings().removeClass('on');
+      $('.accordion-collapse').removeClass('show');
     });
 
     $('.sub-menu .depth-2 a').on('click', function() {
