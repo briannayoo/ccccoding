@@ -1,4 +1,5 @@
 <?php
+  session_start();
   require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/dbcon.php';
 ?>
 
@@ -8,6 +9,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?=$title?> - ccccoding</title>
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ccccoding/image/favi/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/ccccoding/image/favi/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/ccccoding/image/favi/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ccccoding/image/favi/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/ccccoding/image/favi/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ccccoding/image/favi/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/ccccoding/image/favi/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ccccoding/image/favi/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ccccoding/image/favi/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/ccccoding/image/favi/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/ccccoding/image/favi/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/ccccoding/image/favi/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/ccccoding/image/favi/favicon-16x16.png">
+  <link rel="manifest" href="/ccccoding/image/favi/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ccccoding/image/favi/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
   <!-- 폰트어썸 css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -34,6 +54,9 @@
       <div class="top-area">
         <div class="container">
           <ul class="list-group util-list">
+          <?php
+          if (!isset($_SESSION['UID'])) { //없다면
+          ?>
             <!-- 로그인 전(s) -->
             <li class="list-group-item">
               <a href="/ccccoding/member/signup.php">회원가입</a>
@@ -45,11 +68,14 @@
               <a href="#">고객센터</a>
             </li>
             <!-- 로그인 전(e) -->
+          <?php
+          } else{ //있다면
+          ?>  
             <!-- 로그인 후(s) -->
             <li class="list-group-item user-menu">
               <div class="login-profile">
                 <div class="img-wrap">
-                  <img src="image/img_header_pf.png" alt="프로필 이미지">
+                  <img src="/ccccoding/image/img_header_pf.png" alt="프로필 이미지">
                 </div>
                 <span class="id">시크릿쥬쥬</span>님
               </div>
@@ -72,12 +98,15 @@
               </ul>
             </li>
             <li class="list-group-item">
-              <a href="#">수강바구니</a>
+              <a href="/ccccoding/padata/order.php">수강바구니</a>
             </li>
             <li class="list-group-item">
               <a href="#">고객센터</a>
             </li>
             <!-- 로그인 후(e) -->
+          <?php
+          }
+          ?>
           </ul>
         </div>
       </div>
@@ -86,7 +115,7 @@
           <div class="gnb">
             <div class="left">
               <h1 class="logo">
-                <a href="index.php">
+                <a href="/ccccoding/index.php">
                   <span class="visually-hidden">ㅋㅋㅋ코딩</span>
                 </a>
               </h1>
