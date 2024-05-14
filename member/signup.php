@@ -21,8 +21,17 @@
 <body>
   <div id="sign-wrap">
     <div class="sign-bg">
+
       <form action="signup_ok.php" method="POST" class="form-list row justify-content-center" id="signup">
         <h1 class="text-center bnr-tit-l mb-6"><img src="/ccccoding/image/logo_big.png" alt="로고"></h1>
+        <!-- <div class="slidewrapper">
+          <ul class="slidecontainer animated">
+            <li class="slide">나의 커리어 메이트 ㅋㅋㅋ 코딩</li>
+            <li class="slide">한달만에 취업하는 특급 코딩</li>
+            <li class="slide">ㅋㅋㅋ 코딩과 함께라면 무엇이든 해냅니다</li>
+            <li class="slide"></li>
+          </ul>
+        </div> -->
         <div class="form-floating mb-3">
           <input type="text" class="form-control" name="username" id="username" placeholder="닉네임" required>
           <label for="username" class="label-ml">닉네임</label>
