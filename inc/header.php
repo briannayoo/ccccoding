@@ -7,7 +7,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ccccoding</title>
+  <title><?=$title?> - ccccoding</title>
   <!-- 폰트어썸 css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -55,19 +55,19 @@
               </div>
               <ul class="list-group user-menu-list">
                 <li class="list-group-item">
-                  <a href="#">내 강의 보기</a>
+                  <a href="/ccccoding/mypage/course.php">내 강의 보기</a>
                 </li>
                 <li class="list-group-item">
-                  <a href="#">구매내역</a>
+                  <a href="/ccccoding/mypage/payment.php">구매내역</a>
                 </li>
                 <li class="list-group-item">
-                  <a href="#">문의내역</a>
+                  <a href="/ccccoding/mypage/inquiries.php">문의내역</a>
                 </li>
                 <li class="list-group-item">
-                  <a href="#">회원정보 수정</a>
+                  <a href="/ccccoding/mypage/member.php">회원정보 수정</a>
                 </li>
                 <li class="list-group-item line">
-                  <a href="#">로그아웃</a>
+                  <a href="/ccccoding/logout.php">로그아웃</a>
                 </li>
               </ul>
             </li>
@@ -86,7 +86,7 @@
           <div class="gnb">
             <div class="left">
               <h1 class="logo">
-                <a href="">
+                <a href="index.php">
                   <span class="visually-hidden">ㅋㅋㅋ코딩</span>
                 </a>
               </h1>

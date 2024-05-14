@@ -5,6 +5,7 @@
 #banner .slidewrapper {width:100%; height:344px; position:relative; overflow:hidden;}
 #banner .slidecontainer {position:relative; height:100%;}
 #banner .slide {position:absolute; width:100%; height:344px;}
+#banner .slide img {height:100%; object-fit:cover;}
 #banner .slidewrapper .pager{position:absolute; left:200px; bottom:20px; display:flex; gap:10px; z-index:10;}
 #banner .slidewrapper .pager a {width:15px; height:15px; background:var(--text-c6); border-radius:50%; text-indent:-9999em;}
 #banner .slidewrapper .pager a.active {background:var( --text-c2); width:30px; border-radius:50px;}
