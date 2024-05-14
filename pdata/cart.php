@@ -25,7 +25,7 @@
               <div class="check-lecture-list d-flex gap-4">
                 <input class="form-check-input" type="checkbox" id="" name="check-group" value="" aria-label="checkbox">
                 <ul class="list-group d-flex">
-                  <li class="lecture-item d-flex">
+                  <li class="lecture-item d-flex" data-id="">
                     <img src="./image/img_lecture.png" alt="">
                     <div><h3>강의제목입니다</h3><p>yy-mm-dd~yy-mm-dd</p></div>
                     <i class="fa-solid fa-xmark fa-small cart_item_del"></i>
@@ -70,14 +70,9 @@
   </main>
   <script>
 document.addEventListener('DOMContentLoaded', ()=>{
-  // $('.quantity span').click(function(){
-  //   calcTotal();
-  // });
-  $('.cart_item_del').click(function(){
 
-    $(this).closest('li').remove();
-    calcTotal();
-    // let cartid =  $(this).closest('li').find('.qty-text').attr('data-id');
+  $('.cart_item_del').click(function(){
+    let cartid =  $(this).parent().attr('data-id');
 
 
 
