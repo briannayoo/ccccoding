@@ -20,6 +20,24 @@ while($row = $result ->fetch_object()){
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= $title?> - ccccoding</title>
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ccccoding/image/favi/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/ccccoding/image/favi/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/ccccoding/image/favi/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ccccoding/image/favi/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/ccccoding/image/favi/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ccccoding/image/favi/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/ccccoding/image/favi/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ccccoding/image/favi/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ccccoding/image/favi/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/ccccoding/image/favi/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/ccccoding/image/favi/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/ccccoding/image/favi/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/ccccoding/image/favi/favicon-16x16.png">
+  <link rel="manifest" href="/ccccoding/image/favi/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ccccoding/image/favi/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
 
   <!-- 폰트어썸 css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
