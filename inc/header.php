@@ -67,7 +67,7 @@
                   <a href="/ccccoding/mypage/member.php">회원정보 수정</a>
                 </li>
                 <li class="list-group-item line">
-                  <a href="/ccccoding/logout.php">로그아웃</a>
+                  <a href="/ccccoding/member/logout.php">로그아웃</a>
                 </li>
               </ul>
             </li>
