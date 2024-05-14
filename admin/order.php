@@ -151,7 +151,7 @@
                   <input class="form-check-input" type="checkbox" id="" name="check-group" value="<?= $item->oid?>" aria-label="checkbox">
                 </div>
               </td>
-              <td><?= $item->payments_date ?></td>
+              <td><?= $item->orders_date?></td>
               <td><?= $item->username ?></td>
               <td><?= $item->userid ?></td>
               <td><?= $item->lecture_name ?></td>

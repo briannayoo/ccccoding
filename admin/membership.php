@@ -117,7 +117,7 @@
                   <input class="form-check-input" type="checkbox" id="check-01" value="" name="check-group" aria-label="checkbox">
                 </div>
               </td>
-              <td><?=$item -> join_date ?></td>
+              <td><?=$item -> regdate ?></td>
               <td><?=$item -> username ?></td>
               <td><?=$item -> userid ?></td>
               <td><?=$item -> age ?></td>

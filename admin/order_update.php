@@ -10,7 +10,7 @@ $oids = implode(",",$oid);
 
 
   // 변수 $p 대신에 $o를 사용해야 합니다.
-  $sql  = "UPDATE orders set $type = '처리완료' WHERE oid IN ($oids)";
+  $sql  = "UPDATE payments set $type = '처리완료' WHERE oid IN ($oids)";
 
 
   $result = $mysqli->query($sql);
