@@ -9,7 +9,7 @@
           </div>
           <div class="content">
             <span>반갑습니다!</span>
-            <span><em>시크릿쥬쥬</em> 님!</span>
+            <span><em><?= $_SESSION['UID'] ?></em> 님!</span>
           </div>
         </div>
         <!-- 프로필 (e) -->

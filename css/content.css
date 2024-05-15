@@ -165,6 +165,7 @@
 [class^=tit-] + .form-list .pf-area {margin-top:32px;}
 .pf-area .content > .btn {min-width:34px; height:26px; padding:4px; font-size:1.4rem;}
 .pf-area .content > .txt-xs {color:var(--body-txt, #222); margin-top:8px;}
+.pf-area .content > #uploadImage {display:none;}
 
 /* 쿠폰&포인트 (박소현) */
 .point-txt > em {color:var(--primary-c, #472ea1); font-weight:var(--bold, 700);}

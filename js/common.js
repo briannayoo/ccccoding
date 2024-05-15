@@ -108,7 +108,7 @@ $(function(){
 
   };
 
-  // header
+  // header(박소현)
   if($('header').length > 0) {
     $(window).scroll(function() {
       var gnbArea = $('.gnb-area');
@@ -122,6 +122,38 @@ $(function(){
     });
   }
 
+  // mypage 회원정보수정 -프로필변경(박소현)
+  if($('.mypage .pf-area').length > 0) {
+    $('#img-change-button').click(function() {
+      $('#uploadImage').click();
+    });
+
+    $('#uploadImage').change(function() {
+      let file = this.files[0];
+      let fileType = file.type;
+      let fileSize = file.size;
+      let allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+
+      // 파일 확장자 및 크기 확인
+      if (!allowedExtensions.exec(file.name)) {
+        alert('png, jpg, jpeg  파일만 업로드 가능합니다.');
+        this.value = '';
+        return false;
+      } else if (fileSize > 1024 * 1024) {
+        alert('파일 크기는 1MB 이하로 업로드 가능합니다.');
+        this.value = '';
+        return false;
+      }
+
+      if (this.files && this.files[0]) {
+        let reader = new FileReader();
+        reader.onload = function(e) {
+          $('#profileImage').attr('src', e.target.result);
+        };
+        reader.readAsDataURL(this.files[0]);
+      }
+    });
+  }
 
 
 

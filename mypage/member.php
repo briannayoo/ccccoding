@@ -29,10 +29,11 @@
     <!-- 프로필 이미지 (s) -->
     <div class="pf-area">
       <div class="img-wrap">
-        <img src="<?= $rs->profile_image ?: '/ccccoding/image/img_my_profile.png'; ?>" alt="프로필 이미지">
+        <img id="profileImage" src="<?= $rs->profile_image ?: '/ccccoding/image/img_my_profile.png'; ?>" alt="프로필 이미지">
       </div>
       <div class="content">
-        <input type="file" name="profile_image" accept="/ccccoding/image/*">
+        <input type="file" id="uploadImage" name="profile_image" accept="/ccccoding/image/*" style="display:none;">
+        <button type="button" id="img-change-button" class="btn btn-primary gray">변경</button>
         <span class="txt-xs">확장자: png, jpg, jpeg / 용량: 1MB 이하</span>
       </div>
     </div>
@@ -80,7 +81,7 @@
       <div class="col-md-11">
         <div class="input-group">
           <div class="ipt-wrap">
-            <input type="password" class="form-control" id="new_pw" name="new_password" placeholder="새 비밀번호">
+            <input type="password" class="form-control" id="new_pw" name="new_password" placeholder="새 비밀번호" required>
           </div>
         </div>
       </div>
@@ -90,7 +91,7 @@
       <div class="col-md-11">
         <div class="input-group">
           <div class="ipt-wrap">
-            <input type="password" class="form-control" id="new_pw_confirm" name="confirm_password" placeholder="새 비밀번호 확인">
+            <input type="password" class="form-control" id="new_pw_confirm" name="confirm_password" placeholder="새 비밀번호 확인" required>
           </div>
         </div>
       </div>
