@@ -144,7 +144,7 @@
               </ul>
             </li>
             <li class="list-group-item">
-              <a href="/ccccoding/padata/order.php">수강바구니</a>
+              <a href="/ccccoding/pdata/cart.php">수강바구니</a>
             </li>
             <li class="list-group-item">
               <a href="#">고객센터</a>
