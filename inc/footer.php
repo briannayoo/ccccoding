@@ -4,7 +4,7 @@
         <ul class="list-group etc-list link">
           <li class="list-group-item">
             <a href="/" class="logo">
-              <img src="image/logo_foot.png" alt="ㅋㅋㅋ코딩">
+              <img src="/ccccoding/image/logo_foot.png" alt="ㅋㅋㅋ코딩">
             </a>
           </li>
           <li class="list-group-item">
