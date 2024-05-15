@@ -4,7 +4,7 @@
       <nav class="sub-menu">
         <ul class="list-group">
           <?php
-            if ($title == '웹개발' || $title == '데이터 사이언스' || $title == '컴퓨터 사이언스' || $title == '프로그래밍 언어' || $title == '디자인') {
+            if ($title == '웹개발' || $title == '데이터 사이언스' || $title == '컴퓨터 사이언스' || $title == '프로그래밍 언어' || $title == '디자인'|| $title == '전체강의') {
           ?>
           <!-- 아코디언 하위메뉴 있을 때 case(s) -->
           <li class="list-group-item acco">

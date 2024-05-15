@@ -80,6 +80,11 @@
                 <span class="id"><?= $_SESSION['UID'] ?></span>님
               </div>
               <ul class="list-group user-menu-list">
+                <!-- 24-05-15  박소현: home추가 (s) -->
+                <li class="list-group-item">
+                  <a href="/ccccoding/mypage/mypage.php">HOME</a>
+                </li>
+                <!-- 24-05-15  박소현: home추가 (e) -->
                 <li class="list-group-item">
                   <a href="/ccccoding/mypage/course.php">내 강의 보기</a>
                 </li>
@@ -92,6 +97,11 @@
                 <li class="list-group-item">
                   <a href="/ccccoding/mypage/member.php">회원정보 수정</a>
                 </li>
+                <!-- 24-05-15  박소현: home추가 (s) -->
+                <li class="list-group-item">
+                  <a href="/ccccoding/mypage/benefit.php">쿠폰&amp;포인트</a>
+                </li>
+                <!-- 24-05-15  박소현: home추가 (e) -->
                 <li class="list-group-item line">
                   <a href="/ccccoding/member/logout.php">로그아웃</a>
                 </li>
@@ -164,7 +174,7 @@
               </ul>
             </div>
 
-            <form action="" class="filter-area">
+            <form action="search_result.php" class="filter-area">
               <div class="ipt-wrap">
                 <input type="search" class="form-control" placeholder="찾고싶은 강의 주제를 입력해주세요.">
                 <button class="ico-search">
