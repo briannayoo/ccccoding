@@ -1,4 +1,4 @@
-  <!-- 공통 부분 (s) -->
+  <!-- 공통 부분 작업담당자:박소현 (s) -->
   <main class="sub mypage">
     <div class="container">
       <div class="my-gnb-wrap">
