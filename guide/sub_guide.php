@@ -1,5 +1,5 @@
 <?php
-  $title = '이벤트';
+  $title = '이벤트'; /* 각자타이틀 입력하세요 */
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/sub_nav.php';
 ?>
