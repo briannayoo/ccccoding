@@ -1,6 +1,42 @@
 <?php
   session_start();
   require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/dbcon.php';
+
+  if(isset($_COOKIE['recent_viewed'])){
+    $recent_viewed = json_decode($_COOKIE['recent_viewed']);
+    $resultString = implode(",", $recent_viewed);
+
+    $sql = "SELECT * FROM products WHERE pid in ({$resultString})";
+
+    $result = $mysqli -> query($sql);
+    while($row = $result ->fetch_object()){
+        $rva[] = $row;
+    }
+    //print_r($rva);
+  }
+  //장바구니 조회 $cartSql, $cartResult $cartArr, product테이블에서 pid와 일치하는 데이터에서 thumbnail, name
+
+  if(isset($_SESSION['UID'])){
+      $userid = $_SESSION['UID'];
+      $ssid = '';
+  } else {
+      $ssid = session_id();
+      $userid = '';
+  }
+
+  // $cartSql = "SELECT * FROM cart WHERE ssid = '{$ssid}'";
+
+  $cartSql = "SELECT p.thumbnail,p.name,p.price,p.pid,p.sale_start_date,p.sale_end_date,c.cartid,c.cnt,c.options,c.total
+    FROM products p
+      INNER JOIN cart c
+      ON c.pid = p.pid
+      WHERE c.ssid = '{$ssid}' or c.userid = '{$userid}'
+  ";
+
+  $cartResult = $mysqli -> query($cartSql);
+  while($row = $cartResult->fetch_object()){
+      $cartArr[] = $row;
+  }
 ?>
 
 <!DOCTYPE html>

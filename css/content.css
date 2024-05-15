@@ -49,10 +49,13 @@
 #sign-wrap .list-group-horizontal {justify-content:end;}
 
 /* 수강바구니(우예지) */
+.order-container {width:100%;}
+.order-container li {border-bottom:1px solid var(--ipt-border); padding-bottom:26px;}
 .order-area {gap:28px;}
+.order-area .lecture-price {gap:70px;}
 .order-area li {list-style:none;}
 .order-list {width:932px;}
-.check-lecture-list {border-bottom:1px solid var(--ipt-border);}
+/* .check-lecture-list {border-bottom:1px solid var(--ipt-border);} */
 .order-list img {width:290px; height: 102px; object-fit:cover;}
 .lecture-item {gap:28px}
 .order-list .p-small {color:var(--text-c5);}
@@ -71,6 +74,8 @@
 .order-pay input {width:280px; height:42px; line-height:42px; font-size:1.6rem;}
 .order-pay ul li {line-height:30px;}
 .order-pay ul li.mt-26 {margin-top:26px;}
+.order-payment select#coupon-select {width:300px; height:42px;}
+
 
 /* 강의 리스트(우예지) */
 .lecture-area ul {display:grid; grid-template-columns:repeat(3, auto); grid-gap:30px;}
