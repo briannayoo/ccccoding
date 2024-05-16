@@ -55,7 +55,8 @@
                 </div>
 
                 <!-- 제목쓰기 -->
-                <form>
+                <form action="qna_up_ok.php" method="POST">
+                    <input type="hidden" name="content" id="contents">
                     <div class="input-group">
                         <div class="col-md-12 ipt-wrap qna-up-title">
                             <input type="text" class="qna-control" id="fm-txt03" name="title" placeholder="질문에 핵심내용을 요약해보세요.">

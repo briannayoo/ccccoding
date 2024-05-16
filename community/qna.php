@@ -82,7 +82,7 @@
               ?>
             <div class="">
               <div class="border-bottom qna-list">
-                <h2 class="txt-lg list-h2"><a href=""><?= $title ?></a></h2>
+                <h2 class="txt-lg list-h2"><a href="ccccing/community/qna_view.php?qid=<?= $row['qid'] ?>"><?= $title ?></a></h2>
                 <p class="txt-md qna-text"><?= $row['content']?></p>
                 <div class="d-flex justify-content-between">
                   <div class="d-flex list-text">
