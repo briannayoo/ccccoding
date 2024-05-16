@@ -55,19 +55,36 @@
                 </div>
 
                 <!-- 제목쓰기 -->
-                <div class="input-group">
-                    <div class="col-md-12 ipt-wrap qna-up-title">
-                        <input type="text" class="qna-control" id="fm-txt03" placeholder="질문에 핵심내용을 요약해보세요">
+                <form>
+                    <div class="input-group">
+                        <div class="col-md-12 ipt-wrap qna-up-title">
+                            <input type="text" class="qna-control" id="fm-txt03" name="title" placeholder="질문에 핵심내용을 요약해보세요.">
+                        </div>
                     </div>
-                </div>
-                <div class="border qna-up-text">
-                    <div id="summernote" name="desc" class="w-100"></div>
-                </div>
-                <div class="btn-area d-flex justify-content-end">
-                    <button type="button" class="btn btn-primary btn-sm">등록</button>
-                    <button type="button" class="btn btn-outline-secondary btn-sm">취소</button>
-                </div>
-
+                    <div class="input-group">
+                        <div class="col-md-12 ipt-wrap qna-up-title">
+                            <input type="text" class="qna-control" id="fm-txt03" name="name" placeholder="작성자 이름을 입력해주세요.">
+                        </div>
+                    </div>
+                    <div class="border qna-up-text">
+                        <div id="summernote" name="content" class="w-100"></div>
+                    </div>
+                    <div class="row mix">
+                    <label for="name" class="col-md-1 col-form-label tit-h4">비밀번호</label>
+                    <div class="col-md-11">
+                        <div class="input-group">
+                        <div class="ipt-wrap">
+                            <input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호를 입력해주세요.">
+                        </div>
+                        <p class="txt-info">*비밀글을 원하시면 비밀번호를 입력해주세요.</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="btn-area d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary btn-sm">등록</button>
+                        <button type="reset" class="btn btn-outline-secondary btn-sm">취소</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

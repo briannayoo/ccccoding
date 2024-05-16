@@ -73,10 +73,16 @@
             $sql = "SELECT * FROM qna order by qid desc";
             $result = $mysqli -> query($sql);
             while($row = mysqli_fetch_assoc($result)){
+              $title = $row['title'];
+              if(iconv_strlen($title)> 80 ){
+                $title = str_replace($title, iconv_substr($title,0,80,'utf-8').'...',$title);
+              }else{
+
+              }
               ?>
             <div class="">
               <div class="border-bottom qna-list">
-                <h2 class="txt-lg list-h2"><a href=""></a><?= $row['title']?></h2>
+                <h2 class="txt-lg list-h2"><a href=""><?= $title ?></a></h2>
                 <p class="txt-md qna-text"><?= $row['content']?></p>
                 <div class="d-flex justify-content-between">
                   <div class="d-flex list-text">
