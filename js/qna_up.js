@@ -5,4 +5,12 @@
   tabsize: 2,
   height: 800
   });
+  $('#content_save').on('submit', save);
+    
+    function save() {
+      let markupStr = $('#summernote').summernote('code');
+      let contents = encodeURIComponent(markupStr);
+      $('#contents').val(contents);
+    }
+
   });
