@@ -85,7 +85,7 @@
                     <ul class="list-group depth-2">
                     <li class="list-group-item on">
                       
-                      <a href="#">전체</a>
+                      <a href="lecture.php?pid=<?= $c1->code; ?>">전체</a> /
                     </li>
                     <?php
                       $c2sql ="SELECT * FROM category where step = 2 and pcode = '{$c1->code}'";
@@ -99,10 +99,9 @@
                         foreach($cate2 as $c2){
                           ?>
                         <li class="list-group-item">
-                          
-                          <a href="#"><?=$c2->name?></a>
+                          <a href="lecture.php?pid=<?= $c2->code; ?>"><?=$c2->name?></a> /
                         </li>
-                          <?php
+                          <?php 
                         }
                     ?>
                     <?php
@@ -124,7 +123,7 @@
             <h2 class="tit-h1">전체 강의</h2>
           </div>
 
-          <form action="" class="filter-area">
+          <form action=""class="filter-area lecture-search" id="search_form">
             <div class="difficulty">
               <strong class="tit-h5">난이도</strong>
               <div class="list-group list-group-horizontal">
@@ -176,25 +175,16 @@
           <div class="lecture-area">
             <ul>
             <?php
-              // if(isset($rsc)){
-              //   foreach($rsc as $item){
-              //   $codeArr = str_split($item->cate,5);
-              //   $code = '';
-              //   foreach($codeArr as $c){
-              //       $code .= $c.' ';
-              //   }
-                //$code = substr($item->cate, -5);
+              if (isset($rsArr)) {  
+                foreach ($rsArr as $item) {
               ?>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
+              <li><a href="lecture_detail.php?pid=<?= $item->pid; ?>">
+                <img src="<?=$item->thumbnail;?>" alt="">
+                <h3 class="tit-h4"><?=$item->name;?></h3>
+                <p><?=$item->content;?></p>
               </a></li>
             <?php
-              //   }
-              // } else {
-              //   echo "<p>조회 상품이 없습니다.</p>";
-              // }
+              }}
             ?>
             </ul>
           </div>
