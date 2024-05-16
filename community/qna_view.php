@@ -2,14 +2,14 @@
   $title = '질문하기';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
 // qid번호글 조회
-  $qno = $GET['qid'];
+  $qno = $_GET['qid'];
   $sql = "SELECT * FROM qna where qid = {$qno}";
   $result = $mysqli->query($sql);
   $resultArr = mysqli_fetch_assoc($result);
   
   //조회수 업데이트
   $hit = $resultArr['hit'] + 1;
-  $sqlUpdate = "UPDATE qna SET hit={$hit} WHERE qid = {$bno}";
+  $sqlUpdate = "UPDATE qna SET hit={$hit} WHERE qid = {$qno}";
   $mysqli->query($sqlUpdate);
 ?>
 
