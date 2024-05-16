@@ -76,7 +76,7 @@
           <!-- notie start -->
           <div class="">
             <div class="border-bottom notice-list">
-              <h2 class="txt-lg list-h2"><?= $row['title']?></h2>
+              <h2 class="txt-lg list-h2"><a href=""></a><?= $row['title']?></h2>
               <div class="d-flex list-text">
                 <p>작성자 : <?= $row['name']?></p>
                 <p><i class="fa-solid fa-eye fa-small"></i> : <?= $row['hit']?></p>

@@ -57,7 +57,7 @@
                 <!-- 제목쓰기 -->
                 <div class="input-group">
                     <div class="col-md-12 ipt-wrap qna-up-title">
-                        <input type="text" class="form-control" id="fm-txt03" placeholder="질문에 핵심내용을 요약해보세요">
+                        <input type="text" class="qna-control" id="fm-txt03" placeholder="질문에 핵심내용을 요약해보세요">
                     </div>
                 </div>
                 <div class="border qna-up-text">
