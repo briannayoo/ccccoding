@@ -207,6 +207,9 @@
                     </ul>
                   </div>
                 </li>
+                <li class="list-group-item">
+                  <a href="/ccccoding/coupon/coupon_down.php">쿠폰</a>
+                </li>
               </ul>
             </div>
 
