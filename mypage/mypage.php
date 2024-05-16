@@ -2,12 +2,27 @@
   $title = '마이페이지-홈';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/mypage_nav.php';
+
+  // 가입일 디데이 날짜 관련 (s)
+  $sql = "SELECT regdate FROM members WHERE userid = '$userid'";
+  $result = $mysqli -> query($sql);
+
+  if ($result->num_rows > 0) {
+      $row = $result->fetch_object();
+      $regdate = $row->regdate;
+  }
+
+  // 가입일로부터 오늘까지의 날짜 차이 계산
+  $today = date("Y-m-d");
+  $diff = date_diff(date_create($regdate), date_create($today));
+  $days_since_registration = $diff->format("%a");
+   // 가입일 디데이 날짜 관련 (e)
 ?>
 
       <div class="con-wrap">
         <div class="page-tit-area">
           <h2 class="tit-h1">마이페이지</h2>
-          <p class="desc tit-h3">ㅋㅋㅋ코딩과 <em>100일</em>째 성장중!</p>
+          <p class="desc tit-h3">ㅋㅋㅋ코딩과 <em><?=$days_since_registration?>일</em>째 성장중!</p>
         </div>
         <!-- 공통 부분 (e) -->
 

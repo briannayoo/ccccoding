@@ -7,6 +7,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 $name = $_POST['name'];
 $title = $_POST['title'];
 $content = $_POST['content'];
+// $clean_string = preg_replace('/[^\p{L}\p{N}\s]/u', '', $content);
+$escaped_string = mysqli_real_escape_string($mysqli, $content);
+// $content = urlencode($content);
+// $content = rawurldecode($content);
 $date = date('Y-m-d');
 $attach_name = $_FILES['file']['name'];
 $attach_temp_path = $_FILES['file']['name'];
@@ -23,8 +27,8 @@ if(strpos($_FILES['file']['type'], 'image') !== false){
 
 
 
-$sql = "INSERT INTO notice (name,title,content,date,file,is_img) values ('{$name}','{$title}','{$content}','{$date}','{$attach_name}','{$is_img}')";
-
+$sql = "INSERT INTO notice (name,title,content,date,file,is_img) values ('{$name}','{$title}','{$escaped_string}','{$date}','{$attach_name}','{$is_img}')";
+// echo $sql;
 if($mysqli -> query($sql) === true){
   echo"<script>
     alert('공지사항 등록완료');

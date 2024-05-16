@@ -1,6 +1,42 @@
 <?php
   session_start();
   require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/dbcon.php';
+
+  if(isset($_COOKIE['recent_viewed'])){
+    $recent_viewed = json_decode($_COOKIE['recent_viewed']);
+    $resultString = implode(",", $recent_viewed);
+
+    $sql = "SELECT * FROM products WHERE pid in ({$resultString})";
+
+    $result = $mysqli -> query($sql);
+    while($row = $result ->fetch_object()){
+        $rva[] = $row;
+    }
+    //print_r($rva);
+  }
+  //장바구니 조회 $cartSql, $cartResult $cartArr, product테이블에서 pid와 일치하는 데이터에서 thumbnail, name
+
+  if(isset($_SESSION['UID'])){
+      $userid = $_SESSION['UID'];
+      $ssid = '';
+  } else {
+      $ssid = session_id();
+      $userid = '';
+  }
+
+  // $cartSql = "SELECT * FROM cart WHERE ssid = '{$ssid}'";
+
+  $cartSql = "SELECT p.thumbnail,p.name,p.price,p.pid,p.sale_start_date,p.sale_end_date,c.cartid,c.cnt,c.options,c.total
+    FROM products p
+      INNER JOIN cart c
+      ON c.pid = p.pid
+      WHERE c.ssid = '{$ssid}' or c.userid = '{$userid}'
+  ";
+
+  $cartResult = $mysqli -> query($cartSql);
+  while($row = $cartResult->fetch_object()){
+      $cartArr[] = $row;
+  }
 ?>
 
 <!DOCTYPE html>
@@ -108,7 +144,7 @@
               </ul>
             </li>
             <li class="list-group-item">
-              <a href="/ccccoding/padata/order.php">수강바구니</a>
+              <a href="/ccccoding/pdata/cart.php">수강바구니</a>
             </li>
             <li class="list-group-item">
               <a href="#">고객센터</a>
@@ -131,23 +167,23 @@
               </h1>
               <ul class="list-group gnb-list">
                 <li class="list-group-item">
-                  <a href="#">카테고리</a>
+                  <a href="/ccccoding/lecture/lecture.php">카테고리</a>
                   <div class="sub-wrap">
                     <ul class="list-group">
                       <li class="list-group-item">
-                        <a href="#">웹개발</a>
+                        <a href="/ccccoding/lecture/lecture.php?cate=A0002">UI/UX 디자인</a>
                       </li>
                       <li class="list-group-item">
-                        <a href="#">데이터 사이언스</a>
+                        <a href="/ccccoding/lecture/lecture.php?cate=A0003">웹개발</a>
                       </li>
                       <li class="list-group-item">
-                        <a href="#">컴퓨터 사이언스</a>
+                        <a href="/ccccoding/lecture/lecture.php?cate=A0004">데이터 사이언스</a>
                       </li>
                       <li class="list-group-item">
-                        <a href="#">프로그래임 언어</a>
+                        <a href="/ccccoding/lecture/lecture.php?cate=A0005">컴퓨터 사이언스</a>
                       </li>
                       <li class="list-group-item">
-                        <a href="#">디자인</a>
+                        <a href="/ccccoding/lecture/lecture.php?cate=A0006">프로그래임 언어</a>
                       </li>
                     </ul>
                   </div>

@@ -1,23 +1,58 @@
 <?php
   $title = 'ccccoding';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
+
+  $pid=$_GET['pid'];
+  $sql = "SELECT * FROM products where pid={$pid}";
+  $result = $mysqli->query($sql);
+  $item = $result->fetch_object();
+
+  $cateStr = $item-> cate;
+  $cateArr = str_split($cateStr, 5);
+
 ?>
   <!-- 우예지 (s) -->
   <main>
+
       <div class="lecture-detail">
         <div class="container d-flex lecture-top">
           <div>
-            <img src="image/img_lecture.png" alt="">
+            <img src="<?=$item->thumbnail;?>" alt="">
             <a href="# " class="btn btn-primary btn-md">1분 미리보기</a>
           </div>
           <div>
             <div class="d-flex gap-2 page-nav">
               <span class="flag-state-incomplete">new</span>
-              <p class="txt-sm text-c6"><span>개발,프로그래밍</span><i class="fa-solid fa-angle-right fa-small"></i><span>프로그래밍 언어</span></p>
+              <?php
+              $i = 1;
+              $count = count($cateArr);
+              $step1Name = '';
+              foreach($cateArr as $cate){
+                $sql ="SELECT name FROM category where code='{$cate}'";
+                $result = $mysqli -> query($sql);
+                $row = $result -> fetch_object();
+                if($i == 1){
+                  $step1Name = $row->name;
+                }
+              ?>
+              <p class="txt-sm text-c6"><span><?=$row->name?></span>
+              <?php
+              if($i < $count){
+              ?>
+              <i class="fa-solid fa-angle-right fa-small"></i>
+              <?php
+              }
+              ?>
+            </p>
+              <?php
+              $i++;
+            }
+
+              ?>
             </div>
-            <h2 class="tit-h2">고수가 되는 파이썬 : 동시성과 병렬성 문법 배우기 Feat. 멀티스레딩 vs 멀티프로세싱 (Inflearn Original)</h2>
-            <p><i class="fa-solid fa-eye fa-small"></i>2.5만명의 수강생이 수강하고 있어요</p>
-            <p><i class="fa-solid fa-heart fa-small"></i>1.8만명의 수강생이 좋아해요</p>
+            <h2 class="tit-h2"><?= $item->name;?></h2>
+            <p><i class="fa-solid fa-eye fa-small"></i><?= $item->hit;?>명의 수강생이 수강하고 있어요</p>
+            <p><i class="fa-solid fa-heart fa-small"></i><?= $item->good;?>명의 수강생이 좋아해요</p>
           </div>
 
         </div>
@@ -26,8 +61,8 @@
         <div class="d-flex justify-content-between">
           <div>
             <div class="lecture-detail-tit">
-              <h2 class="tit-h2">중급자를 위해 준비한 [프로그래밍 언어] 강의입니다.</h2>
-              <p class="tit-h4">기술면접 대비를 위해 OS 지식을 기반으로 멀티 스레딩 및 멀티프로세싱, 병렬성, 병행성 등의 문법을 다루기 위한 과정입니다. 다수의 자원으로 실행 효율을 높이는 방법에 대한 기반 지식을 학습합니다.</p>
+              <h2 class="tit-h2">중급자를 위해 준비한 [<?=$step1Name;?>] 강의입니다.</h2>
+              <p class="tit-h4"><?= $item->content;?></p>
               <hr>
             </div>
               <h2 class="tit-h2">이런걸 배워요</h2>
@@ -46,7 +81,7 @@
             <div class="d-flex align-items-center explan-box">
               <div class="big-ico text-center"><i class="fa-solid fa-chalkboard-user fa-big"></i><span class="tit-h5">학습 대상은<br>누구일까요?</span></div>
               <ul class="text-c4">
-                <li><i class="fa-solid fa-check fa-small"></i>파이썬 스레딩 및 멀티프로세싱을 배우고 싶은 분/li>
+                <li><i class="fa-solid fa-check fa-small"></i>파이썬 스레딩 및 멀티프로세싱을 배우고 싶은 분</li>
                 <li><i class="fa-solid fa-check fa-small"></i>파이썬을 보다 깊게 학습하고 싶은 모든 분</li>
               </ul>
             </div>
@@ -81,29 +116,27 @@
         
           <h2 class="tit-h2">비슷한 강의를 추천드려요</h2>
           <ul class="lecture_most">
+            <?php
+              $items= [];
+              $sql ="SELECT * FROM products where cate LIKE '%{$cateArr[1]}%' LIMIT 0,4";
+              $result = $mysqli->query($sql);
+              while ($row = $result->fetch_object()) {
+                $items[] = $row;
+            }
+            foreach($items as $item){
+            ?>
             <li><a href="#">
-              <img src="./image/img_lecture.png" alt="">
-              <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-              <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
+              <img src="<?=$item->thumbnail;?>" alt="">
+              <h3 class="tit-h4"><?= $item->name;?></h3>
+              <p><?= $item->content;?></p>
             </a></li>
-            <li><a href="#">
-              <img src="./image/img_lecture.png" alt="">
-              <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-              <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-            </a></li>
-            <li><a href="#">
-              <img src="./image/img_lecture.png" alt="">
-              <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-              <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-            </a></li>
-            <li><a href="#">
-              <img src="./image/img_lecture.png" alt="">
-              <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-              <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-            </a></li>
+            <?php
+            }
+            ?>
           </ul>
         
       </div>
+
   </main>
 <?php
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/footer.php';

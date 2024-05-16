@@ -66,33 +66,39 @@
               <option value="3">추천순</option>
             </select>
           </div>
-          <div class="d-flex justify-content-end">
-            <a href="/ccccoding/community/qna_up.php" class="btn btn-primary btn-sm ">질문하기</a>
-          </div>
           <!-- 공통 부분 (e) -->
           <hr>
           <!-- qna start -->
           <?php
-            $sql = "SELECT * FROM qna";
+            $sql = "SELECT * FROM qna order by qid desc";
             $result = $mysqli -> query($sql);
             while($row = mysqli_fetch_assoc($result)){
-            ?>
+              $title = $row['title'];
+              if(iconv_strlen($title)> 80 ){
+                $title = str_replace($title, iconv_substr($title,0,80,'utf-8').'...',$title);
+              }else{
+
+              }
+              ?>
             <div class="">
               <div class="border-bottom qna-list">
-                <h2 class="txt-xl list-h2"><?= $row['title']?></h2>
+                <h2 class="txt-lg list-h2"><a href="ccccing/community/qna_view.php?qid=<?= $row['qid'] ?>"><?= $title ?></a></h2>
                 <p class="txt-md qna-text"><?= $row['content']?></p>
                 <div class="d-flex justify-content-between">
-                    <div class="d-flex list-text">
-                      <p>답변 : <span class="qna-span"><?= $row['status']?></span></p>
-                      <p><i class="fa-solid fa-eye fa-small"></i> : <?= $row['hit']?></p>
-                      <p><i class="fa-solid fa-heart fa-small"></i> : <?= $row['thumbsup']?></p>
-                    </div>
-                    <div class="d-flex list-text">
-                      <p>작성자 : <?= $row['name']?></p>
-                      <p><?= $row['date']?></p>
-                    </div>
+                  <div class="d-flex list-text">
+                    <p>답변 : <span class="qna-span"><?= $row['status']?></span></p>
+                    <p><i class="fa-solid fa-eye fa-small"></i> : <?= $row['hit']?></p>
+                    <p><i class="fa-solid fa-heart fa-small"></i> : <?= $row['thumbsup']?></p>
+                  </div>
+                  <div class="d-flex list-text">
+                    <p>작성자 : <?= $row['name']?></p>
+                    <p><?= $row['date']?></p>
                   </div>
                 </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <a href="/ccccoding/community/qna_up.php" class="btn btn-primary btn-sm ">질문하기</a>
+              </div>
             <?php
             }
           ?>

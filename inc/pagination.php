@@ -1,11 +1,11 @@
 <?php
   $pageNumber = $_GET['pageNumber'] ?? 1;
-  $pageCount = 6;
+  $pageCount = 15;
   $startLimit = ($pageNumber-1)*$pageCount;
   $endLimit = $pageCount ;
 
 
-  $block_ct = 10;
+  $block_ct = 9;
   $block_num = ceil($pageNumber/$block_ct);
   $block_start = (($block_num -1) * $block_ct ) + 1;
   $block_end =  $block_start + $block_ct -1;

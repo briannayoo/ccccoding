@@ -4,7 +4,7 @@
 ?>
   <!-- 공통 부분 (s) -->
   <main class="sub">
-    <div class="section">
+    <div class="section communi-sec">
         <div class="container">
             <nav class="sub-menu">
                 <ul class="list-group">
@@ -44,7 +44,7 @@
                     </li>
                 </ul>
             </nav>
-        <div class="con-wrap">
+        <div class="con-wrap community">
           <div class="page-tit-area">
             <h2 class="tit-h1">공지사항</h2>
           </div>
@@ -67,18 +67,25 @@
             </select>
           </div>
           <!-- 공통 부분 (e) -->
-          <hr>
+          <hr class="communi-hr">
+          <?php
+             $sql = "SELECT * FROM notice";
+             $result = $mysqli -> query($sql);
+             while($row = mysqli_fetch_assoc($result)){
+          ?>
           <!-- notie start -->
           <div class="">
-
             <div class="border-bottom notice-list">
-              <h2 class="txt-xl list-h2">ㅋㅋㅋ코딩 개인정보 처리방침 개정 안내(2024.03.01)</h2>
+              <h2 class="txt-lg list-h2"><a href=""></a><?= $row['title']?></h2>
               <div class="d-flex list-text">
-                <p>작성자 : 관리자</p>
-                <p><i class="fa-solid fa-eye fa-small"></i> : 26</p>
-                <p>2024-03-01</p>
+                <p>작성자 : <?= $row['name']?></p>
+                <p><i class="fa-solid fa-eye fa-small"></i> : <?= $row['hit']?></p>
+                <p><?= $row['date']?></p>
               </div>
             </div>
+          <?php
+             }
+          ?>
           <!-- pagination(s) -->
             <nav aria-label="페이지네이션">
               <ul class="pagination">
