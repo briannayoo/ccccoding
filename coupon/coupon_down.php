@@ -4,11 +4,6 @@
 
   $sql = "SELECT * FROM coupons";
   $result = $mysqli -> query($sql);
-
-  // while ($rs = $result->fetch_object()) {
-  //   $rsArr[] = $rs;
-  // }
-
 ?>
   <main class="full">
     <div class="container">
@@ -52,9 +47,12 @@
             <div class="inner">
               <span class="date"><?=$use_date_text?></span>
               <strong class="tit-h5"><?=$coupon_name?></strong>
-              <div class="btn-area">
-                <button type="submit" class="btn btn-primary btn-sm">다운로드</button>
-              </div>
+              <form action="/ccccoding/mypage/benefit.php" method="post">
+                <input type="hidden" name="cid" value="<?=$row->cid?>">
+                <div class="btn-area">
+                  <button type="submit" class="btn btn-primary btn-sm">다운로드</button>
+                </div>
+              </form>
             </div>
           </div>
           <?php
@@ -65,21 +63,12 @@
           ?>
             <div class="nodata">
               <p class="txt">다운로드 가능한 쿠폰 내역이 없습니다.</p>
-              <div class="btn-area"></div>
             </div>
           <?php  
           }
           ?>
         </div>
         <!-- coupon-list(e) -->
-
-        <!-- nodata(s) -->
-        <div class="nodata">
-          <p class="txt">다운로드 가능한 쿠폰 내역이 없습니다.</p>
-          <div class="btn-area">
-          </div>
-        </div>
-        <!-- nodata(e) -->
 
         <!-- pagination(s) -->
         <nav aria-label="페이지네이션">
