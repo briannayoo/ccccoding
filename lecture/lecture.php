@@ -2,25 +2,25 @@
   $title = 'ccccoding';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
 
-  // $sql = "SELECT * FROM products  WHERE ismain = 1 AND status = 1 ORDER BY pid DESC LIMIT 0, 15";
-  // $result = $mysqli -> query($sql);
+  $sql = "SELECT * FROM products  WHERE ismain = 1 AND status = 1 ORDER BY pid DESC LIMIT 0, 15";
+  $result = $mysqli -> query($sql);
 
-  // while($row = $result->fetch_object()){
-  //   $rsc[] = $row;
-  // }
+  while($row = $result->fetch_object()){
+    $rsc[] = $row;
+  }
 
   //메인상품 카테고리명, 코드 출력
-  // $sql = "SELECT c.name, c.code
-  // FROM products p
-  // JOIN category c ON p.cate LIKE CONCAT('%', c.code, '%')
-  // WHERE p.ismain = 1 AND p.status = 1
-  // GROUP BY c.name, c.code";
+  $sql = "SELECT c.name, c.code
+  FROM products p
+  JOIN category c ON p.cate LIKE CONCAT('%', c.code, '%')
+  WHERE p.ismain = 1 AND p.status = 1
+  GROUP BY c.name, c.code";
 
-  // $result = $mysqli -> query($sql);
-  // while($rs = $result->fetch_object()){
-  //   $resultArr[] = $rs;
-  // }
-  //print_r($resultArr);
+  $result = $mysqli -> query($sql);
+  while($rs = $result->fetch_object()){
+    $resultArr[] = $rs;
+  }
+  print_r($resultArr);
 
 ?>
 
