@@ -35,6 +35,7 @@ if($result){
         $cartresult = $mysqli -> query($cartsql);
         if($cartresult){
             $data = array('result' => 'ok');
+            
         } else{
             $data = array('result' => 'fail');
         }

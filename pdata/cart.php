@@ -118,7 +118,7 @@
         let cartid =  $(this).parent().attr('data-id');
 
         let data = {
-          cartid :cartid
+          cartid : cartid
         }
         $.ajax({
           url:'cart_del.php',
@@ -147,6 +147,35 @@
         $('#coupon-price').text('-'+cprice);
         calcTotal();
       });
+    // 체크박스 전체선택
+    if($('#all-check').length > 0){
+      $("#all-check").click(function(){
+        $('.form-check-input').prop('checked', $(this).prop('checked'));
+      });
+    }
+
+    // if($('.table-bordered thead .form-check-input').length > 0){
+    //   $(".table-bordered thead .form-check-input").change(function(){
+    //     if($(this).is(':checked')){
+    //       $(".table-bordered tbody .form-check-input").prop('checked', true)
+    //     }else{
+    //       $(".table-bordered tbody .form-check-input").prop('checked', false)
+    //     }
+    //   })
+
+    //   $(".table-bordered tbody .form-check-input").change(function(){
+    //     const chkNum = $(".table-bordered tbody .form-check-input").filter((idx, item) => {
+    //       return $(item).is(":checked") ? true : false
+    //     }).length
+
+    //     if($(".table-bordered tbody .form-check-input").length === chkNum){
+    //       $(".table-bordered thead .form-check-input").prop('checked', true)
+    //     }else{
+    //       $(".table-bordered thead .form-check-input").prop('checked', false)
+    //     }
+    //   })
+    // }
+
 
       //카트 일괄 업데이트(전체 삭제)
       $('.update-cart').click(function(e){
