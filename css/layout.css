@@ -11,14 +11,15 @@
 .sub .sub-menu .logout a {color:var(--text-c6,#888893);}
 
 .sub .sub-menu .accordion-item {border:0;}
-.sub .sub-menu .accordion-button {display:flex; gap:16px; font-size:2rem; background:none; box-shadow:none; padding:10px 22px; font-weight:var(--bold,700);}
+.sub .sub-menu .accordion-button {display:flex; gap:16px; font-size:1.8rem; background:none; box-shadow:none; padding:10px 22px; font-weight:var(--bold,700);}
 .sub .sub-menu .accordion-button::after {content:none;}
 .sub-menu .on .accordion-button {color:var(--text-c2,#C47CFD);}
 .sub .sub-menu .accordion-button > span {display:inline-block;}
-.sub .sub-menu .accordion-body {padding: 10px 60px; font-size:20px;}
+.sub .sub-menu .accordion-body {padding:0;}
 .sub .con-wrap {width:calc(100% - 240px);}
 .sub .sort-area {display:flex; justify-content:flex-end; margin:10px 0 26px;}
 .sub .sort-area .form-select {width:auto; min-width:100px; padding:2px 8px; background:url(../image/ico_select_arrow.png) no-repeat right 8px center / 10px auto; font-size:1.4rem;}
+.sub .depth-2 a {display:block; padding:4px 16px 4px 60px; font-size:1.6rem;}
 .sub .depth-2 li.on a {color:var(--text-c2,#C47CFD);}
 
 /*===== header(박소현) =====*/
