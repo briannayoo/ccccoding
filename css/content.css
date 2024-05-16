@@ -113,6 +113,7 @@
 /* 공지,qna 공통(유부현) */
 .list-h2{font-weight:var(--bold, 700); padding-bottom: 10px;}
 .list-text{gap:16px}
+.communi-sec .community .communi-hr {margin:10px 0;}
 
 /* 공지사항 (유부현) */
 .notice-list{padding-top: 18px; padding-bottom: 18px; padding-left: 11px;}
@@ -121,8 +122,8 @@
 .notice-fix{width: 212px; height: 520px;}
 .notice-content{gap: 120px;}
 /* qna (유부현) */
-.qna-up-title{border: none;}
-.qna-list{padding-top: 26px; padding: 26px 11px;}
+/* .qna-up-title{border: none;} */
+.qna-list{padding-top: 26px; padding: 18px 11px;}
 .qna-text{padding-bottom: 10px;}
 .qna-span{color: var( --text-c2);}
 .qna-icon{background-color: var(--primary-c); opacity : 0.5; border-radius: 50%; width: 60px; height: 60px; position: relative;}
@@ -139,7 +140,7 @@
 .qna-up-info{color: var(--text-c6);}
 .note-resizebar{display: none;}
 .input-group .ipt-wrap {position:relative; padding-right:30px;}
-.form-control {font-size:1.6rem; padding:4px 40px 4px 10px; border: none;}
+.qna-control {font-size:1.6rem; padding:4px 40px 4px 10px; border: none;}
 /* event (유부현) */
 .list-group.box-list {display:flex; flex-direction:row; flex-wrap:wrap; justify-content:space-between; gap:0;}
 .list-group.box-list > .list-group-item  {/*display:flex; gap:30px;*/ width:calc((100% / 2) - 15px); padding:18px; border:1px solid var(--ipt-border,#DEE2E6); border-radius:10px; box-shadow: 0px 4px 4px 2px rgba(222, 226, 230, 0.5);}

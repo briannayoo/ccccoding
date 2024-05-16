@@ -1,6 +1,16 @@
 <?php
   $title = '질문하기';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
+// qid번호글 조회
+  $qno = $_GET['qid'];
+  $sql = "SELECT * FROM qna where qid = {$qno}";
+  $result = $mysqli->query($sql);
+  $resultArr = mysqli_fetch_assoc($result);
+  
+  //조회수 업데이트
+  $hit = $resultArr['hit'] + 1;
+  $sqlUpdate = "UPDATE qna SET hit={$hit} WHERE qid = {$qno}";
+  $mysqli->query($sqlUpdate);
 ?>
 
   <!-- 공통 부분 (s) -->
@@ -57,25 +67,21 @@
               <div class="qna-icon">
                 <h2 class="tit-h1 question-icon">Q</h2>
               </div>
-              <p class="tit-h3 question-title">readmore 클릭시 쿼리 내용 받아오는게 이해가 안되요</p>
+              <p class="tit-h3 question-title"><?= $resultArr['title'];?></p>
             </div>
             <button type="button" class="btn btn-primary btn-sm">답변완료</button>
           </div>
           <hr>
           <div class="d-flex list-text question-data">
-            <p>작성자 : 유공주</p>
-            <p><i class="fa-solid fa-eye fa-small"></i> : 303</p>
-            <p><i class="fa-solid fa-heart fa-small"></i> : 16</p>
-            <p>2024-04-01</p>
+            <p>작성자 : <?= $resultArr['name'];?></p>
+            <p><i class="fa-solid fa-eye fa-small"></i> : <?= $resultArr['hit'];?></p>
+            <p><i class="fa-solid fa-heart fa-small"></i> : <?= $resultArr['thumbsup'];?></p>
+            <p><?= $resultArr['date'];?></p>
           </div>
           <div class="border rounded-2">
             <div class="question-text">
-              <p class="">ajax 방식으로 fetch 통해 page값을 넘겨
-                Domparser 사용해서 html을 새로 그린다는건 알겠는데 get방법을 사용한 이유가 있나요?
-                왜 li태그 안에내용만 쿼리내용이 업데이트되어 그려질수 있는지 모르겠는데 조금 더 자세한 설명 없나요?
-                page값이 변경된 새로운 쿼리를 실행시켜 실행된 값들을 저장하는 코드가 어느부분인걸가요?
-              </p>
-              <button><i class="fa-solid fa-heart fa-small"></i> : 16</button>
+              <p class=""><?= nl2br($resultArr['content']);?></p>
+              <button><i class="fa-solid fa-heart fa-small"></i> : <?= $resultArr['thumbsup'];?></button>
             </div>
           </div>
           <hr>
@@ -102,8 +108,8 @@
             </div>
           </div>
           <div class="btn-area d-flex justify-content-end">
-            <button type="button" class="btn btn-primary btn-sm">버튼</button>
-            <button type="button" class="btn btn-outline-secondary btn-sm">버튼</button>
+            <button type="button" class="btn btn-primary btn-sm">이전</button>
+            <button type="button" class="btn btn-outline-secondary btn-sm">다음</button>
           </div>
 
 

@@ -3,20 +3,21 @@ session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/dbcon.php';
 
 $pid = $_POST['pid'];
-$optname = $_POST['optname'] ?? '';
-$qty =  $_POST['qty'];
-$total =  $_POST['total'];
+$userid = $_POST['userid'];
+// $optname = $_POST['optname'] ?? '';
+// $qty =  $_POST['qty'];
+// $total =  $_POST['total'];
 
-if(isset($_SESSION['UID'])){
-    $userid = $_SESSION['UID'];
-    $ssid = '';
-} else {
-    $ssid = session_id();
-    $userid = '';
-}
+// if(isset($_SESSION['UID'])){
+//     $userid = $_SESSION['UID'];
+//     $ssid = '';
+// } else {
+//     $ssid = session_id();
+//     $userid = '';
+// }
 
 //pid 장바구니 중복체크
-$sql = "SELECT COUNT(*) AS cnt FROM cart WHERE pid = '{$pid}' AND (userid = '{$userid}' or ssid='{$ssid}')";
+$sql = "SELECT COUNT(*) AS cnt FROM cart WHERE pid = '{$pid}' AND userid = '{$userid}'";
 $result = $mysqli -> query($sql);
 $row = $result -> fetch_object(); // $row->cnt
 
@@ -25,13 +26,9 @@ if($result){
         $data = array('result' => '중복');
         echo json_encode($data);
     }else {
-        $cartsql = "INSERT INTO cart (pid,userid,ssid,options,cnt,total,regdate) VALUES (
+        $cartsql = "INSERT INTO cart (pid,userid,regdate) VALUES (
             {$pid},
             '{$userid}',
-            '{$ssid}',
-            '{$optname}',
-            '{$qty}',
-            '{$total}',
             now()
         )";
         
@@ -44,8 +41,4 @@ if($result){
         echo json_encode($data);
     }
 }       
-
-
-
-
 ?>

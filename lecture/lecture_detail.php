@@ -5,32 +5,15 @@
   $pid=$_GET['pid'];
   $sql = "SELECT * FROM products where pid={$pid}";
   $result = $mysqli->query($sql);
-  while ($rs = $result->fetch_object()) {
-    $rsArr[] = $rs;
-  }
+  $item = $result->fetch_object();
 
-  $sql = "SELECT * FROM category where step = 1";
-  $result = $mysqli->query($sql);
-  while ($row = $result->fetch_object()) {
-    $cate1[] = $row;
-  };
-
-  $cate = [];
-  for ($step = 1; $step <= 3; $step++) {
-      $sql = "SELECT * FROM category WHERE step = $step";
-      $result = $mysqli->query($sql);
-      while ($row = $result->fetch_object()) {
-          $cate[$step][] = $row;
-      }
-  }
+  $cateStr = $item-> cate;
+  $cateArr = str_split($cateStr, 5);
 
 ?>
   <!-- 우예지 (s) -->
   <main>
-    <?php
-      if (isset($rsArr)) {  
-        foreach ($rsArr as $item) {
-    ?>
+
       <div class="lecture-detail">
         <div class="container d-flex lecture-top">
           <div>
@@ -40,7 +23,32 @@
           <div>
             <div class="d-flex gap-2 page-nav">
               <span class="flag-state-incomplete">new</span>
-              <p class="txt-sm text-c6"><span>개발,프로그래밍</span><i class="fa-solid fa-angle-right fa-small"></i><span>프로그래밍 언어</span></p>
+              <?php
+              $i = 1;
+              $count = count($cateArr);
+              $step1Name = '';
+              foreach($cateArr as $cate){
+                $sql ="SELECT name FROM category where code='{$cate}'";
+                $result = $mysqli -> query($sql);
+                $row = $result -> fetch_object();
+                if($i == 1){
+                  $step1Name = $row->name;
+                }
+              ?>
+              <p class="txt-sm text-c6"><span><?=$row->name?></span>
+              <?php
+              if($i < $count){
+              ?>
+              <i class="fa-solid fa-angle-right fa-small"></i>
+              <?php
+              }
+              ?>
+            </p>
+              <?php
+              $i++;
+            }
+
+              ?>
             </div>
             <h2 class="tit-h2"><?= $item->name;?></h2>
             <p><i class="fa-solid fa-eye fa-small"></i><?= $item->hit;?>명의 수강생이 수강하고 있어요</p>
@@ -53,7 +61,7 @@
         <div class="d-flex justify-content-between">
           <div>
             <div class="lecture-detail-tit">
-              <h2 class="tit-h2">중급자를 위해 준비한 [<?=$cate[1][4]->name;?>] 강의입니다.</h2>
+              <h2 class="tit-h2">중급자를 위해 준비한 [<?=$step1Name;?>] 강의입니다.</h2>
               <p class="tit-h4"><?= $item->content;?></p>
               <hr>
             </div>
@@ -88,17 +96,19 @@
             <!-- 결제 영역-->
             <div class="order-payment">
               <div class="order-pay cart-box">
-                <h3 class="text-center">이달의 할인! 놓칠 수 없는 기회에요</h3>
-                <hr>
-                <p class="text-red">15%<span class="text-c5">300,000</span></p>
-                <p class="tit-h3">255,000원</p>
-                <p class="text-c5"><i class="fa-solid fa-check fa-small"></i>2개월 무이자 할부 가능</p>
-                <button type="button" class="btn btn-outline-secondary btn-md pm-line mb-3">수강신청 하기</button>
-                <button type="button" class="btn etc-c btn-md mb-3">장바구니 담기</button>
-                <ul class="list-group etc-list justify-content-end">
-                  <li class="list-group-item"><a href="#"><i class="fa-solid fa-heart fa-small"></i>좋아요</a></li>
-                  <li class="list-group-item"><a href="#"><i class="fa-solid fa-shuffle fa-small"></i>공유하기</a></li>
-                </ul>
+                <form class="cart" method="post">
+                  <h3 class="text-center">이달의 할인! 놓칠 수 없는 기회에요</h3>
+                  <hr>
+                  <p class="text-red">15%<span class="text-c5">300,000</span></p>
+                  <p class="tit-h3">255,000원</p>
+                  <p class="text-c5"><i class="fa-solid fa-check fa-small"></i>2개월 무이자 할부 가능</p>
+                  <button type="button" class="btn btn-outline-secondary btn-md pm-line mb-3">수강신청 하기</button>
+                  <button type="submit" class="btn etc-c btn-md mb-3">장바구니 담기</button>
+                  <ul class="list-group etc-list justify-content-end">
+                    <li class="list-group-item"><a href="#"><i class="fa-solid fa-heart fa-small"></i>좋아요</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa-solid fa-shuffle fa-small"></i>공유하기</a></li>
+                  </ul>
+                </form>
               </div>
               <div class="order-infor">
                 <p class="d-flex justify-content-between align-items-center text-c6"><span><i class="fa-solid fa-circle-question fa-small"></i><strong>구매자 정보</strong></span><span><a href="#" title="문의하기 바로가기">문의하기</a><i class="fa-solid fa-angle-right fa-small"></i></span></p>
@@ -108,33 +118,66 @@
         
           <h2 class="tit-h2">비슷한 강의를 추천드려요</h2>
           <ul class="lecture_most">
+            <?php
+              $items= [];
+              $sql ="SELECT * FROM products where cate LIKE '%{$cateArr[1]}%' LIMIT 0,4";
+              $result = $mysqli->query($sql);
+              while ($row = $result->fetch_object()) {
+                $items[] = $row;
+            }
+            foreach($items as $item){
+            ?>
             <li><a href="#">
-              <img src="./image/img_lecture.png" alt="">
-              <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-              <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
+              <img src="<?=$item->thumbnail;?>" alt="">
+              <h3 class="tit-h4"><?= $item->name;?></h3>
+              <p><?= $item->content;?></p>
             </a></li>
-            <li><a href="#">
-              <img src="./image/img_lecture.png" alt="">
-              <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-              <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-            </a></li>
-            <li><a href="#">
-              <img src="./image/img_lecture.png" alt="">
-              <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-              <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-            </a></li>
-            <li><a href="#">
-              <img src="./image/img_lecture.png" alt="">
-              <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-              <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-            </a></li>
+            <?php
+            }
+            ?>
           </ul>
-        
       </div>
-      <?php
-        }}
-      ?>
   </main>
+  <script>
+  $('.cart').on('submit', function(e){
+    e.preventDefault();
+    //상품코드, 옵션명, 수량
+    // let target = $('.widget-desc input[type="radio"]:checked');
+    let pid = <?= $pid; ?>;      
+    let userid = '<?= $userid; ?>';      
+
+    // let optname = target.attr('data-name');
+    // let qty = Number($('#qty').val());
+    // let total = Number($('#subtotal span').text());
+
+    let data = {
+      pid : pid,
+      userid : userid
+    }
+    console.log(data);
+
+    $.ajax({
+      url:'/ccccoding/pdata/cart_insert.php',
+      async:false,
+      type: 'POST',
+      data:data,
+      dataType:'json',
+      error:function(){},
+      success:function(data){
+        console.log(data);                    
+        if(data.result == '중복'){
+          alert('이미 장바구니에 담았습니다.');                                            
+        } else if(data.result=='ok'){
+          alert('장바구니에 상품을 담았습니다.'); 
+          location.reload();   
+        } else{
+          alert('담기 실패!'); 
+        }
+      }
+    });
+
+        });
+  </script>
 <?php
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/footer.php';
 ?>

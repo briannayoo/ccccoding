@@ -4,7 +4,7 @@
 ?>
   <!-- 공통 부분 (s) -->
   <main class="sub">
-    <div class="section">
+    <div class="section communi-sec">
         <div class="container">
             <nav class="sub-menu">
                 <ul class="list-group">
@@ -44,7 +44,7 @@
                     </li>
                 </ul>
             </nav>
-        <div class="con-wrap">
+        <div class="con-wrap community">
           <div class="page-tit-area">
             <h2 class="tit-h1">공지사항</h2>
           </div>
@@ -67,7 +67,7 @@
             </select>
           </div>
           <!-- 공통 부분 (e) -->
-          <hr>
+          <hr class="communi-hr">
           <?php
              $sql = "SELECT * FROM notice";
              $result = $mysqli -> query($sql);
@@ -76,7 +76,7 @@
           <!-- notie start -->
           <div class="">
             <div class="border-bottom notice-list">
-              <h2 class="txt-lg list-h2"><?= $row['title']?></h2>
+              <h2 class="txt-lg list-h2"><a href=""></a><?= $row['title']?></h2>
               <div class="d-flex list-text">
                 <p>작성자 : <?= $row['name']?></p>
                 <p><i class="fa-solid fa-eye fa-small"></i> : <?= $row['hit']?></p>
