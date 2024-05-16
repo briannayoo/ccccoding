@@ -1,6 +1,6 @@
 <?php
   $pageNumber = $_GET['pageNumber'] ?? 1;
-  $pageCount = 6;
+  $pageCount = 15;
   $startLimit = ($pageNumber-1)*$pageCount;
   $endLimit = $pageCount ;
 

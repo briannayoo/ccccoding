@@ -167,23 +167,23 @@
               </h1>
               <ul class="list-group gnb-list">
                 <li class="list-group-item">
-                  <a href="#">카테고리</a>
+                  <a href="/ccccoding/lecture/lecture.php">카테고리</a>
                   <div class="sub-wrap">
                     <ul class="list-group">
                       <li class="list-group-item">
-                        <a href="#">웹개발</a>
+                        <a href="/ccccoding/lecture/lecture.php?cate=A0002">UI/UX 디자인</a>
                       </li>
                       <li class="list-group-item">
-                        <a href="#">데이터 사이언스</a>
+                        <a href="/ccccoding/lecture/lecture.php?cate=A0003">웹개발</a>
                       </li>
                       <li class="list-group-item">
-                        <a href="#">컴퓨터 사이언스</a>
+                        <a href="/ccccoding/lecture/lecture.php?cate=A0004">데이터 사이언스</a>
                       </li>
                       <li class="list-group-item">
-                        <a href="#">프로그래임 언어</a>
+                        <a href="/ccccoding/lecture/lecture.php?cate=A0005">컴퓨터 사이언스</a>
                       </li>
                       <li class="list-group-item">
-                        <a href="#">디자인</a>
+                        <a href="/ccccoding/lecture/lecture.php?cate=A0006">프로그래임 언어</a>
                       </li>
                     </ul>
                   </div>
