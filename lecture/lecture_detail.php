@@ -96,17 +96,19 @@
             <!-- 결제 영역-->
             <div class="order-payment">
               <div class="order-pay cart-box">
-                <h3 class="text-center">이달의 할인! 놓칠 수 없는 기회에요</h3>
-                <hr>
-                <p class="text-red">15%<span class="text-c5">300,000</span></p>
-                <p class="tit-h3">255,000원</p>
-                <p class="text-c5"><i class="fa-solid fa-check fa-small"></i>2개월 무이자 할부 가능</p>
-                <button type="button" class="btn btn-outline-secondary btn-md pm-line mb-3">수강신청 하기</button>
-                <button type="button" class="btn etc-c btn-md mb-3">장바구니 담기</button>
-                <ul class="list-group etc-list justify-content-end">
-                  <li class="list-group-item"><a href="#"><i class="fa-solid fa-heart fa-small"></i>좋아요</a></li>
-                  <li class="list-group-item"><a href="#"><i class="fa-solid fa-shuffle fa-small"></i>공유하기</a></li>
-                </ul>
+                <form class="cart" method="post">
+                  <h3 class="text-center">이달의 할인! 놓칠 수 없는 기회에요</h3>
+                  <hr>
+                  <p class="text-red">15%<span class="text-c5">300,000</span></p>
+                  <p class="tit-h3">255,000원</p>
+                  <p class="text-c5"><i class="fa-solid fa-check fa-small"></i>2개월 무이자 할부 가능</p>
+                  <button type="button" class="btn btn-outline-secondary btn-md pm-line mb-3">수강신청 하기</button>
+                  <button type="submit" class="btn etc-c btn-md mb-3">장바구니 담기</button>
+                  <ul class="list-group etc-list justify-content-end">
+                    <li class="list-group-item"><a href="#"><i class="fa-solid fa-heart fa-small"></i>좋아요</a></li>
+                    <li class="list-group-item"><a href="#"><i class="fa-solid fa-shuffle fa-small"></i>공유하기</a></li>
+                  </ul>
+                </form>
               </div>
               <div class="order-infor">
                 <p class="d-flex justify-content-between align-items-center text-c6"><span><i class="fa-solid fa-circle-question fa-small"></i><strong>구매자 정보</strong></span><span><a href="#" title="문의하기 바로가기">문의하기</a><i class="fa-solid fa-angle-right fa-small"></i></span></p>
@@ -134,10 +136,48 @@
             }
             ?>
           </ul>
-        
       </div>
-
   </main>
+  <script>
+  $('.cart').on('submit', function(e){
+    e.preventDefault();
+    //상품코드, 옵션명, 수량
+    // let target = $('.widget-desc input[type="radio"]:checked');
+    let pid = <?= $pid; ?>;      
+    let userid = '<?= $userid; ?>';      
+
+    // let optname = target.attr('data-name');
+    // let qty = Number($('#qty').val());
+    // let total = Number($('#subtotal span').text());
+
+    let data = {
+      pid : pid,
+      userid : userid
+    }
+    console.log(data);
+
+    $.ajax({
+      url:'/ccccoding/pdata/cart_insert.php',
+      async:false,
+      type: 'POST',
+      data:data,
+      dataType:'json',
+      error:function(){},
+      success:function(data){
+        console.log(data);                    
+        if(data.result == '중복'){
+          alert('이미 장바구니에 담았습니다.');                                            
+        } else if(data.result=='ok'){
+          alert('장바구니에 상품을 담았습니다.'); 
+          location.reload();   
+        } else{
+          alert('담기 실패!'); 
+        }
+      }
+    });
+
+        });
+  </script>
 <?php
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/footer.php';
 ?>
