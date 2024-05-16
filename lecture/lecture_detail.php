@@ -5,32 +5,15 @@
   $pid=$_GET['pid'];
   $sql = "SELECT * FROM products where pid={$pid}";
   $result = $mysqli->query($sql);
-  while ($rs = $result->fetch_object()) {
-    $rsArr[] = $rs;
-  }
+  $item = $result->fetch_object();
 
-  $sql = "SELECT * FROM category where step = 1";
-  $result = $mysqli->query($sql);
-  while ($row = $result->fetch_object()) {
-    $cate1[] = $row;
-  };
-
-  $cate = [];
-  for ($step = 1; $step <= 3; $step++) {
-      $sql = "SELECT * FROM category WHERE step = $step";
-      $result = $mysqli->query($sql);
-      while ($row = $result->fetch_object()) {
-          $cate[$step][] = $row;
-      }
-  }
+  $cateStr = $item-> cate;
+  $cateArr = str_split($cateStr, 5);
 
 ?>
   <!-- 우예지 (s) -->
   <main>
-    <?php
-      if (isset($rsArr)) {  
-        foreach ($rsArr as $item) {
-    ?>
+
       <div class="lecture-detail">
         <div class="container d-flex lecture-top">
           <div>
@@ -40,7 +23,32 @@
           <div>
             <div class="d-flex gap-2 page-nav">
               <span class="flag-state-incomplete">new</span>
-              <p class="txt-sm text-c6"><span>개발,프로그래밍</span><i class="fa-solid fa-angle-right fa-small"></i><span>프로그래밍 언어</span></p>
+              <?php
+              $i = 1;
+              $count = count($cateArr);
+              $step1Name = '';
+              foreach($cateArr as $cate){
+                $sql ="SELECT name FROM category where code='{$cate}'";
+                $result = $mysqli -> query($sql);
+                $row = $result -> fetch_object();
+                if($i == 1){
+                  $step1Name = $row->name;
+                }
+              ?>
+              <p class="txt-sm text-c6"><span><?=$row->name?></span>
+              <?php
+              if($i < $count){
+              ?>
+              <i class="fa-solid fa-angle-right fa-small"></i>
+              <?php
+              }
+              ?>
+            </p>
+              <?php
+              $i++;
+            }
+
+              ?>
             </div>
             <h2 class="tit-h2"><?= $item->name;?></h2>
             <p><i class="fa-solid fa-eye fa-small"></i><?= $item->hit;?>명의 수강생이 수강하고 있어요</p>
@@ -53,7 +61,7 @@
         <div class="d-flex justify-content-between">
           <div>
             <div class="lecture-detail-tit">
-              <h2 class="tit-h2">중급자를 위해 준비한 [<?=$cate[1][4]->name;?>] 강의입니다.</h2>
+              <h2 class="tit-h2">중급자를 위해 준비한 [<?=$step1Name;?>] 강의입니다.</h2>
               <p class="tit-h4"><?= $item->content;?></p>
               <hr>
             </div>
@@ -108,32 +116,27 @@
         
           <h2 class="tit-h2">비슷한 강의를 추천드려요</h2>
           <ul class="lecture_most">
+            <?php
+              $items= [];
+              $sql ="SELECT * FROM products where cate LIKE '%{$cateArr[1]}%' LIMIT 0,4";
+              $result = $mysqli->query($sql);
+              while ($row = $result->fetch_object()) {
+                $items[] = $row;
+            }
+            foreach($items as $item){
+            ?>
             <li><a href="#">
-              <img src="./image/img_lecture.png" alt="">
-              <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-              <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
+              <img src="<?=$item->thumbnail;?>" alt="">
+              <h3 class="tit-h4"><?= $item->name;?></h3>
+              <p><?= $item->content;?></p>
             </a></li>
-            <li><a href="#">
-              <img src="./image/img_lecture.png" alt="">
-              <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-              <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-            </a></li>
-            <li><a href="#">
-              <img src="./image/img_lecture.png" alt="">
-              <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-              <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-            </a></li>
-            <li><a href="#">
-              <img src="./image/img_lecture.png" alt="">
-              <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-              <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-            </a></li>
+            <?php
+            }
+            ?>
           </ul>
         
       </div>
-      <?php
-        }}
-      ?>
+
   </main>
 <?php
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/footer.php';

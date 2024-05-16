@@ -3,7 +3,6 @@
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
 
   $cate = $_GET['cate'] ?? '';
-
   $isgold = $_GET['isgold'] ?? '';
   $issilver = $_GET['issilver'] ?? '';
   $iscopper = $_GET['iscopper'] ?? '';
