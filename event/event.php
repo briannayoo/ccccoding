@@ -45,6 +45,13 @@
                 </ul>
             </nav>
         <!-- 질문하기 start -->
+        <?php
+        $sql = "SELECT * FROM event";
+        $result = $mysqli -> query($sql);
+        while($rs = $result->fetch_object()){
+          $esArr[] = $rs;
+        }
+        ?>
         <div class="con-wrap">
           <div class="page-tit-area">
             <h2 class="tit-h1">이벤트</h2>
@@ -55,64 +62,33 @@
           </div>
 
           <hr>
-
           <ul class="list-group box-list">
-            <li class="list-group-item">
-              <a href="#" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
-                <img src="image/event1.png" alt="이미지">
-              </a>
-              <div class="info-area">
-                <p class="event-title">Rock's easyweb  오픈이벤트!!</p>
-                <p class="date">사용기한 YYYY-MM-DD</p>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <a href="#" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
-                <img src="image/event2.png" alt="이미지">
-              </a>
-              <div class="info-area">
-                <p class="event-title">Rock's easyweb  오픈이벤트!!</p>
-                <p class="date">사용기한 YYYY-MM-DD</p>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <a href="#" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
-                <img src="image/event3.png" alt="이미지">
-              </a>
-              <div class="info-area">
-                <p class="event-title">Rock's easyweb  오픈이벤트!!</p>
-                <p class="date">사용기한 YYYY-MM-DD</p>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <a href="#" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
-                <img src="image/event4.png" alt="이미지">
-              </a>
-              <div class="info-area">
-                <p class="event-title">Rock's easyweb  오픈이벤트!!</p>
-                <p class="date">사용기한 YYYY-MM-DD</p>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <a href="#" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
-                <img src="image/event5.png" alt="이미지">
-              </a>
-              <div class="info-area">
-                <p class="event-title">Rock's easyweb  오픈이벤트!!</p>
-                <p class="date">사용기한 YYYY-MM-DD</p>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <a href="#" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
-                <img src="image/event6.png" alt="이미지">
-              </a>
-              <div class="info-area">
-                <p class="event-title">Rock's easyweb  오픈이벤트!!</p>
-                <p class="date">사용기한 YYYY-MM-DD</p>
-              </div>
-            </li>
+        <?php
+        if(isset($esArr)){
+          foreach($esArr as $item){
+        ?>
+          <li class="list-group-item">
+            <a href="event_detail.php?eid=<?= $item->eid; ?>" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
+              <img src="<?= $item->e_img; ?>" alt="이미지">
+            </a>
+            <div class="info-area">
+              <p class="event-title"></p>
+              <p class="date">진행기한:
+              <?php 
+                    if ($item->event_time == 2) {
+                        echo $item->start_date . '~' . $item->end_date; 
+                    } else if ($item->event_time == 1) {
+                        echo '종료됨';
+                    }
+                  ?>
+              </p>
+            </div>
+          </li>
+        <?php
+          }
+        }
+        ?>
           </ul>
-  
           <!-- pagination(s) -->
           <nav aria-label="페이지네이션">
             <ul class="pagination">

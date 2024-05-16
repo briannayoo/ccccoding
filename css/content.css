@@ -115,12 +115,13 @@
 .list-text{gap:16px}
 
 /* 공지사항 (유부현) */
-.notice-list{padding-top: 26px; padding-bottom: 26px; padding-left: 11px;}
+.notice-list{padding-top: 18px; padding-bottom: 18px; padding-left: 11px;}
 .notice-profil{padding-bottom: 26px;}
 .notice-text{ width: 900px;}
 .notice-fix{width: 212px; height: 520px;}
 .notice-content{gap: 120px;}
 /* qna (유부현) */
+.qna-up-title{border: none;}
 .qna-list{padding-top: 26px; padding: 26px 11px;}
 .qna-text{padding-bottom: 10px;}
 .qna-span{color: var( --text-c2);}
@@ -132,10 +133,13 @@
 .question-title{font-weight: 600; padding: 10px 16px;}
 .question-text{padding: 26px 40px;}
 .question-text > button{float: right; border: none; background-color: transparent;}
-.qna-up-title{color: var(--text-c6); font-weight: 600; padding-bottom: 26px;}
-.qna-up-text{ }
+/* .qna-up-title{border: none;} */
+.qna-up-title ::placeholder{color: var(--text-c6); font-weight: 600; padding-bottom: 26px;}
+.qna-up-title{padding-bottom: 26px;}
 .qna-up-info{color: var(--text-c6);}
 .note-resizebar{display: none;}
+.input-group .ipt-wrap {position:relative; padding-right:30px;}
+.form-control {font-size:1.6rem; padding:4px 40px 4px 10px; border: none;}
 /* event (유부현) */
 .list-group.box-list {display:flex; flex-direction:row; flex-wrap:wrap; justify-content:space-between; gap:0;}
 .list-group.box-list > .list-group-item  {/*display:flex; gap:30px;*/ width:calc((100% / 2) - 15px); padding:18px; border:1px solid var(--ipt-border,#DEE2E6); border-radius:10px; box-shadow: 0px 4px 4px 2px rgba(222, 226, 230, 0.5);}

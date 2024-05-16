@@ -55,15 +55,17 @@
           </div>
           
           <!-- 제목쓰기 -->
-          <div>
-            <p class="tit-h3 qna-up-title">질문에 핵심내용을 요약해보세요.</p>
+          <div class="input-group">
+              <div class="col-md-12 ipt-wrap qna-up-title">
+                <input type="text" class="form-control" id="fm-txt03" placeholder="질문에 핵심내용을 요약해보세요">
+              </div>
           </div>
           <div class="border qna-up-text">
             <div id="summernote" name="desc" class="w-100" ></div>
           </div>
           <div class="btn-area d-flex justify-content-end">
-            <button type="button" class="btn btn-primary btn-sm">버튼</button>
-            <button type="button" class="btn btn-outline-secondary btn-sm">버튼</button>
+            <button type="button" class="btn btn-primary btn-sm">등록</button>
+            <button type="button" class="btn btn-outline-secondary btn-sm">취소</button>
           </div>
           
         </div>

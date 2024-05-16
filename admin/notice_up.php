@@ -49,7 +49,7 @@
               <label for="txtarea" class="col-md-1 col-form-label tit-h4">내용</label>
               <div class="col-md-11">
                 <div class="input-group">
-                  <div class="col-md-12 ipt-wrap">
+                  <div class="col-md-12 ipt-wrap notice-textbox">
                     <textarea class="form-control" id="txtarea" name="content" placeholder="내용을 입력하세요." required></textarea>
                   </div>
                 </div>

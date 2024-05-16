@@ -1,3 +1,15 @@
+<?php
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/dbcon.php';
+  $sql = "SELECT COUNT(*) AS coupon_count FROM user_coupons WHERE userid = '$userid'";
+  $result = $mysqli -> query($sql);
+
+  if ($result->num_rows > 0) {
+      $row = $result->fetch_object();
+      $coupon_count = $row->coupon_count;
+  } else {
+      $coupon_count = 0;
+  }
+?>    
   <!-- 공통 부분 작업담당자:박소현 (s) -->
   <main class="sub mypage">
     <div class="container">
@@ -17,7 +29,7 @@
         <ul class="list-group user-bf-list">
           <li class="list-group-item">
             <div class="item">쿠폰</div>
-            <div class="val"><a href="/ccccoding/mypage/benefit.php" class="num">0</a>개</div>
+            <div class="val"><a href="/ccccoding/mypage/benefit.php" class="num"><?=$coupon_count?></a>개</div>
           </li>
           <li class="list-group-item">
             <div class="item">포인트</div>
