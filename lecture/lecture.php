@@ -1,115 +1,182 @@
 <?php
   $title = 'ccccoding';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
+
+  // $sql = "SELECT * FROM products  WHERE ismain = 1 AND status = 1 ORDER BY pid DESC LIMIT 0, 15";
+  // $result = $mysqli -> query($sql);
+
+  // while($row = $result->fetch_object()){
+  //   $rsc[] = $row;
+  // }
+
+  //메인상품 카테고리명, 코드 출력
+  // $sql = "SELECT c.name, c.code
+  // FROM products p
+  // JOIN category c ON p.cate LIKE CONCAT('%', c.code, '%')
+  // WHERE p.ismain = 1 AND p.status = 1
+  // GROUP BY c.name, c.code";
+
+  // $result = $mysqli -> query($sql);
+  // while($rs = $result->fetch_object()){
+  //   $resultArr[] = $rs;
+  // }
+  //print_r($resultArr);
+
 ?>
 
   <!-- 우예지 (s) -->
   <main class="sub">
     <div class="section">
       <div class="container">
-        <nav class="sub-menu">
-          <ul class="list-group">
-            <!-- 아코디언 하위메뉴 있을 때 case(s) -->
-            <li class="list-group-item acco">
-              <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                      <i class="fa-solid fa-laptop-code fa-middle"></i>
-                      <span>웹개발</span>
-                    </button>
-                  </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <ul class="list-group depth-2">
-                        <li class="list-group-item on">
-                          <a href="#">전체</a>
-                        </li>
-                        <li class="list-group-item">
-                          <a href="#">프론트 엔드</a>
-                        </li>
-                        <li class="list-group-item">
-                          <a href="#">백엔드</a>
-                        </li>
-                        <li class="list-group-item">
-                          <a href="#">풀스텍</a>
-                        </li>
-                      </ul>
-                    </div>
+      <nav class="sub-menu">
+        <ul class="list-group">
+          <li class="list-group-item acco">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <i class="fa-solid fa-laptop-code fa-middle"></i>
+                    <span>웹개발</span>
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <ul class="list-group depth-2">
+                      <li class="list-group-item on">
+                        <a href="#">전체</a>
+                      </li>
+                      <li class="list-group-item">
+                        <a href="#">프론트 엔드</a>
+                      </li>
+                      <li class="list-group-item">
+                        <a href="#">백엔드</a>
+                      </li>
+                      <li class="list-group-item">
+                        <a href="#">풀스텍</a>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
-            </li>
-            <!-- 아코디언 하위메뉴 있을 때 case(e) -->
-
-            <!-- 바로링크이동 case(s) -->
-            <li class="list-group-item">
-              
-              <a href="#" class="accordion-button">
-                <i class="fa-solid fa-chart-column fa-middle"></i>
-                <span>데이터 사이언스</span>
-              </a>
-            </li>
-            <!-- 바로링크이동 case(e) -->
-
-            <li class="list-group-item">
-              <a href="#" class="accordion-button">
-                <i class="fa-solid fa-desktop fa-middle"></i>
-                <span>컴퓨터 사이언스</span>
-              </a>
-            </li>
-
-            <li class="list-group-item">
-              <a href="#" class="accordion-button">
-                <i class="fa-solid fa-atom fa-middle"></i>
-                <span>프로그래밍 언어</span>
-              </a>
-            </li>
-
-            <li class="list-group-item">
-              
-              <a href="#" class="accordion-button">
-                <i class="fa-solid fa-palette fa-middle"></i>
-                <span>디자인</span>
-              </a>
-            </li>
-
-            <li class="list-group-item acco">
-              <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                      <i class="fa-solid fa-comment-dots fa-middle"></i>
-                      <span>커뮤니티</span>
-                    </button>
-                  </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <ul class="list-group depth-2">
-                        <li class="list-group-item on">
-                          <a href="#">전체</a>
-                        </li>
-                        <li class="list-group-item">
-                          <a href="#">공지사항</a>
-                        </li>
-                        <li class="list-group-item">
-                          <a href="#">Q&amp;A</a>
-                        </li>
-                      </ul>
-                    </div>
+            </div>
+          </li>
+          <li class="list-group-item acco">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <i class="fa-solid fa-chart-column fa-middle"></i>
+                    <span>데이터 사이언스</span>
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <ul class="list-group depth-2">
+                      <li class="list-group-item on">
+                        <a href="#">전체</a>
+                      </li>
+                      <li class="list-group-item">
+                        <a href="#">데이터 분석</a>
+                      </li>
+                      <li class="list-group-item">
+                        <a href="#">인공지능</a>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
-            </li>
-
-            <li class="list-group-item">
-              <a href="#" class="accordion-button">
-                <i class="fa-solid fa-gift fa-middle"></i>
-                <span>이벤트</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+            </div>
+          </li>
+          <li class="list-group-item acco">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <i class="fa-solid fa-desktop fa-middle"></i>
+                    <span>컴퓨터 사이언스</span>
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <ul class="list-group depth-2">
+                      <li class="list-group-item on">
+                        <a href="#">전체</a>
+                      </li>
+                      <li class="list-group-item">
+                        <a href="#">프로그래밍 기초</a>
+                      </li>
+                      <li class="list-group-item">
+                        <a href="#">알고리즘,자료구조</a>
+                      </li>
+                      <li class="list-group-item">
+                        <a href="#">객체지향프로그래밍</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item acco">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <i class="fa-solid fa-atom fa-middle"></i>
+                    <span>프로그래밍 언어</span>
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <ul class="list-group depth-2">
+                      <li class="list-group-item on">
+                        <a href="#">전체</a>
+                      </li>
+                      <li class="list-group-item">
+                        <a href="#">파이썬</a>
+                      </li>
+                      <li class="list-group-item">
+                        <a href="#">자바스크립트</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item acco">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <i class="fa-solid fa-palette fa-middle"></i>
+                    <span>디자인</span>
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <ul class="list-group depth-2">
+                      <li class="list-group-item on">
+                        <a href="#">전체</a>
+                      </li>
+                      <li class="list-group-item">
+                        <a href="#">디자인 기초</a>
+                      </li>
+                      <li class="list-group-item">
+                        <a href="#">피그마</a>
+                      </li>
+                      <li class="list-group-item">
+                        <a href="#">기타</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          
+        </ul>
+      </nav>
         <div class="con-wrap">
           <div class="page-tit-area">
             <h2 class="tit-h1">전체 강의</h2>
@@ -166,81 +233,27 @@
           <!-- 우예지 -->
           <div class="lecture-area">
             <ul>
+            <?php
+              // if(isset($rsc)){
+              //   foreach($rsc as $item){
+              //   $codeArr = str_split($item->cate,5);
+              //   $code = '';
+              //   foreach($codeArr as $c){
+              //       $code .= $c.' ';
+              //   }
+                //$code = substr($item->cate, -5);
+              ?>
               <li><a href="#">
                 <img src="./image/img_lecture.png" alt="">
                 <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
                 <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
               </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
+            <?php
+              //   }
+              // } else {
+              //   echo "<p>조회 상품이 없습니다.</p>";
+              // }
+            ?>
             </ul>
           </div>
           <!-- pagination(s) -->
