@@ -73,13 +73,13 @@
           <hr>
           <!-- qna start -->
           <?php
-            $sql = "SELECT * FROM qna";
+            $sql = "SELECT * FROM qna order by qid desc";
             $result = $mysqli -> query($sql);
             while($row = mysqli_fetch_assoc($result)){
             ?>
             <div class="">
               <div class="border-bottom qna-list">
-                <h2 class="txt-xl list-h2"><?= $row['title']?></h2>
+                <h2 class="txt-xl list-h2"><a href=""></a><?= $row['title']?></h2>
                 <p class="txt-md qna-text"><?= $row['content']?></p>
                 <div class="d-flex justify-content-between">
                     <div class="d-flex list-text">

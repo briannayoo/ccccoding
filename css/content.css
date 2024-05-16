@@ -115,7 +115,7 @@
 .list-text{gap:16px}
 
 /* 공지사항 (유부현) */
-.notice-list{padding-top: 26px; padding-bottom: 26px; padding-left: 11px;}
+.notice-list{padding-top: 18px; padding-bottom: 18px; padding-left: 11px;}
 .notice-profil{padding-bottom: 26px;}
 .notice-text{ width: 900px;}
 .notice-fix{width: 212px; height: 520px;}
