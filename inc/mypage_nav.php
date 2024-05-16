@@ -63,7 +63,7 @@
           </ul>
 
           <div class="logout">
-            <a href="#" class="tit-h4">로그아웃</a>
+            <a href="/ccccoding/admin/logout.php" class="tit-h4">로그아웃</a>
           </div>
         </nav>
       </div>

@@ -57,7 +57,8 @@ header .gnb-area.sticky {position:fixed; top:0; left:0; width:100%; z-index:101;
 
 /* main */
 main {padding-top:104px;}
-main.sub {padding-top:156px;}
+main.sub,
+main.full {padding-top:156px;}
 
 /*===== footer(박소현) =====*/
 footer {padding:52px 0; margin-top:78px; background-color:var(--primary-c,#472ea1);}
