@@ -2,26 +2,64 @@
   $title = 'ccccoding';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
 
-  $sql = "SELECT * FROM products  WHERE ismain = 1 AND status = 1 ORDER BY pid DESC LIMIT 0, 15";
-  $result = $mysqli -> query($sql);
+  $cates1 = $_GET['cate1'] ?? '';
+  $cate2 = $_GET['cate2'] ?? '';
+  $cate3 = $_GET['cate3'] ?? '';
+  $isgold = $_GET['isgold'] ?? '';
+  $issilver = $_GET['issilver'] ?? '';
+  $iscopper = $_GET['iscopper'] ?? '';
+  $search_keyword = $_GET['search_keyword'] ?? '';
+  $cates = $cates1.$cate2.$cate3;
+  
+  $search_where = "";
 
-  while($row = $result->fetch_object()){
-    $rsc[] = $row;
+  if($cates){
+    $search_where .= " and cate LIKE '%{$cates}%'";
+  }
+  if($isgold){
+    $search_where .= " and isgold = 1";
+  }
+  if($issilver){
+    $search_where .= " and issilver = 1";
+  }
+  if($iscopper){
+    $search_where .= " and iscopper = 1";
+  }
+  
+  if($search_keyword){
+    $search_where .= " and (name LIKE '%{$search_keyword}%' or content LIKE '%{$search_keyword}%')";
   }
 
-  //메인상품 카테고리명, 코드 출력
-  $sql = "SELECT c.name, c.code
-  FROM products p
-  JOIN category c ON p.cate LIKE CONCAT('%', c.code, '%')
-  WHERE p.ismain = 1 AND p.status = 1
-  GROUP BY c.name, c.code";
+//총개수 조회
+  $sql = "SELECT COUNT(*) AS cnt FROM products WHERE 1=1";
+  $sql .= $search_where;
+  $result = $mysqli->query($sql);
+  $count = $result->fetch_object();
 
-  $result = $mysqli -> query($sql);
-  while($rs = $result->fetch_object()){
-    $resultArr[] = $rs;
+  $totalcount = $count->cnt; //총검색건수
+  $targetTable = 'coupons';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/pagination.php';
+
+  $sql = "SELECT * FROM products where 1=1";
+  $sql .= $search_where;
+  $order = " order by pid desc";
+  $sql .= $order;
+  $limit = " LIMIT $startLimit, $endLimit";
+  $sql .= $limit;
+  // echo $sql;
+  $result = $mysqli->query($sql);
+
+  while ($rs = $result->fetch_object()) {
+    $rsArr[] = $rs;
   }
-  print_r($resultArr);
-
+  
+  //$count = count($rsArr);
+  
+  $sql = "SELECT * FROM category where step = 1";
+  $result = $mysqli->query($sql);
+  while ($row = $result->fetch_object()) {
+    $cate1[] = $row;
+  };
 ?>
 
   <!-- 우예지 (s) -->
@@ -30,151 +68,55 @@
       <div class="container">
       <nav class="sub-menu">
         <ul class="list-group">
+        <?php
+          foreach ($cate1 as $c1) {
+        ?>
           <li class="list-group-item acco">
             <div class="accordion" id="accordionExample">
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                    <i class="fa-solid fa-laptop-code fa-middle"></i>
-                    <span>웹개발</span>
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?=$c1->code?>" aria-expanded="false" aria-controls="collapseOne" id="cate1">
+                    <i class="fa-solid <?=$c1->icon?> fa-middle"></i>
+                    <span><?= $c1->name; ?></span>
                   </button>
                 </h2>
-                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div id="collapse<?=$c1->code?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
                     <ul class="list-group depth-2">
-                      <li class="list-group-item on">
-                        <a href="#">전체</a>
-                      </li>
-                      <li class="list-group-item">
-                        <a href="#">프론트 엔드</a>
-                      </li>
-                      <li class="list-group-item">
-                        <a href="#">백엔드</a>
-                      </li>
-                      <li class="list-group-item">
-                        <a href="#">풀스텍</a>
-                      </li>
+                    <li class="list-group-item on">
+                      
+                      <a href="#">전체</a>
+                    </li>
+                    <?php
+                      $c2sql ="SELECT * FROM category where step = 2 and pcode = '{$c1->code}'";
+                      $c2result = $mysqli -> query($c2sql);
+
+                      if ($c2result->num_rows > 0) {
+                        $cate2 = [];
+                        while ($row2 = $c2result->fetch_object()) {
+                            $cate2[] = $row2;
+                        }
+                        foreach($cate2 as $c2){
+                          ?>
+                        <li class="list-group-item">
+                          
+                          <a href="#"><?=$c2->name?></a>
+                        </li>
+                          <?php
+                        }
+                    ?>
+                    <?php
+                      }
+                    ?>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
           </li>
-          <li class="list-group-item acco">
-            <div class="accordion" id="accordionExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <i class="fa-solid fa-chart-column fa-middle"></i>
-                    <span>데이터 사이언스</span>
-                  </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <ul class="list-group depth-2">
-                      <li class="list-group-item on">
-                        <a href="#">전체</a>
-                      </li>
-                      <li class="list-group-item">
-                        <a href="#">데이터 분석</a>
-                      </li>
-                      <li class="list-group-item">
-                        <a href="#">인공지능</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item acco">
-            <div class="accordion" id="accordionExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTree" aria-expanded="false" aria-controls="collapseTree">
-                    <i class="fa-solid fa-desktop fa-middle"></i>
-                    <span>컴퓨터 사이언스</span>
-                  </button>
-                </h2>
-                <div id="collapseTree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <ul class="list-group depth-2">
-                      <li class="list-group-item on">
-                        <a href="#">전체</a>
-                      </li>
-                      <li class="list-group-item">
-                        <a href="#">프로그래밍 기초</a>
-                      </li>
-                      <li class="list-group-item">
-                        <a href="#">알고리즘,자료구조</a>
-                      </li>
-                      <li class="list-group-item">
-                        <a href="#">객체지향프로그래밍</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item acco">
-            <div class="accordion" id="accordionExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFor" aria-expanded="false" aria-controls="collapseFor">
-                    <i class="fa-solid fa-atom fa-middle"></i>
-                    <span>프로그래밍 언어</span>
-                  </button>
-                </h2>
-                <div id="collapseFor" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <ul class="list-group depth-2">
-                      <li class="list-group-item on">
-                        <a href="#">전체</a>
-                      </li>
-                      <li class="list-group-item">
-                        <a href="#">파이썬</a>
-                      </li>
-                      <li class="list-group-item">
-                        <a href="#">자바스크립트</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item acco">
-            <div class="accordion" id="accordionExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">
-                    <i class="fa-solid fa-palette fa-middle"></i>
-                    <span>디자인</span>
-                  </button>
-                </h2>
-                <div id="collapsefive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <ul class="list-group depth-2">
-                      <li class="list-group-item on">
-                        <a href="#">전체</a>
-                      </li>
-                      <li class="list-group-item">
-                        <a href="#">디자인 기초</a>
-                      </li>
-                      <li class="list-group-item">
-                        <a href="#">피그마</a>
-                      </li>
-                      <li class="list-group-item">
-                        <a href="#">기타</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          
+        <?php
+          }
+        ?>
         </ul>
       </nav>
         <div class="con-wrap">
@@ -188,15 +130,15 @@
               <div class="list-group list-group-horizontal">
                 <div class="list-group-item">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="difficulty_01" name="difficulty_01">
-                    <label class="form-check-label" for="difficulty_01">
+                    <input class="form-check-input" type="checkbox" value="1" id="isgold" name="isgold">
+                    <label class="form-check-label" for="difficulty_01" >
                       상
                     </label>
                   </div>
                 </div>
                 <div class="list-group-item">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="difficulty_02" name="difficulty_02">
+                    <input class="form-check-input" type="checkbox" value="1" id="issilver" name="issilver">
                     <label class="form-check-label" for="difficulty_02">
                       중
                     </label>
@@ -204,7 +146,7 @@
                 </div>
                 <div class="list-group-item">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="difficulty_03" name="difficulty_03">
+                    <input class="form-check-input" type="checkbox" value="1" id="iscopper" name="iscopper">
                     <label class="form-check-label" for="difficulty_03">
                       하
                     </label>
@@ -305,7 +247,7 @@
       </div>
     </div>
   </main>
-
+  <!-- <script src="/ccccoding/admin/js/makeoption.js"></script> -->
 <?php
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/footer.php';
 ?>
