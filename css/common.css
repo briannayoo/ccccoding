@@ -280,6 +280,8 @@ textarea {height:250px;}
 .line-box-list.qa {justify-content:start;}
 .line-box-list.qa .state-txt {color:var(--text-c3, #333236);}
 .line-box-list.qa .state-txt.bold {font-weight:var(--bold, 700);}
+.line-box-list.qa .tit-h4:before {content:'Q.'}
+.line-box-list.qa .answer:before {content:'A.'}
 
 /* line-box list 3개 */
 .line-box-list.list-3 {flex-direction:row;}

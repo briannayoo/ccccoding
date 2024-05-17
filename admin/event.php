@@ -24,7 +24,7 @@ session_start();
   $e_startdate = $_GET['e_startdate'] ?? '';
   $e_enddate = $_GET['e_enddate'] ?? '';
   $e_date_type = $_GET['e_date_type'] ?? '';
-  $e_status = $_GET['e_status'] ?? '';
+  $e_status = $_GET['status'] ?? '';
   
   // search_where 조건에 맞게
   $search_where = '';
@@ -47,20 +47,20 @@ session_start();
   }
   
   if ($e_status == '1') {
-      $search_where .= " AND e_status = 1";
+      $search_where .= " AND status = 1";
   } elseif ($e_status == '2') {
-      $search_where .= " AND e_status = 2";
+      $search_where .= " AND status = 2";
   }
   
   // 활성화 값이 1인 경우의 개수 조회
-  $sql_act_1 = "SELECT COUNT(*) AS act_1_cnt FROM event WHERE e_status = 1";
+  $sql_act_1 = "SELECT COUNT(*) AS act_1_cnt FROM event WHERE status = 1";
   $sql_act_1 .= $search_where;
   $result_act_1 = $mysqli->query($sql_act_1);
   $count_act_1 = $result_act_1->fetch_object();
   $count_act_1 = $count_act_1->act_1_cnt;
   
   // 비활성화 값이 2인 경우의 개수 조회
-  $sql_act_2 = "SELECT COUNT(*) AS act_2_cnt FROM event WHERE e_status = 2";
+  $sql_act_2 = "SELECT COUNT(*) AS act_2_cnt FROM event WHERE status = 2";
   $sql_act_2 .= $search_where;
   $result_act_2 = $mysqli->query($sql_act_2);
   $count_act_2 = $result_act_2->fetch_object();

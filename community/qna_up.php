@@ -55,7 +55,7 @@
                 </div>
 
                 <!-- 제목쓰기 -->
-                <form action="qna_up_ok.php" method="POST">
+                <form action="qna_up_ok.php" method="POST" id="content_save">
                     <input type="hidden" name="content" id="contents">
                     <div class="input-group">
                         <div class="col-md-12 ipt-wrap qna-up-title">
