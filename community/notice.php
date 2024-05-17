@@ -2,38 +2,30 @@
   $title = '공지사항';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
 
-  $keyword = $_GET['keyword'] ?? '';
-  $noticesql = "SELECT * FROM notice WHERE 1=1 and (name like '%$keyword%' or title like '%$keyword%')order by idx desc ";
-  $noticeResult = mysqli_query($mysqli, $noticesql);
-  
-  while ($row = mysqli_fetch_object($noticeResult)) {
-    $noticeArr[] = $row;
-  }  
 
-   // 각자 테이블 컬럼
-$idx = $_GET['idx '] ?? '';
-$name = $_GET['name'] ?? '';
-$title = $_GET['title'] ?? '';
-$content = $_GET['content'] ?? '';
-$date = $_GET['date'] ?? '';
-$hit = $_GET['hit'] ?? '';
-$thumbsup = $_GET['thumbsup'] ?? '';
-$is_img = $_GET['is_img'] ?? '';
-$file = $_GET['file'] ?? '';
+
 
 // search_where 조건에 맞게
 $search_where = '';
 
-if ($name) {
-    $search_where .= " AND name LIKE '%$name%'";
+
+
+$keyword = $_GET['keyword'] ?? '';
+if(isset($keyword) && $keyword !== ''){
+
+  $search_where .=" and title like '%$keyword%' ";
 }
 
-if ($date == '1') {
-    $search_where .= " AND date = 1";
-} else if ($date == '2') {
-    $search_where .= " AND date = 2";
+$sort = $_GET['sort'] ?? '';
+if(isset($sort) && $sort !== ''){
+if($sort=="hit"){
+  $order = " order by hit desc";
 }
-
+else{ 
+  $order = " order by idx desc";
+ 
+}
+}
 //총개수 조회
 $sql = "SELECT COUNT(*) AS cnt FROM notice WHERE 1=1";
 $sql .= $search_where;
@@ -48,26 +40,18 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/pagination.php';
   //페이지네이션
   $sql = "SELECT * FROM notice WHERE 1=1";
   $sql .= $search_where;
-  $order = " order by idx desc";
+
   $sql .= $order;
   $limit = " LIMIT  $startLimit, $endLimit";
   $sql .= $limit;
-  // echo $sql;
 
-  $result = $mysqli->query($sql);
-
-  $sql = "SELECT * FROM notice";
-
-  if(isset($_GET['idx'])) {
-    $idx = $_GET['idx'];
-  } else {
-    $idx = ""; // 기본값 설정
-  }
+   $noticeResult = $mysqli->query($sql);
+   while ($row = mysqli_fetch_object($noticeResult)) {
+     $noticeArr[] = $row;
+   }  
+ 
 
 
-  while ($ns = $result->fetch_object()) {
-    $rsArr[] = $ns;
-  }
 
 
 ?>
@@ -137,18 +121,18 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/pagination.php';
           <!-- 공통 부분 (e) -->
           <hr class="communi-hr">
           <?php
-             $sql = "SELECT * FROM notice order by idx desc";
-             $result = $mysqli -> query($sql);
-             while($row = mysqli_fetch_assoc($result)){
+             foreach($noticeArr as $item){
+
+        
           ?>
           <!-- notice start -->
           <div class="">
             <div class="border-bottom notice-list">
-              <h2 class="txt-lg list-h2"><a href="/ccccoding/community/notice_view.php?idx=<?= $row['idx'] ?>"><?= $row['title']?></a></h2>
+              <h2 class="txt-lg list-h2"><a href="/ccccoding/community/notice_view.php?idx=<?= $item -> idx ?>"><?= $item -> title ?></a></h2>
               <div class="d-flex list-text">
-                <p>작성자 : <?= $row['name']?></p>
-                <p><i class="fa-solid fa-eye fa-small"></i> : <?= $row['hit']?></p>
-                <p><?= $row['date']?></p>
+                <p>작성자 : <?= $item -> name ?></p>
+                <p><i class="fa-solid fa-eye fa-small"></i> : <?= $item -> hit ?></p>
+                <p><?= $item -> date ?></p>
               </div>
             </div>
           <?php
