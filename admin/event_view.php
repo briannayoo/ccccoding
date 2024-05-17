@@ -52,7 +52,7 @@
             <div class="row">
           <label for="datepicker-01" class="col-md-1 col-form-label tit-h4">이벤트 기한</label>
           <div class="col-md-11">
-              <?=$es -> e_startdate?> ~  <?=$es -> e_enddate?>
+              <?=$es -> start_date?> ~  <?=$es -> end_date?>
             </div>
           <!-- <div class="col-md-11">
             <div class="input-group">

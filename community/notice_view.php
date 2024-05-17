@@ -5,10 +5,11 @@
   //idx번호글 조회
   $bno = $_GET['idx'];
   $sql = "SELECT * FROM notice where idx = {$bno}";
+//   echo $sql;
   $result = $mysqli->query($sql);
   $resultArr = mysqli_fetch_assoc($result);
 
-    //조회수 업데이트
+   // 조회수 업데이트
     $hit = $resultArr['hit'] + 1;
     $sqlUpdate = "UPDATE notice SET hit={$hit} WHERE idx = {$bno}";
     $mysqli->query($sqlUpdate);
@@ -73,27 +74,28 @@
                             <p><?= $resultArr['date'];?></p>
                         </div>
                         <div class="d-flex notice-content">
-                            <div class="notice-text"><?= nl3br($resultArr['content']);?></div>
+                            <div class="notice-text"><?= nl2br($resultArr['content']);?></div>
                             <div>
                                 <div class="border notice-fix">
                                     <p>ㅋㅋㅋ코딩 공지사항</p>
                                     <ul>
-                                        <li>ㅋㅋㅋ코딩 개인정보 처리방침 개정 안내</li>
-                                        <li>ㅋㅋㅋ코딩 군교육 서비스 종료 안내</li>
-                                        <li> 학습 질문 Ai 답변 서비스 시범 운영 안내</li>
-                                        <li>강의명 변경 안내</li>
-                                        <li>학습질문 서비스 이용 안내 (이용기간 / 경로 / 방법 등)</li>
-                                        <li>설 연휴 스파르타코딩클럽 서비스 운영 관련 안내</li>
-                                        <li>교재 증정 이벤트 마감 안내</li>
-                                        <li>버닝이벤트 당첨자 안내</li>
+                                    <?php
+                                    $sql = "SELECT * FROM notice";
+                                    $result = $mysqli -> query($sql);
+                                    while($row = mysqli_fetch_assoc($result)){
+                                    ?>
+                                        <li><a href="/ccccoding/community/notice_view.php?idx=<?= $row['idx'] ?>"><?= $row['title']?></a></li>
+                                    <?php
+                                    }
+                                    ?>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="btn-area d-flex justify-content-end">
-                        <button type="button" class="btn btn-primary btn-sm">버튼</button>
-                        <button type="button" class="btn btn-outline-secondary btn-sm">버튼</button>
+                        <button type="button" class="btn btn-primary btn-sm">이전</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm">다음</button>
                     </div>
                 </div>
             </div>
