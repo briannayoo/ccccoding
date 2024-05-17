@@ -19,8 +19,8 @@
         ?>
         <form action="checkout.php" method="POST">
           <!-- <input type="hidden" name="userid" value=""> -->
-          <input type="hidden" name="pid" id="pidArr" value="<?php echo implode(",", $cpidArr);?>">
-          <input type="hidden" name="total_price" id="total_price_final" value="">
+          <input type="hidden" name="pid[]" id="pidArr" value="">
+          <input type="hidden" name="total_price" id="total_price" value="">
 
           <div class="page-tit-area">
             <h2 class="tit-h1">수강 바구니</h2>
@@ -39,7 +39,7 @@
                     if(isset($cartArr)){
                         foreach($cartArr as $ca){
                 ?>
-                  <li class="d-flex justify-content-between align-items-center order-item" data-id="del">
+                  <li class="d-flex justify-content-between align-items-center order-item" data-id="<?=$ca -> cartid?>">
                     <div class="lecture-item d-flex align-items-center">
                       <input class="form-check-input" type="checkbox" class="check" name="check-group" value="" aria-label="checkbox">
                       <img src="<?= $ca-> thumbnail;?>" alt="<?= $ca-> name;?>">
@@ -75,7 +75,7 @@
                   <h3>쿠폰</h3>
                   <div class="d-flex justify-content-between">
                   <?php
-                    $cSql = "SELECT uc.ucid, c.coupon_name, c.coupon_price
+                    $cSql = "SELECT uc.ucid, c.coupon_name, c.coupon_price, c.cid
                     FROM user_coupons uc JOIN coupons c 
                     ON c.cid = uc.couponid WHERE uc.status = 1 
                     AND uc.userid = '{$userid}' AND uc.use_max_date >= now()";
@@ -98,12 +98,11 @@
                       }
                       ?>
                     </select>
-                    <label for="coupon-select" class="btn btn-outline-secondary btn-sm">쿠폰 선택</label>
                   </div>
                   <ul>
-                    <li class="d-flex justify-content-between tit-h5 text-place">선택하신 상품금액 <span id="subtotal">300,000원</span></li>
-                    <li class="d-flex justify-content-between tit-h5 text-red" id="coupon-name">할인금액 <span id="coupon-price">45,000원</span></li>
-                    <li class="d-flex justify-content-between tit-h4 mt-26">총 결제 금액 <span id="grandtotal">255,000원</span></li>
+                    <li class="d-flex justify-content-between align-items-center tit-h5 text-place">선택하신 상품금액 <div><span id="subtotal"></span>원</div></li>
+                    <li class="d-flex justify-content-between align-items-center tit-h5 text-red" id="coupon-name">할인금액 <div><span id="coupon-price"></span>원</div></li>
+                    <li class="d-flex justify-content-between align-items-center tit-h4 mt-26">총 결제 금액 <div><span id="grandtotal"></span>원</div></li>
                   </ul>
                   <button class="btn btn-primary btn-md">결제하기</button>
                 </div>
@@ -118,11 +117,12 @@
     document.addEventListener('DOMContentLoaded', ()=>{
 
       $('.cart_item_del').click(function(){
-        let cartid =  $(this).parent('li').attr('data-id');
+        let cartid =  $(this).closest('li').attr('data-id');
 
         let data = {
           cartid : cartid
         }
+        console.log(data);
         $.ajax({
           url:'cart_del.php',
           async:false,
@@ -140,6 +140,7 @@
             }
           }
         });
+        calcTotal();
       });
 
       
@@ -171,19 +172,32 @@
         calcTotal();
       });
 
+      $('.order-item input').change(function(){
+        calcTotal();
+      })
       function calcTotal(){
         let cartItem = $('.order-item');
         let subtotal = 0;
+   
         cartItem.each(function(){
-            let price = Number($(this).find('.price span').text());
-            let total_price = $(this).find('.total_price span');       
-            subtotal = subtotal+(price * qty);
+          let pidArr = [];
+          $('#pidArr').val('');
+          if($(this).find('input').prop('checked')){
+            console.log('true');
+            let price = Number($(this).find('.grand-total').text());
+            subtotal += price;
+            // console.log(subtotal);
+            let cartid =  $(this).closest('li').attr('data-id');
+            pidArr.push(cartid);
+            $('#pidArr').val('');
+            $('#pidArr').val(pidArr);
+          } 
         });        
         let discount = Number($('#coupon-price').text());
         let grand_total = subtotal+discount;
         $('#subtotal').text(subtotal);
         $('#grandtotal').text(grand_total);
-        $('#grand_total_final').val(grand_total);
+        $('#total_price').val(grand_total);
     }
     calcTotal();
 
@@ -191,6 +205,7 @@
       if($('#all-check').length > 0){
         $("#all-check").click(function(){
           $('.form-check-input').prop('checked', $(this).prop('checked'));
+          calcTotal();
         });
       }
 
@@ -214,45 +229,9 @@
             $("#all-check").prop('checked', false)
           }
         })
+
       }
 
-
-      //카트 일괄 업데이트(전체 삭제)
-      $('.update-cart').click(function(e){
-        e.preventDefault();
-        let cartItem = $('.order-item');
-        let cartIdArr = [];
-        let qtyArr = [];
-
-        // cartItem.each(function(){
-        //   let cartid = Number($(this).find('.qty-text').attr('data-id'));
-        //   cartIdArr.push(cartid);
-
-        //   let qty = Number($(this).find('.qty-text').val());
-        //   qtyArr.push(qty);
-        // })
-        console.log(cartIdArr, qtyArr);
-        data = {
-            cartid:cartIdArr,
-            qty:qtyArr
-        }
-        $.ajax({
-          url:'cart_update.php',
-          async:false,
-          type: 'POST',
-          data:data,
-          dataType:'json',
-          error:function(){},
-          success:function(data){
-          console.log(data);
-          if(data.result=='ok'){
-              alert('장바구니가 업데이트 되었습니다');                        
-          }else{
-              alert('오류, 다시 시도하세요');                        
-              }
-          }
-        });
-      });
     });
   </script>
 <?php
