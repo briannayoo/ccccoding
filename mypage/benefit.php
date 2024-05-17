@@ -30,12 +30,37 @@
           <div class="list">
             <div class="inner">
               <div class="state-wrap">
-                <span class="flag-state-primary">
-                  사용가능
-                </span>
+              <?php
+                $current_date = date("Y-m-d");
+                $end_date = $rs->end_date;
+                $diff_days = (strtotime($end_date) - strtotime($current_date)) / (60 * 60 * 24);
+
+                // 사용완료케이스 해야함!
+                if ($rs->coupon_type == 2) {
+                  if ($diff_days < 0) {
+                    echo '<span class="flag-state-incomplete">만료</span>';
+                  } elseif ($diff_days <= 5) {
+                    echo '<span class="flag-state-negative">만료임박</span>';
+                  } else {
+                    echo '<span class="flag-state-primary">사용가능</span>';
+                  }
+                } else {
+                  echo '<span class="flag-state-primary">사용가능</span>';
+                }
+              ?>
               </div>
               <strong class="tit-h5"><?=$rs->reason?></strong>
-              <span class="date"><?=$rs->use_max_date?></span>
+              <span class="date">
+                <?php
+                  if ($rs->coupon_type == 1) {
+                    echo "무제한";
+                } elseif ($rs->coupon_type == 2) {
+                  echo $rs->start_date.'~'.$rs->end_date;
+                } else {
+                  $use_date_text = "미정";
+                }
+                ?>
+              </span>
             </div>
           </div>
           <?php } ?>
@@ -96,14 +121,22 @@
           </div> -->
         </div>
         <!-- coupon-list(e) -->
-
-        <!-- nodata(s) -->
-        <div class="nodata">
-          <p class="txt">쿠폰 내역이 없습니다.</p>
-          <div class="btn-area">
+        
+        <?php
+        if ($result->num_rows == 0) {
+          // 쿠폰이 없을 때
+        ?>
+          <!-- nodata(s) -->
+          <div class="nodata">
+            <p class="txt">쿠폰 내역이 없습니다.</p>
+            <div class="btn-area">
+            </div>
           </div>
-        </div>
-        <!-- nodata(e) -->
+          <!-- nodata(e) -->
+        <?php  
+        }
+        ?>
+        
 
         <h3 class="tit-h2">포인트</h3>
         <p class="tit-h3 point-txt">현재 사용가능한 포인트는 <em>10P</em>입니다.</p>

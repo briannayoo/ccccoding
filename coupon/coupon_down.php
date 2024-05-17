@@ -40,7 +40,7 @@
               </span>
               <strong class="tit-h5"><?=$rs->coupon_name?></strong>
               <div class="btn-area">
-                <a href="coupon_down_ok.php?cid=<?=$rs->cid?>&name=<?=$coupon_name?>" class="btn btn-primary btn-sm">발급받기</a>
+                <a href="coupon_down_ok.php?cid=<?=$rs->cid?>&name=<?=$rs->coupon_name?>" class="btn btn-primary btn-sm">발급받기</a>
               </div>
             </div>
           </div>
