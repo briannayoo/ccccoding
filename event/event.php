@@ -1,6 +1,74 @@
 <?php
   $title = '이벤트';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
+
+  // 각자 테이블 컬럼
+  $eid = $_GET['eid'] ?? '';
+  $e_name = $_GET['e_name'] ?? '';
+  $e_img = $_GET['e_img'] ?? '';
+  $e_file = $_GET['e_file'] ?? '';
+  $event_date = $_GET['event_date'] ?? '';
+  $start_date = $_GET['start_date'] ?? '';
+  $end_date = $_GET['end_date'] ?? '';
+  $status = $_GET['status'] ?? '';
+  $search_where = '';
+
+  if ($e_name) {
+    $search_where .= " AND e_name LIKE '%$e_name%'";
+}
+
+if ($start_date) {
+    $search_where .= " AND start_date >= '$start_date'";
+}
+if ($end_date) {
+    $search_where .= " AND end_date <= '$end_date'";
+}
+
+if ($status == '1') {
+    $search_where .= " AND status = 1";
+} elseif ($status == '2') {
+    $search_where .= " AND status = 2";
+}
+
+// 활성화 값이 1인 경우의 개수 조회
+$sql_act_1 = "SELECT COUNT(*) AS act_1_cnt FROM event WHERE status = 1";
+$sql_act_1 .= $search_where;
+$result_act_1 = $mysqli->query($sql_act_1);
+$count_act_1 = $result_act_1->fetch_object();
+$count_act_1 = $count_act_1->act_1_cnt;
+
+// 비활성화 값이 2인 경우의 개수 조회
+$sql_act_2 = "SELECT COUNT(*) AS act_2_cnt FROM event WHERE status = 2";
+$sql_act_2 .= $search_where;
+$result_act_2 = $mysqli->query($sql_act_2);
+$count_act_2 = $result_act_2->fetch_object();
+$count_act_2 = $count_act_2->act_2_cnt;
+
+//총개수 조회
+$sql = "SELECT COUNT(*) AS cnt FROM event WHERE 1=1";
+$sql .= $search_where;
+$result = $mysqli->query($sql);
+$count = $result->fetch_object();
+
+$totalcount = $count->cnt; //총검색건수
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/pagination.php';
+
+//페이지네이션
+$sql = "SELECT * FROM event WHERE 1=1";
+$sql .= $search_where;
+$order = " order by eid desc";
+$sql .= $order;
+$limit = " LIMIT  $startLimit, $endLimit";
+$sql .= $limit;
+// echo $sql;
+
+$result = $mysqli->query($sql);
+
+while ($rs = $result->fetch_object()) {
+  $rsArr[] = $rs;
+}
+
 ?>
   <!-- 공통 부분 (s) -->
   <main class="sub">
@@ -64,20 +132,20 @@
           <hr>
           <ul class="list-group box-list">
         <?php
-        if(isset($esArr)){
-          foreach($esArr as $item){
+        if(isset($rsArr)){
+          foreach($rsArr as $ea){
         ?>
           <li class="list-group-item">
-            <a href="event_detail.php?eid=<?= $item->eid; ?>" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
-              <img src="<?= $item->e_img; ?>" alt="이미지">
+            <a href="event_detail.php?eid=<?= $ea->eid; ?>" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
+              <img src="<?= $ea->e_img; ?>" alt="이미지">
             </a>
             <div class="info-area">
               <p class="event-title"></p>
               <p class="date">진행기한:
               <?php 
-                    if ($item->event_time == 2) {
-                        echo $item->start_date . '~' . $item->end_date; 
-                    } else if ($item->event_time == 1) {
+                    if ($ea->event_time == 2) {
+                        echo $ea->start_date . '~' . $ea->end_date; 
+                    } else if ($ea->event_time == 1) {
                         echo '종료됨';
                     }
                   ?>

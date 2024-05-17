@@ -9,6 +9,7 @@
     
     $replySql = "INSERT INTO qna_reply (r_name,r_idx,r_content,r_date) values ('{$name}',{$idx},'{$content}',now())";
     
+    // echo $replySql;
     if($mysqli->query($replySql) === true){
 
       $reSql = "UPDATE qna set status = 1  where qid = $idx";
