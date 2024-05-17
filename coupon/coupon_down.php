@@ -1,6 +1,7 @@
 <?php
   $title = '쿠폰다운로드';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/coupon_func.php';
 
   $sql = "SELECT * FROM coupons";
   $result = $mysqli -> query($sql);
@@ -47,12 +48,9 @@
             <div class="inner">
               <span class="date"><?=$use_date_text?></span>
               <strong class="tit-h5"><?=$coupon_name?></strong>
-              <form action="/ccccoding/mypage/benefit.php" method="post">
-                <input type="hidden" name="cid" value="<?=$row->cid?>">
-                <div class="btn-area">
-                  <button type="submit" class="btn btn-primary btn-sm">다운로드</button>
-                </div>
-              </form>
+              <div class="btn-area">
+                <a href="coupon_down_ok.php?cid=<?=$row->cid?>&name=<?=$coupon_name?>" class="btn btn-primary btn-sm">발급받기</a>
+              </div>
             </div>
           </div>
           <?php

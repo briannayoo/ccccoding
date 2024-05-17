@@ -2,6 +2,18 @@
   $title = '마이페이지-쿠폰&포인트';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/mypage_nav.php';
+
+  // $sql = "SELECT userid FROM user_coupons WHERE userid = '$userid'";
+  $sql = "SELECT *
+  FROM user_coupons
+      INNER JOIN coupons
+      ON user_coupons.couponid = coupons.cid
+  ";
+  $result = $mysqli->query($sql);
+
+  while ($rs = $result->fetch_object()) {
+    $rsArr[] = $rs;
+  }
 ?>
 
       <div class="con-wrap">
@@ -14,6 +26,7 @@
         <h3 class="tit-h2">쿠폰</h3>
         <!-- coupon-list(s) -->
         <div class="coupon-list">
+          <?php foreach ($rsArr as $rs) { ?>
           <div class="list">
             <div class="inner">
               <div class="state-wrap">
@@ -21,11 +34,12 @@
                   사용가능
                 </span>
               </div>
-              <strong class="tit-h5">가입환영 5000원 할인쿠폰</strong>
-              <span class="date">무제한</span>
+              <strong class="tit-h5"><?=$rs->reason?></strong>
+              <span class="date"><?=$rs->use_max_date?></span>
             </div>
           </div>
-          <div class="list">
+          <?php } ?>
+          <!-- <div class="list">
             <div class="inner">
               <div class="state-wrap">
                 <span class="flag-state-negative">
@@ -79,7 +93,7 @@
               <strong class="tit-h5">가입환영 5000원 할인쿠폰</strong>
               <span class="date">YYYY-MM-DD~YYYY-MM-DD</span>
             </div>
-          </div>
+          </div> -->
         </div>
         <!-- coupon-list(e) -->
 

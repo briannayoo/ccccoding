@@ -13,5 +13,9 @@ $result = $mysqli -> query($sql);
 if($result){
     //회원가입 축하 쿠폰 발행
     issue_coupon($mysqli, $userid, 1, '회원가입');
+    echo "<script>
+        alert('회원가입 완료!, 회원가입 쿠폰이 발행되었습니다.');
+        location.href='/ccccoding/index.php';
+    </script>";
 }
 ?>

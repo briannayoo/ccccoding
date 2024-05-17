@@ -10,17 +10,14 @@ function issue_coupon($mysqli, $uid, $num, $reason){
     $ucSql = "INSERT INTO user_coupons (couponid,userid,status,use_max_date,regdate,reason) VALUES (
         '{$crs->cid}',
         '{$uid}',
-        {$num},
+        1,
         '{$due_date}',
         now(),
         '{$reason}'
     )";
+    // echo $ucSql;
     $ucResult = $mysqli -> query($ucSql);
-    $couponName = $crs->coupon_name;
 
-    echo "<script>
-        alert('회원가입 완료!, $couponName 쿠폰이 발행되었습니다.');
-        location.href='/ccccoding/index.php';
-    </script>";
+    
 }
 ?>
