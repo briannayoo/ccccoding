@@ -4,7 +4,13 @@
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/coupon_func.php';
 
   $sql = "SELECT * FROM coupons";
-  $result = $mysqli -> query($sql);
+  $result = $mysqli->query($sql);
+
+  $rsArr = []; // 빈 배열로 초기화
+
+  while ($rs = $result->fetch_object()) {
+    $rsArr[] = $rs;
+  }
 ?>
   <main class="full">
     <div class="container">
@@ -18,55 +24,40 @@
         <!-- coupon-list(s) -->
         
         <div class="coupon-list down">
-          <?php
-          while ($row = $result->fetch_object()) {
-            $coupon_name = $row->coupon_name;
-            $coupon_desc = $row->coupon_desc;
-            $coupon_image = $row->coupon_image;
-            $coupon_type = $row->coupon_type;
-            $coupon_price = $row->coupon_price;
-            $coupon_ratio = $row->coupon_ratio;
-            $status = $row->status;
-            $regdate = $row->regdate;
-            $userid = $row->userid;
-            $max_value = $row->max_value;
-            $use_min_price = $row->use_min_price;
-            $use_date_type = $row->use_date_type;
-            $start_date = $row->start_date;
-            $end_date = $row->end_date;
-
-            // 쿠폰 사용기한 텍스트 설정
-            if ($use_date_type == 1) {
-              $use_date_text = "무제한";
-            } elseif ($use_date_type == 2) {
-              $use_date_text = "$start_date ~ $end_date";
-            } else {
-              $use_date_text = "미정";
-            }
-          ?>
+          <?php foreach ($rsArr as $rs) { ?>
           <div class="list">
             <div class="inner">
-              <span class="date"><?=$use_date_text?></span>
-              <strong class="tit-h5"><?=$coupon_name?></strong>
+              <span class="date">
+                <?php
+                  if ($rs->coupon_type == 1) {
+                    echo "무제한";
+                } elseif ($rs->coupon_type == 2) {
+                  echo $rs->start_date.'~'.$rs->end_date;
+                } else {
+                  $use_date_text = "미정";
+                }
+                ?>
+              </span>
+              <strong class="tit-h5"><?=$rs->coupon_name?></strong>
               <div class="btn-area">
-                <a href="coupon_down_ok.php?cid=<?=$row->cid?>&name=<?=$coupon_name?>" class="btn btn-primary btn-sm">발급받기</a>
+                <a href="coupon_down_ok.php?cid=<?=$rs->cid?>&name=<?=$coupon_name?>" class="btn btn-primary btn-sm">발급받기</a>
               </div>
             </div>
           </div>
-          <?php
-          }
-
-          if ($result->num_rows == 0) {
-            // 다운로드 가능한 쿠폰이 없을 때
-          ?>
-            <div class="nodata">
-              <p class="txt">다운로드 가능한 쿠폰 내역이 없습니다.</p>
-            </div>
-          <?php  
-          }
-          ?>
+          <?php } ?>
         </div>
         <!-- coupon-list(e) -->
+
+        <?php
+        if ($result->num_rows == 0) {
+          // 다운로드 가능한 쿠폰이 없을 때
+        ?>
+          <div class="nodata">
+            <p class="txt">다운로드 가능한 쿠폰 내역이 없습니다.</p>
+          </div>
+        <?php  
+        }
+        ?>
 
         <!-- pagination(s) -->
         <nav aria-label="페이지네이션">
