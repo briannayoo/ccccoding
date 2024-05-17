@@ -61,50 +61,28 @@
 
           <div class="new-lecture">
             <ul class="new-lecture-item">
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
+            <?php
+              $sql = "SELECT * FROM products where 1=1 ORDER BY reg_date DESC LIMIT 0, 8";
+              $result = $mysqli->query($sql);
+            
+              while ($rs = $result->fetch_object()) {
+                $rsArr[] = $rs;
+              }
+              if (isset($rsArr)) {  
+                foreach ($rsArr as $item) {
+              ?>
+              <li><a href="/ccccoding/lecture/lecture_detail.php?pid=<?= $item->pid; ?>">
+                <img src="<?=$item->thumbnail;?>" alt="">
+                <h3 class="tit-h4"><?=$item->name;?></h3>
+                <p><?=$item->content;?></p>
               </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <p>이 강의를 통해 리액트 기초부터 중급까지 배우게 됩니다. 하나의 강의로 개념도 익히고 실습도 하며, 리액트를 위해 필요한 대부분의 지식을 한번에 습득할 수 있도록 만들었습니다.</p>
-              </a></li>
+            <?php
+              }}
+            ?>
             </ul>
           </div>
           <div class="btn-area">
-            <button type="button" class="btn btn-outline-secondary btn-md pm-line">더보기</button>
+            <button type="button" class="btn btn-outline-secondary btn-md pm-line more-btn">더보기</button>
           </div>
         </div>
       </div>
@@ -189,7 +167,23 @@
       <!-- 섹션5~6 유부현(e) -->
     </main>
   <script>
-    
+    $('.more-btn').click(function(){
+
+      let li =  $(this).closest('li');
+      let data = {
+        li : li
+      }
+        $.ajax({
+        url: "readmore.php",
+        async:false,
+        type: 'POST',
+        data: data,
+        cache: false,
+        success: function(html){
+        $(".new-lecture-item").append(html);
+        }
+      });
+    });
   </script>
 <?php
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/footer.php';
