@@ -1,5 +1,5 @@
 <?php
-  $title = '쿠폰다운로드';
+  $title = '쿠폰발급받기';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/coupon_func.php';
 
@@ -16,7 +16,7 @@
     <div class="container">
       <div class="con-wrap">
         <div class="page-tit-area">
-          <h2 class="tit-h1">쿠폰다운로드</h2>
+          <h2 class="tit-h1">쿠폰발급받기</h2>
         </div>
         <!-- 공통 부분 (e) -->
 
@@ -24,7 +24,11 @@
         <!-- coupon-list(s) -->
         
         <div class="coupon-list down">
-          <?php foreach ($rsArr as $rs) { ?>
+          <?php foreach ($rsArr as $rs) { 
+            $current_date = date("Y-m-d");
+            $end_date = $rs->end_date;
+            $is_expired = ($rs->coupon_type == 2 && $current_date > $end_date);
+          ?>
           <div class="list">
             <div class="inner">
               <span class="date">
@@ -40,7 +44,7 @@
               </span>
               <strong class="tit-h5"><?=$rs->coupon_name?></strong>
               <div class="btn-area">
-                <a href="coupon_down_ok.php?cid=<?=$rs->cid?>&name=<?=$rs->coupon_name?>" class="btn btn-primary btn-sm">발급받기</a>
+                <a href="<?=$is_expired ? 'javascript:void(0);' : 'coupon_down_ok.php?cid='.$rs->cid.'&name='.$rs->coupon_name?>" class="btn btn-primary btn-sm <?=$is_expired ? 'disabled' : ''?>">발급받기</a>
               </div>
             </div>
           </div>

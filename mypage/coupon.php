@@ -39,6 +39,8 @@
                 if ($rs->coupon_type == 2) {
                   if ($diff_days < 0) {
                     echo '<span class="flag-state-incomplete">만료</span>';
+                    $update_sql = "UPDATE user_coupons SET status = 0 WHERE ucid = $rs->ucid";
+                    $mysqli->query($update_sql);
                   } elseif ($diff_days <= 5) {
                     echo '<span class="flag-state-negative">만료임박</span>';
                   } else {
