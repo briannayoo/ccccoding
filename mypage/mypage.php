@@ -5,7 +5,7 @@
 
   // 가입일 디데이 날짜 관련 (s)
   $sql = "SELECT regdate FROM members WHERE userid = '$userid'";
-  $result = $mysqli -> query($sql);
+  $result = $mysqli->query($sql);
 
   if ($result->num_rows > 0) {
       $row = $result->fetch_object();
@@ -16,7 +16,30 @@
   $today = date("Y-m-d");
   $diff = date_diff(date_create($regdate), date_create($today));
   $days_since_registration = $diff->format("%a");
-   // 가입일 디데이 날짜 관련 (e)
+  // 가입일 디데이 날짜 관련 (e)
+
+  $psql = "SELECT *
+  FROM payments AS pa
+  INNER JOIN products AS p
+  ON pa.pid = p.pid";
+
+  $presult = $mysqli->query($psql);
+
+  $prsArr = [];
+  while ($prs = $presult->fetch_object()) {
+    $prsArr[] = $prs;
+  }
+
+  // 수강강의수 세기
+  $oids_sql = "SELECT COUNT(DISTINCT oid) AS total_oids FROM payments";
+  $oids_result = $mysqli->query($oids_sql);
+
+  if ($oids_result->num_rows > 0) {
+    $oids_row = $oids_result->fetch_object();
+    $total_oids = $oids_row->total_oids;
+  } else {
+    $total_oids = 0;
+  }
 ?>
 
       <div class="con-wrap">
@@ -31,19 +54,19 @@
           <div class="list">
             <div class="inner">
               <div class="tit-h4">모든 수강신청 강의</div>
-              <span class="num">10</span>
+              <span class="num"><?= count($prsArr) ?></span>
             </div>
           </div>
           <div class="list">
             <div class="inner">
               <div class="tit-h4">수강중인 강의</div>
-              <span class="num">8</span>
+              <span class="num"><?= count($prsArr) ?></span>
             </div>
           </div>
           <div class="list">
             <div class="inner">
               <div class="tit-h4">수강완료</div>
-              <span class="num">2</span>
+              <span class="num"><?= count($prsArr) ?></span>
             </div>
           </div>
         </div>
