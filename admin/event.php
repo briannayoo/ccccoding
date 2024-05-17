@@ -125,15 +125,7 @@ session_start();
           <label for="mix-01" class="col-md-1 col-form-label tit-h4">이벤트 기한</label>
           <div class="col-md-11">
             <div class="input-group">
-              <div class="col-md-4 ipt-wrap">
-                <select class="form-select form-select-sm" id="mix-01" aria-label="select">
-                  <option selected>전체</option>
-                  <option value="1">1주</option>
-                  <option value="2">1개월</option>
-                  <option value="3">6개월</option>
-                </select>
-              </div>
-              <div class="date-wrap col-md-8">
+              <div class="date-wrap col-md-10">
                 <div class="col-md-6 ipt-wrap">
                   <input type="text" class="ipt-datepicker form-control" id="datepicker-01" name="datepicker-01" placeholder="YYYY-MM-DD">
                   <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
@@ -186,7 +178,7 @@ session_start();
                   <div class="tit-event">
                     <strong class="tit-h3"><?= $ea -> e_name;?></strong>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="toggle1">
+                      <input class="form-check-input" <?php if($ea->status == 1) {echo 'checked';} ?> type="checkbox" id="toggle1">
                       <label class="form-check-label visually-hidden" for="toggle1">활성화</label>
                     </div>
                   </div>
