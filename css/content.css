@@ -72,7 +72,7 @@
 .order-infor ul li:last-child span {margin-left:50px;}
 .order-pay {margin-top:26px;}
 .order-pay> div::after{content:'사용가능 (1)'; position:absolute; right:0; top:-24px; color:var(--text-c5); font-size:1.4rem;}
-.order-pay div{position:relative; margin:26px 0;}
+.order-pay> div{position:relative; margin:26px 0;}
 .order-pay input {width:280px; height:42px; line-height:42px; font-size:1.6rem;}
 .order-pay ul li {line-height:30px;}
 .order-pay ul li.mt-26 {margin-top:26px;}
