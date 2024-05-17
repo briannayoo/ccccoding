@@ -1,6 +1,6 @@
 $(function(){
 
-  //banner 슬라이드
+  //banner 슬라이드 (우예지)
   if($('.slidewrapper').length > 0){
     let slideWrapper = $('.slidewrapper'),
         slides = slideWrapper.find('.slide'),

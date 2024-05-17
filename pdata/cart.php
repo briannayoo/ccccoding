@@ -29,7 +29,7 @@
           <div class="order-area d-flex"> 
             <div class="order-list">
               <div>
-                <input class="form-check-input" type="checkbox" id="all-check" name="check-group" value="" aria-label="checkbox" class="update-cart"> 
+                <input class="form-check-input" type="checkbox" id="all-check" name="check-group" value="" aria-label="checkbox" class="update-cart" checked> 
                 <label for="all-check">전체선택 (<span class="li-leg"></span>/<span><?=count($cpidArr)?></span>)</label>
               </div>
               <hr>
@@ -64,7 +64,7 @@
             <!-- 결제 -->
             <div class="order-payment">
               <div class="order-infor">
-                <h3 class="d-flex justify-content-between"><strong>구매자 정보</strong><a href="/ccccoding/mypage/member.php" title="수정페이지 바로가기">수정</a></h3>
+                <h3 class="d-flex justify-content-between"><strong>구매자 정보</strong><a href="#" title="수정페이지 바로가기">수정</a></h3>
                 <ul>
                   <li>이름 <span>우유박</span></li>
                   <li>이메일 <span>ccccoding@gmail.com</span></li>
@@ -143,62 +143,52 @@
         calcTotal();
       });
 
-      
-      
-      $(".check").change(function(){
-        let checkedCount = $(".check:checked").length;
-        $(".li-leg").text(checkedCount);
-      });
-
-      // var initialCheckedCount = $(".check:checked").length;
-      // $(".li-leg").text(initialCheckedCount);
-
       //가격 적용
       $('.order-item').each(function(){
         let ori_price = $(this).find('.original-price').text();
         let sale_price = $(this).find('.sale-price').text();
 
-        console.log(ori_price,sale_price)
+        // console.log(ori_price,sale_price)
         $(this).find('.grand-total').text(ori_price-sale_price);
 
       });
       
       //쿠폰적용 계산
-      $('#coupon').change(function(){
-        let cname = $(this).find('option:selected').text();
-        let cprice = $(this).find('option:selected').attr('data-price');
-        $('#coupon-name span').text(cname);
-        $('#coupon-price').text('-'+cprice);
-        calcTotal();
-      });
+    $('#coupon').change(function(){
+      let cname = $(this).find('option:selected').text();
+      let cprice = $(this).find('option:selected').attr('data-price');
+      $('#coupon-name span').text(cname);
+      $('#coupon-price').text('-'+cprice);
+      calcTotal();
+    });
 
-      $('.order-item input').change(function(){
-        calcTotal();
-      })
-      function calcTotal(){
-        let cartItem = $('.order-item');
-        let subtotal = 0;
+    $('.order-item input').change(function(){
+      calcTotal();
+    })
+    function calcTotal(){
+      let cartItem = $('.order-item');
+      let subtotal = 0;
    
-        cartItem.each(function(){
-          let pidArr = [];
+      cartItem.each(function(){
+        let pidArr = [];
+        $('#pidArr').val('');
+        if($(this).find('input').prop('checked')){
+          console.log('true');
+          let price = Number($(this).find('.grand-total').text());
+          subtotal += price;
+          // console.log(subtotal);
+          let cartid =  $(this).closest('li').attr('data-id');
+          pidArr.push(cartid);
           $('#pidArr').val('');
-          if($(this).find('input').prop('checked')){
-            console.log('true');
-            let price = Number($(this).find('.grand-total').text());
-            subtotal += price;
-            // console.log(subtotal);
-            let cartid =  $(this).closest('li').attr('data-id');
-            pidArr.push(cartid);
-            $('#pidArr').val('');
-            $('#pidArr').val(pidArr);
-          } 
-        });        
-        let discount = Number($('#coupon-price').text());
-        let grand_total = subtotal+discount;
-        $('#subtotal').text(subtotal);
-        $('#grandtotal').text(grand_total);
-        $('#total_price').val(grand_total);
-    }
+          $('#pidArr').val(pidArr);
+        } 
+      });        
+      let discount = Number($('#coupon-price').text());
+      let grand_total = subtotal+discount;
+      $('#subtotal').text(subtotal);
+      $('#grandtotal').text(grand_total);
+      $('#total_price').val(grand_total);
+    } 
     calcTotal();
 
       // 체크박스 전체선택
@@ -210,7 +200,7 @@
       }
 
       if($('#all-check').length > 0){
-        $(".lecture-item .form-check-input").change(function(){
+        $("#all-check").change(function(){
           if($(this).is(':checked')){
             $(".lecture-item .form-check-input").prop('checked', true)
           }else{
@@ -232,7 +222,19 @@
 
       }
 
-    });
+    //체크 개수 출력
+    function getCheckedCnt() {
+    // 선택된 목록 가져오기
+    const selectedElements = $('input[name="check-group"]:checked');
+    
+    // 선택된 목록의 갯수 세기
+    const selectedElementsCnt = selectedElements.length;
+    
+    // 출력
+    $('.li-leg').text(selectedElementsCnt);
+    }
+  });
+  getCheckedCnt();
   </script>
 <?php
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/footer.php';
