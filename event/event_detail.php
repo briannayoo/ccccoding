@@ -1,6 +1,11 @@
 <?php
   $title = '이벤트';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
+
+  $eid = isset($_GET['eid']) ? $_GET['eid'] : '';
+  $sql = "SELECT * FROM event WHERE eid = {$eid}";
+  $result = $mysqli -> query($sql);
+  $es = $result->fetch_object();
 ?>
   <!-- 공통 부분 (s) -->
   <main class="sub">
@@ -57,13 +62,11 @@
           <hr>
           
           <div>
-            <h2>동주T 프론트엔드 강의 오픈기념</h2>
-            <p>YYYY-MM-DD - YYYY-MM-DD</p>
+            <h2><?=$es -> e_name?></h2>
+            <p><?=$es -> start_date?> -  <?=$es -> end_date?></p>
           </div>
           <div>
-            <a href="#" class=""> <!--이미지 클릭해도 수정페이지이동-->
-                <img src="image/event_view1.png" alt="이미지">
-              </a>
+            <img src="<?=$es -> e_img?>" alt="이미지">
           </div>
           <button type="button" class="btn btn-outline-secondary btn-sm pm-line d-flex justify-content-center">목록가기</button>
 
