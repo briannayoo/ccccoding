@@ -192,17 +192,17 @@
                   <a href="#">수강후기</a>
                 </li>
                 <li class="list-group-item">
-                  <a href="#">이벤트</a>
+                  <a href="/ccccoding/event/event.php">이벤트</a>
                 </li>
                 <li class="list-group-item">
-                  <a href="#">커뮤니티</a>
+                  <a href="/ccccoding/community/notice.php">커뮤니티</a>
                   <div class="sub-wrap">
                     <ul class="list-group">
                       <li class="list-group-item">
-                        <a href="#">공지사항</a>
+                        <a href="/ccccoding/community/notice.php">공지사항</a>
                       </li>
                       <li class="list-group-item">
-                        <a href="#">Q&amp;A</a>
+                        <a href="/ccccoding/community/qna.php">Q&amp;A</a>
                       </li>
                     </ul>
                   </div>

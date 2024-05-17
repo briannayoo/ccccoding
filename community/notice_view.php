@@ -1,7 +1,20 @@
 <?php
   $title = '공지사항';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
+
+  //idx번호글 조회
+  $bno = $_GET['idx'];
+  $sql = "SELECT * FROM notice where idx = {$bno}";
+  $result = $mysqli->query($sql);
+  $resultArr = mysqli_fetch_assoc($result);
+
+    //조회수 업데이트
+    $hit = $resultArr['hit'] + 1;
+    $sqlUpdate = "UPDATE notice SET hit={$hit} WHERE idx = {$bno}";
+    $mysqli->query($sqlUpdate);
 ?>
+
+
 <!-- 공통 부분 (s) -->
 <main class="sub">
     <div class="section">
@@ -50,11 +63,9 @@
                 </div>
 
                 <!-- notice_view start 아래에서 부터 작업영역입니다 -->
-                <div class="">
-                    <!--temp-area 지우고 본인 작업 영역하면됨!-->
-
+                <div class="notice-view">
                     <div class="border-bottom notice-list">
-                        <h2 class="tit-h2 list-h2">ㅋㅋㅋ코딩 개인정보 처리방침 개정 안내</h2>
+                        <h2 class="tit-h2 list-h2"><?= $resultArr['title'];?></h2>
                         <hr>
                         <div class="d-flex list-text notice-profil">
                             <p>작성자 : 관리자</p>
