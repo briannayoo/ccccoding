@@ -29,7 +29,7 @@
           <div class="order-area d-flex"> 
             <div class="order-list">
               <div>
-                <input class="form-check-input" type="checkbox" id="all-check" name="check-group" value="" aria-label="checkbox" class="update-cart" checked> 
+                <input class="form-check-input" type="checkbox" id="all-check" name="check-group" value="" aria-label="checkbox" class="update-cart"> 
                 <label for="all-check">전체선택 (<span class="li-leg"></span>/<span><?=count($cpidArr)?></span>)</label>
               </div>
               <hr>
@@ -225,7 +225,7 @@
     //체크 개수 출력
     function getCheckedCnt() {
     // 선택된 목록 가져오기
-    const selectedElements = $('input[name="check-group"]:checked');
+    const selectedElements = $('input[name="check-group"]').prop('checked');
     
     // 선택된 목록의 갯수 세기
     const selectedElementsCnt = selectedElements.length;

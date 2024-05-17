@@ -19,16 +19,10 @@
                   <label for="txt03" class="col-md-1 col-form-label tit-h4">제목</label>
                   <div class="col-md-11">
                     <div class="input-group">
-                      <div class="col-md-11 ipt-wrap">
+                      <div class="col-md-12 ipt-wrap">
                         <input type="text" class="form-control" id="fm-txt03" name="title" placeholder="제목을 입력해주세요" required>
                       </div>
-                      <!-- 고정체크박스 -->
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                        <label class="form-check-label" for="defaultCheck1">
-                          고정
-                        </label>
-                      </div>
+                      
                     </div>
                     </div>
                   </div>

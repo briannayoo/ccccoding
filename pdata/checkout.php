@@ -26,6 +26,6 @@ $delresult = $mysqli -> query($delsql);
 if($result){
     echo "<script>
         alert('결제가 완료되었습니다.');
-        //location.href = '/ccccoding/index.php';
+        location.href = '/ccccoding/index.php';
     </script>";
 }

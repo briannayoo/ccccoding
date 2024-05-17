@@ -61,7 +61,7 @@ $order = " order by eid desc";
 $sql .= $order;
 $limit = " LIMIT  $startLimit, $endLimit";
 $sql .= $limit;
-// echo $sql;
+echo $sql;
 
 $result = $mysqli->query($sql);
 
@@ -125,8 +125,8 @@ while ($rs = $result->fetch_object()) {
             <h2 class="tit-h1">이벤트</h2>
           </div>
           <div class="d-flex justify-content-end event-top-btn">
-            <button>진행중 이벤트</button>
-            <button>종료된 이벤트</button>
+            <a href="/ccccoding/event/event.php?status=1" >진행중 이벤트</a>
+            <a href="/ccccoding/event/event.php?status=2" >종료된 이벤트</a>
           </div>
 
           <hr>
