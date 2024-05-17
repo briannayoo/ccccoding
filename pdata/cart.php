@@ -18,9 +18,9 @@
         }
         ?>
         <form action="checkout.php" method="POST">
-          <input type="hidden" name="userid" value="<?= $userid; ?>">
+          <!-- <input type="hidden" name="userid" value=""> -->
           <input type="hidden" name="pid" id="pidArr" value="<?php echo implode(",", $cpidArr);?>">
-          <input type="hidden" name="grand_total" id="grand_total_final" value="">
+          <input type="hidden" name="total_price" id="total_price_final" value="">
 
           <div class="page-tit-area">
             <h2 class="tit-h1">수강 바구니</h2>
@@ -30,7 +30,7 @@
             <div class="order-list">
               <div>
                 <input class="form-check-input" type="checkbox" id="all-check" name="check-group" value="" aria-label="checkbox" class="update-cart"> 
-                <label for="all-check">전체선택 (<span><?=count($cpidArr)?>/1</span>)</label>
+                <label for="all-check">전체선택 (<span class="li-leg"></span>/<span><?=count($cpidArr)?></span>)</label>
               </div>
               <hr>
               <div class="check-lecture-list d-flex gap-4">
@@ -39,17 +39,17 @@
                     if(isset($cartArr)){
                         foreach($cartArr as $ca){
                 ?>
-                  <li class="d-flex justify-content-between order-item" data-id="del">
-                    <div class="lecture-item d-flex">
-                      <input class="form-check-input" type="checkbox" id="" name="check-group" value="" aria-label="checkbox">
+                  <li class="d-flex justify-content-between align-items-center order-item" data-id="del">
+                    <div class="lecture-item d-flex align-items-center">
+                      <input class="form-check-input" type="checkbox" class="check" name="check-group" value="" aria-label="checkbox">
                       <img src="<?= $ca-> thumbnail;?>" alt="<?= $ca-> name;?>">
                       <div><h3><?= $ca-> name;?></h3><p><?= $ca-> sale_start_date;?>~<?= $ca-> sale_end_date;?></p></div>
                     </div>
                     <div class="lecture-price d-flex">
-                      <i class="fa-solid fa-xmark fa-small cart_item_del curser"></i>
+                      <i class="fa-solid fa-xmark fa-small cart_item_del curser text-c5"></i>
                       <div>
-                        <p class="p-small"><span><?= $ca-> price; ?></span><?= $ca-> sale_cnt; ?></p>
-                        <p class="tit-h3 total"></p>
+                        <p class="p-small"><span class="sale-price"><?= $ca-> sale_cnt; ?></span><span class="original-price text-place"><?= $ca-> price; ?></span></p>
+                        <p class="tit-h3" id="total-price"><span class="grand-total"></span>원</p>
                       </div>
                     </div>
                   </li>
@@ -75,7 +75,10 @@
                   <h3>쿠폰</h3>
                   <div class="d-flex justify-content-between">
                   <?php
-                    $cSql = "SELECT uc.ucid, c.coupon_name, c.coupon_price FROM user_coupons uc JOIN coupons c  ON c.cid = uc.couponid WHERE uc.status = 1 AND uc.userid = '{$userid}' AND uc.use_max_date >= now()";
+                    $cSql = "SELECT uc.ucid, c.coupon_name, c.coupon_price
+                    FROM user_coupons uc JOIN coupons c 
+                    ON c.cid = uc.couponid WHERE uc.status = 1 
+                    AND uc.userid = '{$userid}' AND uc.use_max_date >= now()";
                 
                     $cResult = $mysqli -> query($cSql);
                     while($cRow = $cResult->fetch_object()){
@@ -83,7 +86,7 @@
                     }
                 
                   ?>
-                    <select aria-label="쿠폰선택" name="coupon" id="coupon-select" class="form-control">
+                    <select aria-label="쿠폰선택" name="coupon" id="coupon" class="form-control">
                       <option disabled selected>쿠폰선택</option>
                       <?php
                       if(isset($cpArr)){
@@ -103,9 +106,9 @@
                     <li class="d-flex justify-content-between tit-h4 mt-26">총 결제 금액 <span id="grandtotal">255,000원</span></li>
                   </ul>
                   <button class="btn btn-primary btn-md">결제하기</button>
+                </div>
               </div>
-            </div>
-
+              
           </div>
         </form>
       </div>
@@ -115,10 +118,10 @@
     document.addEventListener('DOMContentLoaded', ()=>{
 
       $('.cart_item_del').click(function(){
-        let cartid =  $(this).parent().attr('data-id');
+        let cartid =  $(this).parent('li').attr('data-id');
 
         let data = {
-          cartid :cartid
+          cartid : cartid
         }
         $.ajax({
           url:'cart_del.php',
@@ -130,7 +133,7 @@
           success:function(data){
           console.log(data);
           if(data.result=='ok'){
-            alert('장바구니가 업데이트 되었습니다');  
+            alert('해당 상품이 삭제 되었습니다');  
             location.reload();                      
           }else{
             alert('오류, 다시 시도하세요');                        
@@ -139,14 +142,80 @@
         });
       });
 
+      
+      
+      $(".check").change(function(){
+        let checkedCount = $(".check:checked").length;
+        $(".li-leg").text(checkedCount);
+      });
+
+      // var initialCheckedCount = $(".check:checked").length;
+      // $(".li-leg").text(initialCheckedCount);
+
+      //가격 적용
+      $('.order-item').each(function(){
+        let ori_price = $(this).find('.original-price').text();
+        let sale_price = $(this).find('.sale-price').text();
+
+        console.log(ori_price,sale_price)
+        $(this).find('.grand-total').text(ori_price-sale_price);
+
+      });
+      
       //쿠폰적용 계산
       $('#coupon').change(function(){
         let cname = $(this).find('option:selected').text();
         let cprice = $(this).find('option:selected').attr('data-price');
-        $('#coupon-name').text(cname);
+        $('#coupon-name span').text(cname);
         $('#coupon-price').text('-'+cprice);
         calcTotal();
       });
+
+      function calcTotal(){
+        let cartItem = $('.order-item');
+        let subtotal = 0;
+        cartItem.each(function(){
+            let price = Number($(this).find('.price span').text());
+            let total_price = $(this).find('.total_price span');       
+            subtotal = subtotal+(price * qty);
+        });        
+        let discount = Number($('#coupon-price').text());
+        let grand_total = subtotal+discount;
+        $('#subtotal').text(subtotal);
+        $('#grandtotal').text(grand_total);
+        $('#grand_total_final').val(grand_total);
+    }
+    calcTotal();
+
+      // 체크박스 전체선택
+      if($('#all-check').length > 0){
+        $("#all-check").click(function(){
+          $('.form-check-input').prop('checked', $(this).prop('checked'));
+        });
+      }
+
+      if($('#all-check').length > 0){
+        $(".lecture-item .form-check-input").change(function(){
+          if($(this).is(':checked')){
+            $(".lecture-item .form-check-input").prop('checked', true)
+          }else{
+            $(".lecture-item .form-check-input").prop('checked', false)
+          }
+        })
+
+        $(".lecture-item .form-check-input").change(function(){
+          const chkNum = $(".lecture-item  .form-check-input").filter((idx, item) => {
+            return $(item).is(":checked") ? true : false
+          }).length
+
+          if($(".lecture-item .form-check-input").length === chkNum){
+            $("#all-check").prop('checked', true)
+          }else{
+            $("#all-check").prop('checked', false)
+          }
+        })
+      }
+
 
       //카트 일괄 업데이트(전체 삭제)
       $('.update-cart').click(function(e){

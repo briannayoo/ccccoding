@@ -154,7 +154,7 @@
       pid : pid,
       userid : userid
     }
-    console.log(data);
+    //console.log(data);
 
     $.ajax({
       url:'/ccccoding/pdata/cart_insert.php',
