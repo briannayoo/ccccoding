@@ -41,14 +41,12 @@
 
           <div class="lecture-list">
             <ul class="d-flex justify-content-center">
-              <li><a href="#"><img src="./image/ico_basic.png" alt=""><span>기초강의</span></a></li>
-              <li><a href="#"><img src="./image/ico_design.png" alt=""><span>디자인</span></a></li>
+              <li><a href="/ccccoding/lecture/lecture.php?cate=A0002"><img src="./image/ico_design.png" alt=""><span>디자인</span></a></li>
               <li><a href="#"><img src="./image/ico_programming.png" alt=""><span>프로그래밍 언어</span></a></li>
-              <li><a href="#"><img src="./image/ico_git.png" alt=""><span>개발도구</span></a></li>
-              <li><a href="#"><img src="./image/ico_web.png" alt=""><span>웹개발</span></a></li>
-              <li><a href="#"><img src="./image/ico_data.png" alt=""><span>데이터분석</span></a></li>
-              <li><a href="#"><img src="./image/ico_book.png" alt=""><span>프로그래밍 교양</span></a></li>
-              <li><a href="#"><img src="./image/ico_ai.png" alt=""><span>인공지능</span></a></li>
+              <li><a href="/ccccoding/lecture/lecture.php?cate=A0005"><img src="./image/ico_git.png" alt=""><span>컴퓨터 사이언스</span></a></li>
+              <li><a href="/ccccoding/lecture/lecture.php?cate=A0003"><img src="./image/ico_web.png" alt=""><span>웹개발</span></a></li>
+              <li><a href="/ccccoding/lecture/lecture.php?cate=A0004"><img src="./image/ico_data.png" alt=""><span>데이터 사이언스</span></a></li>
+              <li><a href="/ccccoding/lecture/lecture.php?cate=A0006"><img src="./image/ico_book.png" alt=""><span>프로그래밍 언어</span></a></li>
             </ul>
           </div>
         </div>

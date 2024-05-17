@@ -183,7 +183,7 @@
                         <a href="/ccccoding/lecture/lecture.php?cate=A0005">컴퓨터 사이언스</a>
                       </li>
                       <li class="list-group-item">
-                        <a href="/ccccoding/lecture/lecture.php?cate=A0006">프로그래임 언어</a>
+                        <a href="/ccccoding/lecture/lecture.php?cate=A0006">프로그래밍 언어</a>
                       </li>
                     </ul>
                   </div>
