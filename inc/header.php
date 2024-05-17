@@ -133,11 +133,14 @@
                 <li class="list-group-item">
                   <a href="/ccccoding/mypage/member.php">회원정보 수정</a>
                 </li>
-                <!-- 24-05-15  박소현: home추가 (s) -->
+                <!-- 24-05-17  박소현: 쿠폰포인트 나눠서 작업 (s) -->
                 <li class="list-group-item">
-                  <a href="/ccccoding/mypage/benefit.php">쿠폰&amp;포인트</a>
+                  <a href="/ccccoding/mypage/coupon.php">쿠폰</a>
                 </li>
-                <!-- 24-05-15  박소현: home추가 (e) -->
+                <li class="list-group-item">
+                  <a href="/ccccoding/mypage/point.php">포인트</a>
+                </li>
+                <!-- 24-05-17  박소현: 쿠폰포인트 나눠서 작업 (e) -->
                 <li class="list-group-item line">
                   <a href="/ccccoding/member/logout.php">로그아웃</a>
                 </li>

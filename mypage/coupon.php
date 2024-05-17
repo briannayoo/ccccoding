@@ -137,18 +137,6 @@
         }
         ?>
         
-
-        <h3 class="tit-h2">포인트</h3>
-        <p class="tit-h3 point-txt">현재 사용가능한 포인트는 <em>10P</em>입니다.</p>
-
-        <!-- nodata(s) -->
-        <div class="nodata">
-          <p class="txt">포인트 내역이 없습니다.</p>
-          <div class="btn-area">
-          </div>
-        </div>
-        <!-- nodata(e) -->
-
         <!-- pagination(s) -->
         <nav aria-label="페이지네이션">
           <ul class="pagination">

@@ -29,11 +29,11 @@
         <ul class="list-group user-bf-list">
           <li class="list-group-item">
             <div class="item">쿠폰</div>
-            <div class="val"><a href="/ccccoding/mypage/benefit.php" class="num"><?=$coupon_count?></a>개</div>
+            <div class="val"><a href="/ccccoding/mypage/coupon.php" class="num"><?=$coupon_count?></a>개</div>
           </li>
           <li class="list-group-item">
             <div class="item">포인트</div>
-            <div class="val"><a href="/ccccoding/mypage/benefit.php" class="num">10</a>P</div>
+            <div class="val"><a href="/ccccoding/mypage/point.php" class="num">10</a>P</div>
           </li>
         </ul>
         <!-- 가지고 있는 쿠폰/ 리스트(e) -->
@@ -55,7 +55,10 @@
               <a href="/ccccoding/mypage/inquiries.php" class="accordion-button tit-h4">문의내역</a>
             </li>
             <li class="list-group-item">
-              <a href="/ccccoding/mypage/benefit.php" class="accordion-button tit-h4">쿠폰&amp;포인트</a>
+              <a href="/ccccoding/mypage/coupon.php" class="accordion-button tit-h4">쿠폰</a>
+            </li>
+            <li class="list-group-item">
+              <a href="/ccccoding/mypage/point.php" class="accordion-button tit-h4">포인트</a>
             </li>
             <li class="list-group-item">
               <a href="/ccccoding/mypage/member.php" class="accordion-button tit-h4">회원정보 수정</a>

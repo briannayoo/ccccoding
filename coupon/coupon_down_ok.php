@@ -11,6 +11,6 @@ $userid = $_SESSION['UID'];
 issue_coupon($mysqli, $userid, $cid, $name);
 echo "<script>
   alert('쿠폰이 발행되었습니다.');
-  location.href='/ccccoding/mypage/benefit.php';
+  location.href='/ccccoding/mypage/coupon.php';
 </script>"
 ?>
