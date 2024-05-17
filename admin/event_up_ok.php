@@ -9,12 +9,12 @@ $eid = $_POST['eid'];
 $e_name = $_POST['e_name'];
  // $coupon_name 변수를 $coupon_desc로 수정
 $e_file = $_POST['e_file'];
-$e_startdate = $_POST['e_startdate'];
-$e_enddate = $_POST['e_enddate'];
+$start_date = $_POST['start_date'];
+$end_date = $_POST['end_date'];
 $regdate = date('Y-m-d H:i:s');
 $max_value = $_POST['max_value'] ?? '';
-$e_date_type = $_POST['e_date_type'] ?? '';
-$e_status = $_POST['e_status'] ?? '';
+$event_date = $_POST['event_date'] ?? '';
+$status = $_POST['status'] ?? '';
 
 $e_img = $_FILES['e_img'];
   if($_FILES['e_img']['size']>10240000) { // 10메가
@@ -53,25 +53,27 @@ $e_img = $_FILES['e_img'];
     e_name, 
     e_img, 
     e_file, 
-    e_startdate, 
-    e_enddate, 
-    e_date_type, 
-    e_status
+    event_time, 
+    start_date, 
+    end_date, 
+    status
   ) VALUES (
     '{$e_name}',
     '{$e_img}',
     '{$e_file}',
-    '{$e_startdate}',
-    '{$e_enddate}',
-    '{$e_date_type}',
-    '{$e_status}'
+    '{$event_date}',
+    '{$start_date}',
+    '{$end_date}',
+    '{$status}'
   )";
 
-echo $sql;
+// echo $sql;
 
 try{
   $rs = $mysqli->query($sql);
   $mysqli->commit(); // 디비에 커밋한다.
+
+  // echo $mysqli;
 
   echo "<script>alert('등록했습니다.'); 
   location.href='/ccccoding/admin/event.php';
@@ -80,7 +82,7 @@ try{
 
 } catch (Exception $e) {
   $mysqli->rollback(); // 저장한 테이블이 있다면 롤백한다.
-  // echo "<script>alert('등록하지 못했습니다. 관리자에게 문의해주십시오.');//history.back();</script>";
+  echo "<script>alert('등록하지 못했습니다. 관리자에게 문의해주십시오.');//history.back();</script>";
   exit;
 }
 

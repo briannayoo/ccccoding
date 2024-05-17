@@ -12,7 +12,7 @@
       </div>
       <!-- sub-page-tit-area (e) -->
 
-      <div class="content"> <!--temp-area 빼야됨-->
+      <div class="content">
       <form action="event_up_ok.php" class="form-list" enctype="multipart/form-data"  method="POST" onsubmit="return save()">
         <input type="hidden" name="eid" id="eid">
         <input type="hidden" name="e-img" id="e-img">
@@ -44,11 +44,11 @@
 
             <!--데이트피커  -->
             <div class="row">
-            <label for="e_date_type" class="col-md-1 col-form-label tit-h4">이벤트 기한</label>
+            <label for="event_date" class="col-md-1 col-form-label tit-h4">이벤트 기한</label>
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap">
-                  <select class="form-select form-select-sm" id="e_date_type" name="e_date_type" aria-label="기한선택" required>
+                  <select class="form-select form-select-sm" id="event_date" name="event_date" aria-label="기한선택" required>
                     <option selected>선택해주세요</option>
                     <option value="1">1주</option>
                     <option value="2">1개월</option>
@@ -57,17 +57,31 @@
                 </div>
                 <div class="date-wrap col-md-8">
                   <div class="col-md-6 ipt-wrap">
-                    <input type="text" class="ipt-datepicker form-control" placeholder="YYYY-MM-DD" id="e_startdate" name="e_startdate">
+                    <input type="text" class="ipt-datepicker form-control" placeholder="YYYY-MM-DD" id="start_date" name="start_date">
                     <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                   </div>
                   <div class="col-md-6 ipt-wrap">
-                    <input type="text" class="ipt-datepicker form-control" placeholder="YYYY-MM-DD" id="e_enddate" name="e_enddate">
+                    <input type="text" class="ipt-datepicker form-control" placeholder="YYYY-MM-DD" id="end_date" name="end_date">
                     <button type="button" class="open"><span class="visually-hidden">달력 레이어 열기</span></button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <div class="row">
+          <label for="mix-01" class="col-md-1 col-form-label tit-h4">상태</label>
+          <div class="col-md-11">
+            <div class="input-group">
+              <div class="col-md-4 ipt-wrap">
+              <select class="form-select form-select-sm" id="mix-01" name="status"aria-label="select">
+                  <option selected>전체</option>
+                  <option value="1">활성화</option>
+                  <option value="2">비활성화</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
            
             <!-- 첨부파일 -->
         <div class="row">

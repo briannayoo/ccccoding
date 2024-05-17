@@ -18,13 +18,12 @@ session_start();
   // 각자 테이블 컬럼
   $eid = $_GET['eid'] ?? '';
   $e_name = $_GET['e_name'] ?? '';
-  $e_text = $_GET['e_text'] ?? '';
   $e_img = $_GET['e_img'] ?? '';
   $e_file = $_GET['e_file'] ?? '';
-  $e_startdate = $_GET['e_startdate'] ?? '';
-  $e_enddate = $_GET['e_enddate'] ?? '';
-  $e_date_type = $_GET['e_date_type'] ?? '';
-  $e_status = $_GET['status'] ?? '';
+  $event_date = $_GET['event_date'] ?? '';
+  $start_date = $_GET['start_date'] ?? '';
+  $end_date = $_GET['end_date'] ?? '';
+  $status = $_GET['status'] ?? '';
   
   // search_where 조건에 맞게
   $search_where = '';
@@ -39,16 +38,16 @@ session_start();
       $search_where .= " AND e_name LIKE '%$e_name%'";
   }
   
-  if ($e_startdate) {
-      $search_where .= " AND e_startdate >= '$e_startdate'";
+  if ($start_date) {
+      $search_where .= " AND start_date >= '$start_date'";
   }
-  if ($e_enddate) {
-      $search_where .= " AND e_enddate <= '$e_enddate'";
+  if ($end_date) {
+      $search_where .= " AND end_date <= '$end_date'";
   }
   
-  if ($e_status == '1') {
+  if ($status == '1') {
       $search_where .= " AND status = 1";
-  } elseif ($e_status == '2') {
+  } elseif ($status == '2') {
       $search_where .= " AND status = 2";
   }
   
@@ -153,7 +152,7 @@ session_start();
           <div class="col-md-11">
             <div class="input-group">
               <div class="col-md-4 ipt-wrap">
-              <select class="form-select form-select-sm" id="mix-01" name="e_status"aria-label="select">
+              <select class="form-select form-select-sm" id="mix-01" name="status"aria-label="select">
                   <option selected>전체</option>
                   <option value="1">활성화</option>
                   <option value="2">비활성화</option>
@@ -180,19 +179,19 @@ session_start();
         foreach($rsArr as $ea){
           ?>
               <li class="list-group-item flex-column">
-                <a href="#" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
-                  <img src="image/event1.jpg" alt="이미지">
+                <a href="event_view.php?eid=<?= $ea->eid; ?>" class="img-wrap"> <!--이미지 클릭해도 수정페이지이동-->
+                  <img src="<?= $ea->e_img; ?>" alt="이미지">
                 </a>
                 <div class="info-area">
                   <div class="tit-event">
-                    <strong class="tit-h3"><?= $ea -> e_title;?></strong>
+                    <strong class="tit-h3"><?= $ea -> e_name;?></strong>
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="toggle1">
                       <label class="form-check-label visually-hidden" for="toggle1">활성화</label>
                     </div>
                   </div>
                   <div class="txt-group">
-                    <p class="date">이벤트기한 YYYY-MM-DD - YYYY-MM-DD</p>
+                    <p class="date">이벤트기한 <?= $ea -> start_date;?> - <?= $ea -> end_date;?></p>
                   </div>
                   <div class="edit-btn-group">
                     <button type="button" class="btn correc">
