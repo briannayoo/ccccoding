@@ -58,8 +58,7 @@
     $cate1[] = $row;
   };
 
-
-  //헤더검색어결과화면(박소현)
+  //헤더검색어전달(박소현)
   if (isset($_GET['search'])) {
       $searchQuery = $_GET['search'];
       

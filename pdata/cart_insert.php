@@ -4,9 +4,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/dbcon.php';
 
 $pid = $_POST['pid'];
 $userid = $_POST['userid'];
-// $optname = $_POST['optname'] ?? '';
-// $qty =  $_POST['qty'];
-// $total =  $_POST['total'];
 
 // if(isset($_SESSION['UID'])){
 //     $userid = $_SESSION['UID'];
