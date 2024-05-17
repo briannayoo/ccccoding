@@ -30,6 +30,7 @@ header .util-list .user-menu {position:relative; cursor:pointer;}
 header .util-list .login-profile {display:flex; justify-content:center; align-items:center; gap:2px; padding-right:16px;}
 header .util-list .login-profile:after {content:''; position:absolute; top:10px; left:calc(100% - 10px); border-width:5px; border-style:solid; border-color:var(--body-text, #222) transparent transparent transparent; margin-left:0;}
 header .util-list .login-profile .img-wrap {display:flex; justify-content:center; align-items:center; width:20px; height:20px; border-radius:50%; border:1px solid var(--body-text, #222);}
+header .util-list .login-profile .img-wrap img {border-radius:50%;}
 header .util-list .user-menu-list {display:none; gap:8px; min-width:110px; position:absolute; top:100%; right:0; padding:10px; border-radius:10px; background-color:var(--white, #fff); z-index:100; box-shadow:0px 4px 4px 0px rgba(0,0,0,.25);}
 header .util-list .user-menu:hover .login-profile:after {top:5px; transform:rotate(-180deg);}
 header .util-list .user-menu:hover .user-menu-list {display:flex;}
