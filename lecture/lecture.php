@@ -57,6 +57,38 @@
   while ($row = $result->fetch_object()) {
     $cate1[] = $row;
   };
+
+
+  //헤더검색어결과화면(박소현)
+  if (isset($_GET['search'])) {
+      $searchQuery = $_GET['search'];
+      
+      // 검색어를 이용한 데이터베이스 조회
+      $sql = "SELECT * FROM products WHERE name LIKE '%{$searchQuery}%' OR content LIKE '%{$searchQuery}%'";
+      $sql .= $search_where;
+      $sql .= $order;
+      $sql .= $limit;
+      
+      $result = $mysqli->query($sql);
+      
+      $rsArr = [];
+      while ($rs = $result->fetch_object()) {
+          $rsArr[] = $rs;
+      }
+  } else {
+      // 검색어가 없을 경우 전체 결과 조회
+      $sql = "SELECT * FROM products WHERE 1=1";
+      $sql .= $search_where;
+      $sql .= $order;
+      $sql .= $limit;
+      
+      $result = $mysqli->query($sql);
+      
+      $rsArr = [];
+      while ($rs = $result->fetch_object()) {
+          $rsArr[] = $rs;
+      }
+  }
 ?>
 
   <!-- 우예지 (s) -->

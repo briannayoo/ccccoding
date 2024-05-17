@@ -213,7 +213,7 @@
               </ul>
             </div>
 
-            <form action="/ccccoding/lecture/lecture_test.php" class="filter-area">
+            <form action="/ccccoding/lecture/lecture.php" class="filter-area">
               <div class="ipt-wrap">
                 <input type="search" class="form-control" placeholder="찾고싶은 강의 주제를 입력해주세요." name="search">
                 <button class="ico-search">
