@@ -54,7 +54,7 @@ while ($rs = $result->fetch_object()) {
     <div class="nodata">
       <p class="txt">문의하신 내역이 없습니다.</p>
       <div class="btn-area">
-        <a href="#" class="btn btn-outline-secondary btn-sm">문의하러가기qna페이지로 연결고고</a>
+        <a href="ccccoding/community/qna.php" class="btn btn-outline-secondary btn-sm">문의하러가기</a>
       </div>
     </div>
     <!-- nodata(e) -->
