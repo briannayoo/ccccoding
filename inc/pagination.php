@@ -10,9 +10,10 @@
   
   $total_page = ceil($totalcount/$pageCount);
   if ($total_page == 0) {
-      $total_page = 1; // 데이터가 없을 때 1페이지를 출력하도록 설정
-      $block_start = 1;
-      $block_end = 1;
+    $total_page = 1;
+    $block_start = 1;
+    $block_end = 1;
+    $pageNumber = 1; // 데이터가 없을 때 현재 페이지 번호를 1로 설정
   }
   
   if($block_end > $total_page) $block_end = $total_page;
