@@ -2,6 +2,13 @@
   $title = '마이페이지-결제내역';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/mypage_nav.php';
+
+  $sql = "SELECT * FROM payments";
+  $result = $mysqli->query($sql);
+
+  while ($rs = $result->fetch_object()) {
+    $rsArr[] = $rs;
+  }
 ?>
 
       <div class="con-wrap">
@@ -12,9 +19,14 @@
 
         <!-- 아래에서 부터 작업영역입니다 -->
         <!-- line-box-list(s) -->
+        <?php if ($result->num_rows > 0) { ?>
         <div class="line-box-list">
+            <?php
+              if (isset($rsArr)) {  
+                foreach ($rsArr as $item) {
+            ?>
           <div class="list">
-            <span class="date">주문날짜: <em>YYYY-MM-DD</em></span>
+            <span class="date">주문날짜: <em><?=$item->orders_date?></em></span>
             <div class="inner">
               <div class="item">
                 <div class="top">
@@ -27,18 +39,21 @@
                   </span>
                 </div>
                 <div class="tit-h4">
-                  따라하며 배우는 리액트 A-Z
+                  <?=$item->name?>
                 </div>
               </div>
               <div class="item">
                 <div class="price">
-                  <em>7,900</em>원
+                  <em><?=$item->total_price?></em>원
                 </div>
-                <a href="#" class="btn btn-primary">강의로 이동</a>
+                <a href="/ccccoding/lecture/lecture_detail.php?pid=<?= $item->pid; ?>" class="btn btn-primary">강의로 이동</a>
               </div>
             </div>
           </div>
-          <div class="list">
+          <?php
+            }}
+          ?>
+          <!-- <div class="list">
             <span class="date">주문날짜: <em>YYYY-MM-DD</em></span>
             <div class="inner">
               <div class="item">
@@ -87,15 +102,17 @@
                 <a href="#" class="btn btn-primary">강의로 이동</a>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <!-- line-box-list(e) -->
+        <?php } else { ?>
 
         <!-- nodata(s) -->
         <div class="nodata">
           <p class="txt">구매하신 내역이 없습니다.</p>
         </div>
         <!-- nodata(e) -->
+        <?php } ?>
       </div>
     </div>
   </main>

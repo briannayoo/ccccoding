@@ -3,7 +3,7 @@
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/mypage_nav.php';
 
-  $sql = "SELECT * FROM products where 1=1";
+  $sql = "SELECT * FROM payments";
   $result = $mysqli->query($sql);
 
   while ($rs = $result->fetch_object()) {
@@ -35,7 +35,7 @@
                     <div class="graph" style="width:0%;" data-value="70"></div>
                   </div>
                   <div class="txt">
-                    <span class="count"><em><?=$completion_rate?></em>%</span>
+                    <span class="count"><em>70</em>%</span>
                     <span class="txt">얼마 안남았어요! 힘을 내요!</span>
                   </div>
                 </div>
