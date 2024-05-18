@@ -31,7 +31,7 @@
                 <h3 class="tit-h4"><?=$item->name;?></h3>
                 <!-- progress bar (s) -->
                 <div class="progress">
-                  <div class="graph" style="width:0%;">
+                  <div class="graph" style="width:0%;" data-value="70">
                     <span class="count"><em>0</em>%</span>
                     <span class="txt">얼마 안남았어요! 힘을 내요!</span>
                   </div>
