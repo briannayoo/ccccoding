@@ -2,6 +2,7 @@
   session_start();
   require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/dbcon.php';
 
+  // 수강바구니관련(우예지)(s)
   if(isset($_COOKIE['recent_viewed'])){
     $recent_viewed = json_decode($_COOKIE['recent_viewed']);
     $resultString = implode(",", $recent_viewed);
@@ -37,6 +38,16 @@
   while($row = $cartResult->fetch_object()){
       $cartArr[] = $row;
   }
+  // 수강바구니관련(우예지)(e)
+
+  // 사용자 정보 조회 (프로필사진 박소현)
+  $msql = "SELECT * FROM members WHERE userid = ?";
+  $mstmt = $mysqli->prepare($msql);
+  $mstmt->bind_param("s", $userid);
+  $mstmt->execute();
+  $mresult = $mstmt->get_result();
+  $mrs = $mresult->fetch_object();
+
 ?>
 
 <!DOCTYPE html>
@@ -111,7 +122,7 @@
             <li class="list-group-item user-menu">
               <div class="login-profile">
                 <div class="img-wrap">
-                  <img src="/ccccoding/image/img_header_pf.png" alt="프로필 이미지">
+                  <img src="<?= $mrs->profile_image ?: '/ccccoding/image/img_my_profile.png'; ?>" alt="프로필 이미지">
                 </div>
                 <span class="id"><?= $_SESSION['UID'] ?></span>님
               </div>

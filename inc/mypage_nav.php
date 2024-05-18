@@ -9,6 +9,14 @@
   } else {
       $coupon_count = 0;
   }
+
+  // 사용자 정보 조회(프로필사진(박소현))
+  $msql = "SELECT * FROM members WHERE userid = ?";
+  $mstmt = $mysqli->prepare($msql);
+  $mstmt->bind_param("s", $userid);
+  $mstmt->execute();
+  $mresult = $mstmt->get_result();
+  $mrs = $mresult->fetch_object();
 ?>    
   <!-- 공통 부분 작업담당자:박소현 (s) -->
   <main class="sub mypage">
@@ -17,7 +25,7 @@
         <!-- 프로필 (s) -->
         <div class="pf-area">
           <div class="img-wrap">
-            <img src="/ccccoding/image/img_my_profile.png" alt="">
+            <img src="<?= $mrs->profile_image ?: '/ccccoding/image/img_my_profile.png'; ?>" alt="프로필 이미지">
           </div>
           <div class="content">
             <span>반갑습니다!</span>
