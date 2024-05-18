@@ -83,7 +83,7 @@
 .lecture-area ul {display:grid; grid-template-columns:repeat(3, auto); grid-gap:30px;}
 .lecture-area li {list-style:none; width:370px; height:340px; border-radius:10px; overflow:hidden;}
 .lecture-area li a {display:block; width:100%;}
-.lecture-area li img {width:370px; height:183px; object-fit:cover;}
+.lecture-area li img {width:370px; height:183px; object-fit:cover; border-radius:10px;}
 .lecture-area h3 {margin:10px 0;}
 .lecture-area p {height: 78px; word-spacing:normal; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis;}
 
