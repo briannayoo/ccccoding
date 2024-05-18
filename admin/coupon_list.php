@@ -5,7 +5,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
 
-
 // 각자 테이블 컬럼
 $discount = $_GET['discount'] ?? '';
 $coupon_name = $_GET['coupon_name'] ?? '';
@@ -21,6 +20,8 @@ if ($discount == '1') {
 } elseif ($discount == '2') {
     $search_where .= " AND coupon_type = 2";
 }
+
+$coupon_name = trim($_GET['coupon_name'] ?? '');
 
 if ($coupon_name) {
     $search_where .= " AND coupon_name LIKE '%$coupon_name%'";
@@ -91,6 +92,7 @@ if(isset($_GET['cid'])) {
 while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
 }
+
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
@@ -127,7 +129,7 @@ while ($rs = $result->fetch_object()) {
             <div class="col-md-11">
               <div class="input-group">
                 <div class="col-md-4 ipt-wrap ipt-wrap">
-                  <input type="text" class="form-control" id="coupon-name" name="coupon-name" placeholder="쿠폰명을 입력하세요.">
+                  <input type="text" class="form-control" id="coupon-name" name="coupon_name" placeholder="쿠폰명을 입력하세요.">
                 </div>
               </div>
             </div>
