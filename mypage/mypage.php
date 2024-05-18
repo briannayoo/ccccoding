@@ -102,8 +102,11 @@
         </div>
 
         <h3 class="tit-h2">평균학습 진도율</h3>
-        <div class="progress">
-          <div class="graph" style="width:0%;" data-value="<?=$completion_rate?>">
+        <div class="progress-area">
+          <div class="bg-graph">
+            <div class="graph" style="width:0%;" data-value="<?=$completion_rate?>"></div>
+          </div>
+          <div class="txt">
             <span class="count"><em><?=$completion_rate?></em>%</span>
             <span class="txt">얼마 안남았어요! 힘을 내요!</span>
           </div>

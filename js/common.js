@@ -165,7 +165,7 @@ $(function(){
 			const cntNum = setInterval(() => {
 				num++;
 				$('.count').find("> em").text(num);
-				$('.count').closest(".progress").find(".graph").css({
+				$('.count').closest(".progress-area").find(".graph").css({
 					"width": num+"%"
 				});
 

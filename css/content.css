@@ -160,13 +160,14 @@
 
 
 /* progressbar(박소현)  */
-.progress {width:100%; height:12px; margin-bottom:42px; background-color:var(--bg-sub2-c, #eee);}
-.progress .graph {display:block; position:relative; width:0; height:12px; background-color:#913dd3;}
+.progress-area {flex-direction:column;}
+.progress-area .bg-graph {width:100%; margin-bottom:8px; background-color:var(--bg-sub2-c, #eee); border-radius:10px;}
+.progress-area .graph {display:block; position:relative; width:0; height:12px; background-color:#913dd3;}
+.count {display:block; text-align:right;}
 .count,
-.count em {font-size:15px; font-weight:700;}
-.count {display:block; padding-top:24px; text-align:right;}
+.count em {font-size:2rem; line-height:30px; font-weight:var(--bold,700);}
 .txt {display:block; text-align:right;}
-.lecture-area .progress {margin-top:26px;}
+.lecture-area .progress-area {margin-top:26px;}
 
 /* 마이페이지 회원 프로필(박소현) */
 [class^=tit-] + .form-list .pf-area {margin-top:32px;}
