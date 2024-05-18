@@ -61,6 +61,15 @@
   } else {
       $completed_orders = 0;
   }
+
+  // 수강완료 강의 수의 비율 계산
+  if ($total_orders > 0) {
+    $completion_rate = ($completed_orders / $total_orders) * 100;
+    $formatted_rate = number_format($completion_rate, 2);
+  } else {
+    $completion_rate = 0;
+    $formatted_rate = '0.00';
+  }
 ?>
 
       <div class="con-wrap">
@@ -87,15 +96,15 @@
           <div class="list">
             <div class="inner">
               <div class="tit-h4">수강완료</div>
-              <span class="num"><?= $ongoing_orders ?></span>
+              <span class="num"><?= $completed_orders ?></span>
             </div>
           </div>
         </div>
 
         <h3 class="tit-h2">평균학습 진도율</h3>
         <div class="progress">
-          <div class="graph" style="width:0%;">
-            <span class="count"><em>0</em>%</span>
+          <div class="graph" style="width:0%;" data-value="<?=$completion_rate?>">
+            <span class="count"><em><?=$completion_rate?></em>%</span>
             <span class="txt">얼마 안남았어요! 힘을 내요!</span>
           </div>
         </div>

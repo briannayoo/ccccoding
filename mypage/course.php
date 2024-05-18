@@ -26,7 +26,7 @@
                 foreach ($rsArr as $item) {
             ?>
             <li>
-              <a href="lecture_detail.php?pid=<?= $item->pid; ?>">
+              <a href="/ccccoding/lecture/lecture_detail.php?pid=<?= $item->pid; ?>">
                 <img src="<?=$item->thumbnail;?>" alt="">
                 <h3 class="tit-h4"><?=$item->name;?></h3>
                 <!-- progress bar (s) -->

@@ -155,6 +155,35 @@ $(function(){
     });
   }
 
+  // 프로그래스바 (박소현)
+  if($('.progress').length > 0) {
+    const val = Number($('.graph').attr('data-value'));
+    console.log(val);
+		let num = 0;
+
+		if(1/(100/val) !== 0){ // 0%가 아닐 때
+			const cntNum = setInterval(() => {
+				num++;
+				$('.count').find("> em").text(num);
+				$('.count').closest(".progress").find(".graph").css({
+					"width": num+"%"
+				});
+
+
+				if(num === val){ // 최종 value값 도달
+					$('.count').find("> em").text(val); // 최종결과 값
+					clearInterval(cntNum);
+					
+					if(num === 100){ // 100%일 때
+						$('.count').find("> em").text(parseInt(val));
+						$('.count').find("> em").addClass("finish");
+					};
+				};
+      }, 20); // 시간
+		};
+  }
+  
+
 
 
 }); // 스크립트 닫힘
