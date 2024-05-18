@@ -2,68 +2,33 @@
   $title = '마이페이지-내 강의 보기';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/mypage_nav.php';
+
+  $sql = "SELECT * FROM products where 1=1";
+  $result = $mysqli->query($sql);
+
+  while ($rs = $result->fetch_object()) {
+    $rsArr[] = $rs;
+  }
 ?>
       
       <div class="con-wrap">
         <div class="page-tit-area">
           <h2 class="tit-h1">내 강의 보기</h2>
         </div>
-
-        <form action="" class="filter-area">
-          <div class="difficulty">
-            <strong class="tit-h5">난이도</strong>
-            <div class="list-group list-group-horizontal">
-              <div class="list-group-item">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="difficulty_01" name="difficulty_01">
-                  <label class="form-check-label" for="difficulty_01">
-                    상
-                  </label>
-                </div>
-              </div>
-              <div class="list-group-item">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="difficulty_02" name="difficulty_02">
-                  <label class="form-check-label" for="difficulty_02">
-                    중
-                  </label>
-                </div>
-              </div>
-              <div class="list-group-item">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="difficulty_03" name="difficulty_03">
-                  <label class="form-check-label" for="difficulty_03">
-                    하
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="ipt-wrap">
-            <input type="search" class="form-control" placeholder="검색어를 입력하세요.">
-            <button class="ico-search">
-              <span class="visually-hidden">검색</span>
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </div>
-        </form>
-
-        <div class="sort-area">
-          <select class="form-select" aria-label="정렬 순서 선택">
-            <option value="1" selected>최신순</option>
-            <option value="2">인기순</option>
-            <option value="3">추천순</option>
-          </select>
-        </div>
         <!-- 공통 부분 (e) -->
 
         <!-- 아래에서 부터 작업영역입니다 -->
+        <?php if ($result->num_rows > 0) { ?>
         <div class="lecture-area">
           <ul>
+            <?php
+              if (isset($rsArr)) {  
+                foreach ($rsArr as $item) {
+            ?>
             <li>
-              <a href="#">
-                <img src="../image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
+              <a href="lecture_detail.php?pid=<?= $item->pid; ?>">
+                <img src="<?=$item->thumbnail;?>" alt="">
+                <h3 class="tit-h4"><?=$item->name;?></h3>
                 <!-- progress bar (s) -->
                 <div class="progress">
                   <div class="graph" style="width:0%;">
@@ -74,85 +39,19 @@
                 <!-- progress bar (e) -->
               </a>
             </li>
-            <li>
-              <a href="#">
-                <img src="../image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <!-- progress bar (s) -->
-                <div class="progress">
-                  <div class="graph" style="width:0%;">
-                    <span class="count"><em>0</em>%</span>
-                    <span class="txt">얼마 안남았어요! 힘을 내요!</span>
-                  </div>
-                </div>
-                <!-- progress bar (e) -->
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="../image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <!-- progress bar (s) -->
-                <div class="progress">
-                  <div class="graph" style="width:0%;">
-                    <span class="count"><em>0</em>%</span>
-                    <span class="txt">얼마 안남았어요! 힘을 내요!</span>
-                  </div>
-                </div>
-                <!-- progress bar (e) -->
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="../image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <!-- progress bar (s) -->
-                <div class="progress">
-                  <div class="graph" style="width:0%;">
-                    <span class="count"><em>0</em>%</span>
-                    <span class="txt">얼마 안남았어요! 힘을 내요!</span>
-                  </div>
-                </div>
-                <!-- progress bar (e) -->
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="../image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <!-- progress bar (s) -->
-                <div class="progress">
-                  <div class="graph" style="width:0%;">
-                    <span class="count"><em>0</em>%</span>
-                    <span class="txt">얼마 안남았어요! 힘을 내요!</span>
-                  </div>
-                </div>
-                <!-- progress bar (e) -->
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="../image/img_lecture.png" alt="">
-                <h3 class="tit-h4">따라하며 배우는 리액트 A-Z</h3>
-                <!-- progress bar (s) -->
-                <div class="progress">
-                  <div class="graph" style="width:0%;">
-                    <span class="count"><em>0</em>%</span>
-                    <span class="txt">얼마 안남았어요! 힘을 내요!</span>
-                  </div>
-                </div>
-                <!-- progress bar (e) -->
-              </a>
-            </li>
+            <?php
+              }}
+            ?>
           </ul>
         </div>
-
+        <?php } else { ?>
         <!-- nodata(s) -->
         <div class="nodata">
           <p class="txt">진행중인 강의가 없습니다.</p>
         </div>
         <!-- nodata(e) -->
-
+        <?php } ?>
+        
         <!-- pagination(s) -->
         <nav aria-label="페이지네이션">
           <ul class="pagination">
