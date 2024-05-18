@@ -4,17 +4,19 @@
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/mypage_nav.php';
 
   // 가입일 디데이 날짜 관련 (s)
-  $sql = "SELECT regdate FROM members WHERE userid = '$userid'";
+  $sql = "SELECT DATE(regdate) AS regdate FROM members WHERE userid = '$userid'";
   $result = $mysqli->query($sql);
-
   if ($result->num_rows > 0) {
       $row = $result->fetch_object();
       $regdate = $row->regdate;
   }
 
+  // 문자열을 DateTime 객체로 변환
+  $regdate_obj = date_create($regdate);
+  $today_obj = date_create(date("Y-m-d"));
+
   // 가입일로부터 오늘까지의 날짜 차이 계산
-  $today = date("Y-m-d");
-  $diff = date_diff(date_create($regdate), date_create($today));
+  $diff = date_diff($regdate_obj, $today_obj);
   $days_since_registration = $diff->format("%a");
   // 가입일 디데이 날짜 관련 (e)
 
