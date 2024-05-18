@@ -30,15 +30,34 @@
     $prsArr[] = $prs;
   }
 
-  // 수강강의수 세기
-  $oids_sql = "SELECT COUNT(DISTINCT oid) AS total_oids FROM payments";
-  $oids_result = $mysqli->query($oids_sql);
-
-  if ($oids_result->num_rows > 0) {
-    $oids_row = $oids_result->fetch_object();
-    $total_oids = $oids_row->total_oids;
+  // 모든 수강신청 강의 수
+  $total_orders_sql = "SELECT COUNT(DISTINCT oid) AS total_orders FROM payments";
+  $total_orders_result = $mysqli->query($total_orders_sql);
+  if ($total_orders_result->num_rows > 0) {
+      $total_orders_row = $total_orders_result->fetch_object();
+      $total_orders = $total_orders_row->total_orders;
   } else {
-    $total_oids = 0;
+      $total_orders = 0;
+  }
+
+  // 수강중인 강의 수
+  $ongoing_orders_sql = "SELECT COUNT(DISTINCT oid) AS ongoing_orders FROM payments WHERE status = 1";
+  $ongoing_orders_result = $mysqli->query($ongoing_orders_sql);
+  if ($ongoing_orders_result->num_rows > 0) {
+      $ongoing_orders_row = $ongoing_orders_result->fetch_object(); 
+      $ongoing_orders = $ongoing_orders_row->ongoing_orders;
+  } else {
+      $ongoing_orders = 0;
+  }
+
+  // 수강완료 강의 수
+  $completed_orders_sql = "SELECT COUNT(DISTINCT oid) AS completed_orders FROM payments WHERE status = 2";
+  $completed_orders_result = $mysqli->query($completed_orders_sql);
+  if ($completed_orders_result->num_rows > 0) {
+      $completed_orders_row = $completed_orders_result->fetch_object();
+      $completed_orders = $completed_orders_row->completed_orders;
+  } else {
+      $completed_orders = 0;
   }
 ?>
 
@@ -54,19 +73,19 @@
           <div class="list">
             <div class="inner">
               <div class="tit-h4">모든 수강신청 강의</div>
-              <span class="num"><?= count($prsArr) ?></span>
+              <span class="num"><?= $total_orders ?></span>
             </div>
           </div>
           <div class="list">
             <div class="inner">
               <div class="tit-h4">수강중인 강의</div>
-              <span class="num"><?= count($prsArr) ?></span>
+              <span class="num"><?= $ongoing_orders ?></span>
             </div>
           </div>
           <div class="list">
             <div class="inner">
               <div class="tit-h4">수강완료</div>
-              <span class="num"><?= count($prsArr) ?></span>
+              <span class="num"><?= $ongoing_orders ?></span>
             </div>
           </div>
         </div>
