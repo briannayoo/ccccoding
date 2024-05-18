@@ -64,7 +64,7 @@
 
   // 수강완료 강의 수의 비율 계산
   if ($total_orders > 0) {
-    $completion_rate = ($completed_orders / $total_orders) * 100;
+    $completion_rate = floor(($completed_orders / $total_orders) * 100);
     $formatted_rate = number_format($completion_rate, 2);
   } else {
     $completion_rate = 0;
