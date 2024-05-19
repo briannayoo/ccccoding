@@ -3,8 +3,8 @@
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/mypage_nav.php';
 
-  $sql = "SELECT * FROM payments";
-  $result = $mysqli->query($sql);
+  // $sql = "SELECT * FROM payments";
+  // $result = $mysqli->query($sql);
 
   //총개수 조회
   $sql = "SELECT COUNT(*) AS cnt FROM payments WHERE 1=1";
@@ -24,6 +24,19 @@
   // echo $sql;
 
   $result = $mysqli->query($sql);
+  while ($rs = $result->fetch_object()) {
+    $rsArr[] = $rs;
+  }
+
+  $rsArr = array(); // 배열 초기화
+
+  $psql = "SELECT p.*, pr.name, pr.thumbnail
+            FROM payments p
+            LEFT JOIN products pr
+            ON p.pid = pr.pid";
+
+  $result = $mysqli->query($psql);
+
   while ($rs = $result->fetch_object()) {
     $rsArr[] = $rs;
   }
