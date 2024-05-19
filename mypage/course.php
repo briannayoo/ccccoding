@@ -48,14 +48,19 @@
                 <img src="<?=$item->thumbnail;?>" alt="">
                 <h3 class="tit-h4"><?=$item->name;?></h3>
                 <!-- progress bar (s) -->
-                <div class="progress-area">
+                <div class="progress-area ">
                   <div class="bg-graph">
                     <div class="graph" style="width:0%;" data-value="70"></div>
                   </div>
-                  <div class="txt">
-                    <span class="count"><em>70</em>%</span>
+                  <ul class="list-group etc-list">
+                    <li class="list-group-item">진행률 3%</li>
+                    <!-- <li class="list-group-item">기간:</li>  추후 가능하면 작업-->
+                    <li class="list-group-item">축하해요! 모든 강의 학습을 완료했습니다.</li>
+                  </ul>
+                  <!-- <div class="txt">
+                    <span class="count"><em></em>%</span>
                     <span class="txt">얼마 안남았어요! 힘을 내요!</span>
-                  </div>
+                  </div> -->
                 </div>
                 <!-- progress bar (e) -->
               </a>
