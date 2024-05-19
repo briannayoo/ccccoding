@@ -41,7 +41,11 @@
           </li>
           <li class="list-group-item">
             <div class="item">포인트</div>
-            <div class="val"><a href="/ccccoding/mypage/point.php" class="num">10</a>P</div>
+            <?php if ($mrs->point > 0) { ?>
+            <div class="val"><a href="/ccccoding/mypage/point.php" class="num"><?=$mrs->point?></a>P</div>
+            <?php } else { ?>
+            <div class="val"><a href="/ccccoding/mypage/point.php" class="num">0</a>P</div>
+            <?php } ?>
           </li>
         </ul>
         <!-- 가지고 있는 쿠폰/ 리스트(e) -->
