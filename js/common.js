@@ -213,8 +213,29 @@ $(function(){
   }
 
   // 취소환불신청 버튼 (박소현)
-  
-
+  if($('.mypage .btn-area.cancel').length > 0) {
+    $('.cancel-request, .refund-request').click(function(e) {
+      e.preventDefault();
+      let orderId = $(this).data('order-id');
+      let requestType = $(this).hasClass('cancel-request') ? 'cancel' : 'refund';
+      
+      $.ajax({
+        url: '/ccccoding/inc/update_request.php',
+        method: 'POST',
+        data: {
+          order_id: orderId,
+          request_type: requestType
+        },
+        success: function(response) {
+          alert('신청이 완료되었습니다.');
+          // 필요한 경우 추가 작업 수행
+        },
+        error: function() {
+          alert('신청 중 오류가 발생했습니다.');
+        }
+      });
+    });
+  }
 
 
 }); // 스크립트 닫힘
