@@ -70,6 +70,10 @@
                 </div>
                 <a href="/ccccoding/lecture/lecture_detail.php?pid=<?= $item->pid; ?>" class="btn btn-primary">강의로 이동</a>
               </div>
+              <div class="btn-area cancel full">
+              <a href="#" class="btn btn-outline-secondary btn-sm cancel-request" data-order-id="<?= $item->oid; ?>">취소신청</a>
+              <a href="#" class="btn btn-outline-secondary btn-sm refund-request" data-order-id="<?= $item->oid; ?>">환불신청</a>
+              </div>
             </div>
           </div>
           <?php

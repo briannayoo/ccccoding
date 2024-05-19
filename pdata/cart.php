@@ -21,6 +21,8 @@
           <!-- <input type="hidden" name="userid" value=""> -->
           <input type="hidden" name="pid[]" id="pidArr" value="">
           <input type="hidden" name="total_price" id="total_price" value="">
+          <!-- <input type="hidden" name="name" id="name" value=""> -->
+          <!-- <input type="hidden" name="thumbnail" id="thumbnail" value=""> -->
 
           <div class="page-tit-area">
             <h2 class="tit-h1">수강 바구니</h2>
@@ -48,7 +50,7 @@
                     <div class="lecture-price d-flex">
                       <i class="fa-solid fa-xmark fa-small cart_item_del curser text-c5"></i>
                       <div>
-                        <p class="p-small"><span class="sale-price"><?= $ca-> sale_cnt; ?></span><span class="original-price text-place"><?= $ca-> price; ?></span></p>
+                        <p class="p-small"><span class="sale-price"><?= $ca-> sale_cnt; ?></span><span class="original-price text-place"><?= $ca-> price; ?></span>원</p>
                         <p class="tit-h3" id="total-price"><span class="grand-total"></span>원</p>
                       </div>
                     </div>
@@ -144,15 +146,69 @@
       });
 
       //가격 적용
+
+      $('.sale-price').each(function() {
+        var price = $(this).text();
+        if (price) {
+            $(this).text(price + '원');
+        }
+    });
+
+      // $('.order-item').each(function(){
+      //   let ori_price = $(this).find('.original-price').text();
+      //   let sale_price = $(this).find('.sale-price').text();
+
+      //   // console.log(ori_price,sale_price)
+      //   $(this).find('.grand-total').text(ori_price-sale_price);
+
+      // });
+
       $('.order-item').each(function(){
-        let ori_price = $(this).find('.original-price').text();
-        let sale_price = $(this).find('.sale-price').text();
+        let ori_price_text = $(this).find('.original-price').text();
+        let sale_price_text = $(this).find('.sale-price').text();
 
-        // console.log(ori_price,sale_price)
-        $(this).find('.grand-total').text(ori_price-sale_price);
+        // 숫자만 추출하여 계산
+        let ori_price = parseFloat(ori_price_text.replace(/[^0-9.-]+/g,""));
+        let sale_price = parseFloat(sale_price_text.replace(/[^0-9.-]+/g,""));
 
-      });
-      
+        // 합계 계산 및 적용
+        if (!isNaN(ori_price) && !isNaN(sale_price)) {
+            $(this).find('.grand-total').text(ori_price - sale_price);
+        } else {
+            $(this).find('.grand-total').text('');
+        }
+    });
+
+    // // 숫자 형식화 함수
+    // function formatNumber(num) {
+    // return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    // }
+
+    // // 가격 적용
+    // $('.sale-price').each(function() {
+    //     var price = $(this).text();
+    //     if (price) {
+    //         $(this).text(price + '원');
+    //     }
+    // });
+
+    // $('.order-item').each(function(){
+    //     let ori_price_text = $(this).find('.original-price').text();
+    //     let sale_price_text = $(this).find('.sale-price').text();
+
+    //     // 숫자만 추출하여 계산
+    //     let ori_price = parseFloat(ori_price_text.replace(/[^0-9.-]+/g,""));
+    //     let sale_price = parseFloat(sale_price_text.replace(/[^0-9.-]+/g,""));
+
+    //     // 합계 계산 및 적용
+    //     if (!isNaN(ori_price) && !isNaN(sale_price)) {
+    //         let grand_total = ori_price - sale_price;
+    //         $(this).find('.grand-total').text(formatNumber(grand_total));
+    //     } else {
+    //         $(this).find('.grand-total').text('');
+    //     }
+    // });
+
       //쿠폰적용 계산
     $('#coupon').change(function(){
       let cname = $(this).find('option:selected').text();

@@ -129,7 +129,7 @@
             ?>
             <li><a href="#">
               <img src="<?=$item->thumbnail;?>" alt="">
-              <h3 class="tit-h4"><?= $item->name;?></h3>
+              <h3 class="tit-h4 text-over"><?= $item->name;?></h3>
               <p><?= $item->content;?></p>
             </a></li>
             <?php

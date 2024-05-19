@@ -4,7 +4,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/dbcon.php';
 
 
 $userid = $_SESSION['UID'];
-$pid = $_POST['pid'];
+// $pid = $_POST['pid'];
 
 $pid = $_POST['pid'];
 $pidStr = implode(',',$pid);

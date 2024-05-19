@@ -3,8 +3,8 @@
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/mypage_nav.php';
 
-  $sql = "SELECT * FROM payments";
-  $result = $mysqli->query($sql);
+  // $sql = "SELECT * FROM payments";
+  // $result = $mysqli->query($sql);
 
   //총개수 조회
   $sql = "SELECT COUNT(*) AS cnt FROM payments WHERE 1=1";
@@ -24,6 +24,19 @@
   // echo $sql;
 
   $result = $mysqli->query($sql);
+  while ($rs = $result->fetch_object()) {
+    $rsArr[] = $rs;
+  }
+
+  $rsArr = array(); // 배열 초기화
+
+  $psql = "SELECT p.*, pr.name, pr.thumbnail
+            FROM payments p
+            LEFT JOIN products pr
+            ON p.pid = pr.pid";
+
+  $result = $mysqli->query($psql);
+
   while ($rs = $result->fetch_object()) {
     $rsArr[] = $rs;
   }
@@ -48,19 +61,15 @@
                 <img src="<?=$item->thumbnail;?>" alt="">
                 <h3 class="tit-h4"><?=$item->name;?></h3>
                 <!-- progress bar (s) -->
-                <div class="progress-area ">
+                <div class="progress-area">
                   <div class="bg-graph">
-                    <div class="graph" style="width:0%;" data-value=""></div>
+                    <div class="graph" style="width:0%;" data-value="">
+                      <div class="val-area">
+                      <span class="count">진행률 <em>3</em>%</span>
+                      <span class="txt"></span>
+                    </div>
+                    </div>
                   </div>
-                  <ul class="list-group etc-list val-area">
-                    <li class="list-group-item count">진행률 <em>3</em>%</li>
-                    <!-- <li class="list-group-item">기간:</li>  추후 가능하면 작업 -->
-                    <li class="list-group-item txt">축하해요! 모든 강의 학습을 완료했습니다.</li>
-                  </ul>
-                  <!-- <div class="val-area">
-                    <span class="count"><em></em>%</span>
-                    <span class="txt">얼마 안남았어요! 힘을 내요!</span>
-                  </div> -->
                 </div>
                 <!-- progress bar (e) -->
               </a>

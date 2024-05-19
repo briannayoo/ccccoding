@@ -104,11 +104,12 @@
         <h3 class="tit-h2">평균학습 진도율</h3>
         <div class="progress-area">
           <div class="bg-graph">
-            <div class="graph" style="width:0%;" data-value="<?=$completion_rate?>"></div>
-          </div>
-          <div class="val-area">
-            <span class="count"><em><?=$completion_rate?></em>%</span>
-            <span class="txt"></span>
+            <div class="graph" style="width:0%;" data-value="<?=$completion_rate?>">
+              <div class="val-area">
+                <span class="count"><em><?=$completion_rate?></em>%</span>
+                <span class="txt"></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

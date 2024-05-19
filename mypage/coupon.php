@@ -18,7 +18,7 @@
 
       <div class="con-wrap">
         <div class="page-tit-area">
-          <h2 class="tit-h1">쿠폰&amp;포인트</h2>
+          <h2 class="tit-h1">쿠폰</h2>
         </div>
         <!-- 공통 부분 (e) -->
 

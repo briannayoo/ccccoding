@@ -108,6 +108,7 @@ p {margin:0;}
 .sub-txt-c {color:var(--sub-txt-c, #bcbcbc);}
 .text-red {color:var(--text-red, #ff0000);}
 .text-place {color:var(--placeh-c, #969696);}
+.text-over {white-space: nowrap; overflow: hidden; margin: 10px 0; text-overflow: ellipsis;}
 
 /*========== Buttons ==========*/
 .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating),
@@ -271,10 +272,11 @@ textarea {height:250px;}
 /* line-line-box list*/
 .line-box-list {display:flex; flex-direction:column; gap:26px;}
 .line-box-list .list .date {color:var(--text-c4, #4D4C51);}
-.line-box-list .list > .inner {border:1px solid var(--ipt-border, #DEE2E6); border-radius:10px; padding:24px 16px; margin-top:10px; display:flex; justify-content:space-between; align-items:center;}
+.line-box-list .list > .inner {border:1px solid var(--ipt-border, #DEE2E6); border-radius:10px; padding:24px 16px; margin-top:10px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;}
 .line-box-list .list .item .top {display:flex; gap:16px; margin-bottom:4px;}
 .line-box-list .list .item .price {text-align:right; font-size:20px; line-height:30px; font-weight:var(--bold, 700); margin-bottom:4px;}
 .line-box-list .list .item .btn {min-width:80px; line-height:26px; padding:6px 8px; font-size:1.4rem;}
+.line-box-list .full {width:100%;}
 
 /* line-box list- qa */
 .line-box-list.qa {justify-content:start;}
