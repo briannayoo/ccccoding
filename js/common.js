@@ -156,7 +156,7 @@ $(function(){
   }
 
   // 프로그래스바 (박소현)
-  if($('.progress').length > 0) {
+  if($('.progress-area').length > 0) {
     const val = Number($('.graph').attr('data-value'));
     console.log(val);
 		let num = 0;
@@ -173,6 +173,27 @@ $(function(){
 				if(num === val){ // 최종 value값 도달
 					$('.count').find("> em").text(val); // 최종결과 값
 					clearInterval(cntNum);
+
+          // 조건에 따른 텍스트
+          console.log(num)
+          switch (num){
+            case 0 :
+              $(".val-area .txt").text('새로운 시작!') 
+              break;
+            case 25 :
+              $(".val-area .txt").text('아직 시작이에요! 조금만 더 힘내세요!')
+              break;
+            case 50 :
+              $(".val-area .txt").text('절반 가량 왔어요! 계속해서 열심히 하세요!')
+              break;
+            case 75 :
+              $(".val-area .txt").text('거의 다 왔어요! 마지막까지 화이팅하세요!')
+              break;
+            case 100 :
+              $(".val-area .txt").text('축하해요! 모든 강의 학습을 완료했습니다.')
+              break;
+            // default:
+          }
 					
 					if(num === 100){ // 100%일 때
 						$('.count').find("> em").text(parseInt(val));

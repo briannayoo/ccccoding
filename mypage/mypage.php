@@ -106,9 +106,9 @@
           <div class="bg-graph">
             <div class="graph" style="width:0%;" data-value="<?=$completion_rate?>"></div>
           </div>
-          <div class="txt">
+          <div class="val-area">
             <span class="count"><em><?=$completion_rate?></em>%</span>
-            <span class="txt">얼마 안남았어요! 힘을 내요!</span>
+            <span class="txt"></span>
           </div>
         </div>
       </div>
