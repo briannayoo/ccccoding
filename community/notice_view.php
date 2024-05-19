@@ -77,7 +77,7 @@
                             <div class="notice-text"><?= nl2br($resultArr['content']);?></div>
                             <div>
                                 <div class="border notice-fix">
-                                    <p>ㅋㅋㅋ코딩 공지사항</p>
+                                    <p class="notice-sec txt-md">ㅋㅋㅋ코딩 공지사항</p>
                                     <ul>
                                     <?php
                                     $sql = "SELECT * FROM notice";

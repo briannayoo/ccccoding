@@ -128,11 +128,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/pagination.php';
           <!-- notice start -->
           <div class="">
             <div class="border-bottom notice-list">
-              <h2 class="txt-lg list-h2"><a href="/ccccoding/community/notice_view.php?idx=<?= $item -> idx ?>"><?= $item -> title ?></a></h2>
+              <h2 class="txt-md list-h2"><a href="/ccccoding/community/notice_view.php?idx=<?= $item -> idx ?>"><?= $item -> title ?></a></h2>
               <div class="d-flex list-text">
-                <p>작성자 : <?= $item -> name ?></p>
-                <p><i class="fa-solid fa-eye fa-small"></i> : <?= $item -> hit ?></p>
-                <p><?= $item -> date ?></p>
+                <p class="txt-sm">작성자 : <?= $item -> name ?></p>
+                <p class="txt-sm"><i class="fa-solid fa-eye fa-small"></i> : <?= $item -> hit ?></p>
+                <p class="txt-sm"><?= $item -> date ?></p>
               </div>
             </div>
           <?php
