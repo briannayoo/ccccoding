@@ -12,7 +12,7 @@
 
         <!-- 아래에서 부터 작업영역입니다 -->
         <h3 class="tit-h2">포인트</h3>
-        <p class="tit-h3 point-txt">현재 사용가능한 포인트는 <em>10P</em>입니다.테스트</p>
+        <p class="tit-h3 point-txt">현재 사용가능한 포인트는 <em>10P</em>입니다.</p>
 
         <!-- nodata(s) -->
         <div class="nodata">
