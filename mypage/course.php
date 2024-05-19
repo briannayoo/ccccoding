@@ -50,14 +50,14 @@
                 <!-- progress bar (s) -->
                 <div class="progress-area ">
                   <div class="bg-graph">
-                    <div class="graph" style="width:0%;" data-value="70"></div>
+                    <div class="graph" style="width:0%;" data-value=""></div>
                   </div>
-                  <ul class="list-group etc-list">
-                    <li class="list-group-item">진행률 3%</li>
-                    <!-- <li class="list-group-item">기간:</li>  추후 가능하면 작업-->
-                    <li class="list-group-item">축하해요! 모든 강의 학습을 완료했습니다.</li>
+                  <ul class="list-group etc-list val-area">
+                    <li class="list-group-item count">진행률 <em>3</em>%</li>
+                    <!-- <li class="list-group-item">기간:</li>  추후 가능하면 작업 -->
+                    <li class="list-group-item txt">축하해요! 모든 강의 학습을 완료했습니다.</li>
                   </ul>
-                  <!-- <div class="txt">
+                  <!-- <div class="val-area">
                     <span class="count"><em></em>%</span>
                     <span class="txt">얼마 안남았어요! 힘을 내요!</span>
                   </div> -->
