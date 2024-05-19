@@ -62,7 +62,7 @@
           <div class="new-lecture">
             <ul class="new-lecture-item">
             <?php
-              $sql = "SELECT * FROM products where 1=1 ORDER BY reg_date DESC LIMIT 0, 8";
+              $sql = "SELECT * FROM products where 1=1 ORDER BY reg_date DESC";
               $result = $mysqli->query($sql);
             
               while ($rs = $result->fetch_object()) {
@@ -97,7 +97,7 @@
 
           <div class="best-lecture">
             <ul class="best-lecture-item">
-              <li><a href="#">
+              <!-- <li><a href="#">
                 <img src="./image/img_best01.png" alt="">
               </a></li>
               <li><a href="#">
@@ -119,12 +119,12 @@
                 <img src="./image/img_best07.png" alt="">
               </a></li>
               <li><a href="#">
-                <img src="./image/img_best10.png" alt="">
-              </a></li>
+                <img src="./image/img_best08.png" alt="">
+              </a></li> -->
             </ul>
           </div>
           <div class="btn-area">
-            <button type="button" class="btn btn-outline-secondary btn-md pm-line">더보기</button>
+            <button type="button" class="btn btn-outline-secondary btn-md pm-line more-btn-best">더보기</button>
           </div>
           </div>
         </div>
@@ -167,23 +167,76 @@
       <!-- 섹션5~6 유부현(e) -->
     </main>
   <script>
-    $('.more-btn').click(function(){
+    let offset = 8;
 
-      let li =  $(this).closest('li');
-      let data = {
-        li : li
-      }
-        $.ajax({
-        url: "readmore.php",
-        async:false,
+    $('.more-btn').click(function() {
+      $.ajax({
+        url: 'readmore.php',
         type: 'POST',
-        data: data,
-        cache: false,
-        success: function(html){
-        $(".new-lecture-item").append(html);
+        data: { offset: offset },
+        dataType: 'json',
+        success: function(response) {
+        if (response.length > 0) {
+            response.forEach(item => {
+              const newItem = `
+                <li>
+                  <a href="/ccccoding/lecture/lecture_detail.php?pid=${item.pid}">
+                    <img src="${item.thumbnail}" alt="">
+                    <h3 class="tit-h4 text-over">${item.name}</h3>
+                    <p>${item.content}</p>
+                  </a>
+                </li>`;
+              $('.new-lecture-item').append(newItem);
+            });
+            offset += 8;
+          } else {
+            alert('더 이상 항목이 없습니다.');
+            $('.more-btn').hide();
+          }
+        },
+        error: function(xhr, status, error) {
+          console.error('Status:', status);
+          console.error('Error:', error);
+          console.error('Response:', xhr.responseText);
+          alert('데이터를 불러오는 중 오류가 발생했습니다. 콘솔에서 자세한 내용을 확인하세요.');
         }
       });
     });
+
+    let bestOffset = 8; // 처음 8개는 이미 로드됨
+            const limit = 8; // 한 번에 추가로 로드할 이미지 수
+            let allData = [];
+
+            function loadMoreData() {
+                $.getJSON('data.json', function(data) {
+                    allData = data;
+                    appendItems();
+                }).fail(function() {
+                    alert("JSON 데이터를 불러오는 중 오류가 발생했습니다.");
+                });
+            }
+
+            function appendItems() {
+                const items = allData.slice(bestOffset - 8, bestOffset - 8 + limit);
+                items.forEach(item => {
+                    const newItem = `<li><a href="#"><img src="${item.thumbnail}" alt=""></a></li>`;
+                    $('.best-lecture-item').append(newItem);
+                });
+                bestOffset += limit;
+                if (bestOffset - 8 >= allData.length) {
+                    $('.more-btn-best').hide();
+                }
+            }
+
+            $('.best-lecture-item a').click(function(e) {
+                e.preventDefault();
+            });
+
+            $('.more-btn-best').click(function() {
+                appendItems();
+            });
+
+            loadMoreData();
   </script>
 <?php
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/footer.php';
