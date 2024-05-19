@@ -202,10 +202,13 @@
 .coupon-list .tit-h5 {margin:16px 0; font-weight:var(--bold, 700); max-width:216px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
 .coupon-list .date {font-size:1.4rem; color:var( --text-c4,#4D4C51);}
 
-/* 쿠폰 다운로드 */
+/* 쿠폰 다운로드 (박소현) */
 .coupon-list.down .list {width:calc((100% / 3) - 20px); height:196px; background-size:466px auto; margin-right:30px;}
 .coupon-list.down .list:nth-child(3n) {margin-right:0;}
 .coupon-list.down .list .inner {padding:36px 10px;}
 .coupon-list.down .list .btn-area {justify-content:flex-start; margin-top:16px;}
 .coupon-list.down .list .btn-area .btn {height:40px; line-height:40px; padding:0 16px;}
 .coupon-list.down .list .btn-area .btn:after {content:''; display:inline-block; width:20px; height:20px; background:url(../image/ico_download.png) no-repeat top 4px center / 20px auto; margin-left:4px;}
+
+/* 교환환불 버튼 */
+.line-box-list .btn-area.cancel {margin-top:26px;}

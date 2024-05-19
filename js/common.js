@@ -64,7 +64,7 @@ $(function(){
     document.getElementById('gnb_img') .src='image/event_section'+img_num+'.png'; 
   }
 
-  // submenu
+  // submenu(박소현)
   if($('.sub .sub-menu').length >0){
     $('.sub-menu .accordion-button').on('click', function() {
       $(this).closest('li').addClass('on');
@@ -156,57 +156,6 @@ $(function(){
   }
 
   // 프로그래스바 (박소현)
-  // if($('.progress-area').length > 0) {
-  //   const val = Number($('.graph').attr('data-value'));
-  //   console.log(val);
-	// 	let num = 0;
-
-	// 	if(1/(100/val) !== 0){ // 0%가 아닐 때
-	// 		const cntNum = setInterval(() => {
-	// 			num++;
-	// 			$('.count').find("> em").text(num);
-	// 			$('.count').closest(".progress-area").find(".graph").css({
-	// 				"width": num+"%"
-	// 			});
-
-
-	// 			if(num === val){ // 최종 value값 도달
-	// 				$('.count').find("> em").text(val); // 최종결과 값
-	// 				clearInterval(cntNum);
-
-  //         // 조건에 따른 텍스트
-  //         console.log(num >= 1 && num <= 25)
-  //         switch(true){
-  //           case (num === 0):
-  //             $(".val-area .txt").text('새로운 시작!') 
-  //             break;
-  //           case (num >= 1 && num <= 25):
-  //             $(".val-area .txt").text('아직 시작이에요! 조금만 더 힘내세요!')
-  //             break;
-  //           case (num >= 26 && num <= 50):
-  //             $(".val-area .txt").text('절반 가량 왔어요! 계속해서 열심히 하세요!')
-  //             break;
-  //           case (num >= 51 && num <= 75):
-  //             $(".val-area .txt").text('거의 다 왔어요! 마지막까지 화이팅하세요!')
-  //             break;
-  //           case (num >= 76 && num <= 99):
-  //             $(".val-area .txt").text('거의 다 왔어요! 마지막까지 화이팅하세요!')
-  //             break;
-  //           case (num === 100):
-  //             $(".val-area .txt").text('축하해요! 모든 강의 학습을 완료했습니다.')
-  //             break;
-  //           // default:
-  //         }
-					
-	// 				if(num === 100){ // 100%일 때
-	// 					$('.count').find("> em").text(parseInt(val));
-	// 					$('.count').find("> em").addClass("finish");
-	// 				};
-	// 			};
-  //     }, 20); // 시간
-	// 	};
-  // }
-
   if($('.progress-area').length > 0) {
     $('.progress-area').each(function(idx, item){
       let val = null;
@@ -262,6 +211,8 @@ $(function(){
       };
     })
   }
+
+  // 취소환불신청 버튼 (박소현)
   
 
 
