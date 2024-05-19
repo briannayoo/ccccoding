@@ -108,6 +108,7 @@ p {margin:0;}
 .sub-txt-c {color:var(--sub-txt-c, #bcbcbc);}
 .text-red {color:var(--text-red, #ff0000);}
 .text-place {color:var(--placeh-c, #969696);}
+.text-over {white-space: nowrap; overflow: hidden; margin: 10px 0; text-overflow: ellipsis;}
 
 /*========== Buttons ==========*/
 .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating),
