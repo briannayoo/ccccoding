@@ -163,21 +163,27 @@
 .progress-area {flex-direction:column;}
 .progress-area .bg-graph {width:100%; margin-bottom:8px; background-color:var(--bg-sub2-c, #eee); border-radius:10px;}
 .progress-area .graph {display:block; position:relative; width:0; height:12px; background-color:#913dd3;}
+.progress-area .val-area {position:absolute; right:0; top:36px;}
 .count {display:block; text-align:right;}
 .count,
 .count em {font-size:2rem; line-height:30px; font-weight:var(--bold,700);}
 .txt {display:block; text-align:right;}
 
 /* 내강의보기(박소현) */
-.mypage .lecture-area ul {grid-gap:0;}
-.mypage .lecture-area li {height:auto;}
-.lecture-area .progress-area {margin-top:26px;}
-.lecture-area .progress-area .etc-list {display:flex; flex-wrap:wrap; gap:0; min-height:78px; max-height:78px;}
-.lecture-area .progress-area .etc-list > li {width:auto; height:auto; padding:0 16px 0 0;}
-.lecture-area .progress-area .etc-list > li:after {margin-left:8px;}
-.lecture-area .progress-area .etc-list .count, 
-.lecture-area .progress-area .etc-list .count em,
-.lecture-area .progress-area .etc-list .txt {font-size:1.4rem; color:#222; font-weight:400;}
+.mypage .lecture-area ul {}
+.mypage .lecture-area li {height:auto; overflow:visible;}
+.mypage .lecture-area li:nth-child(n+4) {padding-top:50px;}
+.mypage .lecture-area .progress-area {margin-top:26px;}
+.mypage .lecture-area .progress-area {margin-top:26px;}
+.mypage .lecture-area .progress-area .val-area {display:flex; top:12px;}
+.mypage .lecture-area .progress-area .val-area > span {padding-left:4px;}
+.mypage .lecture-area .progress-area .val-area > span:after {content:''; display:inline-block; width:1px; height:10px; background-color:#969696; margin-left:4px;}
+.mypage .lecture-area .progress-area .val-area > span:last-child:after {content:none;}
+.mypage .lecture-area .progress-area .bg-graph {position:relative;}
+.mypage .lecture-area .progress-area .graph {position:static;}
+.mypage .lecture-area .progress-area .count,
+.mypage .lecture-area .progress-area .count em,
+.mypage .lecture-area .progress-area .txt {font-size:1.4rem; font-weight:400;}
 
 /* 마이페이지 회원 프로필(박소현) */
 [class^=tit-] + .form-list .pf-area {margin-top:32px;}
