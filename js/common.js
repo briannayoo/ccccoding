@@ -236,19 +236,19 @@ $(function(){
                 $(item).find(".val-area .txt").html('새로운 시작!') 
                 break;
               case (num >= 1 && num <= 25):
-                $(item).find(".val-area .txt").html('아직 시작이에요! <br> 조금만 더 힘내세요!')
+                $(item).find(".val-area .txt").html('아직 시작이에요! <br class="hidden"> 조금만 더 힘내세요!')
                 break;
               case (num >= 26 && num <= 50):
-                $(item).find(".val-area .txt").html('절반 가량 왔어요! <br>  계속해서 열심히 하세요!')
+                $(item).find(".val-area .txt").html('절반 가량 왔어요! <br class="hidden">  계속해서 열심히 하세요!')
                 break;
               case (num >= 51 && num <= 75):
-                $(item).find(".val-area .txt").html('거의 다 왔어요! <br>  마지막까지 화이팅하세요!')
+                $(item).find(".val-area .txt").html('거의 다 왔어요! <br class="hidden">  마지막까지 화이팅하세요!')
                 break;
               case (num >= 76 && num <= 99):
-                $(item).find(".val-area .txt").html('거의 다 왔어요! <br> 마지막까지 화이팅하세요!')
+                $(item).find(".val-area .txt").html('거의 다 왔어요! <br class="hidden"> 마지막까지 화이팅하세요!')
                 break;
               case (num === 100):
-                $(item).find(".val-area .txt").html('축하해요! <br> 모든 강의 학습을 완료했습니다.')
+                $(item).find(".val-area .txt").html('축하해요! <br class="hidden"> 모든 강의 학습을 완료했습니다.')
                 break;
               // default:
             }

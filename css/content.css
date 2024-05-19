@@ -170,7 +170,6 @@
 .txt {display:block; text-align:right;}
 
 /* 내강의보기(박소현) */
-.mypage .lecture-area ul {}
 .mypage .lecture-area li {height:auto; overflow:visible;}
 .mypage .lecture-area li:nth-child(n+4) {padding-top:50px;}
 .mypage .lecture-area .progress-area {margin-top:26px;}
@@ -184,6 +183,7 @@
 .mypage .lecture-area .progress-area .count,
 .mypage .lecture-area .progress-area .count em,
 .mypage .lecture-area .progress-area .txt {font-size:1.4rem; font-weight:400;}
+.mypage .lecture-area .progress-area .txt .hidden {display:none;}
 
 /* 마이페이지 회원 프로필(박소현) */
 [class^=tit-] + .form-list .pf-area {margin-top:32px;}
