@@ -97,35 +97,11 @@
 
           <div class="best-lecture">
             <ul class="best-lecture-item">
-              <!-- <li><a href="#">
-                <img src="./image/img_best01.png" alt="">
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_best02.png" alt="">
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_best03.png" alt="">
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_best04.png" alt="">
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_best05.png" alt="">
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_best06.png" alt="">
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_best07.png" alt="">
-              </a></li>
-              <li><a href="#">
-                <img src="./image/img_best08.png" alt="">
-              </a></li> -->
+
             </ul>
           </div>
           <div class="btn-area">
             <button type="button" class="btn btn-outline-secondary btn-md pm-line more-btn-best">더보기</button>
-          </div>
           </div>
         </div>
       </div>
