@@ -166,6 +166,33 @@
       </div>
       <!-- 섹션5~6 유부현(e) -->
     </main>
+    <div class="info-modal">
+    <div class="modal_wrapper">
+    <img src="/ccccoding/admin/image/logo.png" alt="포트폴리오페이지안내" class="login_logo">
+      <h2>LMS 유저 페이지 제작 프로젝트</h2>
+      <br>
+      <p>본 사이트는 <em>구직용 포트폴리오 웹사이트</em>이며, <br> 실제로 운영되는 사이트가 아닙니다.</p>
+      <hr>
+      <p><em>시크릿 쥬쥬:</em> 유*현(팀장),박*현, 우*지</p>
+      <p><em>제작기간:</em> 2024.05.04 ~ 2024.05.22</p>
+      <p><em>기획서:</em> <a href="https://www.figma.com/design/yIwo11tJX1epVXVyCZwkfm/%EC%8B%9C%ED%81%AC%EB%A6%BF-%EC%A5%AC%EC%A5%AC-2?node-id=7%3A4974&t=nKSynrLmUluX4UL1-1" title="기획서바로가기" target="_blank">figma</a> <em>버전관리:</em> <a href="https://github.com/briannayoo/ccccoding.git" title="ccccoding 깃허브 바로가기" target="_blank">Github</a></p>
+      <p><em>개발환경:</em> HTML5, CSS3, Jquery,bootstrap,php,mysql</p>
+      <hr>
+      <span><em>업무분장</em></span>
+      <p><em>기획:</em> 팀원 전체</p>
+      <p><em>디자인:</em> 구현 담당자</p>
+      <p>	&#45; 구현 완료 페이지	&#45; </p>
+      <p class="color"><em>유*현: 메인(이벤트, 미디어) &#44; <a href="/ccccoding/community/qna.php">QnA</a>&#44; <a href="/ccccoding/event/event.php">이벤트</a>&#44; 이벤트 상세 &#44; <a href="/ccccoding/community/notice.php">공지사항</a></em></p>
+      <p class="color"><em>박*현: 헤더, 푸터&#44; <a href="/ccccoding/coupon_down.php">쿠폰</a>&#44; <a href="/ccccoding/mypage/mypage.php">마이페이지(전체)</a>&#44; <a href="/ccccoding/guide/guide.html">공통 가이드</a></em></p>
+      <p class="color"><em>우*지: 메인(풀베너, 분야별강의, 신규강의,인기강의)&#44; <br> <a href="/ccccoding/member/login.php">로그인</a> &#44; <a href="/ccccoding/member/signup.php">회원가입</a> &#44; <a href="/ccccoding/lecture/lecture.php">카테고리(전체)</a> &#44; 강의상세 &#44; <a href="/ccccoding/pdata/cart.php">수강바구니</a> &#44; 결제</em></p>
+    </div>
+    <p class="modal_input">
+      <input type="checkbox" id="checkbox" name="checkbox">
+      <label for="checkbox">오늘하루 열지 않음</label> 
+      <a href="#" class="modal_close">close</a>
+    </p>
+  </div>
+  <script src="/ccccoding/admin/js/cookie.js"></script>
   <script>
     let offset = 8;
 
