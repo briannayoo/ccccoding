@@ -163,7 +163,9 @@
       type: 'POST',
       data:data,
       dataType:'json',
-      error:function(){},
+      error:function(error){
+        console.log(error);
+      },
       success:function(data){
         console.log(data);                    
         if(data.result == '중복'){

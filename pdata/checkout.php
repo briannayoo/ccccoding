@@ -18,7 +18,8 @@ $midsql = "SELECT mid
     $midrow = $midresult->fetch_object();
     $mid = $midrow->mid;
 
-    $sql = "INSERT INTO payments (orders_date,pid,total_price,mid) VALUES (now(),'{$pidStr}',{$total_price},'{$mid}')";
+    $sql = "INSERT INTO payments (orders_date,pid,total_price,mid,status) VALUES (now(),'{$pidStr}',{$total_price},'{$mid}',0)";
+    // echo $sql;
     $result = $mysqli -> query($sql);
 
 if(isset($ucid) && $ucid !==''){
