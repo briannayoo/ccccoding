@@ -18,17 +18,14 @@ $sql = "SELECT COUNT(*) AS cnt FROM cart WHERE pid = '{$pid}' AND userid = '{$us
 $result = $mysqli -> query($sql);
 $row = $result -> fetch_object(); // $row->cnt
 
+
 if($result){    
     if($row->cnt > 0){
         $data = array('result' => '중복');
         echo json_encode($data);
     }else {
-        $cartsql = "INSERT INTO cart (pid,userid,regdate) VALUES (
-            {$pid},
-            '{$userid}',
-            now()
-        )";
-        
+        $cartsql = "INSERT INTO cart (pid,userid,regdate) VALUES ({$pid},'{$userid}',now())";
+
         $cartresult = $mysqli -> query($cartsql);
         if($cartresult){
             $data = array('result' => 'ok');

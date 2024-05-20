@@ -68,9 +68,9 @@
               <div class="order-infor">
                 <h3 class="d-flex justify-content-between"><strong>구매자 정보</strong><a href="#" title="수정페이지 바로가기">수정</a></h3>
                 <ul>
-                  <li>이름 <span>우유박</span></li>
+                  <li>이름 <span><?= $_SESSION['UID'] ?></span></li>
                   <li>이메일 <span>ccccoding@gmail.com</span></li>
-                  <li>휴대폰 번호 <span>010-0000-0000</span></li>
+                  <li>휴대폰 번호 <span>010-1234-1234</span></li>
                 </ul>
               </div>
               <div class="order-pay">
