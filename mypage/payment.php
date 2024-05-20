@@ -28,9 +28,27 @@
 
   $result = $mysqli->query($sql);
   $rsArr = array();
+  $pidarray = array();
   while ($rs = $result->fetch_object()) {
     $rsArr[] = $rs;
+    $pidarray[] = $rs->pid; // pid 값을 $pidarray에 추가
   }
+
+  $parr = array(); // 배열 초기화
+
+  if (!empty($pidarray)) {
+    $pidarray_str = implode(',', $pidarray);
+    $sql = "SELECT p.*, pm.total_price , pm.orders_date, pm.oid,pm.pid
+            FROM products p
+            JOIN payments pm ON p.pid = pm.pid
+            WHERE p.pid IN ($pidarray_str)";
+
+    $result = $mysqli->query($sql);
+    while ($rs = $result->fetch_object()) {
+      $parr[] = $rs;
+    }
+  }
+  
 ?>
 
       <div class="con-wrap">
@@ -43,10 +61,11 @@
         <!-- line-box-list(s) -->
         <?php if ($result->num_rows > 0) { ?>
         <div class="line-box-list">
-            <?php
-              if (isset($rsArr)) {  
-                foreach ($rsArr as $item) {
+          <?php
+              if (isset($parr)) {  
+                foreach ($parr as $item) {
             ?>
+            
           <div class="list">
             <span class="date">주문날짜: <em><?=$item->orders_date?></em></span>
             <div class="inner">
