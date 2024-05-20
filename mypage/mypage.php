@@ -20,10 +20,20 @@
   $days_since_registration = $diff->format("%a");
   // 가입일 디데이 날짜 관련 (e)
 
-  $psql = "SELECT *
-  FROM payments AS pa
-  INNER JOIN products AS p
-  ON pa.pid = p.pid";
+  // $psql = "SELECT *
+  // FROM payments AS pa
+  // INNER JOIN products AS p
+  // ON pa.pid = p.pid";
+
+  $psql = "SELECT
+          pa.*,
+          m.mid,
+          pa.pid
+        FROM payments AS pa
+        LEFT JOIN members AS m
+            ON pa.mid = m.mid
+        LEFT JOIN products AS p
+            ON pa.pid = p.pid";
 
   $presult = $mysqli->query($psql);
 

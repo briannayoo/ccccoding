@@ -104,7 +104,7 @@ while ($rs = $result->fetch_object()) {
                         </div>
                     </li>
 
-                    <li class="list-group-item">
+                    <li class="list-group-item on">
                         <a href="/ccccoding/event/event.php" class="accordion-button">
                             <i class="fa-solid fa-gift fa-middle"></i>
                             <span>이벤트</span>
