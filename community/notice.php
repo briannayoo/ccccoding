@@ -18,13 +18,14 @@ if(isset($keyword) && $keyword !== ''){
 
 $sort = $_GET['sort'] ?? '';
 if(isset($sort) && $sort !== ''){
-if($sort=="hit"){
-  $order = " order by hit desc";
-}
-else{ 
+  if($sort=="hit"){
+    $order = " order by hit desc";
+  }
+  else{ 
+    $order = " order by idx desc";
+  }
+}else{
   $order = " order by idx desc";
-
-}
 }
 //총개수 조회
 $sql = "SELECT COUNT(*) AS cnt FROM notice WHERE 1=1";
@@ -42,7 +43,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/pagination.php';
   $sql .= $search_where;
 
   $sql .= $order;
- 
+
   $limit = " LIMIT  $startLimit, $endLimit";
   $sql .= $limit;
 
@@ -114,10 +115,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/pagination.php';
           </form>
 
           <div class="sort-area">
-            <select class="form-select" aria-label="정렬 순서 선택">
-              <option value="1" selected>최신순</option>
-              <option value="2">조회순</option>
-            </select>
+            <form action="" id="sort">
+              <select class="form-select" name="sort" aria-label="정렬 순서 선택">
+                <option value="">선택하세요</option>
+                <option value="idx">최신순</option>
+                <option value="hit">조회순</option>
+              </select>
+
+            </form>
           </div>
           <!-- 공통 부분 (e) -->
           <hr class="communi-hr">
@@ -193,7 +198,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/pagination.php';
       </div>
     </div>
   </main>
-
+<script>
+  $(".form-select").change(function(){
+    $("#sort").submit();
+  })
+</script>
 <?php
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/footer.php';
 ?>

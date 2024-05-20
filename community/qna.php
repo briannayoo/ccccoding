@@ -154,7 +154,7 @@ if ($status == '1') {
               <?php
             }
             ?>
-            <div class="d-flex justify-content-end">
+            <div class="d-flex justify-content-end qna-btn">
               <a href="/ccccoding/community/qna_up.php" class="btn btn-primary btn-sm ">질문하기</a>
             </div>
           

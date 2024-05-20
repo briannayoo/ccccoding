@@ -9,10 +9,24 @@
   $result = $mysqli->query($sql);
   $resultArr = mysqli_fetch_assoc($result);
 
+  
+
    // 조회수 업데이트
     $hit = $resultArr['hit'] + 1;
     $sqlUpdate = "UPDATE notice SET hit={$hit} WHERE idx = {$bno}";
     $mysqli->query($sqlUpdate);
+
+    // 이전 공지사항 ID 가져오기
+$sql_prev = "SELECT MAX(idx) AS prev_id FROM notice WHERE idx < $bno";
+$result_prev = $mysqli->query($sql_prev);
+$row_prev = $result_prev->fetch_assoc();
+$prev_id = $row_prev['prev_id'];
+
+// 다음 공지사항 ID 가져오기
+$sql_next = "SELECT MIN(idx) AS next_id FROM notice WHERE idx > $bno";
+$result_next = $mysqli->query($sql_next);
+$row_next = $result_next->fetch_assoc();
+$next_id = $row_next['next_id'];
 ?>
 
 
@@ -94,6 +108,20 @@
                         </div>
                     </div>
                     <div class="btn-area d-flex justify-content-end">
+
+                    <?php if ($prev_id !== null) : ?>
+                    <a href="notice_view.php?idx=<?= $prev_id; ?>" class="btn btn-secondary">이전</a>
+                <?php else : ?>
+                    <a href="#" class="btn btn-primary disabled">이전</a>
+                <?php endif; ?>
+
+                <?php if ($next_id !== null) : ?>
+                    <a href="notice_view.php?idx=<?= $next_id; ?>" class="btn btn-secondary">다음</a>
+                <?php else : ?>
+                    <a href="#" class="btn btn-primary disabled">다음</a>
+                <?php endif; ?>
+
+
                         <button type="button" class="btn btn-primary btn-sm">이전</button>
                         <button type="button" class="btn btn-outline-secondary btn-sm">다음</button>
                     </div>
