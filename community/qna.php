@@ -76,14 +76,14 @@ if ($status == '1') {
                                         <span>커뮤니티</span>
                                     </button>
                                 </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse"
+                                <div id="collapseOne" class="accordion-collapse collapse show"
                                     data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <ul class="list-group depth-2">
                                             <li class="list-group-item">
                                                 <a href="/ccccoding/community/notice.php">공지사항</a>
                                             </li>
-                                            <li class="list-group-item">
+                                            <li class="list-group-item on">
                                                 <a href="/ccccoding/community/qna.php">Q&amp;A</a>
                                             </li>
                                         </ul>
