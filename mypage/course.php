@@ -6,8 +6,16 @@
   // $sql = "SELECT * FROM payments";
   // $result = $mysqli->query($sql);
 
+  $midsql = "SELECT mid 
+            FROM members
+            WHERE userid = '{$userid}'";
+  $midresult = $mysqli->query($midsql);
+  $midrow = $midresult->fetch_object();
+  $mid = $midrow->mid;
+
+
   //총개수 조회
-  $sql = "SELECT COUNT(*) AS cnt FROM payments WHERE 1=1";
+  $sql = "SELECT COUNT(*) AS cnt FROM payments WHERE mid = '{$mid}'" ;
   $result = $mysqli->query($sql);
   $count = $result->fetch_object();
 
@@ -16,29 +24,25 @@
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/pagination.php';
 
   //페이지네이션
-  $sql = "SELECT * FROM payments WHERE 1=1";
+  $sql = "SELECT pid FROM payments WHERE 1=1 AND mid = '{$mid}'";
   $order = " order by oid desc";
   $sql .= $order;
   $limit = " LIMIT  $startLimit, $endLimit";
   $sql .= $limit;
   // echo $sql;
-
-  $result = $mysqli->query($sql);
-  while ($rs = $result->fetch_object()) {
-    $rsArr[] = $rs;
-  }
-
   $rsArr = array(); // 배열 초기화
+  $result = $mysqli->query($sql);
+  $rs = $result->fetch_object();
 
-  $psql = "SELECT p.*, pr.name, pr.thumbnail
-            FROM payments p
-            LEFT JOIN products pr
-            ON p.pid = pr.pid";
+  $pids = $rs->pid;
+  $pidarray = explode(',', $pids);
 
-  $result = $mysqli->query($psql);
-
-  while ($rs = $result->fetch_object()) {
-    $rsArr[] = $rs;
+  $parr = array(); // 배열 초기화
+  for($i=0; $i<count($pidarray);$i++){
+    $sql ="SELECT * FROM products WHERE pid = $pidarray[$i]";
+    $result = $mysqli->query($sql);
+    $parr[] = $rs = $result->fetch_object();
+    
   }
 ?>
       
@@ -53,8 +57,8 @@
         <div class="lecture-area">
           <ul>
             <?php
-              if (isset($rsArr)) {  
-                foreach ($rsArr as $item) {
+              if (isset($parr)) {  
+                foreach ($parr as $item) {
             ?>
             <li>
               <a href="/ccccoding/lecture/lecture_detail.php?pid=<?= $item->pid; ?>">
