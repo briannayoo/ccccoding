@@ -164,7 +164,7 @@
 /* progressbar(박소현)  */
 .progress-area {flex-direction:column;}
 .progress-area .bg-graph {width:100%; margin-bottom:8px; background-color:var(--bg-sub2-c, #eee); border-radius:10px;}
-.progress-area .graph {display:block; position:relative; width:0; height:12px; background-color:#913dd3;}
+.progress-area .graph {display:block; position:relative; width:0; height:12px; background-color:#913dd3; border-radius:10px;}
 .progress-area .val-area {position:absolute; right:0; top:36px;}
 .count {display:block; text-align:right;}
 .count,
