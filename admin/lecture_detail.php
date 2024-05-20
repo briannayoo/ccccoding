@@ -25,6 +25,7 @@
         <div class="lecture_detail box-shadow d-flex gap-5 align-items-center">
           <img src="<?=$item->thumbnail;?>" alt="">
           <div class="d-flex">
+            <div class="d-flex align-items-center">
           <?php
               $i = 1;
               $count = count($cateArr);
@@ -38,19 +39,20 @@
                   //   $step1Name = $row->name;
                   // }
               ?>
-          <p class="search-result tit-h6"><span><?=$row->name;?>
-          <?php
-            if($i < $count){
-            ?>
-            <i class="fa-solid fa-angle-right fa-small"></i>
-            <?php
-            }
-            ?>
-            <?php
-              $i++;
-            }}
-            ?>
-            </p>
+                <p class="search-result tit-h6"><span><?=$row->name;?>
+                <?php
+                  if($i < $count){
+                  ?>
+                  <i class="fa-solid fa-angle-right fa-small"></i>
+                  <?php
+                  }
+                  ?>
+                  <?php
+                    $i++;
+                  }}
+                  ?>
+                  </p>
+              </div>
             <h2 class="bnr-tit-m"><?= $item->name;?></h2>
             <p class="tit-h4"><?= $item->content;?></p>
             <p><span><?= $item->sale_start_date;?></span> ~ <span><?= $item->sale_end_date;?></span></p>
