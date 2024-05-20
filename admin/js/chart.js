@@ -49,10 +49,33 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
+  //회원수 출력
+  $sql = "
+  SELECT 
+  (SELECT COUNT(*) FROM members WHERE status = 0) AS cnt1,
+  (SELECT COUNT(*) FROM members WHERE status = -1) AS cnt2,
+  (SELECT COUNT(*) FROM members WHERE status = '') AS cnt3;
+  ";
+  $result = $mysqli->query($sql);
+  $row = $result->fetch_object();
+  //나는 members라는 테이블에서 status 컬럼에 담긴 내용들(3개)를 각각 cnt1.2.3이라는 별칭에 담아서 sql쿼리 만듦
+
+  $arr = array();
+  $arr[0] = $row->cnt1;
+  $arr[1] = $row->cnt2;
+  $arr[2] = $row->cnt3;
+  //cnt 1,2,3의 수치를 각각 차트로 보여줄거라 배열로 만드는 과정
+
+  $data = [];
+  foreach($arr as $item){
+    array_push($data, $item);
+  }
+
   // 회원관리
+  const mData = <?= json_encode($data) ?>;
   const member1 = {
     label: '총회원수',
-    data: [90, 86, 89, 93, 95, 85],
+    data: mData,
     borderWidth: 2
   }
   const member2 = {
@@ -70,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
     type: 'line',
     data: {
       labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
-      datasets: [member1,member2,member3]
+      datasets: [memberData,member2,member3]
     },
     options: {
       scales: {
