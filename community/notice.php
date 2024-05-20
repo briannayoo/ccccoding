@@ -73,11 +73,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/pagination.php';
                                         <span>커뮤니티</span>
                                     </button>
                                 </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionExample">
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    data-bs-parent="#accordionExample">  <!--240519 show 클래스추가-->
                                     <div class="accordion-body">
                                         <ul class="list-group depth-2">
-                                            <li class="list-group-item">
+                                            <li class="list-group-item on"> <!--240519 on 클래스추가-->
                                                 <a href="/ccccoding/community/notice.php">공지사항</a>
                                             </li>
                                             <li class="list-group-item">

@@ -8,26 +8,31 @@ if ($mysqli->connect_error) {
 
 $offset = intval($_POST['offset']);
 $limit = 8;
-
-$sql = "SELECT * FROM products ORDER BY reg_date DESC LIMIT ?, ?";
-$stmt = $mysqli->prepare($sql);
-
-if ($stmt === false) {
-  die(json_encode(['error' => 'Prepare failed: ' . $mysqli->error]));
+$items=[];
+$sql = "SELECT * FROM products ORDER BY reg_date DESC LIMIT {$offset}, 8";
+$result = $mysqli -> query($sql);
+while($row =  $result->fetch_object()){
+  $items[] = $row;
 }
 
-$stmt->bind_param("ii", $offset, $limit); // 두 개의 정수를 바인딩합니다
+// $stmt = $mysqli->prepare($sql);
 
-if ($stmt->execute()) {
-  $result = $stmt->get_result();
-  $items = [];
-  while ($row = $result->fetch_object()) {
-      $items[] = $row;
-  }
-  echo json_encode($items);
-} else {
-  echo json_encode(['error' => 'Query failed: ' . $stmt->error]);
-}
+// if ($stmt === false) {
+//   die(json_encode(['error' => 'Prepare failed: ' . $mysqli->error]));
+// }
 
-$stmt->close();
+// $stmt->bind_param("ii", $offset, $limit); // 두 개의 정수를 바인딩합니다
+
+// if ($stmt->execute()) {
+//   $result = $stmt->get_result();
+//   $items = [];
+//   while ($row = $result->fetch_object()) {
+//       $items[] = $row;
+//   }
+//   echo json_encode($items);
+// } else {
+//   echo json_encode(['error' => 'Query failed: ' . $stmt->error]);
+// }
+echo json_encode($items);
+
 $mysqli->close();

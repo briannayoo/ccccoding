@@ -62,9 +62,9 @@
           <div class="new-lecture">
             <ul class="new-lecture-item">
             <?php
-              $sql = "SELECT * FROM products where 1=1 ORDER BY reg_date DESC";
+              $sql = "SELECT * FROM products ORDER BY reg_date DESC LIMIT 0,8";
               $result = $mysqli->query($sql);
-            
+              $rsArr = [];
               while ($rs = $result->fetch_object()) {
                 $rsArr[] = $rs;
               }
@@ -176,6 +176,7 @@
         data: { offset: offset },
         dataType: 'json',
         success: function(response) {
+          console.log(response);
         if (response.length > 0) {
             response.forEach(item => {
               const newItem = `

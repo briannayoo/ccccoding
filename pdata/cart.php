@@ -220,13 +220,13 @@
 
     $('.order-item input').change(function(){
       calcTotal();
+      getCheckedCnt();
     })
     function calcTotal(){
       let cartItem = $('.order-item');
       let subtotal = 0;
-   
+      let pidArr = [];
       cartItem.each(function(){
-        let pidArr = [];
         $('#pidArr').val('');
         if($(this).find('input').prop('checked')){
           console.log('true');
@@ -235,10 +235,12 @@
           // console.log(subtotal);
           let cartid =  $(this).closest('li').attr('data-id');
           pidArr.push(cartid);
-          $('#pidArr').val('');
-          $('#pidArr').val(pidArr);
         } 
       });        
+
+      $('#pidArr').val('');
+      $('#pidArr').val(pidArr);
+
       let discount = Number($('#coupon-price').text());
       let grand_total = subtotal+discount;
       $('#subtotal').text(subtotal);
@@ -252,6 +254,7 @@
         $("#all-check").click(function(){
           $('.form-check-input').prop('checked', $(this).prop('checked'));
           calcTotal();
+          getCheckedCnt();
         });
       }
 
@@ -281,16 +284,18 @@
     //체크 개수 출력
     function getCheckedCnt() {
     // 선택된 목록 가져오기
-    const selectedElements = $('input[name="check-group"]').prop('checked');
+    const selectedElements =$('.check-lecture-list input:checked');
     
     // 선택된 목록의 갯수 세기
     const selectedElementsCnt = selectedElements.length;
+    console.log(selectedElementsCnt);
     
     // 출력
     $('.li-leg').text(selectedElementsCnt);
     }
+    getCheckedCnt();
+    $("#all-check").trigger('click');
   });
-  getCheckedCnt();
   </script>
 <?php
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/footer.php';
