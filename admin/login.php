@@ -40,11 +40,11 @@ session_start();
         <h1 class="text-center bnr-tit-l mb-3 logo"><img src="/ccccoding/admin/image/logo.png" alt="" class="login_logo">관리자 로그인</h1>
         <div class="form-floating mb-3">
           <input type="text" class="form-control" name="userid" id="userid" placeholder="ID: admin">
-          <label for="userid">ID: admin</label>
+          <label for="userid">ID:</label>
         </div>
         <div class="form-floating">
           <input type="password" class="form-control" name="passwd" id="passwd" placeholder="PW: 1234">
-          <label for="passwd">PW: 1111</label>
+          <label for="passwd">PW:</label>
         </div>
         <div class="mt-3">
           <button class="btn btn-primary log-btn">로그인</button>
@@ -61,8 +61,8 @@ session_start();
       <hr>
       <p><em>시크릿 쥬쥬:</em> 유*현(팀장),박*현, 우*지</p>
       <p><em>제작기간:</em> 2024.04.04 ~ 2024.05.03</p>
-      <p><em>기획서:</em> <a href="#" title="기획서바로가기" target="_blank">figma</a> <em>버전관리:</em> <a href="https://github.com/briannayoo/ccccoding.git" title="ccccoding 깃허브 바로가기" target="_blank">Github</a></p>
-      <p><em>개발환경:</em> HTML5, CSS3, Jquery</p>
+      <p><em>기획서:</em> <a href="https://www.figma.com/design/fqQX96XmdrjrfNPICDcXng/%EC%8B%9C%ED%81%AC%EB%A6%BF-%EC%A5%AC%EC%A5%AC?node-id=150%3A3375&t=cV1jiOQoGEwGsGJh-1" title="기획서바로가기" target="_blank">figma</a> <em>버전관리:</em> <a href="https://github.com/briannayoo/ccccoding.git" title="ccccoding 깃허브 바로가기" target="_blank">Github</a></p>
+      <p><em>개발환경:</em> HTML5, CSS3, Jquery,php,mysql</p>
       <hr>
       <span><em>업무분장</em></span>
       <p><em>기획:</em> 팀원 전체</p>
@@ -71,6 +71,7 @@ session_start();
       <p class="color"><em>유*현: QnA&#44; 이벤트&#44; 공지사항</em></p>
       <p class="color"><em>박*현: 대시보드(기획)&#44; 쿠폰관리&#44; 수강관리&#44; 회원관리</em></p>
       <p class="color"><em>우*지: 대시보드(디자인,구현)&#44; 로그인&#44; 강의관리&#44; 카테고리</em></p>
+      <p>ID:admin || PW:1111</p>
     </div>
     <p class="modal_input">
       <input type="checkbox" id="checkbox" name="checkbox">
