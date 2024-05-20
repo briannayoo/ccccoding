@@ -3,31 +3,31 @@
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/mypage_nav.php';
 
-  $sql = "SELECT * FROM payments";
-  $result = $mysqli->query($sql);
+  $midsql = "SELECT mid 
+            FROM members
+            WHERE userid = '{$userid}'";
+  $midresult = $mysqli->query($midsql);
+  $midrow = $midresult->fetch_object();
+  $mid = $midrow->mid;
 
   //총개수 조회
-  $sql = "SELECT COUNT(*) AS cnt FROM payments WHERE 1=1";
+  $sql = "SELECT COUNT(*) AS cnt FROM payments WHERE mid = '{$mid}'";
   $result = $mysqli->query($sql);
   $count = $result->fetch_object();
-
   $totalcount = $count->cnt; //총검색건수
+
   $targetTable = 'payments';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/pagination.php';
 
   //페이지네이션
-  $sql = "SELECT * FROM payments WHERE 1=1";
-  $order = " order by oid desc";
+  $sql = "SELECT * FROM payments WHERE mid = '{$mid}'";
+  $order = " ORDER BY oid DESC";
   $sql .= $order;
-  $limit = " LIMIT  $startLimit, $endLimit";
+  $limit = " LIMIT $startLimit, $endLimit";
   $sql .= $limit;
-  // echo $sql;
 
   $result = $mysqli->query($sql);
-  while ($rs = $result->fetch_object()) {
-    $rsArr[] = $rs;
-  }
-
+  $rsArr = array();
   while ($rs = $result->fetch_object()) {
     $rsArr[] = $rs;
   }

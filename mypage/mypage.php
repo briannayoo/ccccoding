@@ -2,6 +2,7 @@
   $title = '마이페이지-홈';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/mypage_nav.php';
+  
   $midsql = "SELECT mid 
             FROM members
             WHERE userid = '{$userid}'";
@@ -32,7 +33,7 @@
   ON pa.pid = p.pid";
 
   // 모든 수강신청 강의 수
-  $psql = "SELECT COUNT(*) AS cnt FROM payments WHERE mid = '{$mid}'"; echo $psql;
+  $psql = "SELECT COUNT(*) AS cnt FROM payments WHERE mid = '{$mid}'";
   $presult = $mysqli->query($psql);
   $prow = $presult->fetch_object();
 
