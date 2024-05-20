@@ -138,6 +138,7 @@
 .question-title{font-weight: 600; padding: 10px 16px;}
 .question-text{padding: 26px 40px;}
 .question-text > button{float: right; border: none; background-color: transparent;}
+.qna-btn{margin-top: 18px;}
 /* .qna-up-title{border: none;} */
 .qna-up-title ::placeholder{color: var(--text-c6); font-weight: 600; padding-bottom: 26px;}
 .qna-up-title{padding-bottom: 26px;}
@@ -159,6 +160,7 @@
 .list-group.box-list .txt-group > p {margin-top:16px; font-size:2rem;}
 
 .event-top-btn > button{border: none; background: none; }
+.event-top-btn{gap: 16px;}
 
 
 /* progressbar(박소현)  */
