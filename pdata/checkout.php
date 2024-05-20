@@ -13,6 +13,7 @@ $ucid = $_POST['coupon']??'';
 
 
     $sql = "INSERT INTO payments (orders_date,pid,total_price) VALUES (now(),'{$pidStr}',{$total_price})";
+    echo $sql;
     $result = $mysqli -> query($sql);
 
 if(isset($ucid) && $ucid !==''){
