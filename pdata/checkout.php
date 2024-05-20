@@ -11,9 +11,14 @@ $pidStr = implode(',',$pid);
 $total_price = $_POST['total_price'];
 $ucid = $_POST['coupon']??'';
 
+$midsql = "SELECT mid 
+            FROM members
+            WHERE userid = '{$userid}'";
+    $midresult = $mysqli->query($midsql);
+    $midrow = $midresult->fetch_object();
+    $mid = $midrow->mid;
 
-    $sql = "INSERT INTO payments (orders_date,pid,total_price) VALUES (now(),'{$pidStr}',{$total_price})";
-    echo $sql;
+    $sql = "INSERT INTO payments (orders_date,pid,total_price,mid) VALUES (now(),'{$pidStr}',{$total_price},'{$mid}')";
     $result = $mysqli -> query($sql);
 
 if(isset($ucid) && $ucid !==''){

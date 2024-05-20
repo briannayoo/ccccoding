@@ -5,9 +5,9 @@
   
 //회원수 출력
   $sql = "SELECT
-  (SELECT COUNT(*) FROM members WHERE status = 0) AS cnt1,
-  (SELECT COUNT(*) FROM members WHERE status = 1) AS cnt2,
-  (SELECT COUNT(*) FROM members WHERE status = 2) AS cnt3;
+  (SELECT COUNT(*) FROM payments WHERE status = 0) AS cnt1,
+  (SELECT COUNT(*) FROM payments WHERE status = 1) AS cnt2,
+  (SELECT COUNT(*) FROM payments WHERE status = 2) AS cnt3;
   ";
   $result = $mysqli->query($sql);
   $row = $result->fetch_object();
@@ -227,19 +227,16 @@ const age20 = {
   label: '20대',
   data: [40, 50, 70, 20, 60, 65],
   borderWidth: 2
-  // backgroundColor: 'rgba(255,0,0,0.5)'
 }
 const age30 = {
   label: '30대',
   data: [10, 10, 80, 10, 90, 95],
   borderWidth: 2
-  // backgroundColor: 'rgba(255,255,0,0.5)'
 }
 const age40 = {
   label: '40-60대',
   data: [20, 20, 10, 30, 20, 15],
   borderWidth: 2
-  // backgroundColor: 'rgba(0,0,255,0.5)'
 }
 new Chart(barChart2, {
   type: 'bar',
@@ -269,7 +266,7 @@ new Chart(barChart2, {
 const pData = <?= json_encode($data) ?>;
 const Completion = {
   label: '2024',
-  data: [pData],
+  data: pData,
   borderWidth: 2,
 }
 new Chart(pieChart, {
@@ -282,7 +279,6 @@ new Chart(pieChart, {
   },
   options: {
     maintainAspectRatio:false
-    // backgroundColor: ['rgba(255,255,0,0.5)','rgba(0,0,255,0.5)','rgba(0,255,255,0.5)','rgba(255,0,0,0.5)']
   }
 });
 
