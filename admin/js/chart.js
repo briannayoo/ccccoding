@@ -13,22 +13,16 @@ document.addEventListener("DOMContentLoaded", function() {
     label: '2022년',
     data: [90, 86, 89, 93, 95,95,95,95,95,95,95,95,],
     borderWidth: 2
-    // backgroundColor: 'rgba(255,0,0,0.5)',
-    // borderColor:'rgba(255,0,0,0.5)'
   }
   const sales2023 = {
     label: '2023년',
     data: [70, 76, 79, 73, 35,35,35,35,35,35,35,35,],
     borderWidth: 2
-    // backgroundColor: 'rgba(0,255,0,0.5)',
-    // borderColor:'rgba(0,255,0,0.5)'
   }
   const sales2024 = {
     label: '2024년',
     data: [60, 66, 69, 63, 65,],
     borderWidth: 2
-    // backgroundColor: 'rgba(0,0,255,0.5)',
-    // borderColor:'rgba(0,0,255,0.5)'
   }
   new Chart(barChart, {
     type: 'line',
@@ -60,22 +54,16 @@ document.addEventListener("DOMContentLoaded", function() {
     label: '총회원수',
     data: [90, 86, 89, 93, 95, 85],
     borderWidth: 2
-    // backgroundColor: 'rgba(255,0,0,0.5)',
-    // borderColor:'rgba(255,0,0,0.5)'
   }
   const member2 = {
     label: '신규 회원',
     data: [30, 19, 24, 50, 55, 25],
     borderWidth: 2
-    // backgroundColor: 'rgba(0,255,0,0.5)',
-    // borderColor:'rgba(0,255,0,0.5)'
   }
   const member3 = {
     label: '탈퇴회원',
     data: [1, 1, 3, 3, 3, 4],
     borderWidth: 2
-    // backgroundColor: 'rgba(0,0,255,0.5)',
-    // borderColor:'rgba(0,0,255,0.5)'
   }
 
   new Chart(lineChart, {
