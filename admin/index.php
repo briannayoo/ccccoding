@@ -1,6 +1,28 @@
 <?php
   $title = '대쉬보드';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/header.php';
+
+  
+//회원수 출력
+  $sql = "SELECT
+  (SELECT COUNT(*) FROM payments WHERE status = 0) AS cnt1,
+  (SELECT COUNT(*) FROM payments WHERE status = 1) AS cnt2,
+  (SELECT COUNT(*) FROM payments WHERE status = 2) AS cnt3;
+  ";
+  $result = $mysqli->query($sql);
+  $row = $result->fetch_object();
+  //나는 members라는 테이블에서 status 컬럼에 담긴 내용들(3개)를 각각 cnt1.2.3이라는 별칭에 담아서 sql쿼리 만듦
+
+  $arr = array();
+  $arr[0] = $row->cnt1;
+  $arr[1] = $row->cnt2;
+  $arr[2] = $row->cnt3;
+  //cnt 1,2,3의 수치를 각각 차트로 보여줄거라 배열로 만드는 과정
+
+  $data = [];
+  foreach($arr as $item){
+    array_push($data, $item);
+  }
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
@@ -64,7 +86,7 @@
         <div class="qna-area box-shadow small-box main-m">
           <div class="chaption">
             <h3 class="txt-title">q&a(최신순)</h3>
-            <a href="#" class="fa-solid fa-circle-plus fa-small"></a>
+            <a href="/ccccoding/admin/qna.php" class="fa-solid fa-circle-plus fa-small"></a>
           </div>
           <ul>
             <li class="list-stlye"><a href="#"><span>안돼서 짜증나요</span><span>2024.05.03</span></a></li>
@@ -78,7 +100,7 @@
         <div class="notice-area box-shadow small-box main-m">
           <div class="chaption">
             <h3 class="txt-title">공지사항(최신순)</h3>
-            <a href="#" class="fa-solid fa-circle-plus fa-small"></a>
+            <a href="/ccccoding/admin/notice_list.php" class="fa-solid fa-circle-plus fa-small"></a>
           </div>
           <ul>
             <li class="list-stlye"><a href="#"><span>ㅋㅋㅋ코딩 여름휴가</span><span>2024.07.06</span></a></li>
@@ -92,7 +114,7 @@
         <div class="event-area box-shadow small-box main-m">
           <div class="chaption">
             <h3 class="txt-title">이벤트(최신순)</h3>
-            <a href="#" class="fa-solid fa-circle-plus fa-small"></a>
+            <a href="/ccccoding/admin/event.php" class="fa-solid fa-circle-plus fa-small"></a>
           </div>
           <ul>
             <li class="list-stlye"><a href="#"><span>첫 만남 축하 이벤트</span><span>2024.10.26</span></a></li>
@@ -106,10 +128,162 @@
     </div>
   </div>
   <!-- chart.js -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="/ccccoding/admin/js/dashboard.js"></script>
-  <script src="/ccccoding/admin/js/chart.js"></script>
+  <!-- <script src="/ccccoding/admin/js/chart.js"></script> -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+/*
+  =====================대쉬보드 
+*/
+const lineChart = $('#line-chart');
+const barChart = $('#bar-chart');
+const pieChart = $('#pie-chart');
+const barChart2 = $('#bar-chart2');
+
+// 이달의 매출
+const sales2022 = {
+  label: '2022년',
+  data: [90, 86, 89, 93, 95,95,95,95,95,95,95,95,],
+  borderWidth: 2
+}
+const sales2023 = {
+  label: '2023년',
+  data: [70, 76, 79, 73, 35,35,35,35,35,35,35,35,],
+  borderWidth: 2
+}
+const sales2024 = {
+  label: '2024년',
+  data: [60, 66, 69, 63, 65,],
+  borderWidth: 2
+}
+new Chart(barChart, {
+  type: 'line',
+  data: {
+    labels: ['1월', '2월', '3월', '4월', '5월','6월','7월','8월','9월','10월','11월','12월'],
+    datasets: [sales2022,sales2023,sales2024]
+  },
+  options: {
+    cutout:'90%',
+    maintainAspectRatio:false,
+    plugins: {
+      legend: {
+          Position: 'bottom',
+          display: true,
+          labels: {
+            
+              color: '#222',
+              font: {
+                size: 16
+            }
+          }
+      }
+    }
+  }
+});
+
+
+// 회원관리
+
+const member1 = {
+  label: '총회원수',
+  data: [90, 86, 89, 93, 95, 85],
+  borderWidth: 2
+}
+const member2 = {
+  label: '신규 회원',
+  data: [30, 19, 24, 50, 55, 25],
+  borderWidth: 2
+}
+const member3 = {
+  label: '탈퇴회원',
+  data: [1, 1, 3, 3, 3, 4],
+  borderWidth: 2
+}
+
+new Chart(lineChart, {
+  type: 'line',
+  data: {
+    labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
+    datasets: [member1,member2,member3]
+  },
+  options: {
+    scales: {
+      y: {
+        // beginAtZero: true
+        stacked:false
+      }
+    },
+    maintainAspectRatio:false
+  }
+});
+
+
+//강의관리
+
+const age20 = {
+  label: '20대',
+  data: [40, 50, 70, 20, 60, 65],
+  borderWidth: 2
+}
+const age30 = {
+  label: '30대',
+  data: [10, 10, 80, 10, 90, 95],
+  borderWidth: 2
+}
+const age40 = {
+  label: '40-60대',
+  data: [20, 20, 10, 30, 20, 15],
+  borderWidth: 2
+}
+new Chart(barChart2, {
+  type: 'bar',
+  data: {
+    labels: ['html', 'css', 'javascript', 'php', 'rect','python'],
+    datasets: [age20,age30,age40]
+  },
+  options: {
+    cutout:'90%',
+    maintainAspectRatio:false,
+    plugins: {
+      legend: {
+          Position: 'bottom',
+          display: true,
+          labels: {
+              color: '#222',
+              font: {
+                size: 16
+            }
+          }
+      }
+    }
+  }
+});
+
+//수료관리
+const pData = <?= json_encode($data) ?>;
+const Completion = {
+  label: '2024',
+  data: pData,
+  borderWidth: 2,
+}
+new Chart(pieChart, {
+  type: 'pie',
+  data: {
+    labels: ['수료완료', '진행중', '미수료'],
+    datasets: [
+      Completion
+    ]
+  },
+  options: {
+    maintainAspectRatio:false
+  }
+});
+
+});
+
+  </script>
 </body>
 </html>

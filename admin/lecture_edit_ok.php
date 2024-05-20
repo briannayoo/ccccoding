@@ -46,6 +46,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
   $url = $_POST['url'] ?? '';
   $addedImg_id = rtrim($_POST['product_image'], ',');
 
+  if(strlen($_FILES['thumbnail']['tmp_name']) > 0){
   //파일 사이즈 검사
   if ($_FILES['thumbnail']['size'] > 10240000) {
     echo "<script>
@@ -78,6 +79,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
     </script>";
     exit;
   }
+  
   $sql = "UPDATE products SET
     name ='{$name}',
     cate ='{$cate}',
@@ -102,6 +104,31 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/dbcon.php';
     url ='{$url}'
     WHERE pid={$pid}
   ";
+  } else {
+    $sql = "UPDATE products SET
+    name ='{$name}',
+    cate ='{$cate}',
+    content ='{$content}',
+    price ='{$price}',
+    price_select ='{$price_select}',
+    sale_ratio ='{$sale_ratio}',
+    cnt ='{$cnt}',
+    textbook ='{$textbook}',
+    isgold ='{$isgold}',
+    issilver ='{$issilver}',
+    iscopper = '{$iscopper}',
+    isrecom = '{$isrecom}',
+    locate = '{$locate}',
+    userid = '{$userid}',
+    sale_start_date ='{$startDateTime}',
+    sale_end_date ='{$endDateTime}',
+    reg_date =now(),
+    status ='{$status}',
+    delivery_fee ='{$delivery_fee}',
+    url ='{$url}'
+    WHERE pid={$pid}
+  ";
+  }
 
   // echo $sql;
   $result = $mysqli->query($sql);

@@ -141,6 +141,7 @@
   <script>
   $('.cart').on('submit', function(e){
     e.preventDefault();
+    // alert('카트실행');
     //상품코드, 옵션명, 수량
     // let target = $('.widget-desc input[type="radio"]:checked');
     let pid = <?= $pid; ?>;      
@@ -154,7 +155,7 @@
       pid : pid,
       userid : userid
     }
-    //console.log(data);
+    console.log(data);
 
     $.ajax({
       url:'/ccccoding/pdata/cart_insert.php',
