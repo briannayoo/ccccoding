@@ -23,7 +23,7 @@ if($sort=="hit"){
 }
 else{ 
   $order = " order by idx desc";
- 
+
 }
 }
 //총개수 조회
@@ -42,6 +42,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/pagination.php';
   $sql .= $search_where;
 
   $sql .= $order;
+ 
   $limit = " LIMIT  $startLimit, $endLimit";
   $sql .= $limit;
 
