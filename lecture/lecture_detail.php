@@ -1,5 +1,5 @@
 <?php
-  $title = 'ccccoding';
+  $title = 'main';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
 
   $pid=$_GET['pid'];
