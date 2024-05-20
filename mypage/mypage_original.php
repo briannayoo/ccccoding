@@ -2,13 +2,6 @@
   $title = '마이페이지-홈';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/mypage_nav.php';
-  
-  $midsql = "SELECT mid 
-            FROM members
-            WHERE userid = '{$userid}'";
-  $midresult = $mysqli->query($midsql);
-  $midrow = $midresult->fetch_object();
-  $mid = $midrow->mid;
 
   // 가입일 디데이 날짜 관련 (s)
   $sql = "SELECT DATE(regdate) AS regdate FROM members WHERE userid = '$userid'";
@@ -27,29 +20,61 @@
   $days_since_registration = $diff->format("%a");
   // 가입일 디데이 날짜 관련 (e)
 
-  $psql = "SELECT *
-  FROM payments AS pa
-  INNER JOIN products AS p
-  ON pa.pid = p.pid";
+  // $psql = "SELECT *
+  // FROM payments AS pa
+  // INNER JOIN products AS p
+  // ON pa.pid = p.pid";
+
+  $psql = "SELECT
+          pa.*,
+          m.mid,
+          pa.pid
+        FROM payments AS pa
+        LEFT JOIN members AS m
+            ON pa.mid = m.mid
+        LEFT JOIN products AS p
+            ON pa.pid = p.pid";
+
+  $presult = $mysqli->query($psql);
+
+  $prsArr = [];
+  while ($prs = $presult->fetch_object()) {
+    $prsArr[] = $prs;
+  }
 
   // 모든 수강신청 강의 수
-  $psql = "SELECT COUNT(*) AS cnt FROM payments WHERE mid = '{$mid}'";
-  $presult = $mysqli->query($psql);
-  $prow = $presult->fetch_object();
+  $total_orders_sql = "SELECT COUNT(DISTINCT oid) AS total_orders FROM payments";
+  $total_orders_result = $mysqli->query($total_orders_sql);
+  if ($total_orders_result->num_rows > 0) {
+      $total_orders_row = $total_orders_result->fetch_object();
+      $total_orders = $total_orders_row->total_orders;
+  } else {
+      $total_orders = 0;
+  }
 
   // 수강중인 강의 수
-  $ingsql = "SELECT COUNT(*) AS cnt FROM payments WHERE mid = '{$mid}' AND (status = 1 or status = '' )";
-  $ingresult = $mysqli->query($ingsql);
-  $ingrow = $ingresult->fetch_object();
+  $ongoing_orders_sql = "SELECT COUNT(DISTINCT oid) AS ongoing_orders FROM payments WHERE status = 1";
+  $ongoing_orders_result = $mysqli->query($ongoing_orders_sql);
+  if ($ongoing_orders_result->num_rows > 0) {
+      $ongoing_orders_row = $ongoing_orders_result->fetch_object(); 
+      $ongoing_orders = $ongoing_orders_row->ongoing_orders;
+  } else {
+      $ongoing_orders = 0;
+  }
 
   // 수강완료 강의 수
-  $csql = "SELECT COUNT(*) AS cnt FROM payments WHERE mid = '{$mid}' AND status = 2";
-  $cresult = $mysqli->query($csql);
-  $crow = $cresult->fetch_object();
+  $completed_orders_sql = "SELECT COUNT(DISTINCT oid) AS completed_orders FROM payments WHERE status = 2";
+  $completed_orders_result = $mysqli->query($completed_orders_sql);
+  if ($completed_orders_result->num_rows > 0) {
+      $completed_orders_row = $completed_orders_result->fetch_object();
+      $completed_orders = $completed_orders_row->completed_orders;
+  } else {
+      $completed_orders = 0;
+  }
 
   // 수강완료 강의 수의 비율 계산
-  if ($prow->cnt > 0) {
-    $completion_rate = floor(($crow->cnt / $prow->cnt) * 100);
+  if ($total_orders > 0) {
+    $completion_rate = floor(($completed_orders / $total_orders) * 100);
     $formatted_rate = number_format($completion_rate, 2);
   } else {
     $completion_rate = 0;
@@ -65,24 +90,23 @@
         <!-- 공통 부분 (e) -->
 
         <!-- 아래에서 부터 작업영역입니다 -->
-
         <div class="line-box-list list-3">
           <div class="list">
             <div class="inner">
               <div class="tit-h4">모든 수강신청 강의</div>
-              <span class="num"><?= $prow->cnt ?></span>
+              <span class="num"><?= $total_orders ?></span>
             </div>
           </div>
           <div class="list">
             <div class="inner">
               <div class="tit-h4">수강중인 강의</div>
-              <span class="num"><?= $ingrow->cnt ?></span>
+              <span class="num"><?= $ongoing_orders ?></span>
             </div>
           </div>
           <div class="list">
             <div class="inner">
               <div class="tit-h4">수강완료</div>
-              <span class="num"><?= $crow->cnt ?></span>
+              <span class="num"><?= $completed_orders ?></span>
             </div>
           </div>
         </div>
