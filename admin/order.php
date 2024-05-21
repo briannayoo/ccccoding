@@ -10,7 +10,7 @@
     $search_where = '';
     
     //총개수 조회
-    $sql = "SELECT COUNT(*) AS cnt FROM payments";
+    $sql = "SELECT COUNT(*) AS cnt FROM payments WHERE mid = '{$mid}'";
     $sql .= $search_where;
     $result = $mysqli->query($sql);
     $count = $result->fetch_object();
@@ -20,7 +20,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
 
     //페이지네이션
-    $sql = "SELECT * FROM payments";
+    $sql = "SELECT * FROM payments WHERE mid = '{$mid}'";
     $sql .= $search_where;
     $order = " order by oid desc";
     $sql .= $order;
@@ -118,7 +118,7 @@
             <colgroup>
               <col style="width:auto" span="3">
               <col style="width:35%">
-              <col style="width:auto" span="3">
+              <col style="width:auto" span="4">
             </colgroup>
           </colgroup>
           <thead>
@@ -135,7 +135,7 @@
               <th scope="col">강의명</th>
               <th scope="col">금액</th>
               <!-- <th scope="col">쿠폰사용</th> -->
-              <!-- <th scope="col">사용기한</th> -->
+              <th scope="col">사용기한</th>
               <th scope="col">취소신청</th>
               <th scope="col">환불신청</th>
             </tr>
@@ -157,7 +157,7 @@
               <td><?= $item->name ?></td>
               <td><?= $item->total_price ?>원</td>
               <!-- <td>$item->coupon_used</td>
-              <td>item->sale_start_date ?> ~ $item->sale_end_date</td> -->
+              <td><?= $item->sale_start_date ?> ~ <?= $item->sale_end_date ?></td> -->
               <td class="request"><?= $item->cancel_request ?></td>
               <td class="refund"><?= $item->refund_request ?></td>
             </tr>
