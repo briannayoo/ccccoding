@@ -135,7 +135,7 @@
               <th scope="col">강의명</th>
               <th scope="col">금액</th>
               <!-- <th scope="col">쿠폰사용</th> -->
-              <th scope="col">사용기한</th>
+              <!-- <th scope="col">사용기한</th> -->
               <th scope="col">취소신청</th>
               <th scope="col">환불신청</th>
             </tr>
@@ -157,7 +157,7 @@
               <td><?= $item->name ?></td>
               <td><?= $item->total_price ?>원</td>
               <!-- <td>$item->coupon_used</td>
-              <td><?= $item->sale_start_date ?> ~ <?= $item->sale_end_date ?></td> -->
+              <td>$item->sale_start_date ?> ~ $item->sale_end_date ?></td> -->
               <td class="request"><?= $item->cancel_request ?></td>
               <td class="refund"><?= $item->refund_request ?></td>
             </tr>
