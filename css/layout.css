@@ -16,7 +16,7 @@
 .sub-menu .on .accordion-button {color:var(--text-c2,#C47CFD);}
 .sub .sub-menu .accordion-button > span {display:inline-block;}
 .sub .sub-menu .accordion-body {padding:0;}
-.sub .con-wrap {width:calc(100% - 216px);}
+.sub .con-wrap {width:calc(100% - 232px);}
 .sub .sort-area {display:flex; justify-content:flex-end; margin:10px 0 26px;}
 .sub .sort-area .form-select {width:auto; min-width:100px; padding:2px 8px; background:url(../image/ico_select_arrow.png) no-repeat right 8px center / 10px auto; font-size:1.4rem;}
 .sub .depth-2 a {display:block; padding:4px 16px 4px 60px; font-size:1.6rem;}
