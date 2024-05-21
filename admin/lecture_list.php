@@ -57,7 +57,7 @@
     $rsArr[] = $rs;
   }
   
-  //$count = count($rsArr);
+  //$totalcount = count($rsArr);
   
   $sql = "SELECT * FROM category where step = 1";
   $result = $mysqli->query($sql);
@@ -155,7 +155,7 @@
         </form>
         <hr>  
           <div>
-            검색결과: <?= count($rsArr);?>
+            검색결과: <?= $totalcount;?>
           </div>
         <hr>
         <!-- 강의리스트 -->
