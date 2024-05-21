@@ -11,6 +11,18 @@
   $hit = $resultArr['hit'] + 1;
   $sqlUpdate = "UPDATE qna SET hit={$hit} WHERE qid = {$qno}";
   $mysqli->query($sqlUpdate);
+
+//   // 이전 공지사항 ID 가져오기
+// $sql_prev = "SELECT MAX(qid) AS prev_id FROM qna WHERE qid < $qno";
+// $result_prev = $mysqli->query($sql_prev);
+// $row_prev = $result_prev->fetch_assoc();
+// $prev_id = $row_prev['prev_id'];
+
+// // 다음 공지사항 ID 가져오기
+// $sql_next = "SELECT MIN(qid) AS next_id FROM qna WHERE qid > $qno";
+// $result_next = $mysqli->query($sql_next);
+// $row_next = $result_next->fetch_assoc();
+// $next_id = $row_next['next_id'];
 ?>
 
   <!-- 공통 부분 (s) -->
@@ -109,6 +121,7 @@
             </div>
           </div>
           <div class="btn-area d-flex justify-content-end">
+        
             <button type="button" class="btn btn-primary btn-sm">이전</button>
             <button type="button" class="btn btn-outline-secondary btn-sm">다음</button>
           </div>
