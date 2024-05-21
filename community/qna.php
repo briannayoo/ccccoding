@@ -141,7 +141,7 @@ if ($status == '1') {
                 <p class="txt-md qna-text"><?= $row['content']?></p>
                 <div class="d-flex justify-content-between">
                   <div class="d-flex list-text">
-                    <p>답변 : <span class="qna-span"><?= $row['status']?></span></p>
+                    <p>답변 : <span class="qna-span"><?php if ($row['status'] == 1) { echo '답변완료'; } else { echo '답변미답'; }; ?></span></p>
                     <p><i class="fa-solid fa-eye fa-small"></i> : <?= $row['hit']?></p>
                     <p><i class="fa-solid fa-heart fa-small"></i> : <?= $row['thumbsup']?></p>
                   </div>

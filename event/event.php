@@ -130,7 +130,7 @@ while ($rs = $result->fetch_object()) {
           </div>
 
           <hr>
-          <ul class="list-group box-list">
+          <ul class="list-group box-list event">
         <?php
         if(isset($rsArr)){
           foreach($rsArr as $ea){

@@ -123,7 +123,6 @@
 .notice-text{ width: 900px;}
 .notice-fix{width: 212px; height: 520px;}
 .notice-content{gap: 120px;}
-.notice-fix ul li{list-style-type: circle;}
 .notice-sec{font-family: var(--laundrygothic); text-align: center; padding: 10px 0;}
 /* qna (유부현) */
 /* .qna-up-title{border: none;} */

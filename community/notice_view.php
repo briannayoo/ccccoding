@@ -112,13 +112,13 @@ $next_id = $row_next['next_id'];
                     <?php if ($prev_id !== null) : ?>
                     <a href="notice_view.php?idx=<?= $prev_id; ?>" class="btn btn-primary btn-sm">이전</a>
                 <?php else : ?>
-                    <a href="#" class="btn btn-primary disabled">이전</a>
+                    <a href="#" class="btn btn-primary btn-sm disabled">이전</a>
                 <?php endif; ?>
 
                 <?php if ($next_id !== null) : ?>
                     <a href="notice_view.php?idx=<?= $next_id; ?>" class="btn btn-outline-secondary btn-sm">다음</a>
                 <?php else : ?>
-                    <a href="#" class="btn btn-primary disabled">다음</a>
+                    <a href="#" class="btn btn-outline-secondary btn-sm disabled">다음</a>
                 <?php endif; ?>
 
 
