@@ -1,6 +1,13 @@
 <?php
   $title = '질문하기';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
+  if(!isset($_SESSION['UID'])){
+    echo "<script>
+    alert('로그인해주세요');
+    history.back();
+    </script>";
+  }
+  
 ?>
 <!-- include summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
@@ -62,11 +69,11 @@
                             <input type="text" class="qna-control" id="fm-txt03" name="title" placeholder="질문에 핵심내용을 요약해보세요.">
                         </div>
                     </div>
-                    <div class="input-group">
+                    <!-- <div class="input-group">
                         <div class="col-md-12 ipt-wrap qna-up-title">
-                            <input type="text" class="qna-control" id="fm-txt03" name="name" placeholder="작성자 이름을 입력해주세요.">
+                            <input type="text" class="qna-control" id="fm-txt03" name="userid" placeholder="작성자 이름을 입력해주세요.">
                         </div>
-                    </div>
+                    </div> -->
                     <div class="border qna-up-text">
                         <div id="summernote" name="content" class="w-100"></div>
                     </div>
@@ -91,7 +98,7 @@
     </div>
 </main>
 
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></>
 <script src="/ccccoding/js/qna_up.js"></script>
 <?php
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/footer.php';

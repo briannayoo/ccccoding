@@ -26,7 +26,7 @@ $mysqli->query($qnaUpdate);
           <img class="pro-img" src="image/profilimg_1.png" alt="profilimg_1">
         </div>
         <div>
-          <h3 class="tit-h5"><?=$qa -> name; ?></h3>
+          <h3 class="tit-h5"><?=$qa -> userid; ?></h3>
           <h4 class="txt-m"><?=$qa -> date; ?></h4>
         </div>
       </div>

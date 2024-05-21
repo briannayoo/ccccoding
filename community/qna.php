@@ -6,7 +6,7 @@
 $status = $_GET['status'] ?? '';
 $title = $_GET['title'] ?? '';
 $content = $_GET['content'] ?? '';
-$name = $_GET['name'] ?? '';
+$userid = $_GET['userid'] ?? '';
 $date = $_GET['date'] ?? '';
 $qid = $_GET['qid'] ?? '';
 $hit = $_GET['hit'] ?? '';
@@ -14,8 +14,8 @@ $hit = $_GET['hit'] ?? '';
 // search_where 조건에 맞게
 $search_where = '';
 
-if ($name) {
-    $search_where .= " AND name LIKE '%$name%'";
+if ($userid) {
+    $search_where .= " AND userid LIKE '%$userid%'";
 }
 
 if ($date == '1') {
@@ -146,7 +146,7 @@ if ($status == '1') {
                     <p><i class="fa-solid fa-heart fa-small"></i> : <?= $row['thumbsup']?></p>
                   </div>
                   <div class="d-flex list-text">
-                    <p>작성자 : <?= $row['name']?></p>
+                    <p>작성자 : <?= $row['userid']?></p>
                     <p><?= $row['date']?></p>
                   </div>
                 </div>

@@ -11,7 +11,7 @@
 $status = $_GET['status'] ?? '';
 $title = $_GET['title'] ?? '';
 $content = $_GET['content'] ?? '';
-$name = $_GET['name'] ?? '';
+$userid = $_GET['userid'] ?? '';
 $date = $_GET['date'] ?? '';
 $qid = $_GET['qid'] ?? '';
 $hit = $_GET['hit'] ?? '';
@@ -19,8 +19,8 @@ $hit = $_GET['hit'] ?? '';
 // search_where 조건에 맞게
 $search_where = '';
 
-if ($name) {
-    $search_where .= " AND name LIKE '%$name%'";
+if ($userid) {
+    $search_where .= " AND userid LIKE '%$userid%'";
 }
 
 if ($date == '1') {
@@ -101,7 +101,7 @@ if ($status == '1') {
                   
                 </td>
                 <td><a href="qna_up.php?qid=<?=$qa -> qid; ?>"><?=$qa -> title; ?></a></td>
-                <td><?= $qa -> name;?></td>
+                <td><?= $qa -> userid;?></td>
                 <td><?= $qa -> date;?></td>
               </tr>
             <?php
