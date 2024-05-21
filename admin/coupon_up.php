@@ -15,7 +15,6 @@
       <div class="content"> 
         <!-- form-list (s) -->
         <form action="coupon_ok.php" enctype="multipart/form-data" method="POST" class="form-list" onsubmit="return save()">
-          <input type="hidden" name="cid" id="cid">
           <input type="hidden" name="coupon_image" id="coupon_image">
           <!-- input text 1/3 (s) -->
           <div class="row">
@@ -145,8 +144,7 @@
           <div class="row tumbnail_wrap">
             <label for="coupon_image" class="col-md-1 col-form-label tit-h4">썸네일</label>
             <div class="col-md-11">
-              <input type="file" multiple name="
-              " id="coupon_image" class="d-none" accept="image/*">
+              <input type="file" multiple name="coupon_image" id="thumbnail" class="d-none" accept="image/*">
               <div>
                 <button type="button" class="btn btn-primary btn-sm thumb-text" id="addImage">파일 선택</button>
                 <p class="remove">*5M이하 / gif,png,jpg만 등록가능합니다.</p>
@@ -170,13 +168,6 @@
   <!-- wwilsman 데이트픽커 js -->
   
   <script src="/ccccoding/admin/js/coupon.js"></script>
-  <!-- <script>
-    function save() {
-        if (!$('#coupon_image').val()) {
-            alert('썸네일을 등록하십시오.');
-            return false;
-        }
-    }
-  </script> -->
+
 </body>
 </html>

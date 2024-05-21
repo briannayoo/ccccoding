@@ -20,13 +20,15 @@ $end_date = $_POST['end_date'];
 
 $coupon_image =$_FILES['coupon_image'];
 
-  if($_FILES['coupon_image']['size']>10240000) { // 10메가
-      echo "<script>alert('10메가 이하만 첨부할 수 있습니다.');history.back();</script>";
-      exit;
-  }
+if($_FILES['coupon_image']['size']>10240000) { // 10메가
+    echo "<script>alert('10메가 이하만 첨부할 수 있습니다.');
+    // history.back();</script>";
+    exit;
+}
 
   if($_FILES['coupon_image']['type']!='image/jpeg' and $_FILES['coupon_image']['type']!='image/gif' and $_FILES['coupon_image']['type']!='image/png') { // 이미지가 아니면, 다른 type은 and로 추가
-      echo "<script>alert('이미지만 첨부할 수 있습니다.');history.back();</script>";
+      echo "<script>alert('이미지만 첨부할 수 있습니다.');
+      // history.back();</script>";
       exit;
   }
 
@@ -34,7 +36,7 @@ $coupon_image =$_FILES['coupon_image'];
     if (strpos($_FILES['coupon_image']['type'], 'image') === false) {
       echo "<script>
         alert('이미지만 업로드해주세요');
-        history.back();
+        // history.back();
       </script>";
       exit;
     }
@@ -82,18 +84,19 @@ $coupon_image =$_FILES['coupon_image'];
     '{$end_date}'
   )";
 
-echo $sql;
 
 try{
   $rs = $mysqli->query($sql);
   $mysqli->commit(); // 디비에 커밋한다.
 
-  echo "<script>alert('등록했습니다.');location.href='/ccccoding/admin/coupon_list.php';</script>";
+  echo "<script>alert('등록했습니다.');
+  location.href='/ccccoding/admin/coupon_list.php';</script>";
   exit;
 
 } catch (Exception $e) {
   $mysqli->rollback(); // 저장한 테이블이 있다면 롤백한다.
-  echo "<script>alert('등록하지 못했습니다. 관리자에게 문의해주십시오.');//history.back();</script>";
+  echo "<script>alert('등록하지 못했습니다. 관리자에게 문의해주십시오.');
+  history.back();</script>";
   exit;
 }
 

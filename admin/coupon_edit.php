@@ -174,13 +174,11 @@ $rs = $result->fetch_object();
             </div>
           </div>
 
-
-
           <!-- thumbnail image (s) -->
           <div class="row tumbnail_wrap">
             <label for="coupon_image" class="col-md-1 col-form-label tit-h4">썸네일</label>
             <div class="col-md-11">
-              <input type="file" multiple name="coupon_image" id="coupon_image" class="d-none" accept="image/*">
+            <input type="file" multiple name="coupon_image" id="thumbnail" class="d-none" accept="image/*">
               <div>
                 <button type="button" class="btn btn-primary btn-sm thumb-text" id="addImage">파일 선택</button>
                 <!-- <p class="remove">*5M이하 / gif,png,jpg만 등록가능합니다.</p> -->
