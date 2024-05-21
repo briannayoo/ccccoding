@@ -67,6 +67,7 @@ $(function(){
   //   let img_num = Math.floor(Math.random()*5+1);
   //   document.getElementById('gnb_img') .src='image/event_section'+img_num+'.png'; 
   // }
+  };
 
   // submenu(박소현)
   if($('.sub .sub-menu').length >0){
