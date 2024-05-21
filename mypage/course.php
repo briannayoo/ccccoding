@@ -33,17 +33,18 @@
   $rsArr = array(); // 배열 초기화
   $result = $mysqli->query($sql);
   $rs = $result->fetch_object();
+  if(isset($rs->pid)){
+    $pids = $rs->pid;
+    $pidarray = explode(',', $pids);
 
-  $pids = $rs->pid;
-  $pidarray = explode(',', $pids);
-
-  $parr = array(); // 배열 초기화
-  for($i=0; $i<count($pidarray);$i++){
-    $sql ="SELECT * FROM products WHERE pid = $pidarray[$i]";
-    $result = $mysqli->query($sql);
-    $parr[] = $rs = $result->fetch_object();
-    
+    $parr = array(); // 배열 초기화
+    for($i=0; $i<count($pidarray);$i++){
+      $sql ="SELECT * FROM products WHERE pid = $pidarray[$i]";
+      $result = $mysqli->query($sql);
+      $parr[] = $rs = $result->fetch_object();
+    }
   }
+  
 ?>
       
       <div class="con-wrap">
@@ -53,11 +54,12 @@
         <!-- 공통 부분 (e) -->
 
         <!-- 아래에서 부터 작업영역입니다 -->
-        <?php if ($result->num_rows > 0) { ?>
+        <?php
+              if (isset($parr)) {                
+            ?>
         <div class="lecture-area">
           <ul>
             <?php
-              if (isset($parr)) {  
                 foreach ($parr as $item) {
             ?>
             <li>
@@ -79,7 +81,7 @@
               </a>
             </li>
             <?php
-              }}
+              }
             ?>
           </ul>
         </div>
@@ -90,7 +92,9 @@
         </div>
         <!-- nodata(e) -->
         <?php } ?>
-        
+        <?php
+          if (isset($parr)) {  
+        ?>
         <!-- pagination(s) -->
         <nav aria-label="페이지네이션">
           <ul class="pagination">
@@ -140,6 +144,9 @@
           </ul>
         </nav>
         <!-- pagination(e) -->
+        <?php
+              }
+        ?>
       </div>
     </div>
   </main>

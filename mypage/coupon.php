@@ -3,12 +3,13 @@
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/mypage_nav.php';
 
-  // $sql = "SELECT userid FROM user_coupons WHERE userid = '$userid'";
   $sql = "SELECT *
   FROM user_coupons
       INNER JOIN coupons
       ON user_coupons.couponid = coupons.cid
+      WHERE user_coupons.userid = '$userid'
   ";
+  // echo $sql;
   $result = $mysqli->query($sql);
 
   while ($rs = $result->fetch_object()) {
@@ -26,7 +27,11 @@
         <h3 class="tit-h2">쿠폰</h3>
         <!-- coupon-list(s) -->
         <div class="coupon-list">
-          <?php foreach ($rsArr as $rs) { ?>
+          
+          <?php 
+          if (isset($rsArr)) {
+          foreach ($rsArr as $rs) { 
+          ?>
           <div class="list">
             <div class="inner">
               <div class="state-wrap">
@@ -65,7 +70,7 @@
               </span>
             </div>
           </div>
-          <?php } ?>
+          <?php }} ?>
           <!-- <div class="list">
             <div class="inner">
               <div class="state-wrap">

@@ -3,13 +3,8 @@ $title = '마이페이지-문의내역';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/header.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/mypage_nav.php';
 
-$sql = "SELECT q.*, qr.r_content 
-        FROM qna q
-        LEFT JOIN qna_reply qr ON q.qid = qr.r_idx";
-// $result = $mysqli->query($sql);
-
 //총개수 조회
-$sql = "SELECT COUNT(*) AS cnt FROM qna WHERE 1=1";
+$sql = "SELECT COUNT(*) AS cnt FROM qna WHERE userid = '{$userid}'";
 $result = $mysqli->query($sql);
 $count = $result->fetch_object();
 
@@ -18,7 +13,10 @@ $targetTable = 'qna';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/inc/pagination.php';
 
 //페이지네이션
-$sql = "SELECT * FROM qna WHERE 1=1";
+$sql = "SELECT q.*, qr.r_content 
+FROM qna q
+LEFT JOIN qna_reply qr ON q.qid = qr.r_idx
+WHERE q.userid = '{$userid}'";
 $order = " order by qid desc";
 $sql .= $order;
 $limit = " LIMIT  $startLimit, $endLimit";
@@ -39,7 +37,7 @@ while ($rs = $result->fetch_object()) {
   <!-- 공통 부분 (e) -->
 
   <!-- 아래에서 부터 작업영역입니다 -->
-  <?php if ($result->num_rows > 0) { ?>
+  <?php if (isset($rsArr)) { ?>
     <!-- line-box-list(s) -->
     <div class="line-box-list qa">
       <?php foreach ($rsArr as $rs) { ?>
