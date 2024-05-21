@@ -127,8 +127,8 @@ if (!is_numeric($price)) {
     error_log($e->getMessage()); // 로그에 에러 메시지 기록
     echo "<script>
     alert('등록 실패: " . addslashes($e->getMessage()) . "');
-    //alert('등록 실패');
-    //history.back();
+    alert('등록 실패');
+    history.back();
     </script>";
     exit;
   }

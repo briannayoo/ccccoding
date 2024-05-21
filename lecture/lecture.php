@@ -10,6 +10,13 @@
 
   $search_where = "";
 
+
+  //강의 title 출력
+  $catesql = "SELECT * FROM category where code = '{$cate}'";
+  $cateresult = $mysqli->query($catesql);
+  $catename = $cateresult->fetch_object();
+  $catetitle = $catename->name;
+
   if($cate){
     $search_where .= " and cate LIKE '%{$cate}%'";
   }
@@ -149,7 +156,7 @@
       </nav>
         <div class="con-wrap">
           <div class="page-tit-area">
-            <h2 class="tit-h1">전체 강의</h2>
+            <h2 class="tit-h1"><?= $catetitle?></h2>
           </div>
 
           <form action=""class="filter-area lecture-search" id="search_form">
