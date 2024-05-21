@@ -73,7 +73,7 @@
           </div>
           <hr>
           <div class="d-flex list-text question-data">
-            <p>작성자 : <?= $resultArr['name'];?></p>
+            <p>작성자 : <?= $resultArr['userid'];?></p>
             <p><i class="fa-solid fa-eye fa-small"></i> : <?= $resultArr['hit'];?></p>
             <p><i class="fa-solid fa-heart fa-small"></i> : <?= $resultArr['thumbsup'];?></p>
             <p><?= $resultArr['date'];?></p>
