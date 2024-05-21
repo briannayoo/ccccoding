@@ -10,7 +10,7 @@
     $search_where = '';
     
     //총개수 조회
-    $sql = "SELECT COUNT(*) AS cnt FROM payments WHERE 1=1";
+    $sql = "SELECT COUNT(*) AS cnt FROM payments WHERE mid = '{$mid}'";
     $sql .= $search_where;
     $result = $mysqli->query($sql);
     $count = $result->fetch_object();
@@ -20,7 +20,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'] . '/ccccoding/admin/inc/pagination.php';
 
     //페이지네이션
-    $sql = "SELECT * FROM payments WHERE 1=1";
+    $sql = "SELECT * FROM payments WHERE mid = '{$mid}'";
     $sql .= $search_where;
     $order = " order by oid desc";
     $sql .= $order;
@@ -41,16 +41,16 @@
       $rsArr[] = $rs;
     }
 
-    $osql = "SELECT o.*, m.userid, m.username
-            FROM payments o
-            LEFT JOIN members m 
-            ON o.mid = m.mid";
+    $osql = "SELECT o.*, m.userid, m.username, p.name, p.sale_start_date, p.sale_end_date 
+    FROM payments o
+    LEFT JOIN members m ON o.mid = m.mid
+    LEFT JOIN products p ON o.pid = p.pid";
 
     $result = $mysqli->query($osql);
 
-  while ($rs = $result->fetch_object()) {
-    $rsArr[] = $rs;
-  }
+    while ($rs = $result->fetch_object()) {
+      $rsArr[] = $rs;
+    }
 ?>
       <!-- sub-page-tit-area (s) -->
       <div class="page-tit-area">
@@ -118,7 +118,7 @@
             <colgroup>
               <col style="width:auto" span="3">
               <col style="width:35%">
-              <col style="width:auto" span="5">
+              <col style="width:auto" span="4">
             </colgroup>
           </colgroup>
           <thead>
@@ -134,7 +134,7 @@
               <th scope="col">아이디</th>
               <th scope="col">강의명</th>
               <th scope="col">금액</th>
-              <th scope="col">쿠폰사용</th>
+              <!-- <th scope="col">쿠폰사용</th> -->
               <th scope="col">사용기한</th>
               <th scope="col">취소신청</th>
               <th scope="col">환불신청</th>
@@ -154,10 +154,10 @@
               <td><?= $item->orders_date?></td>
               <td><?= $item->username ?></td>
               <td><?= $item->userid ?></td>
-              <td><?= $item->lecture_name ?></td>
-              <td><?= $item->price ?>원</td>
-              <td><?= $item->coupon_used ?></td>
-              <td><?= $item->start_date ?> ~ <?= $item->end_date ?></td>
+              <td><?= $item->name ?></td>
+              <td><?= $item->total_price ?>원</td>
+              <!-- <td>$item->coupon_used</td>
+              <td><?= $item->sale_start_date ?> ~ <?= $item->sale_end_date ?></td> -->
               <td class="request"><?= $item->cancel_request ?></td>
               <td class="refund"><?= $item->refund_request ?></td>
             </tr>
